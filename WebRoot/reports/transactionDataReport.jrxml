@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="transactionDataReport" language="groovy" pageWidth="700" pageHeight="500" orientation="Landscape" columnWidth="660" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="acceptCode" class="java.lang.String">
+		<fieldDescription><![CDATA[acceptCode]]></fieldDescription>
+	</field>
+	<field name="cardAcceptClientCode" class="java.lang.String">
+		<fieldDescription><![CDATA[cardAcceptClientCode]]></fieldDescription>
+	</field>
+	<field name="cardAcceptCode" class="java.lang.String">
+		<fieldDescription><![CDATA[cardAcceptCode]]></fieldDescription>
+	</field>
+	<field name="cardAcceptSysCode" class="java.lang.String">
+		<fieldDescription><![CDATA[cardAcceptSysCode]]></fieldDescription>
+	</field>
+	<field name="cardCode" class="java.lang.String">
+		<fieldDescription><![CDATA[cardCode]]></fieldDescription>
+	</field>
+	<field name="cardValidData" class="java.lang.String">
+		<fieldDescription><![CDATA[cardValidData]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="createTime" class="java.util.Date">
+		<fieldDescription><![CDATA[createTime]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="messageType" class="java.lang.String">
+		<fieldDescription><![CDATA[messageType]]></fieldDescription>
+	</field>
+	<field name="originalInfo" class="java.lang.String">
+		<fieldDescription><![CDATA[originalInfo]]></fieldDescription>
+	</field>
+	<field name="responseCode" class="java.lang.String">
+		<fieldDescription><![CDATA[responseCode]]></fieldDescription>
+	</field>
+	<field name="searchCode" class="java.lang.String">
+		<fieldDescription><![CDATA[searchCode]]></fieldDescription>
+	</field>
+	<field name="selected" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[selected]]></fieldDescription>
+	</field>
+	<field name="transactionAmount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[transactionAmount]]></fieldDescription>
+	</field>
+	<field name="transactionMoneyCode" class="java.lang.String">
+		<fieldDescription><![CDATA[transactionMoneyCode]]></fieldDescription>
+	</field>
+	<field name="transactionType" class="java.lang.String">
+		<fieldDescription><![CDATA[transactionType]]></fieldDescription>
+	</field>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="1" width="57" height="20"/>
+				<textElement/>
+				<text><![CDATA[消息类型]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="1" width="136" height="20"/>
+				<textElement/>
+				<text><![CDATA[卡号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="1" width="55" height="20"/>
+				<textElement/>
+				<text><![CDATA[交易类型]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="1" width="58" height="20"/>
+				<textElement/>
+				<text><![CDATA[交易金额]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="560" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="19" width="560" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="57" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{messageType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="0" width="126" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cardCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="274" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{transactionType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{transactionAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

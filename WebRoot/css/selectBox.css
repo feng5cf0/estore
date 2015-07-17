@@ -1,0 +1,135 @@
+@CHARSET "UTF-8";
+.nobr {
+	overflow: hidden;
+	white-space: nowrap;
+	word-break: keep-all;
+}
+
+.bg-form {
+	background-color: rgb(249, 248, 247);
+}
+
+.bg-deep {
+	background-color: #999999;
+}
+
+.bd-mid {
+	border: 1px solid #99bbe8;
+}
+
+.ttdx {
+	background: url(images/mode-x.gif) 0 -1px;
+	line-height: 22px;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+/*  Fn.Tab  */
+.tab-up {
+	background: url(images/tab.gif) repeat-x 0 bottom;
+}
+
+.tab-dn {
+	border-color: #8db2e3;
+}
+
+.tab-pad {
+	background: #deecfd url(images/tab.gif) repeat-x 0 -217px;
+	border-color: #8db2e3;
+}
+
+.tab-up .tab .start,.tab-up .tab .start-f,.tab-up .tab .bg,.tab-up .tab .bg-f,.tab-up .tab .end,.tab-up .tab .end-f,.tab-up .tab .sep,.tab-up .tab .left-f,.tab-up .tab .right-f,.tab-up .tab .bg .x,.tab-up .tab .bg-f .x,.tab-up .tab .bg .x-f,.tab-up .tab .bg-f .x-f
+	{
+	background-image: url(images/tab.gif);
+	float: left;
+}
+
+.tab-up .tab .bg-f {
+	color: #083772;
+}
+
+.tab-up .tab .bg {
+	background: url(images/tab.gif) 0 -25px;
+	padding-top: 3px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+}
+
+.tab-up .tab .bg-f {
+	padding-top: 1px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	background: url(images/tab.gif);
+}
+
+.tab-up .tab .end {
+	width: 5px;
+	height: 21px;
+	background: url(images/tab.gif) 0 -49px;
+}
+
+.tab-up .tab .end-f {
+	width: 5px;
+	height: 21px;
+	background: url(images/tab.gif) 0 -73px;
+}
+
+.tab-up .tab .left-f {
+	width: 7px;
+	height: 21px;
+	background: url(images/tab.gif) 0 -97px;
+}
+
+.tab-up .tab .right-f {
+	width: 7px;
+	height: 21px;
+	background: url(images/tab.gif) 0 -121px;
+}
+
+.tab-up .tab .sep {
+	width: 7px;
+	height: 21px;
+	background: url(images/tab.gif) 0 -145px;
+}
+
+.tab-up .tab .start {
+	width: 5px;
+	height: 21px;
+	background: url(images/tab.gif) 0 -169px;
+}
+
+.tab-up .tab .start-f {
+	width: 5px;
+	height: 21px;
+	background: url(images/tab.gif) 0 -193px;
+}
+
+.tab-up .tab .bg-f .x {
+	width: 11px;
+	margin-left: 2px;
+	height: 20px;
+	background: url(images/tab.gif) no-repeat 0 -237px;
+}
+
+.tab-up .tab .bg .x {
+	width: 11px;
+	margin-left: 2px;
+	height: 18px;
+	background: url(images/tab.gif) no-repeat 0 -238px;
+}
+
+.tab-up .tab .bg-f .x-f {
+	width: 11px;
+	margin-left: 2px;
+	height: 20px;
+	background: url(images/tab.gif) no-repeat 0 -266px;
+}
+
+.tab-up .tab .bg .x-f {
+	width: 11px;
+	margin-left: 2px;
+	height: 18px;
+	background: url(images/tab.gif) no-repeat 0 -267px;
+}

@@ -1,0 +1,252 @@
+/* CSS Document */
+a:link { text-decoration: none;color: blue}
+a:active { text-decoration:blink}
+a:hover { text-decoration:underline;color: red} 
+a:visited { text-decoration: none;color: green}
+
+body,td,div{
+font-size:12px;
+}
+body{
+background-color:#e5eefd;
+margin:0px;
+}
+.index_top_bg{
+background:transparent url(../images/index_top_bg.jpg) left top repeat-x;
+height:56px;
+}
+.index_menu_bg{
+background:transparent url(../images/menu_bg.jpg) left top repeat-x;
+height:29px;
+}
+#menu_button td{
+text-align:center;
+margin:4px 15px 0px 15px;
+padding:4px 15px 0px 15px;
+}
+#menu_button a:link,#menu_button a:visited{
+color:#3462b0;
+text-decoration:none;
+padding-top:4px;
+}
+#menu_button a:hover{
+color:red;
+text-decoration:underline;
+padding-top:4px;
+}
+.leftmenu_bluebg{
+background-color:#bfdbff;
+height:22px;
+text-align:center;
+}
+.leftmenu_greenbg{
+background-color:#eafff7;
+height:22px;
+text-align:center;
+}
+
+.input{
+border:1xp solid #9ab0d7;
+background-color:#ffffff; 
+}
+
+/*tab样式*/
+.main_title_bg{
+background:transparent url(../images/main_title_bg.jpg) left top repeat-x;
+height:24px;
+}
+.selected_tab{
+background:transparent url(../images/selected_tab.jpg) left top no-repeat;
+width:104px;
+height:26px;
+text-align:center;
+}
+.tab_line_bg{
+background:transparent url(../images/tab_line_bg.jpg) left top repeat-x;
+height:26px;
+}
+.tab_bg{
+background:transparent url(../images/tab_bg.jpg) left top no-repeat;
+width:104px;
+height:26px;
+text-align:center;
+color:#0a4285;
+}
+
+A.a01:link { 
+	COLOR: #000000; 
+	TEXT-DECORATION: none
+}
+
+A.a01:visited {
+	COLOR: #000000; 
+	TEXT-DECORATION: none
+}
+
+A.a01:hover {
+	COLOR: #f60
+}
+
+#title_font {
+	color: white;
+	font-size: 12px;
+	letter-spacing: 1px;
+	font-weight: bolder;
+}
+
+.tableColumns {
+	text-align: center;
+	color: white;
+	font-size: 12px;
+	letter-spacing: 1px;
+	font-weight: bolder;
+	background-color: #BFDBFF;
+}
+
+.tableRows {
+	text-align: center;
+	background-color: #ffffff; 
+}
+.title_bgcolor{
+	background-color:#BFDBFF; 
+	}
+
+.tableButtom {
+	text-align: center;
+	background-color: #deffe0;
+}
+
+.onMouseOver {
+	text-align: center;
+	background-color: #F1F6FF; 
+}
+
+.onMouseOut {
+	text-align: center;
+	background-color: #ffffff;
+}
+
+.main_bg {
+	background: transparent url('../images/body_bg.jpg') right bottom
+		no-repeat;
+}
+
+#list_content {
+	background-color: #BFDBFF;
+	color: black;
+	padding-left: 8px;
+}
+#list_bottomcontent {
+	background-color: #F1F6FF; 
+	color: black;
+	font-size:12px;
+}
+#list_bottomcontent font{
+	font-size:12px;
+	}
+
+#list_input {
+	background-color: d6eaff;
+}
+
+#list_gray_input {
+	background-color: #ececec;
+}
+
+/*最顶部右边图片*/
+.top_right_img {
+	background: transparent url('../images/index_top_rightimg.jpg') right
+		top no-repeat;
+	height: 76px;
+}
+
+/*查询按钮*/
+.button_bg {
+	background: transparent url('../images/button_bg.gif') left top
+		no-repeat;
+	width: 66px;
+	height: 22px;
+	color: white;
+	cursor: hand;
+	border: 0px;
+	padding-top: 3px;
+}
+
+.button_bg_long { 
+	background: transparent url('../images/longbutton_bg.gif') left top
+		no-repeat;
+	width: 84px;
+	height: 22px;
+	color: white;
+	cursor: hand;
+	border: 0px;
+	padding-top: 3px;
+}
+
+.input {
+	border: 1px solid #6398c9;
+}
+
+.link_title_font:link,.link_title_font:visited {
+	color: white;
+	text-decoration: none;
+	letter-spacing: 1px;
+}
+
+.link_title_font:hover {
+	color: yellow;
+	text-decoration: none;
+	letter-spacing: 1px;
+}
+
+.long_button {
+	border: 1px solid #4f6c9f;
+	color: white;
+	height: 25px;
+	cursor: hand;
+	background: transparent url('../images/long_button_bg.jpg') left top
+		repeat-x;
+}
+
+.tree:link,.tree:visited {
+	color: 3399ff;
+	font-weight: normal;
+}
+
+.tree:hover {
+	color: red;
+	font-weight: normal;
+}
+
+#tree a:link,#tree a:visited {
+	color: 3399ff;
+	text-decoration: none;
+} 
+
+#tree a:hover {
+	color: red;
+	text-decoration: none;
+}
+
+#list_title {
+	background: url(../images/list_title_img.jpg) top center repeat-x;
+	height: 26px;
+	text-align: center;
+	font-size: 12px;
+}
+
+/*链接button*/
+.lightblue_buttonbg {
+	background: url(../images/lightblue_buttonbg.gif) center no-repeat;
+	height: 22px;
+	width: 50px;
+	color: #006fb6;
+	border: 0px;
+	padding-top: 3px;
+	font-size: 12px;
+	cursor: hand;
+}
+.page{
+	TEXT-DECORATION: none;
+	font-size: 12px;
+}

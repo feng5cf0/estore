@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script PUBLIC
+	"-//Apache Software Foundation//Tapestry Script Specification 3.0//EN"
+	"http://jakarta.apache.org/tapestry/dtd/Script_3_0.dtd">
+<script>
+<body>
+<![CDATA[ 
+function isCheckboxSelected(){
+   var elements = document.form1.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	checked |= elements[i].checked;  
+        	if (checked){
+        		var flat = window.confirm("确定要删除记录吗？");
+        		if(flat){
+        			return true;
+        		}else{
+        			return false; 
+        		}
+        	}
+        		
+        }
+	}
+	alert("请先选择要删除的记录!");
+	return false;
+}
+
+
+
+function isCheckboxSelected01(){
+   var elements = document.form1.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	checked |= elements[i].checked;
+        	if (checked)
+        		return true;
+        }
+	}
+	alert("请先选择信息下发的网点!"); 
+	return false;
+}
+
+function isCheckboxSelected02(msg){
+   var elements = document.form1.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	checked |= elements[i].checked;  
+        	if (checked){
+        	     var showMsg="\n确定要删除记录吗？";
+        	     if(msg!=''&&msg!=undefined){
+        	       showMsg=msg+showMsg;
+        	     }
+        		var flat = window.confirm(showMsg);
+        		if(flat){
+        			return true;
+        		}else{
+        			return false; 
+        		}
+        	}
+        		
+        }
+	}
+	alert("请先选择要删除的记录!"); 
+	return false;
+}
+
+function isCheckboxSelected04(flag){
+   var elements = document.form1.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	checked |= elements[i].checked;  
+        	if (checked){
+        		showtable();
+        		return;
+        	}
+        		
+        }
+	}
+	//if(flag==1) {
+	//	alert("请先选择要添加订货日程的网点!"); 
+	//} else {
+	//	alert("请先选择要修改的订货日程的网点!"); 
+	//}
+	alert("请先选择要添加访销的商户!"); 
+	
+}
+
+function isCheckboxSelected03(){
+   var elements = document.form1.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	checked |= elements[i].checked;  
+        	if (checked){
+        		var flat = window.confirm("确定要撤销记录吗？");
+        		if(flat){
+        			return true;
+        		}else{
+        			return false; 
+        		}
+        	}
+        		
+        }
+	}
+	alert("请先选择要撤销的记录!");
+	return false;
+}
+
+function selectCheckboxAll(checkbox){
+  var elements = document.form1.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	elements[i].checked=checkbox.checked;        	
+        }
+	}
+}
+]]>
+</body>
+</script>

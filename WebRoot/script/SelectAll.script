@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script PUBLIC
+	"-//Apache Software Foundation//Tapestry Script Specification 3.0//EN"
+	"http://jakarta.apache.org/tapestry/dtd/Script_3_0.dtd">
+<script>
+<body>
+<![CDATA[ 
+function isCheckboxSelected(msg){
+   var elements = document.Form0.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	checked |= elements[i].checked;
+        	if (checked) {
+        	     var showMsg="\n确定要删除记录吗？";
+        	     if(msg!=''&&msg!=undefined){
+        	       showMsg=msg+showMsg;
+        	     }
+        		 var flat = window.confirm(showMsg);
+        		if(flat){
+        			return true;
+        		}else{
+        			return false; 
+        		}
+        	}
+        	
+        }
+	}
+	alert("请先选择要删除的记录!");
+	return false;
+}
+function isCheckboxSelected2(){
+   var elements = document.Form2.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	checked |= elements[i].checked;
+        	if (checked)
+        		return true;
+        }
+	}
+	alert("请先选择要删除的记录!");
+	return false;
+}
+function selectCheckboxAll(checkbox){
+  var elements = document.Form0.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	elements[i].checked=checkbox.checked;        	
+        }
+	}
+}
+function selectCheckboxAll2(checkbox){
+  var elements = document.Form2.elements;
+   for (var i=0;i<elements.length;i++)
+	{
+        var checked = false;
+        if (elements[i].type=="checkbox")
+        {
+        	elements[i].checked=checkbox.checked;        	
+        }
+	}
+}
+]]>
+</body>
+</script>

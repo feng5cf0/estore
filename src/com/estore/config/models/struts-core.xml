@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="core" extends="myDefault" namespace="/core">
+		<action name="enter">
+			<result name="success">/WEB-INF/core/systemSelect.jsp</result>
+		</action>
+		<action name="index">
+			<result name="success">/WEB-INF/core/userLogin.jsp</result>
+		</action>
+		<action name="mainFormTop">
+			<result name="success">/WEB-INF/core/mainFormTop.jsp</result>
+		</action>
+		<action name="mainFormMenu">
+			<result name="success">/WEB-INF/core/mainFormMenu.jsp</result>
+		</action>
+		<action name="mainFormLeft">
+			<result name="success">/WEB-INF/core/mainFormLeft.jsp</result>
+		</action>
+		<action name="mainFormCenterFrame">
+			<result name="success">/WEB-INF/core/mainFormCenterFrame.jsp</result>
+		</action>
+		<action name="mainFormRight">
+			<result name="success">/WEB-INF/core/mainFormRight.jsp</result>
+		</action>
+		<action name="mainFormCenter">
+			<result name="success">/WEB-INF/core/mainFormCenter.jsp</result>
+		</action>
+		<action name="mainFormMaster">
+			<result name="success">/WEB-INF/core/mainFormMaster.jsp</result>
+		</action>
+		<action name="mainFormBottom">
+			<result name="success">/WEB-INF/core/mainFormBottom.jsp</result>
+		</action>
+		<!-- 用户管理 -->
+		<action name="userLogin" class="userLoginAction">
+			<result name="input">/WEB-INF/core/userLogin.jsp</result>
+			<result name="success">/WEB-INF/core/mainForm.jsp</result>
+		</action>
+		<action name="userDetail" class="userDetailAction">
+			<result name="success">/WEB-INF/core/userDetail.jsp</result>
+		</action>
+		<action name="userUpdatePassword" class="userUpdatePasswordAction">
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/userUpdatePassword.jsp</result>
+		</action>
+		<action name="userSearch" class="userSearchAction">
+			<result>/WEB-INF/core/userSearch.jsp</result>
+			<result name="detail">/WEB-INF/core/userInfoDetal.jsp</result>
+			<result name="userActivity">/WEB-INF/dmp/promotionmanage/activitymanage/userSelect.jsp
+			</result>
+
+		</action>
+		<action name="userInsert" class="userInsertAction">
+			<result name="success">/WEB-INF/core/successWithInfo.jsp</result>
+			<result name="input">/WEB-INF/core/userInsert.jsp</result>
+		</action>
+		<action name="userUpdate" class="userUpdateAction">
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="successWithInfo">/WEB-INF/core/successWithInfo.jsp</result>
+			<result name="userSearch" type="redirectAction">
+				<param name="actionName">userSearch</param>
+				<param name="method">searchUser</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+				<param name="user.userName">${user.userName}</param>
+				<param name="user.userAlias">${user.userAlias}</param>
+				<param name="user.userNum">${user.userNum}</param>
+				<param name="user.available">${user.available}</param>
+			</result>
+			<result name="input">/WEB-INF/core/userUpdate.jsp</result>
+		</action>
+		<action name="userUpdateRole" class="userUpdateRoleAction">
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/userUpdateRole.jsp</result>
+		</action>
+		<action name="userUpdateArea" class="userUpdateAreaAction">
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/userUpdateArea.jsp</result>
+		</action>
+		<!-- 角色管理 -->
+		<action name="roleSearch" class="roleSearchAction">
+			<result>/WEB-INF/core/roleSearch.jsp</result>
+			<result name="roleDetail">/WEB-INF/core/roleDetail.jsp</result>
+			<result name="roleTree">/WEB-INF/core/roleTree.jsp</result>
+		</action>
+		<action name="roleInsert" class="roleInsertAction">
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/roleInsert.jsp</result>
+		</action>
+		<action name="roleUpdate" class="roleUpdateAction">
+			<result name="roleSearch" type="redirectAction">
+				<param name="actionName">/WEB-INF/core/roleSearch</param>
+				<param name="method">searchRole</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/roleUpdate.jsp</result>
+		</action>
+		<action name="roleDelete" class="roleDeleteAction">
+			<result type="chain">
+				<param name="actionName">roleSearch</param>
+				<param name="method">searchRole</param>
+			</result>
+		</action>
+		<action name="roleUpdateRight" class="roleUpdateRightAction">
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/rightTreeOfRole.jsp</result>
+		</action>
+		<action name="roleRightSearch" class="roleRightSearchAction">
+			<result name="detail">/WEB-INF/core/roleRightSearch.jsp</result>
+		</action>
+		<!-- 权限管理 -->
+		<action name="rightManageFrame">
+			<result>/WEB-INF/core/rightManageFrame.jsp</result>
+		</action>
+		<action name="rightSearch" class="rightSearchAction">
+			<result name="rightSearch">/WEB-INF/core/rightSearch.jsp</result>
+			<result name="rightTree">/WEB-INF/core/rightTree.jsp</result>
+			<result name="rightDetail">/WEB-INF/core/rightDetail.jsp</result>
+		</action>
+		<action name="rightInsert" class="rightInsertAction">
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/rightInsert.jsp</result>
+		</action>
+		<action name="rightUpdate" class="rightUpdateAction">
+			<result name="rightSearch" type="redirectAction">
+				<param name="actionName">rightSearch</param>
+				<param name="method">searchRightByUpRightId</param>
+				<param name="upRightId">${right.upRightId}</param>
+				<param name="operateSuccess">${operateSuccess}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+			<result name="input">/WEB-INF/core/rightUpdate.jsp</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+		</action>
+		<action name="rightUpdateOrder" class="rightUpdateOrderAction">
+			<result type="redirectAction">
+				<param name="actionName">rightSearch</param>
+				<param name="method">searchRightByUpRightId</param>
+				<param name="upRightId">${upRightId}</param>
+				<param name="operateSuccess">${operateSuccess}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+		</action>
+		<action name="rightDelete" class="rightDeleteAction">
+			<result name="input" type="chain">
+				<param name="actionName">rightSearch</param>
+				<param name="method">searchRightByUpRightId</param>
+			</result>
+			<result type="redirectAction">
+				<param name="actionName">rightSearch</param>
+				<param name="method">searchRightByUpRightId</param>
+				<param name="upRightId">${upRightId}</param>
+				<param name="operateSuccess">${operateSuccess}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+		</action>
+		<!-- 系统管理 -->
+		<action name="systemOptionManage" class="systemOptionManageAction">
+			<result type="redirectAction">
+				<param name="actionName">roleSearch</param>
+				<param name="method">searchRole</param>
+				<param name="operateSuccess">${operateSuccess}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+			<result name="input">/WEB-INF/core/systemOptionManage.jsp</result>
+			<result name="success">/WEB-INF/core/successWithoutCloseWindow.jsp
+			</result>
+		</action>
+		<action name="reportColumnStyleUpdate" class="reportColumnStyleUpdateAction">
+			<result name="input">/WEB-INF/core/reportColumnUpdate.jsp</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+		</action>
+		<!-- 部门管理 -->
+		<action name="areaManageFrame">
+			<result>/WEB-INF/core/areaManageFrame.jsp</result>
+		</action>
+		<action name="areaSearch" class="areaSearchAction">
+			<result name="areaSearch">/WEB-INF/core/areaSearch.jsp</result>
+			<result name="areaTree">/WEB-INF/core/areaTree.jsp</result>
+			<result name="areaDetail">/WEB-INF/core/areaDetail.jsp</result>
+		</action>
+		<action name="areaInsert" class="areaInsertAction">
+			<result name="areaSearch" type="redirectAction">
+				<param name="actionName">areaSearch</param>
+				<param name="method">searchAreaBySuperAreaId</param>
+				<param name="superAreaId">${area.superAreaId}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+				<param name="operateSuccess">${operateSuccess}</param>
+			</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/areaInsert.jsp</result>
+		</action>
+		<action name="areaUpdate" class="areaUpdateAction">
+			<result name="areaSearch" type="redirectAction">
+				<param name="actionName">areaSearch</param>
+				<param name="method">searchAreaBySuperAreaId</param>
+				<param name="superAreaId">${area.superAreaId}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+				<param name="operateSuccess">${operateSuccess}</param>
+			</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/areaUpdate.jsp</result>
+		</action>
+		<action name="areaDelete" class="areaDeleteAction">
+			<result name="input" type="chain">
+				<param name="actionName">areaSearch</param>
+				<param name="method">searchAreaBySuperAreaId</param>
+				<param name="error">${error}</param>
+			</result>
+			<result type="redirectAction">
+				<param name="actionName">areaSearch</param>
+				<param name="method">searchAreaBySuperAreaId</param>
+				<param name="superAreaId">${superAreaId}</param>
+				<param name="operateSuccess">${operateSuccess}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+		</action>
+
+		<!-- 用户角色管理 -->
+		<action name="roleUserManageFrame">
+			<result>/WEB-INF/core/roleUserManageFrame.jsp</result>
+		</action>
+		<action name="roleUserSearch" class="roleUserSearchAction">
+			<result>/WEB-INF/core/roleUserSearch.jsp</result>
+		</action>
+		<action name="roleUserInsert" class="roleUserInsertAction">
+			<result name="insertSearch">/WEB-INF/core/roleUserInsert.jsp</result>
+			<result name="roleUserSearch" type="redirectAction">
+				<param name="actionName">roleUserSearch</param>
+				<param name="method">searchUserByRole</param>
+				<param name="role.id">${role.id}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/roleUserInsertManageFrame.jsp
+			</result>
+			<result name="roleUserAreaTree">/WEB-INF/core/roleUserAreaTree.jsp</result>
+			<result name="chooseUser">/WEB-INF/core/roleUserChooseUser.jsp</result>
+		</action>
+		<action name="roleUserDelete" class="roleUserDeleteAction">
+			<result type="redirectAction">
+				<param name="actionName">roleUserSearch</param>
+				<param name="method">searchUserByRole</param>
+				<param name="role.id">${role.id}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+		</action>
+
+		<!-- 导入导出 -->
+		<action name="userImportPrepare">
+			<result name="success">/WEB-INF/core/userImport.jsp</result>
+		</action>
+		<action name="userImport" class="userImportAction">
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="input">/WEB-INF/core/userImport.jsp</result>
+			<result name="importCheck">/WEB-INF/core/userImportCheck.jsp</result>
+			<result name="progressBar">/WEB-INF/core/userImportProgressBar.jsp</result>
+		</action>
+
+		<!-- 操作日志 -->
+		<action name="operateLogSearch" class="operateLogSearch">
+			<result name="success">/WEB-INF/core/logOperateList.jsp</result>
+		</action>
+		<action name="operateLogDetail" class="operateLogDetail">
+			<result name="success">/WEB-INF/core/logOperateDetail.jsp</result>
+		</action>
+
+		<!--软件升级 -->
+		<action name="checkstandVersionSearch" class="checkstandVersionSearchAction">
+			<result name="input">/WEB-INF/dmp/checkstandversion/checkstandVersionSearch.jsp
+			</result>
+			<result name="detail">/WEB-INF/core/checkstandversion/checkstandVersionDetail.jsp
+			</result>
+			<result name="success">/WEB-INF/core/checkstandversion/checkstandVersionSearch.jsp
+			</result>
+			<result name="prepareUploadFile">/WEB-INF/core/checkstandversion/checkstandVersionScannedSetting.jsp
+			</result>
+		</action>
+		<action name="checkstandVersionUpdate" class="checkstandVersionUpdateAction">
+			<result name="input">/WEB-INF/core/checkstandversion/checkstandVersionUpdate.jsp
+			</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="checkstandVersionSearch" type="chain">
+				<param name="actionName">checkstandVersiontSearch</param>
+				<param name="method">query</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+		</action>
+		<action name="checkstandVersionInsert" class="checkstandVersionInsertAction">
+			<result name="input">/WEB-INF/core/checkstandversion/checkstandVersionInsert.jsp
+			</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="prepareUploadFile">/WEB-INF/core/checkstandversion/checkstandVersionScannedSetting.jsp
+			</result>
+			<result name="confirmUploadFile">/WEB-INF/core/checkstandversion/confirmAttachment.jsp
+			</result>
+		</action>
+
+		<action name="checkstandVersionDelete" class="checkstandVersionDeleteAction">
+			<result type="chain">
+				<param name="actionName">checkstandVersionSearch</param>
+				<param name="method">query</param>
+				<param name="error">${error}</param>
+				<param name="operateSuccess">${operateSuccess}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+		</action>
+
+		<action name="versionUpdate" class="versionUpdateAction">
+			<result name="success" type="stream">
+				<param name="contentType">text/plain</param>
+				<param name="contentDisposition">attachment;fileName="${fileName}"</param>
+				<param name="inputName">downloadFile</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+
+		<action name="systemMonitor" class="systemMonitorAction">
+			<result name="success">/WEB-INF/core/monitormanage/systemMonitor.jsp
+			</result>
+		</action>
+
+		<!--项目管理 -->
+		<action name="projectSearch" class="projectSearchAction">
+			<result name="detail">/WEB-INF/core/project/projectDetail.jsp</result>
+			<result name="success">/WEB-INF/core/project/projectSearch.jsp</result>
+
+		</action>
+		<action name="projectUpdate" class="projectUpdateAction">
+			<result name="input">/WEB-INF/core/project/projectUpdate.jsp</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="projectSearch" type="chain">
+				<param name="actionName">projectSearch</param>
+				<param name="method">searchProject</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+		</action>
+		<action name="projectInsert" class="projectInsertAction">
+			<result name="input">/WEB-INF/core/project/projectInsert.jsp</result>
+			<result name="success">/WEB-INF/core/success.jsp</result>
+		</action>
+
+		<action name="projectDelete" class="projectDeleteAction">
+			<result type="chain">
+				<param name="actionName">projectSearch</param>
+				<param name="method">searchProject</param>
+				<param name="error">${error}</param>
+				<param name="operateSuccess">${operateSuccess}</param>
+				<param name="pager.curPageNum">${pager.curPageNum}</param>
+			</result>
+		</action>
+		
+		<!--选项管理 -->
+		<action name="optionUpdate" class="optionUpdateAction">
+			<result name="prepare">/WEB-INF/core/option/optionManage.jsp</result>
+			<result name="success">/WEB-INF/core/successWithoutCloseWindow.jsp
+			</result>
+		</action>
+		<!--服务器同步处理 -->
+		<action name="serverSync" class="serverSyncAction" />
+	
+	</package>
+</struts>
+

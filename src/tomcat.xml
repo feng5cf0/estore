@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="GBK"?>
+<tomcats>
+	<currentTomcat>
+		<baseUrl>http://172.20.21.14:58080/core/</baseUrl>
+	</currentTomcat>
+	<!--
+	<tomcat>
+		<baseUrl>http://172.20.21.14:48080/dmp/</baseUrl>
+	</tomcat>
+	<tomcat>
+		<baseUrl>http://172.20.21.14:38080/dmp/</baseUrl>
+	</tomcat>
+	-->
+</tomcats>

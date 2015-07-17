@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.custom.i18n.resources" value="UTF-8" />
+
+	<package name="coreajax" extends="json-default" namespace="/coreajax">
+
+		<!-- 用户管理 -->
+		<action name="userInsert" class="userInsertAction">
+			<result name="users" type="json">
+				<param name="root">users</param>
+			</result>
+		</action>
+		<!-- 权限管理 -->
+		<action name="rightInsert" class="rightInsertAction">
+			<result name="rightList" type="json">
+				<param name="root">rights</param>
+			</result>
+			<result name="isTrue" type="json">
+				<param name="root">isTrue</param>
+			</result>
+		</action>
+		<!-- 角色管理 -->
+		<action name="roleInsert" class="roleInsertAction">
+			<result name="roleList" type="json">
+				<param name="root">roles</param>
+			</result>
+		</action>
+		<!-- 部门管理 -->
+		<action name="areaInsert" class="areaInsertAction">
+			<result name="areaList" type="json">
+				<param name="root">areas</param>
+			</result>
+		</action>
+		<!-- 商户对账A -->
+		<action name="merchantALogin" class="merchantALoginAction">
+			<result name="allowLogin" type="json">
+				<param name="root">allowLogin</param>
+			</result>
+		</action>
+		<!-- 银行对账 -->
+		<action name="bankFileCheckout" class="bankFileCheckoutAction">
+			<result name="progressMessage" type="json">
+				<param name="root">progressMessage</param>
+			</result>
+		</action>
+		<!-- 活动添加 -->
+		<action name="activityInsertStep2Program" class="activityInsertStep2ProgramAction">
+			<result name="commitMessage" type="json">
+				<param name="root">commitMessage</param>
+			</result>
+		</action>
+		<!-- 活动修改-->
+		<action name="activityUpdateProgram" class="activityUpdateProgramAction">
+			<result name="commitMessage" type="json">
+				<param name="root">commitMessage</param>
+			</result>
+		</action>
+		<!-- 活动审核-->
+		<action name="activityAudit" class="activityAuditAction">
+			<result name="auditMessage" type="json">
+				<param name="root">auditMessage</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-color: #037ec4;
+	vertical-align: middle;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+}
+.inputuser{
+	height: 22px;
+	width: 130px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	background-image: url(images/loginimages/login_06.gif);
+	background-repeat: repeat-x;
+	background-position: center center;
+	font-size: 12px;
+	line-height: 22px;
+	color: #000;
+}
+img {border:0px;}
+botton{cursor:pointer;}
+#loginbox{
+	height: 613px;
+	width: 1000px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+}
+#loginbody{
+	width: 1004px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.tab4{
+	height: 24px;
+	width: 90%;
+	font-size: 12px;
+	line-height: 24px;
+	color: #F00;
+	text-align: center;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+	position: absolute;
+	top: 440px;
+	float: none;
+}
+.infoxx{
+	font-size: 12px;
+	line-height: 24px;
+	color: #F00;
+	text-align: center;
+}

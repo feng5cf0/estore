@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+		           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
+	default-autowire="byName">
+
+	<!-- dao -->
+	<bean id="userDao" class="com.landicorp.core.dao.impl.UserDaoImpl">
+		<property name="sqlSessionTemplate">
+			<ref bean="sqlSessionTemplate" />
+		</property>
+	</bean>
+	<bean id="rightDao" class="com.landicorp.core.dao.impl.RightDaoImpl">
+		<property name="sqlSessionTemplate">
+			<ref bean="sqlSessionTemplate" />
+		</property>
+	</bean>
+	<bean id="areaDao" class="com.landicorp.core.dao.impl.AreaDaoImpl">
+		<property name="sqlSessionTemplate">
+			<ref bean="sqlSessionTemplate" />
+		</property>
+	</bean>
+	<bean id="roleDao" class="com.landicorp.core.dao.impl.RoleDaoImpl">
+		<property name="sqlSessionTemplate">
+			<ref bean="sqlSessionTemplate" />
+		</property>
+	</bean>
+	<bean id="roleUserDao" class="com.landicorp.core.dao.impl.RoleUserDaoImpl">
+		<property name="sqlSessionTemplate">
+			<ref bean="sqlSessionTemplate" />
+		</property>
+	</bean>
+	<bean id="operateLogDao" class="com.landicorp.core.dao.impl.OperateLogDaoImpl">
+		<property name="sqlSessionTemplate">
+			<ref bean="sqlSessionTemplate" />
+		</property>
+	</bean>
+	<bean id="roleRightDao" class="com.landicorp.core.dao.impl.RoleRightDaoImpl">
+		<property name="sqlSessionTemplate">
+			<ref bean="sqlSessionTemplate" />
+		</property>
+	</bean>
+	<bean id="patientDao" class="com.landicorp.core.dao.impl.PatientDaoImpl">
+		<property name="sqlSessionTemplate">
+			<ref bean="sqlSessionTemplate" />
+		</property>
+	</bean>	
+	<!-- 收银机程序升级dao -->
+	<bean id="checkstandVersionDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.landicorp.core.dao.ICheckstandVersionDao"></property>
+	</bean>
+	<bean id="projectDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.landicorp.core.dao.IProjectDao"></property>
+	</bean>
+	<bean id="platformDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.landicorp.core.dao.IPlatformDao"></property>
+	</bean>
+	<bean id="posTypeDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.landicorp.core.dao.IPosTypeDao"></property>
+	</bean>
+	<!-- service -->
+	<bean id="userService" class="com.landicorp.core.service.impl.UserServiceImpl" />
+	<bean id="patientService" class="com.landicorp.core.service.impl.PatientServiceImpl" />
+	<bean id="roleService" class="com.landicorp.core.service.impl.RoleServiceImpl" />
+	<bean id="rightService" class="com.landicorp.core.service.impl.RightServiceImpl" />
+	<bean id="areaService" class="com.landicorp.core.service.impl.AreaServiceImpl" />
+	<bean id="roleUserService" class="com.landicorp.core.service.impl.RoleUserServiceImpl" />
+	<bean id="operateLogService" class="com.landicorp.core.service.impl.OperateLogServiceImpl" />
+	<bean id="roleRightService" class="com.landicorp.core.service.impl.RoleRightServiceImpl" />
+	<!-- 收银机程序升级服务 -->
+	<bean id="checkstandVersionService"
+		class="com.landicorp.core.service.impl.CheckstandVersionServiceImpl" />
+	<bean id="projectService" class="com.landicorp.core.service.impl.ProjectServiceImpl" />
+	<bean id="platformService" class="com.landicorp.core.service.impl.PlatformServiceImpl" />
+	<bean id="posTypeService" class="com.landicorp.core.service.impl.PosTypeServiceImpl" />
+	<bean id="serverService" class="com.landicorp.core.service.impl.ServerServiceImpl" />
+
+	<!-- struts2 action-->
+
+	<!-- 用户管理 -->
+	<!--
+		bean id="loginOperation"
+		class="com.landicorp.core.action.user.LoginOperation"/
+	-->
+	<!--
+		<bean id="loginValidaNameAndPwd"
+		class="com.landicorp.core.action.user.LoginValidaNameAndPwd"/>
+	-->
+	<!--
+		<bean id="loginGrantPermission"
+		class="com.landicorp.core.action.user.LoginGrantPermission" />
+	-->
+	<bean id="userDetailAction" class="com.landicorp.core.action.user.UserDetailAction"
+		scope="prototype" />
+	<bean id="userLoginAction" class="com.landicorp.core.action.user.UserLoginAction"
+		scope="prototype">
+		<!--
+			<property name="loginstep"> <list> <ref
+			local="loginValidaNameAndPwd"/> <ref local="loginGrantPermission"/>
+			</list> </property>
+		-->
+	</bean>
+	<bean id="userUpdatePasswordAction" class="com.landicorp.core.action.user.UserUpdatePasswordAction"
+		scope="prototype" />
+	<bean id="userSearchAction" class="com.landicorp.core.action.user.UserSearchAction"
+		scope="prototype" />
+	<bean id="userInsertAction" class="com.landicorp.core.action.user.UserInsertAction"
+		scope="prototype" />
+	<bean id="userUpdateAction" class="com.landicorp.core.action.user.UserUpdateAction"
+		scope="prototype" />
+	<bean id="userUpdateRoleAction" class="com.landicorp.core.action.user.UserUpdateRoleAction"
+		scope="prototype" />
+	<bean id="userUpdateAreaAction" class="com.landicorp.core.action.user.UserUpdateAreaAction"
+		scope="prototype" />
+	<bean id="userImportAction" class="com.landicorp.core.action.user.UserImportAction"
+		scope="prototype" />
+	<!-- 角色管理 -->
+	<bean id="roleSearchAction" class="com.landicorp.core.action.role.RoleSearchAction"
+		scope="prototype" />
+	<bean id="roleInsertAction" class="com.landicorp.core.action.role.RoleInsertAction"
+		scope="prototype" />
+	<bean id="roleUpdateAction" class="com.landicorp.core.action.role.RoleUpdateAction"
+		scope="prototype" />
+	<bean id="roleDeleteAction" class="com.landicorp.core.action.role.RoleDeleteAction"
+		scope="prototype" />
+	<bean id="roleUpdateRightAction" class="com.landicorp.core.action.role.RoleUpdateRightAction"
+		scope="prototype" />
+	<bean id="roleRightSearchAction" class="com.landicorp.core.action.role.RoleRightSearchAction"
+		scope="prototype" />
+
+	<!-- 权限管理 -->
+	<bean id="rightSearchAction" class="com.landicorp.core.action.right.RightSearchAction"
+		scope="prototype" />
+	<bean id="rightInsertAction" class="com.landicorp.core.action.right.RightInsertAction"
+		scope="prototype" />
+	<bean id="rightUpdateAction" class="com.landicorp.core.action.right.RightUpdateAction"
+		scope="prototype" />
+	<bean id="rightUpdateOrderAction" class="com.landicorp.core.action.right.RightUpdateOrderAction"
+		scope="prototype" />
+	<bean id="rightDeleteAction" class="com.landicorp.core.action.right.RightDeleteAction"
+		scope="prototype" />
+	<!-- 系统管理 -->
+	<bean id="systemOptionManageAction" class="com.landicorp.config.setting.SystemOptionManageAction"
+		scope="prototype" />
+
+	<!-- 部门管理 -->
+	<bean id="areaSearchAction" class="com.landicorp.core.action.area.AreaSearchAction"
+		scope="prototype" />
+	<bean id="areaInsertAction" class="com.landicorp.core.action.area.AreaInsertAction"
+		scope="prototype" />
+	<bean id="areaUpdateAction" class="com.landicorp.core.action.area.AreaUpdateAction"
+		scope="prototype" />
+	<bean id="areaDeleteAction" class="com.landicorp.core.action.area.AreaDeleteAction"
+		scope="prototype" />
+
+	<!-- 用户角色管理 -->
+	<bean id="roleUserSearchAction" class="com.landicorp.core.action.roleUser.RoleUserSearchAction"
+		scope="prototype" />
+	<bean id="roleUserInsertAction" class="com.landicorp.core.action.roleUser.RoleUserInsertAction"
+		scope="prototype" />
+	<bean id="roleUserDeleteAction" class="com.landicorp.core.action.roleUser.RoleUserDeleteAction"
+		scope="prototype" />
+
+	<!-- 日志管理 -->
+	<bean id="operateLogSearch"
+		class="com.landicorp.core.action.operatelog.OperateLogSearchAction"
+		scope="prototype" />
+	<bean id="operateLogDetail"
+		class="com.landicorp.core.action.operatelog.OperateLogDetailAction"
+		scope="prototype" />
+	<!-- 选项管理action -->
+	<bean id="optionUpdateAction"
+		class="com.landicorp.core.action.option.OptionUpdateAction" scope="prototype">
+	</bean>
+	<!-- 软件升级action -->
+	<bean id="checkstandVersionSearchAction"
+		class="com.landicorp.core.action.checkstandversion.CheckstandVersionSearchAction"
+		scope="prototype" />
+	<bean id="checkstandVersionUpdateAction"
+		class="com.landicorp.core.action.checkstandversion.CheckstandVersionUpdateAction"
+		scope="prototype" />
+	<bean id="checkstandVersionInsertAction"
+		class="com.landicorp.core.action.checkstandversion.CheckstandVersionInsertAction"
+		scope="prototype" />
+	<bean id="checkstandVersionDeleteAction"
+		class="com.landicorp.core.action.checkstandversion.CheckstandVersionDeleteAction"
+		scope="prototype" />
+	<bean id="versionUpdateAction"
+		class="com.landicorp.core.action.checkstandversion.VersionUpdateAction"
+		scope="prototype" />
+
+	<!-- 系统信息 -->
+	<bean id="systemMonitorAction" class="com.landicorp.core.action.monitor.SystemMonitorAction"
+		scope="prototype" />
+	<!-- 项目管理action -->
+	<bean id="projectSearchAction" class="com.landicorp.core.action.project.ProjectSearchAction"
+		scope="prototype" />
+	<bean id="projectUpdateAction" class="com.landicorp.core.action.project.ProjectUpdateAction"
+		scope="prototype" />
+	<bean id="projectInsertAction" class="com.landicorp.core.action.project.ProjectInsertAction"
+		scope="prototype" />
+	<bean id="projectDeleteAction" class="com.landicorp.core.action.project.ProjectDeleteAction"
+		scope="prototype" />
+
+
+	<!-- 平台管理action -->
+	<bean id="platformSearchAction" class="com.landicorp.core.action.platform.PlatformSearchAction"
+		scope="prototype" />
+	<bean id="platformUpdateAction" class="com.landicorp.core.action.platform.PlatformUpdateAction"
+		scope="prototype" />
+	<bean id="platformInsertAction" class="com.landicorp.core.action.platform.PlatformInsertAction"
+		scope="prototype" />
+	<bean id="platformDeleteAction" class="com.landicorp.core.action.platform.PlatformDeleteAction"
+		scope="prototype" />
+
+	<bean id="serverSyncAction" class="com.landicorp.config.setting.ServerSyncAction"
+		scope="prototype" />
+		
+	<!-- 病人信息管理 -->
+	<bean id="patientInfoAction" class="com.landicorp.core.action.patient.PatientInfoAction" scope="prototype"></bean>
+	
+</beans>

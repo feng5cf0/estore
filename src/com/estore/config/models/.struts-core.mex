@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="core" location="318,165" size="20475,630">
+    <action name="" location="20260,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="userLogin.jsp" />
+      </result>
+    </action>
+    <action name="enter" location="20260,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="systemSelect.jsp" />
+      </result>
+    </action>
+    <action name="index" location="20015,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="userLogin.jsp" />
+      </result>
+    </action>
+    <action name="mainFormTop" location="19770,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mainFormTop.jsp" />
+      </result>
+    </action>
+    <action name="mainFormMenu" location="19455,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mainFormMenu.jsp" />
+      </result>
+    </action>
+    <action name="mainFormLeft" location="19140,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mainFormLeft.jsp" />
+      </result>
+    </action>
+    <action name="mainFormCenterFrame" location="18825,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mainFormCenterFrame.jsp" />
+      </result>
+    </action>
+    <action name="mainFormRight" location="18510,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mainFormRight.jsp" />
+      </result>
+    </action>
+    <action name="mainFormCenter" location="18195,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mainFormCenter.jsp" />
+      </result>
+    </action>
+    <action name="mainFormMaster" location="17880,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mainFormMaster.jsp" />
+      </result>
+    </action>
+    <action name="mainFormBottom" location="17565,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mainFormBottom.jsp" />
+      </result>
+    </action>
+    <action name="userLogin" location="17285,502" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="userLogin.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mainForm.jsp" />
+      </result>
+    </action>
+    <action name="userDetail" location="17040,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="userDetail.jsp" />
+      </result>
+    </action>
+    <action name="userUpdatePassword" location="16760,502" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="userUpdatePassword.jsp" />
+      </result>
+    </action>
+    <action name="userSearch" location="15990,491" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="userSearch.jsp" />
+      </result>
+      <result name="detail">
+        <resourceEdge source="detail" routing="0" target="userInfoDetal.jsp" />
+      </result>
+      <result name="userActivity">
+        <resourceEdge source="userActivity" routing="0" target="userSelect.jsp" />
+      </result>
+    </action>
+    <action name="userInsert" location="15325,502" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="successWithInfo.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="userInsert.jsp" />
+      </result>
+    </action>
+    <action name="userUpdate" location="14870,481" size="150,104">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="successWithInfo">
+        <resourceEdge source="successWithInfo" routing="0" target="successWithInfo.jsp" />
+      </result>
+      <result name="userSearch" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="userUpdate.jsp" />
+      </result>
+    </action>
+    <action name="userUpdateRole" location="14590,502" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="userUpdateRole.jsp" />
+      </result>
+    </action>
+    <action name="userUpdateArea" location="14275,502" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="userUpdateArea.jsp" />
+      </result>
+    </action>
+    <action name="roleSearch" location="13505,491" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="roleSearch.jsp" />
+      </result>
+      <result name="roleDetail">
+        <resourceEdge source="roleDetail" routing="0" target="roleDetail.jsp" />
+      </result>
+      <result name="roleTree">
+        <resourceEdge source="roleTree" routing="0" target="roleTree.jsp" />
+      </result>
+    </action>
+    <action name="roleInsert" location="13260,502" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="roleInsert.jsp" />
+      </result>
+    </action>
+    <action name="roleUpdate" location="13015,491" size="150,83">
+      <result name="roleSearch" />
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="roleUpdate.jsp" />
+      </result>
+    </action>
+    <action name="roleDelete" location="12770,512" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="roleUpdateRight" location="12525,502" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="rightTreeOfRole.jsp" />
+      </result>
+    </action>
+    <action name="roleRightSearch" location="12210,512" size="150,41">
+      <result name="detail">
+        <resourceEdge source="detail" routing="0" target="roleRightSearch.jsp" />
+      </result>
+    </action>
+    <action name="rightManageFrame" location="11895,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="rightManageFrame.jsp" />
+      </result>
+    </action>
+    <action name="rightSearch" location="11125,491" size="150,83">
+      <result name="rightSearch">
+        <resourceEdge source="rightSearch" routing="0" target="rightSearch.jsp" />
+      </result>
+      <result name="rightTree">
+        <resourceEdge source="rightTree" routing="0" target="rightTree.jsp" />
+      </result>
+      <result name="rightDetail">
+        <resourceEdge source="rightDetail" routing="0" target="rightDetail.jsp" />
+      </result>
+    </action>
+    <action name="rightInsert" location="10880,502" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="rightInsert.jsp" />
+      </result>
+    </action>
+    <action name="rightUpdate" location="10635,491" size="150,83">
+      <result name="rightSearch" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="rightUpdate.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+    </action>
+    <action name="rightUpdateOrder" location="10390,512" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="rightDelete" location="10390,397" size="150,62">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="systemOptionManage" location="9900,386" size="150,83">
+      <result name="success" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="systemOptionManage.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="successWithoutCloseWindow.jsp" />
+      </result>
+    </action>
+    <action name="reportColumnStyleUpdate" location="9585,397" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="reportColumnUpdate.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+    </action>
+    <action name="areaManageFrame" location="9270,407" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="areaManageFrame.jsp" />
+      </result>
+    </action>
+    <action name="areaSearch" location="8500,386" size="150,83">
+      <result name="areaSearch">
+        <resourceEdge source="areaSearch" routing="0" target="areaSearch.jsp" />
+      </result>
+      <result name="areaTree">
+        <resourceEdge source="areaTree" routing="0" target="areaTree.jsp" />
+      </result>
+      <result name="areaDetail">
+        <resourceEdge source="areaDetail" routing="0" target="areaDetail.jsp" />
+      </result>
+    </action>
+    <action name="areaInsert" location="8255,386" size="150,83">
+      <result name="areaSearch" />
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="areaInsert.jsp" />
+      </result>
+    </action>
+    <action name="areaUpdate" location="8010,386" size="150,83">
+      <result name="areaSearch" />
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="areaUpdate.jsp" />
+      </result>
+    </action>
+    <action name="areaDelete" location="7765,397" size="150,62">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="roleUserManageFrame" location="7520,407" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="roleUserManageFrame.jsp" />
+      </result>
+    </action>
+    <action name="roleUserSearch" location="7205,407" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="roleUserSearch.jsp" />
+      </result>
+    </action>
+    <action name="roleUserInsert" location="6225,355" size="150,146">
+      <result name="insertSearch">
+        <resourceEdge source="insertSearch" routing="0" target="roleUserInsert.jsp" />
+      </result>
+      <result name="roleUserSearch" />
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="roleUserInsertManageFrame.jsp" />
+      </result>
+      <result name="roleUserAreaTree">
+        <resourceEdge source="roleUserAreaTree" routing="0" target="roleUserAreaTree.jsp" />
+      </result>
+      <result name="chooseUser">
+        <resourceEdge source="chooseUser" routing="0" target="roleUserChooseUser.jsp" />
+      </result>
+    </action>
+    <action name="roleUserDelete" location="5735,407" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="userImportPrepare" location="5490,407" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="userImport.jsp" />
+      </result>
+    </action>
+    <action name="userImport" location="5070,376" size="150,104">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="userImport.jsp" />
+      </result>
+      <result name="importCheck">
+        <resourceEdge source="importCheck" routing="0" target="userImportCheck.jsp" />
+      </result>
+      <result name="progressBar">
+        <resourceEdge source="progressBar" routing="0" target="userImportProgressBar.jsp" />
+      </result>
+    </action>
+    <action name="operateLogSearch" location="4440,407" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="logOperateList.jsp" />
+      </result>
+    </action>
+    <action name="operateLogDetail" location="4125,407" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="logOperateDetail.jsp" />
+      </result>
+    </action>
+    <action name="checkstandVersionSearch" location="3880,376" size="150,104">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="checkstandVersionSearch.jsp" />
+      </result>
+      <result name="detail">
+        <resourceEdge source="detail" routing="0" target="checkstandVersionDetail.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="checkstandVersionSearch.jsp" />
+      </result>
+      <result name="prepareUploadFile">
+        <resourceEdge source="prepareUploadFile" routing="0" target="checkstandVersionScannedSetting.jsp" />
+      </result>
+    </action>
+    <action name="checkstandVersionUpdate" location="2270,386" size="150,83">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="checkstandVersionUpdate.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="checkstandVersionSearch" />
+    </action>
+    <action name="checkstandVersionInsert" location="1290,376" size="150,104">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="checkstandVersionInsert.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="prepareUploadFile">
+        <resourceEdge source="prepareUploadFile" routing="0" target="checkstandVersionScannedSetting.jsp" />
+      </result>
+      <result name="confirmUploadFile">
+        <resourceEdge source="confirmUploadFile" routing="0" target="confirmAttachment.jsp" />
+      </result>
+    </action>
+    <action name="checkstandVersionDelete" location="695,407" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="versionUpdate" location="695,512" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="systemMonitor" location="415,512" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="systemMonitor.jsp" />
+      </result>
+    </action>
+    <action name="projectSearch" location="65,502" size="150,62">
+      <result name="detail">
+        <resourceEdge source="detail" routing="0" target="projectDetail.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="projectSearch.jsp" />
+      </result>
+    </action>
+    <action name="projectUpdate" location="65,316" size="150,83">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="projectUpdate.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+      <result name="projectSearch" />
+    </action>
+    <action name="projectInsert" location="65,152" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="projectInsert.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="success.jsp" />
+      </result>
+    </action>
+    <action name="projectDelete" location="450,162" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="loginWebService" location="450,58" size="150,40" />
+    <action name="geposApp" location="205,58" size="150,40" />
+  </package>
+  <webResource name="userLogin.jsp" path="/WEB-INF/core/userLogin.jsp" location="20311,10" size="150,55" />
+  <webResource name="systemSelect.jsp" path="/WEB-INF/core/systemSelect.jsp" location="20862,640" size="150,55" />
+  <webResource name="mainFormTop.jsp" path="/WEB-INF/core/mainFormTop.jsp" location="20054,850" size="150,55" />
+  <webResource name="mainFormMenu.jsp" path="/WEB-INF/core/mainFormMenu.jsp" location="19734,850" size="150,55" />
+  <webResource name="mainFormLeft.jsp" path="/WEB-INF/core/mainFormLeft.jsp" location="19425,850" size="150,55" />
+  <webResource name="mainFormCenterFrame.jsp" path="/WEB-INF/core/mainFormCenterFrame.jsp" location="19083,850" size="150,55" />
+  <webResource name="mainFormRight.jsp" path="/WEB-INF/core/mainFormRight.jsp" location="18790,850" size="150,55" />
+  <webResource name="mainFormCenter.jsp" path="/WEB-INF/core/mainFormCenter.jsp" location="18471,850" size="150,55" />
+  <webResource name="mainFormMaster.jsp" path="/WEB-INF/core/mainFormMaster.jsp" location="18155,850" size="150,55" />
+  <webResource name="mainFormBottom.jsp" path="/WEB-INF/core/mainFormBottom.jsp" location="17839,850" size="150,55" />
+  <webResource name="mainForm.jsp" path="/WEB-INF/core/mainForm.jsp" location="17580,850" size="150,55" />
+  <webResource name="userDetail.jsp" path="/WEB-INF/core/userDetail.jsp" location="17335,850" size="150,55" />
+  <webResource name="success.jsp" path="/WEB-INF/core/success.jsp" location="1452,10" size="150,55" />
+  <webResource name="userUpdatePassword.jsp" path="/WEB-INF/core/userUpdatePassword.jsp" location="17022,850" size="150,55" />
+  <webResource name="userSearch.jsp" path="/WEB-INF/core/userSearch.jsp" location="16002,850" size="150,55" />
+  <webResource name="userInfoDetal.jsp" path="/WEB-INF/core/userInfoDetal.jsp" location="16275,850" size="150,55" />
+  <webResource name="userSelect.jsp" path="/WEB-INF/dmp/promotionmanage/activitymanage/userSelect.jsp" location="16567,850" size="150,55" />
+  <webResource name="successWithInfo.jsp" path="/WEB-INF/core/successWithInfo.jsp" location="15428,850" size="150,55" />
+  <webResource name="userInsert.jsp" path="/WEB-INF/core/userInsert.jsp" location="15760,850" size="150,55" />
+  <webResource name="userUpdate.jsp" path="/WEB-INF/core/userUpdate.jsp" location="15160,850" size="150,55" />
+  <webResource name="userUpdateRole.jsp" path="/WEB-INF/core/userUpdateRole.jsp" location="14867,850" size="150,55" />
+  <webResource name="userUpdateArea.jsp" path="/WEB-INF/core/userUpdateArea.jsp" location="14552,850" size="150,55" />
+  <webResource name="roleSearch.jsp" path="/WEB-INF/core/roleSearch.jsp" location="13798,850" size="150,55" />
+  <webResource name="roleDetail.jsp" path="/WEB-INF/core/roleDetail.jsp" location="14046,850" size="150,55" />
+  <webResource name="roleTree.jsp" path="/WEB-INF/core/roleTree.jsp" location="14295,850" size="150,55" />
+  <webResource name="roleInsert.jsp" path="/WEB-INF/core/roleInsert.jsp" location="13556,850" size="150,55" />
+  <webResource name="roleUpdate.jsp" path="/WEB-INF/core/roleUpdate.jsp" location="13306,850" size="150,55" />
+  <webResource name="rightTreeOfRole.jsp" path="/WEB-INF/core/rightTreeOfRole.jsp" location="12803,850" size="150,55" />
+  <webResource name="roleRightSearch.jsp" path="/WEB-INF/core/roleRightSearch.jsp" location="12488,850" size="150,55" />
+  <webResource name="rightManageFrame.jsp" path="/WEB-INF/core/rightManageFrame.jsp" location="12164,850" size="150,55" />
+  <webResource name="rightSearch.jsp" path="/WEB-INF/core/rightSearch.jsp" location="11416,850" size="150,55" />
+  <webResource name="rightTree.jsp" path="/WEB-INF/core/rightTree.jsp" location="11668,850" size="150,55" />
+  <webResource name="rightDetail.jsp" path="/WEB-INF/core/rightDetail.jsp" location="11909,850" size="150,55" />
+  <webResource name="rightInsert.jsp" path="/WEB-INF/core/rightInsert.jsp" location="11174,850" size="150,55" />
+  <webResource name="rightUpdate.jsp" path="/WEB-INF/core/rightUpdate.jsp" location="10924,850" size="150,55" />
+  <webResource name="systemOptionManage.jsp" path="/WEB-INF/core/systemOptionManage.jsp" location="10160,850" size="150,55" />
+  <webResource name="successWithoutCloseWindow.jsp" path="/WEB-INF/core/successWithoutCloseWindow.jsp" location="10490,850" size="150,55" />
+  <webResource name="reportColumnUpdate.jsp" path="/WEB-INF/core/reportColumnUpdate.jsp" location="9847,850" size="150,55" />
+  <webResource name="areaManageFrame.jsp" path="/WEB-INF/core/areaManageFrame.jsp" location="9539,850" size="150,55" />
+  <webResource name="areaSearch.jsp" path="/WEB-INF/core/areaSearch.jsp" location="8792,850" size="150,55" />
+  <webResource name="areaTree.jsp" path="/WEB-INF/core/areaTree.jsp" location="9043,850" size="150,55" />
+  <webResource name="areaDetail.jsp" path="/WEB-INF/core/areaDetail.jsp" location="9285,850" size="150,55" />
+  <webResource name="areaInsert.jsp" path="/WEB-INF/core/areaInsert.jsp" location="8550,850" size="150,55" />
+  <webResource name="areaUpdate.jsp" path="/WEB-INF/core/areaUpdate.jsp" location="8300,850" size="150,55" />
+  <webResource name="roleUserManageFrame.jsp" path="/WEB-INF/core/roleUserManageFrame.jsp" location="7777,850" size="150,55" />
+  <webResource name="roleUserSearch.jsp" path="/WEB-INF/core/roleUserSearch.jsp" location="7485,850" size="150,55" />
+  <webResource name="roleUserInsert.jsp" path="/WEB-INF/core/roleUserInsert.jsp" location="6158,850" size="150,55" />
+  <webResource name="roleUserInsertManageFrame.jsp" path="/WEB-INF/core/roleUserInsertManageFrame.jsp" location="6466,850" size="150,55" />
+  <webResource name="roleUserAreaTree.jsp" path="/WEB-INF/core/roleUserAreaTree.jsp" location="6848,850" size="150,55" />
+  <webResource name="roleUserChooseUser.jsp" path="/WEB-INF/core/roleUserChooseUser.jsp" location="7154,850" size="150,55" />
+  <webResource name="userImport.jsp" path="/WEB-INF/core/userImport.jsp" location="5642,850" size="150,55" />
+  <webResource name="userImportCheck.jsp" path="/WEB-INF/core/userImportCheck.jsp" location="5029,850" size="150,55" />
+  <webResource name="userImportProgressBar.jsp" path="/WEB-INF/core/userImportProgressBar.jsp" location="5326,850" size="150,55" />
+  <webResource name="logOperateList.jsp" path="/WEB-INF/core/logOperateList.jsp" location="4721,850" size="150,55" />
+  <webResource name="logOperateDetail.jsp" path="/WEB-INF/core/logOperateDetail.jsp" location="4399,850" size="150,55" />
+  <webResource name="checkstandVersionSearch.jsp" path="/WEB-INF/dmp/checkstandversion/checkstandVersionSearch.jsp" location="2919,850" size="150,55" />
+  <webResource name="checkstandVersionDetail.jsp" path="/WEB-INF/core/checkstandversion/checkstandVersionDetail.jsp" location="3377,850" size="150,55" />
+  <webResource name="checkstandVersionSearch.jsp" path="/WEB-INF/core/checkstandversion/checkstandVersionSearch.jsp" location="3829,850" size="150,55" />
+  <webResource name="checkstandVersionScannedSetting.jsp" path="/WEB-INF/core/checkstandversion/checkstandVersionScannedSetting.jsp" location="1949,955" size="150,55" />
+  <webResource name="checkstandVersionUpdate.jsp" path="/WEB-INF/core/checkstandversion/checkstandVersionUpdate.jsp" location="2462,850" size="150,55" />
+  <webResource name="checkstandVersionInsert.jsp" path="/WEB-INF/core/checkstandversion/checkstandVersionInsert.jsp" location="1032,850" size="150,55" />
+  <webResource name="confirmAttachment.jsp" path="/WEB-INF/core/checkstandversion/confirmAttachment.jsp" location="1504,850" size="150,55" />
+  <webResource name="systemMonitor.jsp" path="/WEB-INF/core/monitormanage/systemMonitor.jsp" location="647,850" size="150,55" />
+  <webResource name="projectDetail.jsp" path="/WEB-INF/core/project/projectDetail.jsp" location="14,640" size="150,55" />
+  <webResource name="projectSearch.jsp" path="/WEB-INF/core/project/projectSearch.jsp" location="326,850" size="150,55" />
+  <webResource name="projectUpdate.jsp" path="/WEB-INF/core/project/projectUpdate.jsp" location="9,465" size="150,55" />
+  <webResource name="projectInsert.jsp" path="/WEB-INF/core/project/projectInsert.jsp" location="14,290" size="150,55" />
+</Struts2Diagram>
+

@@ -1,0 +1,39 @@
+#tree_ul_font {
+	FONT-SIZE: 12px;
+	CURSOR: hand;
+	LINE-HEIGHT: 14px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#tree_ul_font LI {
+	CURSOR: hand;
+	LIST-STYLE-TYPE: none;
+	display: block;
+	white-space:nowrap;
+}
+
+#tree_ul_font UL LI {
+	CURSOR: hand;
+	LIST-STYLE-TYPE: none;
+	display: block;
+	position: relative;
+}
+
+#tree_ul_font ul {
+	LIST-STYLE-TYPE: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#tree_ul_font a:link,#tree_ul_font a:visited {
+	cursor: hand;
+	color: black;
+	text-decoration: none;
+}
+
+#tree_ul_font a:hover {
+	cursor: hand;
+	color: red;
+	text-decoration: none;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script PUBLIC
+	"-//Apache Software Foundation//Tapestry Script Specification 3.0//EN"
+	"http://jakarta.apache.org/tapestry/dtd/Script_3_0.dtd">
+<script>
+<input-symbol key="loginState" class="java.lang.String" required="yes"/>
+
+<body>
+<![CDATA[
+function checkLoginState(){   
+	if (!${loginState})
+	{
+	    alert("用户名或密码不正确,或者该用户无权登录!");
+	}
+}
+
+]]>
+</body>
+<initialization>
+    checkLoginState();
+</initialization>
+</script>

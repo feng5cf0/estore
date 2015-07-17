@@ -1,0 +1,23 @@
+备份数据库
+1.将backupOracle.sh文件上传到oracle服务器
+2.键入命令"chmod +x backupOracle.sh"给该文件赋予权限
+3.键入命令"vi cronfile"编辑该文件
+4.在打开文件中输入"* * * * * /home/oracle/backupOracle.sh >>/home/oracle/cron.log 2>&1",
+注：/home/oracle/是服务器路径；
+[各个*意思：
+  前五个字段可以取整数值，指定何时开始工作，第六个域是字符串，即命令字段，其中包括了crontab调度执行的命令。 各个字段之间用spaces和tabs分割。
+ 
+前5个字段分别表示：
+       分钟：0-59
+       小时：1-23
+       日期：1-31
+       月份：1-12
+       星期：0-6（0表示周日）
+如果设置每天凌晨2点进行备份，则上面的参数为"0 2 * * *"]
+5.保存该文件
+6.键入命令"crontab cronfile"执行
+
+还原数据库
+1.查找需要还原的数据库dmp文件，键入命令"chmod +x dmp文件"赋予权限
+2.键入命令"imp 用户名/密码@SID file=/home/oracle/oraBackUp/data/20130809093701.dmp log=/home/oracle/oraBackUp/logs/1.log full=y ignore=y"
+注：20130809093701.dmp为要还原的文件，/home/oracle/oraBackUp/data/为文件存放路径

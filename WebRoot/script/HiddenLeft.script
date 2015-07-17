@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script PUBLIC
+	"-//Apache Software Foundation//Tapestry Script Specification 3.0//EN"
+	"http://jakarta.apache.org/tapestry/dtd/Script_3_0.dtd">
+<script>
+<body>
+<![CDATA[
+	function hideLeft(){
+		if(window.top.left.cols=="0,7,*"){
+			window.top.left.cols="180,7,*"; 
+			showleft.src="css/images/left.gif"; 
+		}
+		else{
+			window.top.left.cols="0,7,*";
+			showleft.src="css/images/right.gif";		
+		}
+	}
+
+]]>
+</body>
+</script> 

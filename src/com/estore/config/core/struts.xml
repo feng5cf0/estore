@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 把action对象交给spring创建 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 指定Web应用的默认编码集,相当于调用HttpServletRequest的setCharacterEncoding方法 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 设置浏览器是否缓存静态内容,默认值为true(生产环境下使用),开发阶段最好关闭 -->
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 默认的视图主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 允许上传文件的最大值　10*1024*1024 -->
+	<constant name="struts.multipart.maxSize" value="104857600" />
+
+	<package name="myDefault" extends="struts-default">
+		<interceptors>
+			<interceptor name="exceptionDecorateInterceptor"
+				class="com.landicorp.core.web.ExceptionDecorateInterceptor" />
+			<interceptor name="exceptionLogInterceptor"
+				class="com.landicorp.core.web.ExceptionLogInterceptor" />
+			<interceptor name="exceptionOperateLogInterceptor"
+				class="com.landicorp.core.web.ExceptionOperateLogInterceptor" />
+			<interceptor name="serverSyncInterceptor"
+				class="com.landicorp.core.web.ServerSyncInterceptor" />
+			<interceptor-stack name="defaultInterceptorStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="exceptionDecorateInterceptor" />
+				<interceptor-ref name="serverSyncInterceptor" />
+				<interceptor-ref name="exceptionOperateLogInterceptor" />
+				<interceptor-ref name="exceptionLogInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="defaultInterceptorStack" />
+		<default-action-ref name="defaultAction" />
+		<global-results>
+			<result name="exception">/WEB-INF/core/defaultError.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception" />
+		</global-exception-mappings>
+	</package>
+	
+	<include file="com/estore/config/models/struts-core-ajax.xml" />
+	<include file="com/estore/config/models/struts-core.xml" />
+	<include file="com/estore/config/models/struts-data.xml"></include>
+</struts>
+

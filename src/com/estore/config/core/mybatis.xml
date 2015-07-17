@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<!--core-->
+		<typeAlias alias="user" type="com.landicorp.core.entities.User" />
+		<typeAlias alias="patient" type="com.landicorp.core.entities.Patient" />
+		<typeAlias alias="right" type="com.landicorp.core.entities.Right" />
+		<typeAlias alias="role" type="com.landicorp.core.entities.Role" />
+		<typeAlias alias="roleUser" type="com.landicorp.core.entities.RoleUser" />
+		<typeAlias alias="area" type="com.landicorp.core.entities.Area" />
+		<typeAlias alias="operateLog" type="com.landicorp.core.entities.OperateLog" />
+		<typeAlias alias="roleRight" type="com.landicorp.core.entities.RoleRight" />
+		<!-- 软件升级 -->
+		<typeAlias alias="checkstandVersion" type="com.landicorp.core.entities.CheckstandVersion" />
+		<typeAlias alias="project" type="com.landicorp.core.entities.Project" />
+		<typeAlias alias="platform" type="com.landicorp.core.entities.Platform" />
+		<typeAlias alias="posType" type="com.landicorp.core.entities.PosType" />
+		
+		<!-- 数据管理 -->
+		<typeAlias alias="batch" type="com.landicorp.core.entities.Batch"/>
+		<typeAlias alias="pay" type="com.landicorp.core.entities.Pay"/>
+		<typeAlias alias="tenementBatch" type="com.landicorp.core.entities.TenementBatch"></typeAlias>
+		<typeAlias alias="tenement" type="com.landicorp.core.entities.Tenement"></typeAlias>
+	</typeAliases>
+	<mappers>
+		<mapper resource="com/landicorp/core/dao/sql.xml" />
+		<mapper resource="com/landicorp/core/dao/IUser.xml" />
+		<mapper resource="com/landicorp/core/dao/IRight.xml" />
+		<mapper resource="com/landicorp/core/dao/IRole.xml" />
+		<mapper resource="com/landicorp/core/dao/IRoleUser.xml" />
+		<mapper resource="com/landicorp/core/dao/IArea.xml" />
+		<mapper resource="com/landicorp/core/dao/IOperateLog.xml" />
+		<mapper resource="com/landicorp/core/dao/IRoleRight.xml" />
+		<mapper resource="com/landicorp/core/dao/ICheckstandVersionDao.xml" />
+		<mapper resource="com/landicorp/core/dao/IProjectDao.xml" />
+		<mapper resource="com/landicorp/core/dao/IPlatformDao.xml" />
+		<mapper resource="com/landicorp/core/dao/IPosTypeDao.xml" />
+		<mapper resource="com/landicorp/core/dao/IPatient.xml" />
+		<mapper resource="com/landicorp/core/dao/IBatch.xml"/>
+		<mapper resource="com/landicorp/core/dao/IPay.xml"/>
+		<mapper resource="com/landicorp/core/dao/ITenementBatch.xml"></mapper>
+		<mapper resource="com/landicorp/core/dao/ITenement.xml"></mapper>
+	</mappers>
+</configuration>	

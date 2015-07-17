@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups>
+	<constants>
+		<!--
+			配置需要映射的类,在下面的group中被引用,也可以在jsp的el表达式中被引用，如下面的类在el中为${options.common}
+		-->
+		<constant name="common" class="com.landicorp.core.web.option.Constants">
+			<field name="ALL" />
+
+			<field name="YES" />
+			<field name="NO" />
+
+			<field name="AVAILABLE" />
+			<field name="UNAVAILABLE" />
+
+			<field name="UNAUDIT" />
+			<field name="AUDIT" />
+			<field name="SUSPEND" />
+
+			<field name="SUCCESS" />
+			<field name="FAIL" />
+
+		</constant>
+		
+		<constant name="authorization"
+			class="com.landicorp.core.entities.Right$AUTHORIZATION">
+			<field name="INDEPENDENT" />
+			<field name="INHERIT" />
+		</constant>
+	</constants>
+	
+	<group name="available">
+		<option display="有效" constant="common.AVAILABLE" />
+		<option display="无效" constant="common.UNAVAILABLE" />
+	</group>
+	<group name="availableAll">
+		<option display="全部" constant="common.ALL" />
+		<option display="有效" constant="common.AVAILABLE" />
+		<option display="无效" constant="common.UNAVAILABLE" />
+	</group>
+	<group name="authorization">
+		<option display="独立" constant="authorization.INDEPENDENT" />
+		<option display="继承" constant="authorization.INHERIT" />
+	</group>
+	<group name="yesOrNoInt">
+		<option display="全部" constant="common.ALL" />
+		<option display="是" constant="common.YES" />
+		<option display="否" constant="common.NO" />
+	</group>
+</groups>
