@@ -99,5 +99,4 @@
 			advice-ref="transactionAdvice" />
 	</aop:config>
 
-
 </beans>

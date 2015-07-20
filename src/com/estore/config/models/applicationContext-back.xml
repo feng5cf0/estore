@@ -8,13 +8,9 @@
 	default-autowire="byName">
 
 	<!-- dao -->
-	<bean id="moneyDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.estore.dao.IMoneyDao"></property>
+	<bean id="userDao" class="com.landicorp.core.dao.impl.UserDaoImpl">
+		<property name="sqlSessionTemplate">
+			<ref bean="sqlSessionTemplate" />
+		</property>
 	</bean>
-	
-	<!-- service -->
-	<bean id="moneyService" class="com.estore.service.impl.MoneyServiceImpl"/>
-	
-	<!-- action -->
-	<bean id="moneyAction" class="com.estore.action.back.MoneyAction" scope="prototype"/>
 </beans>

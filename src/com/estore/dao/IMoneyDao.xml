@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IMoneyDao">
+	
+    <resultMap id="moneyMap" type="money">
+    	<id property="id" column="money_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="moneyName" column="money_name" javaType="String" jdbcType="VARCHAR"/>
+		<result property="rate" column="rate" javaType="Float" jdbcType="DECIMAL"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    </resultMap>
+    <sql id="moneyColumns">
+    	money_id,money_name,rate,memo
+    </sql>
+    <sql id="moneyValues">
+    	#{id},#{moneyName,jdbcType=VARCHAR},#{rate,jdbcType=DECIMAL},#{memo,jdbcType=VARCHAR}
+    </sql>
+    
+	<!-- 新增货币 -->
+	<insert id="save" parameterType="money">
+		insert into t_money(<include refid="moneyColumns"/>)
+		values(<include refid="moneyValues"/>)
+		
+		<!-- 配置Mysql主键自动增长 -->
+		<selectKey resultType="int" keyProperty="id">
+			select
+			LAST_INSERT_ID() as value
+		</selectKey>
+	</insert>
+	
+	<!-- 加载所有货币信息 -->
+	<select id="getAll" resultMap="money" parameterType="map">
+		select *
+		from t_money
+		<where>
+			<if test="money != null and money.id != null">
+				and money_id = #{money.id}
+			</if>
+			<if test="money != null and money.moneyName != null">
+				and money_name = #{money.moneyName}
+			</if>
+		</where>
+		order by money_id desc
+		<include refid="Sql.pager" />
+	</select>
+	<!-- 加载所有货币数量 -->
+	<select id="getAllCount" resultType="int" parameterMap="money" >
+		select count(*)
+		from t_money
+		<where>
+			<if test="id != null">
+				and money_id = #{id}
+			</if>
+			<if test="moneyName != null">
+				and money_name = #{moneyName}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 修改汇率信息 -->
+	<update id="update" parameterType="money">
+		update t_money m
+		<set>
+			<if test="moneyName != null and moneyName != '' ">m.money_name=#{moneyName},</if>
+			<if test="rate != null and rate != 0">m.rate = #{realName},</if>
+			<if test="memo != null and memo !='' ">m.memo = #{memo},</if>
+		</set>
+		<if test="id != null">
+			where money_id = #{id}
+		</if>
+	</update>
+	
+	<!-- 删除会员 -->
+	<delete id="deleteEntity" parameterType="int">
+		delete from t_money
+		where money_id = #{id}
+	</delete>
+</mapper>  

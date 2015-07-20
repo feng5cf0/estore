@@ -7,14 +7,4 @@
 		           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
 	default-autowire="byName">
 
-	<!-- dao -->
-	<bean id="moneyDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.estore.dao.IMoneyDao"></property>
-	</bean>
-	
-	<!-- service -->
-	<bean id="moneyService" class="com.estore.service.impl.MoneyServiceImpl"/>
-	
-	<!-- action -->
-	<bean id="moneyAction" class="com.estore.action.back.MoneyAction" scope="prototype"/>
 </beans>

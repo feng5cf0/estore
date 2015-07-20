@@ -18,11 +18,9 @@
 		<typeAlias alias="platform" type="com.landicorp.core.entities.Platform" />
 		<typeAlias alias="posType" type="com.landicorp.core.entities.PosType" />
 		
-		<!-- 数据管理 -->
-		<typeAlias alias="batch" type="com.landicorp.core.entities.Batch"/>
-		<typeAlias alias="pay" type="com.landicorp.core.entities.Pay"/>
-		<typeAlias alias="tenementBatch" type="com.landicorp.core.entities.TenementBatch"></typeAlias>
-		<typeAlias alias="tenement" type="com.landicorp.core.entities.Tenement"></typeAlias>
+		
+		<!-- 汇率 -->
+		<typeAlias alias="money" type="com.estore.entities.Money"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
@@ -37,10 +35,14 @@
 		<mapper resource="com/landicorp/core/dao/IProjectDao.xml" />
 		<mapper resource="com/landicorp/core/dao/IPlatformDao.xml" />
 		<mapper resource="com/landicorp/core/dao/IPosTypeDao.xml" />
+		<!--
 		<mapper resource="com/landicorp/core/dao/IPatient.xml" />
 		<mapper resource="com/landicorp/core/dao/IBatch.xml"/>
 		<mapper resource="com/landicorp/core/dao/IPay.xml"/>
 		<mapper resource="com/landicorp/core/dao/ITenementBatch.xml"></mapper>
 		<mapper resource="com/landicorp/core/dao/ITenement.xml"></mapper>
+		-->
+		
+		<mapper resource="com/estore/dao/IMoneyDao.xml"></mapper>
 	</mappers>
 </configuration>	

@@ -47,5 +47,8 @@
 	<include file="com/estore/config/models/struts-core-ajax.xml" />
 	<include file="com/estore/config/models/struts-core.xml" />
 	<include file="com/estore/config/models/struts-data.xml"></include>
+	<include file="com/estore/config/models/struts-back.xml"></include>
+	<include file="com/estore/config/models/struts-front.xml"></include>
+	<include file="com/estore/config/models/struts-member.xml"></include>
 </struts>
 
