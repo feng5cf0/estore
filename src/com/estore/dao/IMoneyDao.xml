@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.estore.dao.IMoneyDao">
 	
-    <resultMap id="moneyMap" type="money">
+    <resultMap id="moneyMap" type="money" >
     	<id property="id" column="money_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="moneyName" column="money_name" javaType="String" jdbcType="VARCHAR"/>
 		<result property="rate" column="rate" javaType="Float" jdbcType="DECIMAL"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
-    </resultMap>
+    </resultMap>            
     <sql id="moneyColumns">
     	money_id,money_name,rate,memo
     </sql>
@@ -29,7 +30,7 @@
 	</insert>
 	
 	<!-- 加载所有货币信息 -->
-	<select id="getAll" resultMap="money" parameterType="map">
+	<select id="getAll" resultMap="moneyMap" parameterType="map">
 		select *
 		from t_money
 		<where>
@@ -44,7 +45,7 @@
 		<include refid="Sql.pager" />
 	</select>
 	<!-- 加载所有货币数量 -->
-	<select id="getAllCount" resultType="int" parameterMap="money" >
+	<select id="getAllCount" resultType="int" parameterType="money" >
 		select count(*)
 		from t_money
 		<where>

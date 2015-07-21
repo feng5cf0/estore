@@ -9,17 +9,21 @@
 %>
 <base href="<%=basePath%>" />
 <base target="_self"></base>
-	<LINK href="css/css.css" type="text/css" rel="stylesheet"/>
-		<LINK href="css/selectBox.css" type="text/css" rel="stylesheet"/>
-		<LINK href="css/dtree.css" rel="StyleSheet" type="text/css" />
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script src="js/dtree.js" type="text/javascript"></script>
-		<script src="js/selectAll.js" type="text/javascript"></script>
-		<script src="js/showtable.js" type="text/javascript"></script>
-		<script type="text/javascript" src="js/util.js"></script>
-		
-		
-<LINK href="css/table.css" type="text/css" rel="stylesheet" />
+<link href="css/css.css" type="text/css" rel="stylesheet" />
+<link href="css/selectBox.css" type="text/css" rel="stylesheet" />
+<link href="css/dtree.css" rel="StyleSheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js">
+</script>
+<script src="js/dtree.js" type="text/javascript">
+</script>
+<script src="js/selectAll.js" type="text/javascript">
+</script>
+<script src="js/showtable.js" type="text/javascript">
+</script>
+<script type="text/javascript" src="js/util.js">
+</script>
+
+<link href="css/table.css" type="text/css" rel="stylesheet" />
 <script language="javascript" type="text/javascript"
 	src="${basePath}js/My97DatePicker/WdatePicker.js">
 </script>
@@ -30,6 +34,8 @@
 <script type="text/javascript" src="js/validator.js">
 </script>
 <script type="text/javascript" src="js/json2.js">
+</script>
+<script type="text/javascript" src="js/jquery.messager.js">
 </script>
 <meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />

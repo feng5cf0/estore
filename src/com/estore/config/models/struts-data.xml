@@ -2,50 +2,6 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="data" extends="struts-default" namespace="/core">
-		<!-- 数据管理 -->
-		<action name="ttAction" class="ttAction">
-			<result name="importPrepare">/WEB-INF/core/data/batchImport.jsp</result>
-			<result name="ttInfo">/WEB-INF/core/data/batchInfo.jsp</result>
-			<result name="import">/WEB-INF/core/data/batchImportSuccess.jsp</result>
-			<result name="input">/WEB-INF/core/data/batchImport.jsp</result>
-			<result name="loadPayInfo">/WEB-INF/core/data/payInfo.jsp</result>
-			<result name="exportPay">/WEB-INF/core/data/batchImportSuccess.jsp</result>
-			<result name="success" type="stream">
-		        <param name="contentType">text/plain</param>
-		        <!-- inputName默认值是inputStream，如果action中用于读取下载文件内容的属性名是inputStream，那么可以省略这个参数 -->
-		        <param name="inputName">inputStream</param>
-		        <!--动态获取文件名，从Action中的取得filename-->
-		        <param name="contentDisposition">
-		            attachment;filename="info.xls"
-		        </param>
-		        <param name="bufferSize">2048</param>
-			</result>
-			<result name="updatePay">/WEB-INF/core/data/payUpdate.jsp</result>
-			<result name="importCheck">/WEB-INF/core/data/batchImportCheck.jsp</result>
-			<result name="exportPrepare">/WEB-INF/core/data/payExport.jsp</result>
-			<result name="updatePay2">/WEB-INF/core/data/success.jsp</result>
-		</action>
-		
-		<action name="tenementAction" class="tenementAction">
-			<result name="loadBatch">/WEB-INF/core/data/tenementBatchInfo.jsp</result>
-			<result name="loadTenement">/WEB-INF/core/data/tenementInfo.jsp</result>
-			<result name="importPrepare">/WEB-INF/core/data/tenementImport.jsp</result>
-			<result name="import">/WEB-INF/core/data/success.jsp</result>
-			<result name="checkError">/WEB-INF/core/data/tenementImport.jsp</result>
-			<result name="importCheck">/WEB-INF/core/data/batchImportCheck.jsp</result>
-			<result name="exportPrepare">/WEB-INF/core/data/tenementExport.jsp</result>
-			<result name="success" type="stream">
-		        <param name="contentType">text/plain</param>
-		        <!-- inputName默认值是inputStream，如果action中用于读取下载文件内容的属性名是inputStream，那么可以省略这个参数 -->
-		        <param name="inputName">inputStream</param>
-		        <!--动态获取文件名，从Action中的取得filename-->
-		        <param name="contentDisposition">
-		            attachment;filename="info.xls"
-		        </param>
-		        <param name="bufferSize">2048</param>
-			</result>
-			<result name="updatePrepare">/WEB-INF/core/data/tenementUpdate.jsp</result>	
-			<result name="updateTenement">/WEB-INF/core/data/success.jsp</result>
-		</action>
+	
 	</package>
 </struts>

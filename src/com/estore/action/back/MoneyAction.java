@@ -13,7 +13,7 @@ public class MoneyAction extends BaseActionSupport {
 	
 	public String loadMoney(){
 		
-		moneyList = this.moneyService.getAll();
+		moneyList = this.moneyService.getAll(null,super.getPager());
 		
 		return "loadMoney";
 	}

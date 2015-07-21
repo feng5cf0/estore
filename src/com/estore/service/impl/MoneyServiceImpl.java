@@ -1,6 +1,8 @@
 package com.estore.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.estore.dao.IMoneyDao;
 import com.estore.entities.Money;
@@ -46,11 +48,16 @@ public class MoneyServiceImpl extends AbstractBaseServiceImpl<Money, Integer> im
 	@Override
 	public List<Money> getAll(Money money, Pager pager) {
 		
+		Map<String,Object> map = new HashMap<String,Object>();
+		
 		if(pager != null){
 			pager.setTotalCount(moneyDao.getAllCount(money));
 		}
 		
-		return moneyDao.getAll(money, pager);
+		map.put("money", money);
+		map.put("pager", pager);
+		
+		return moneyDao.getAll(map);
 	}
 
 	@Override
@@ -80,7 +87,6 @@ public class MoneyServiceImpl extends AbstractBaseServiceImpl<Money, Integer> im
 	@Override
 	public void update(Money arg0) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public IMoneyDao getMoneyDao() {
@@ -89,6 +95,5 @@ public class MoneyServiceImpl extends AbstractBaseServiceImpl<Money, Integer> im
 	public void setMoneyDao(IMoneyDao moneyDao) {
 		this.moneyDao = moneyDao;
 	}
-
 
 }

@@ -5,19 +5,21 @@
 	<head>
 		<%@include file="/headDeclare.jsp"%>
 		<script type="text/javascript">
-				function confirm(){
-					<c:choose>
-						<c:when test="${nextUrl != null and nextUrl != ''}">
-							eval("${nextUrl}");
-						</c:when>
-						<c:otherwise>
-							window.close();
-						</c:otherwise>
-					</c:choose>
-				}
+			alert();
+   			function showAlarm(){
+   				alert("showalarm!");
+   				$.messager.lays(300,200);
+   				alert("ok1");
+			    $.messager.show("信息提示","供电单位下存在待处理的异常信息,请点击查看",0,toMessagePage);
+		    }
+		    
+		    function toMessagePage(){
+		    	alert("ok2");
+		    	location.href("http://localhost:8080/estore");
+		    }
 		</script>
 	</head>
-	<body>
+	<body onload="showAlarm();">
 		<div class="doing">
 			<div class="font24">
 				您的操作已成功！
