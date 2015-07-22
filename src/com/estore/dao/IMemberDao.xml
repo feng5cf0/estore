@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IMemberDao">
+	
+    <resultMap id="memberMap" type="member">
+    	<id property="id" column="member_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="memberAlias" column="member_alias" javaType="String" jdbcType="VARCHAR"/>
+		<result property="memberRealname" column="member_realname" javaType="String" jdbcType="VARCHAR"/>
+		<result property="memberType" column="member_type" javaType="String" jdbcType="VARCHAR"/>
+		<result property="memberPassword" column="member_password" javaType="String" jdbcType="VARCHAR"/>
+		<result property="integral" column="integral" javaType="float" jdbcType="DECIMAL"/>
+    	<result property="avaliable" column="avaliable" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="isEmailAvaliable" column="is_email_avaliable" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="lastLoginTime" column="last_login_time" javaType="Date" jdbcType="TIMESTAMP"/>
+		<result property="lastLoginIp" column="last_login_ip" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    	<result property="lastModifyTime" column="last_modify_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    	<result property="loginTime" column="login_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    	<result property="loginIp" column="login_ip" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	
+    </resultMap>
+   <sql id="memberColumns">
+    	member_id,member_alias,member_realname,member_type,member_password,integral,avaliable,is_email_avaliable,last_login_time,last_login_ip,create_time,,last_modify_time,login_time,login_ip,memo
+    </sql>
+    <sql id="memberValues">
+    	#{id,jdbcType=INTEGER},#{memberAlias,jdbcType=VARCHAR},
+    	#{memberRealname,jdbcType=VARCHAR},
+    	#{memberType,jdbcType=VARCHAR},
+    	#{memberPassword,jdbcType=VARCHAR},
+    	#{integral,jdbcType=DECIMAL},
+    	#{avaliable,jdbcType=INTEGER},
+    	#{isEmailAvaliable,jdbcType=INTEGER},
+    	#{lastLoginTime,jdbcType=TIMESTAMP},
+    	#{lastLoginIp,jdbcType=VARCHAR},
+    	#{createTime,jdbcType=TIMESTAMP},
+    	#{lastModifyTime,jdbcType=TIMESTAMP},
+    	#{loginTime,jdbcType=TIMESTAMP},
+    	#{loginIp,jdbcType=VARCHAR},
+    	#{memo,jdbcType=VARCHAR}
+    </sql>
+    
+	<!-- 会员注册 -->
+	  
+	<insert id="save" parameterType="member">
+		<!-- insert into t_member(<include refid="memberColumns"/>)
+		values(<include refid="memberValues"/>) -->
+		insert into t_member(#{id},#{memberAlias},#{memberRealname},#{memberType},
+    	#{memberPassword},#{integral},#{avaliable},#{isEmailAvaliable},#{lastLoginTime},#{lastLoginIp},
+    	#{createTime},#{lastModifyTime},#{loginTime},#{loginIp},#{memo})
+		
+		<selectKey resultType="int" keyProperty="id">
+			select
+			LAST_INSERT_ID() as value
+		</selectKey>
+	</insert>
+
+	
+</mapper>  

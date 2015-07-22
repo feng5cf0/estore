@@ -6,5 +6,17 @@
 		           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
 		           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
 	default-autowire="byName">
+	<!-- entities -->
+	<bean id="member" class="com.estore.entities.Member"/>	
 
+	<!-- dao -->
+	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IMemberDao"></property>
+	</bean>
+	
+	<!-- service -->
+	<bean id="memberService" class="com.estore.service.impl.MemberServiceImpl"/>
+	
+	<!-- action -->
+	<bean id="memberAction" class="com.estore.action.back.MemberAction" scope="prototype"/>
 </beans>

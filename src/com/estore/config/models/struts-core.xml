@@ -233,8 +233,7 @@
 				<param name="pager.curPageNum">${pager.curPageNum}</param>
 			</result>
 			<result name="success">/WEB-INF/core/success.jsp</result>
-			<result name="input">/WEB-INF/core/roleUserInsertManageFrame.jsp
-			</result>
+			<result name="input">/WEB-INF/core/roleUserInsertManageFrame.jsp</result>
 			<result name="roleUserAreaTree">/WEB-INF/core/roleUserAreaTree.jsp</result>
 			<result name="chooseUser">/WEB-INF/core/roleUserChooseUser.jsp</result>
 		</action>
