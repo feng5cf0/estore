@@ -46,7 +46,7 @@
 	<insert id="save" parameterType="member">
 		<!-- insert into t_member(<include refid="memberColumns"/>)
 		values(<include refid="memberValues"/>) -->
-		insert into t_member(#{id},#{memberAlias},#{memberRealname},#{memberType},
+		insert into t_member values(#{id},#{memberAlias},#{memberRealname},#{memberType},
     	#{memberPassword},#{integral},#{avaliable},#{isEmailAvaliable},#{lastLoginTime},#{lastLoginIp},
     	#{createTime},#{lastModifyTime},#{loginTime},#{loginIp},#{memo})
 		
