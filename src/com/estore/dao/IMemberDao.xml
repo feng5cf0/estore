@@ -37,6 +37,9 @@
 			LAST_INSERT_ID() as value
 		</selectKey> -->
 	</insert>
+	<select id="searchMemberAll" resultMap="memberMap">
+			select * from t_member
+	</select>
 
 	
 </mapper>  

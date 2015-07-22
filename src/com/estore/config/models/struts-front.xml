@@ -4,6 +4,7 @@
 	<package name="front" namespace="/front" extends="struts-default">
 		<action name="memberAction" class="memberAction">
 			<result name="success">/WEB-INF/back/success.jsp</result>
+			<result name="searchMemberAll">/WEB-INF/back/memberSearch.jsp</result>
 		</action>
 	</package>
 </struts>

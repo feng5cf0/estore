@@ -19,6 +19,17 @@ import com.landicorp.core.web.pager.Pager;
 public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> implements
 		IMemberService {
 	private IMemberDao memberDao;
+	  //用户注册
+		@Override
+		public void SaveMember(Member member) {
+		     memberDao.save(member);
+
+		}
+		//查询所有用户信息
+		public List<Member> searchMemberAll(){
+			return memberDao.searchMemberAll();
+		}
+	
 	
 
 	@Override
@@ -91,13 +102,8 @@ public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> 
 		// TODO Auto-generated method stub
 
 	}
-
-	@Override
-	public void SaveMember(Member member) {
-		System.out.println(member);
-	     memberDao.save(member);
-
-	}
+	
+	
 
 	@Override
 	public IMyBatisDao<Member, Integer> getMyBatisDao() {
