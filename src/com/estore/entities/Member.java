@@ -23,12 +23,12 @@ public class Member extends BaseEntity{
 	private String memberType;    // 会员类型
 	private String memberPassword;//密码
 	private float integral;//积分
-	private int avaliable;//是否有效
-	private int isEmailAvaliable;//是否经过邮箱验证
-	private Date lastLoginTime = null;//上一次登录时间
+	private int avaliable;//是否有效 1:有效 0：无效
+	private int isEmailAvaliable;//是否经过邮箱验证 1：验证过 0:没验证
+	private Date lastLoginTime;//上一次登录时间
 	private String lastLoginIp;//上次登录ip
 	private Date createTime =new Date() ;//注册时间
-	private Date lastModifyTime =null;//上一次修改时间
+	private Date lastModifyTime;//上一次修改时间
 	private Date loginTime =new Date() ;//登录时间
 	private String loginIp;//登录ip
 	
