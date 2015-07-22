@@ -142,8 +142,8 @@ function roleOnly(rolename, id) {
 										<td align="center">
 											<ld:check mark="roleUpdateCommit">
 												<input type="submit" value="确 定" class="button4"
-													onMouseOver="this.className='button4Over'"
-													onMouseOut="this.className='button4Out'"
+													onmouseover="this.className='button4Over'"
+													onmouseout="this.className='button4Out'"
 													onclick="return checkSubmit(${role.id});" />
 											</ld:check>
 										</td>

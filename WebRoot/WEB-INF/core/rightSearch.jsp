@@ -29,16 +29,17 @@ function setAvailable(id, upRightId, page) {
 	}
 }
 function addItem() {
-	var returnValue
-= showLargeDialog("${basePath}core/rightInsert!prepare.action?right.upRightId="+${upRightId});
-			if(!!returnValue){
-				showLargeDialog("${basePath}core/rightSearch!getRightDetail.action?right.id="+returnValue);
-				document.pagerForm['pager.curPageNum'].value=1;
-				window.pagerForm.submit();
-			}
-			window.parent.rightTree.location.reload();
-		}
-		
+	//var returnValue
+//	= showLargeDialog("${basePath}core/rightInsert!prepare.action?right.upRightId="+${upRightId});
+		//	if(!!returnValue){
+			//	showLargeDialog("${basePath}core/rightSearch!getRightDetail.action?right.id="+returnValue);
+				//document.pagerForm['pager.curPageNum'].value=1;
+				//window.pagerForm.submit();
+			//}
+			//、window.parent.rightTree.location.reload();
+		window.location.href("${basePath}core/rightInsert!prepare.action?right.upRightId="+${upRightId});
+	}
+		 
 		function editItem(id){
 			var returnValue = showLargeDialog("${basePath}core/rightUpdate!prepare.action?right.id=" +id);
 			if(!!returnValue){

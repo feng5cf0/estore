@@ -4,6 +4,9 @@
 <html>
 	<head>
 		<%@include file="/headDeclare.jsp"%>
+		<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.messager.js"></script>
+		
 		<script type="text/javascript">
 			alert();
    			function showAlarm(){
@@ -15,7 +18,7 @@
 		    
 		    function toMessagePage(){
 		    	alert("ok2");
-		    	location.href("http://localhost:8080/estore");
+		    	//location.href("http://localhost:8080/estore");
 		    }
 		</script>
 	</head>
