@@ -19,7 +19,6 @@ public class MemberAction extends BaseActionSupport {
 	//会员注册
 	public String memberRegister(){
 		
-		System.out.println(member);
 		this.memberService.SaveMember(member);
 		return "success";
 	}	
