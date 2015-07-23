@@ -74,7 +74,7 @@ function isRightUse(name, mark, url) {
 				flag = true;
 		});
 	});
-	var t = setTimeout("return flag;", 1000)
+	var t = setTimeout("return flag;", 1000);
 }
 </script>
 	</head>
@@ -217,10 +217,10 @@ function isRightUse(name, mark, url) {
 											&nbsp;
 										</td>
 										<td align="center">
-											<input type="button" value="关 闭" class="button4"
+											<input type="button" value="返回" class="button4"
 												onMouseOver="this.className='button4Over'"
 												onMouseOut="this.className='button4Out'"
-												onclick="window.close();" />
+												onclick="history.go(-1);" />
 										</td>
 									</tr>
 								</table>

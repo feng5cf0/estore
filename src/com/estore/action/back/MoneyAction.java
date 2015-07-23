@@ -30,7 +30,4 @@ public class MoneyAction extends BaseActionSupport {
 	public void setMoneyList(List<Money> moneyList) {
 		this.moneyList = moneyList;
 	}
-	
-	
-	
 }

@@ -6,21 +6,16 @@
 		<%@include file="/headDeclare.jsp"%>
 		<script type="text/javascript">
 				function confirm(){
-					<c:choose>
-						<c:when test="${nextUrl != null and nextUrl != ''}">
-							eval("${nextUrl}");
-						</c:when>
-						<c:otherwise>
-							window.close();
-						</c:otherwise>
-					</c:choose>
+					window.parent.rightTree.location.reload();
+					window.location.href("${basePath}core/rightSearch!searchRightByUpRightId.action?upRightId=1");
+
 				}
 		</script>
 	</head>
 	<body>
 		<div class="doing">
 			<div class="font24">
-				您的操作已成功！
+				您的操作已成功！<s:property value="upRightId"/>
 			</div>
 			<div></div>
 			<div class="centent">

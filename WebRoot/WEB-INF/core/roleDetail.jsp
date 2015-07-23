@@ -90,7 +90,7 @@
 								<tr>
 									<td align="center">
 										<input type="button" value="关 闭" class="button4"
-											onMouseOver="this.className='button4Over'"
+											onmouseover="this.className='button4Over'"
 											onMouseOut="this.className='button4Out'"
 											onclick="window.close();" />
 									</td>

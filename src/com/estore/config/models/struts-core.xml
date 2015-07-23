@@ -131,7 +131,7 @@
 				<param name="pager.curPageNum">${pager.curPageNum}</param>
 			</result>
 			<result name="input">/WEB-INF/core/rightUpdate.jsp</result>
-			<result name="success">/WEB-INF/core/success.jsp</result>
+			<result name="success">/WEB-INF/core/rightUpdateSuccess.jsp</result>
 		</action>
 		<action name="rightUpdateOrder" class="rightUpdateOrderAction">
 			<result type="redirectAction">
