@@ -5,6 +5,7 @@
 		<action name="memberAction" class="memberAction">
 			<result name="success">/WEB-INF/back/success.jsp</result>
 			<result name="searchMemberAll">/WEB-INF/back/memberSearch.jsp</result>
+			<result name="deleteMember" type="redirectAction">front/memberAction!memberSearch.action</result>
 		</action>
 	</package>
 </struts>
