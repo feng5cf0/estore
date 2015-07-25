@@ -11,10 +11,10 @@
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     </resultMap>            
     <sql id="moneyColumns">
-    	money_id,money_name,rate,memo
+    	money_name,rate,memo
     </sql>
     <sql id="moneyValues">
-    	#{id},#{moneyName,jdbcType=VARCHAR},#{rate,jdbcType=DECIMAL},#{memo,jdbcType=VARCHAR}
+    	#{moneyName,jdbcType=VARCHAR},#{rate,jdbcType=DECIMAL},#{memo,jdbcType=VARCHAR}
     </sql>
     
 	<!-- 新增货币 -->
@@ -23,7 +23,7 @@
 		values(<include refid="moneyValues"/>)
 		
 		<!-- 配置Mysql主键自动增长 -->
-		<selectKey resultType="int" keyProperty="id">
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
 			select
 			LAST_INSERT_ID() as value
 		</selectKey>
@@ -63,7 +63,7 @@
 		update t_money m
 		<set>
 			<if test="moneyName != null and moneyName != '' ">m.money_name=#{moneyName},</if>
-			<if test="rate != null and rate != 0">m.rate = #{realName},</if>
+			<if test="rate != null and rate != 0">m.rate = #{rate},</if>
 			<if test="memo != null and memo !='' ">m.memo = #{memo},</if>
 		</set>
 		<if test="id != null">
@@ -76,4 +76,8 @@
 		delete from t_money
 		where money_id = #{id}
 	</delete>
+	
+	<select id="getById" parameterType="int" resultMap="moneyMap">
+		select * from t_money where money_id = #{moneyId}
+	</select>
 </mapper>  

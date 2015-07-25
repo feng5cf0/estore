@@ -19,7 +19,6 @@
     	<result property="loginTime" column="login_time" javaType="Date" jdbcType="TIMESTAMP"/>
     	<result property="loginIp" column="login_ip" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
-    	
     </resultMap>
    
     

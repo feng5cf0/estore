@@ -3,7 +3,25 @@
 <struts>
 	<package name="back" namespace="/back" extends="struts-default">
 		<action name="moneyAction" class="moneyAction">
-			<result name="loadMoney">/WEB-INF/back/success.jsp</result>
+			<result name="loadMoney">/WEB-INF/back/moneySearch.jsp</result>
+			<result name="addPrepare">/WEB-INF/back/moneyAdd.jsp</result>
+			<result name="addMoney" type="chain">
+				<param name="actionName">moneyAction</param>
+				<param name="method">loadMoney</param>
+			</result>
+			<result name="updatePrepare">/WEB-INF/back/moneyUpdate.jsp</result>
+			<result name="updateMoney">/WEB-INF/back/moneyUpdateSuccess.jsp</result>
+		</action>
+		<action name="categoryAction" class="categoryAction">
+			<result name="categoryManageFrame">/WEB-INF/back/categoryManageFrame.jsp</result>
+			<result name="loadCategoryForTree">/WEB-INF/back/categoryTree.jsp</result>
+			<result name="loadCategoryByParentId">/WEB-INF/back/categorySearch.jsp</result>
+			<result name="addPrepare">/WEB-INF/back/categoryAdd.jsp</result>
+			<result name="addCategory">/WEB-INF/back/categoryAddSuccess.jsp</result>
+			<result name="deleteCategory" type="chain">
+				<param name="actionName">categoryAction</param>
+				<param name="method">loadCategoryByParentId</param>
+			</result>
 		</action>
 	</package>
 </struts>
