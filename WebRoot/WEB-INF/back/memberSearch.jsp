@@ -1,5 +1,8 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@include file="/tagDeclare.jsp"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
@@ -12,7 +15,7 @@
 				<div class="roadItem">
 					<div class="roadIcon"></div>
 					<div class="roadItem2">
-						您当前位置：系统管理 &gt; 用户管理
+						您当前位置：系统管理 &gt; 会员信息管理
 					</div>
 				</div>
 			</div>
@@ -92,13 +95,6 @@
 						</div>
 					</div>
 					<div class="buttonbg">
-						<div class="divbutton">
-							<ld:check mark="userInsert">
-								<input type="button" value="新增" class="button2"
-									onMouseOver="this.className='button2Over'"
-									onMouseOut="this.className='button2Out'" onclick="addItem();" />
-							</ld:check>
-						</div>
 					</div>
 					<div class="divtable">
 						<table width="100%" border="0" cellspacing="1" cellpadding="0"
@@ -118,10 +114,10 @@
 									序号
 								</td>
 								<td>
-									用户别名
+									用户名
 								</td>
 								<td>
-									真是名字
+									真实名字
 								</td>
 								<td>
 									会员类型
@@ -133,7 +129,7 @@
 									积分
 								</td>
 								<td>
-									是否有效
+									状态
 								</td>
 								<td>
 									是否邮箱注册
@@ -158,6 +154,9 @@
 								</td>
 								<td>
 									备注
+								</td>
+								<td>
+									 操作
 								</td>
 							</tr>
 
@@ -186,25 +185,38 @@
 										<c:out value="${item.integral}" />
 									</td>
 									<td>
-										<c:out value="${item.avaliable}" />
+										<c:if test="${item.avaliable eq 1}">
+											<c:out value="有效"></c:out>
+										</c:if>
+										<c:if test="${item.avaliable eq 0}">
+											<c:out value="无效"></c:out>
+										</c:if>
 									</td>
 									<td>
-										<c:out value="${item.isEmailAvaliable}" />
+										<c:if test="${item.isEmailAvaliable eq 1}">
+											<c:out value="是"></c:out>
+										</c:if>
+										<c:if test="${item.isEmailAvaliable eq 0}">
+											<c:out value="否"></c:out>
+										</c:if>
 									</td>
 									<td>
-										<c:out value="${item.lastLoginTime}" />
+										<fmt:formatDate value="${item.lastLoginTime }"  pattern="yyyy/MM/dd  HH:mm:ss" />
 									</td>
 									<td>
-										<c:out value="${item.lastLoginIp}" />
+									 	<c:out value="${item.lastLoginIp}" /> 
 									</td>
 									<td>
-										<c:out value="${item.createTime}" />
+										<%-- <c:out value="${item.createTime}" /> --%>
+										<fmt:formatDate value="${item.createTime}"  pattern="yyyy/MM/dd  HH:mm:ss" />
 									</td>
 									<td>
-										<c:out value="${item.lastModifyTime}" />
+										<%-- <c:out value="${item.lastModifyTime}" /> --%>
+										<fmt:formatDate value="${item.lastModifyTime}"  pattern="yyyy/MM/dd  HH:mm:ss" />
 									</td>
 									<td>
-										<c:out value="${item.loginTime}" />
+										<%-- <c:out value="${item.loginTime}" /> --%>
+										<fmt:formatDate value="${item.loginTime}"  pattern="yyyy/MM/dd  HH:mm:ss" />
 									</td>
 									<td>
 										<c:out value="${item.loginIp}" />
@@ -212,12 +224,30 @@
 									<td>
 										<c:out value="${item.memo}" />
 									</td>
-
+									<td>
+										<a style="color:red" href="front/memberAction!memberDelete.action?memberId=${item.id }">删除</a>
+									</td>
 									
 									
 								</tr>
 							</c:forEach>
 						</table>
+					</div>
+					<div class="tablebottom">
+						<div class="tablebottomright">
+							<form
+								action="${basePath}core/userSearch!searchUser.action"
+								method="post" name="pagerForm" class="dmg-listli-item2">
+								<input name="user.userName" type="hidden"
+									value="${user.userName}" />
+								<input name="user.userAlias" type="hidden"
+									value="${user.userAlias}" />
+								<input name="user.userNum" type="hidden" value="${user.userNum}" />
+								<input name="user.available" type="hidden"
+									value="${user.available}" />
+								<ld:pager type="form" action="pagerForm" />
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>

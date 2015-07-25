@@ -36,9 +36,14 @@
 			LAST_INSERT_ID() as value
 		</selectKey> -->
 	</insert>
+	<!-- 查询所有会员信息 -->
 	<select id="searchMemberAll" resultMap="memberMap">
 			select * from t_member
 	</select>
+	<!-- 根据id删除一条会员记录 -->
+	<delete id="delete" parameterType="int">
+			delete from t_member where member_id=#{id}
+	</delete>
 
 	
 </mapper>  

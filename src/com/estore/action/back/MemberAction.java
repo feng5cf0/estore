@@ -19,6 +19,7 @@ public class MemberAction extends BaseActionSupport {
 	private IMemberService memberService;
 	private Member member;
 	private List<Member> memberList;
+	private int memberId;
 	public MemberAction() {
 		// TODO Auto-generated constructor stub
 	}
@@ -30,12 +31,18 @@ public class MemberAction extends BaseActionSupport {
 	}	
 	
 	//查询所有会员信息
-	public String memberSerch(){
+	public String memberSearch(){
 	    memberList = this.memberService.searchMemberAll();
-		System.out.println("test:"+memberList.get(0).getMemberAlias());
 		ActionContext.getContext().getSession().put("memberList", memberList);
 		return "searchMemberAll";
 	}
+	//根据id删除一条会员记录
+	public String memberDelete(){
+		int id = memberId;
+		this.memberService.deleteMember(memberId);
+		return "deleteMember";
+	}
+	
 	
 	
 	public IMemberService getMemberService() {
@@ -56,6 +63,13 @@ public class MemberAction extends BaseActionSupport {
 	public void setMemberList(List<Member> memberList) {
 		this.memberList = memberList;
 	}
+	public int getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
+	}
+	
 	
 	
 	

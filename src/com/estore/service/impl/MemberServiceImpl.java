@@ -29,6 +29,10 @@ public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> 
 		public List<Member> searchMemberAll(){
 			return memberDao.searchMemberAll();
 		}
+		//根据id删除一条会员记录
+		public void deleteMember(int id){
+			memberDao.delete(id);
+		}
 	
 	
 
