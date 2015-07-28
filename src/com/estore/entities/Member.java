@@ -31,9 +31,15 @@ public class Member extends BaseEntity{
 	private Date lastModifyTime;//上一次修改时间
 	private Date loginTime =new Date() ;//登录时间
 	private String loginIp;//登录ip
-	
+	private MemberInfo memberInfo;
 
 	
+	public MemberInfo getMemberInfo() {
+		return memberInfo;
+	}
+	public void setMemberInfo(MemberInfo memberInfo) {
+		this.memberInfo = memberInfo;
+	}
 	public String getMemberAlias() {
 		return memberAlias;
 	}

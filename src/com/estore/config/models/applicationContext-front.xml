@@ -6,17 +6,23 @@
 		           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
 		           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
 	default-autowire="byName">
+	
 	<!-- entities -->
 	<bean id="member" class="com.estore.entities.Member"/>	
-
+	<bean id="memberInfo" class="com.estore.entities.MemberInfo"/>
 	<!-- dao -->
 	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IMemberDao"></property>
 	</bean>
+	<bean id="memberInfoDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IMemberInfoDao"></property>
+	</bean>
 	
 	<!-- service -->
 	<bean id="memberService" class="com.estore.service.impl.MemberServiceImpl"/>
+	<bean id="memberInfoService" class="com.estore.service.impl.MemberInfoService"/>
 	
 	<!-- action -->
 	<bean id="memberAction" class="com.estore.action.back.MemberAction" scope="prototype"/>
+	<bean id="memberInfoAction" class="com.estore.action.back.MemberInfoAction" scope="prototype"/>
 </beans>

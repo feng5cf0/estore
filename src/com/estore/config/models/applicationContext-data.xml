@@ -9,7 +9,7 @@
 
 	<!-- entities -->
 	<bean id="money" class="com.estore.entities.Money"/>	
-
+	
 	<!-- dao -->
 	<bean id="moneyDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IMoneyDao"></property>

@@ -7,6 +7,14 @@
 			<result name="searchMemberAll">/WEB-INF/back/memberSearch.jsp</result>
 			<result name="deleteMember" type="redirectAction">front/memberAction!memberSearch.action</result>
 		</action>
+		<action name="memberInfoAction" class="memberInfoAction">
+			<result name="success">/WEB-INF/back/success.jsp</result>
+			<result name="input">/WEB-INF/front/memberInfoAdd.jsp</result>
+			<interceptor-ref name="fileUpload">
+                 <param name="maximumSize">1102400</param>
+             </interceptor-ref>
+             <interceptor-ref name="defaultStack"/>
+		</action>
 	</package>
 </struts>
 

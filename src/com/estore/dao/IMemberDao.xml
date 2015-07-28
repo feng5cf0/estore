@@ -19,6 +19,7 @@
     	<result property="loginTime" column="login_time" javaType="Date" jdbcType="TIMESTAMP"/>
     	<result property="loginIp" column="login_ip" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	<association property="com.estore.entities.MemberInfo" column="member_id" javaType="com.estore.entities.MemberInfo" select="com.estore.dao.IMemberInfoDao.getMemberInfoById" />
     	
     </resultMap>
    
@@ -32,38 +33,18 @@
     	#{memberPassword},#{integral},#{avaliable},#{isEmailAvaliable},#{lastLoginTime},#{lastLoginIp},
     	#{createTime},#{lastModifyTime},#{loginTime},#{loginIp},#{memo})
 		
-		<!-- <selectKey resultType="int" keyProperty="id">
-			select
-			LAST_INSERT_ID() as value
-		</selectKey> -->
 	</insert>
 	<!-- 查询所有会员信息 -->
 	<select id="searchMemberAll" resultMap="memberMap">
 			select * from t_member
 	</select>
 	<!-- 根据id删除一条会员记录 -->
-	<delete id="delete" parameterType="int">
+	<delete id="delete" parameterType="Integer">
 			delete from t_member where member_id=#{id}
 	</delete>
+	<select id="findMemberById" parameterType="Integer" resultMap="memberMap">
+		select *from t_member where member_id=#{id}
+	</select>
 
 	
 </mapper>  
-<!-- <sql id="memberColumns">
-    	member_id,member_alias,member_realname,member_type,member_password,integral,avaliable,is_email_avaliable,last_login_time,last_login_ip,create_time,,last_modify_time,login_time,login_ip,memo
-    </sql>
-    <sql id="memberValues">
-    	#{id,jdbcType=INTEGER},#{memberAlias,jdbcType=VARCHAR},
-    	#{memberRealname,jdbcType=VARCHAR},
-    	#{memberType,jdbcType=VARCHAR},
-    	#{memberPassword,jdbcType=VARCHAR},
-    	#{integral,jdbcType=DECIMAL},
-    	#{avaliable,jdbcType=INTEGER},
-    	#{isEmailAvaliable,jdbcType=INTEGER},
-    	#{lastLoginTime,jdbcType=TIMESTAMP},
-    	#{lastLoginIp,jdbcType=VARCHAR},
-    	#{createTime,jdbcType=TIMESTAMP},
-    	#{lastModifyTime,jdbcType=TIMESTAMP},
-    	#{loginTime,jdbcType=TIMESTAMP},
-    	#{loginIp,jdbcType=VARCHAR},
-    	#{memo,jdbcType=VARCHAR}
-    </sql> -->
