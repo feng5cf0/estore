@@ -24,6 +24,9 @@
 		<!-- 会员表 -->
 		<typeAlias alias="member" type="com.estore.entities.Member"/>
 		<typeAlias alias="memberInfo" type="com.estore.entities.MemberInfo"/>
+		<!-- 类别表 -->
+		<typeAlias alias="category" type="com.estore.entities.Category"/>
+
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
@@ -49,5 +52,6 @@
 		<mapper resource="com/estore/dao/IMoneyDao.xml"></mapper>
 		<mapper resource="com/estore/dao/IMemberDao.xml"></mapper>
 		<mapper resource="com/estore/dao/IMemberInfoDao.xml"></mapper>
+		<mapper resource="com/estore/dao/ICategoryDao.xml"></mapper>
 	</mappers>
 </configuration>	
