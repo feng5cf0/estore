@@ -67,9 +67,9 @@ public class MoneyServiceImpl extends AbstractBaseServiceImpl<Money, Integer> im
 	}
 
 	@Override
-	public Money getById(Integer arg0) {
+	public Money getById(Integer moneyId) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.moneyDao.getById(moneyId);
 	}
 
 	@Override
@@ -85,8 +85,8 @@ public class MoneyServiceImpl extends AbstractBaseServiceImpl<Money, Integer> im
 	}
 
 	@Override
-	public void update(Money arg0) {
-		// TODO Auto-generated method stub
+	public void update(Money money) {
+		this.moneyDao.update(money);
 	}
 
 	public IMoneyDao getMoneyDao() {

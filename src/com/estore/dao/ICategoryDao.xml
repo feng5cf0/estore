@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.ICategoryDao">
+	
+    <resultMap id="categoryMap" type="category" >
+    	<id property="id" column="category_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="categoryName" column="category_name" javaType="String" jdbcType="VARCHAR"/>
+		<result property="parentCategory" column="parent_category" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="isAvaliable" column="is_avaliable" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="picture" column="picture" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	
+    </resultMap>            
+    <sql id="categoryColumns">
+    	category_name,parent_category,is_avaliable,picture,memo
+    </sql>
+    <sql id="categoryValues">
+    	#{categoryName},#{parentCategory},#{isAvaliable},#{picture},#{memo}
+    </sql>
+    
+	<!-- 新增类别 -->
+	<insert id="save" parameterType="category">
+		insert into t_goods_category(<include refid="categoryColumns"/>)
+		values(<include refid="categoryValues"/>)
+		
+		<!-- 配置Mysql主键自动增长 -->
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
+			select
+			LAST_INSERT_ID() as value
+		</selectKey>
+	</insert>
+	
+	<!-- 加载所有货币信息 -->
+	<select id="getAll" resultMap="categoryMap" parameterType="map">
+		select *
+		from t_goods_category
+		<where>
+			<if test="category != null and category.id != null">
+				and category_id = #{category.id}
+			</if>
+			<if test="category != null and category.parentCategory != null">
+				and parent_category = #{category.parentCategory}
+			</if>
+		</where>
+		order by category_id desc
+		<include refid="Sql.pager" />
+	</select>
+	<!-- 加载所有货币数量 -->
+	<select id="getAllCount" resultType="int" parameterType="category" >
+		select count(*)
+		from t_goods_category
+		<where>
+			<if test="id != null">
+				and category_id = #{id}
+			</if>
+			<if test="parentCategory != null">
+				and parent_category = #{parentCategory}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 加载商品类别树 -->
+	<select id="getForTree" resultMap="categoryMap">
+		select * 
+		from t_goods_category
+	</select>
+	<!-- 修改商品类别 -->
+	<update id="update" parameterType="category">
+		update t_goods_category m
+		<set>
+			<if test="moneyName != null and moneyName != '' ">m.money_name=#{moneyName},</if>
+			<if test="rate != null and rate != 0">m.rate = #{rate},</if>
+			<if test="memo != null and memo !='' ">m.memo = #{memo},</if>
+		</set>
+		<if test="id != null">
+			where money_id = #{id}
+		</if>
+	</update>
+	
+	<!-- 删除商品类别 -->
+	<delete id="delete" parameterType="int">
+		delete from t_goods_category
+		where
+		<foreach collection="array" item="idItem" open="category_id=" separator=" or category_id=" close="">
+			#{idItem,javaType=Integer,jdbcType=INTEGER}
+		</foreach>
+	</delete>
+	
+	<select id="getByParentId" resultMap="categoryMap" parameterType="map">
+		select *
+		from t_goods_category t
+		where t.parent_category = #{parentId}
+		<include refid="Sql.pager" />		
+	</select>
+	<select id="getByParentIdCount" resultType="int" parameterType="int">
+		select count(*)
+		from t_goods_category t
+		where t.parent_category = #{parentId}
+	</select>
+</mapper>
