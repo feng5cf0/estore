@@ -17,13 +17,14 @@ public class Member extends BaseEntity{
 	 */
 	
 	private static final long serialVersionUID = 1L;
+	private Integer memberInfoId; //会员信息表的外键
 	private String memberAlias;	 //会员别名
 	private String memberRealname;	//真实姓名
 	private String memberType;    // 会员类型
 	private String memberPassword;//密码
 	private float integral;//积分
-	private int avaliable;//是否有效 1:有效 0：无效
-	private int isEmailAvaliable;//是否经过邮箱验证 1：验证过 0:没验证
+	private Integer avaliable;//是否有效 1:有效 0：无效
+	private Integer isEmailAvaliable;//是否经过邮箱验证 1：验证过 0:没验证
 	private Date lastLoginTime;//上一次登录时间
 	private String lastLoginIp;//上次登录ip
 	private Date createTime =new Date() ;//注册时间
@@ -68,16 +69,16 @@ public class Member extends BaseEntity{
 	public void setIntegral(float integral) {
 		this.integral = integral;
 	}
-	public int getAvaliable() {
+	public Integer getAvaliable() {
 		return avaliable;
 	}
-	public void setAvaliable(int avaliable) {
+	public void setAvaliable(Integer avaliable) {
 		this.avaliable = avaliable;
 	}
-	public int getIsEmailAvaliable() {
+	public Integer getIsEmailAvaliable() {
 		return isEmailAvaliable;
 	}
-	public void setIsEmailAvaliable(int isEmailAvaliable) {
+	public void setIsEmailAvaliable(Integer isEmailAvaliable) {
 		this.isEmailAvaliable = isEmailAvaliable;
 	}
 	public Date getLastLoginTime() {
@@ -116,6 +117,11 @@ public class Member extends BaseEntity{
 	public void setLoginIp(String loginIp) {
 		this.loginIp = loginIp;
 	}
-	
+	public Integer getMemberInfoId() {
+		return memberInfoId;
+	}
+	public void setMemberInfoId(Integer memberInfoId) {
+		this.memberInfoId = memberInfoId;
+	}
 	
 }
