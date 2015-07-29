@@ -26,4 +26,6 @@
 	<!-- action -->
 	<bean id="moneyAction" class="com.estore.action.back.MoneyAction" scope="prototype"/>
 	<bean id="categoryAction" class="com.estore.action.back.CategoryAction" scope="prototype"/>
+	<bean id="goodsInAction" class="com.estore.action.back.GoodsInAction" scope="prototype"/>
+	<bean id="goodsAction" class="com.estore.action.back.GoodsAction" scope="prototype"/>
 </beans>

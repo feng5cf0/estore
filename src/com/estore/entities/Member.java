@@ -13,7 +13,6 @@ public class Member extends BaseEntity{
 
 	/**
 	 *  
-  
 	 * 
 	 */
 	
@@ -33,7 +32,6 @@ public class Member extends BaseEntity{
 	private String loginIp;//登录ip
 	private MemberInfo memberInfo;
 
-	
 	public MemberInfo getMemberInfo() {
 		return memberInfo;
 	}
@@ -118,16 +116,6 @@ public class Member extends BaseEntity{
 	public void setLoginIp(String loginIp) {
 		this.loginIp = loginIp;
 	}
-
-	
-
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
