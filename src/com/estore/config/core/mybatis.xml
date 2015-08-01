@@ -56,5 +56,7 @@
 		<mapper resource="com/estore/dao/IMemberDao.xml"></mapper>
 		<mapper resource="com/estore/dao/IMemberInfoDao.xml"></mapper>
 		<mapper resource="com/estore/dao/ICategoryDao.xml"></mapper>
+		<mapper resource="com/estore/dao/IGoodsDao.xml"/>
+		<mapper resource="com/estore/dao/IGoodsInDao.xml"/>
 	</mappers>
 </configuration>	

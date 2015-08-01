@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IGoodsDao">
+	
+    <resultMap id="goodsMap" type="goods" >
+    	<id property="id" column="goods_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="goodsName" column="goods_name" javaType="String" jdbcType="VARCHAR"/>
+		<result property="goodsDescription" column="goods_description" javaType="String" jdbcType="VARCHAR"/>
+		<result property="categoryId" column="category_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="isAvaliable" column="is_avaliable" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="picture" column="picture" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="goodsUrl" column="goods_url" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="goodsPrice" column="goods_price" javaType="Float" jdbcType="DECIMAL"/>
+    	<result property="backAccount" column="back_account" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="frontAccount" column="front_account" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	
+    </resultMap>            
+    <sql id="goodsColumns">
+    	goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo
+    </sql>
+    <sql id="goodsValues">
+    	#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo}
+    </sql>
+    
+	<!-- 新增类别 -->
+	<insert id="save" parameterType="goods">
+		insert into t_goods(<include refid="goodsColumns"/>)
+		values(<include refid="goodsValues"/>)
+		
+		<!-- 配置Mysql主键自动增长 -->
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
+			select
+			LAST_INSERT_ID() as value
+		</selectKey>
+	</insert>
+	
+	<!-- 加载所有货币信息 -->
+	<select id="getAll" resultMap="goodsMap" parameterType="map">
+		select *
+		from t_goods
+		<where>
+			<if test="goods != null and goods.id != null">
+				and goods_id = #{goods.id}
+			</if>
+		</where>
+		order by goods_id desc
+		<include refid="Sql.pager" />
+	</select>
+	<!-- 加载所有货币数量 -->
+	<select id="getAllCount" resultType="int" parameterType="goods" >
+		select count(*)
+		from t_goods
+		<where>
+			<if test="goods != null and goods.id != null">
+				and goods_id = #{goods.id}
+			</if>
+		</where>
+	</select>
+
+	<!-- 修改商品 -->
+	<update id="update" parameterType="goods">
+		update t_goods m
+		<set>
+			<if test="moneyName != null and moneyName != '' ">m.money_name=#{moneyName},</if>
+			<if test="rate != null and rate != 0">m.rate = #{rate},</if>
+			<if test="memo != null and memo !='' ">m.memo = #{memo},</if>
+		</set>
+		<if test="id != null">
+			where goods_id = #{id}
+		</if>
+	</update>
+	
+	<!-- 删除商品 -->
+	<delete id="delete" parameterType="int">
+		delete from t_goods
+		where
+		<foreach collection="array" item="idItem" open="goods_id=" separator=" or goods_id=" close="">
+			#{idItem,javaType=Integer,jdbcType=INTEGER}
+		</foreach>
+	</delete>
+</mapper>

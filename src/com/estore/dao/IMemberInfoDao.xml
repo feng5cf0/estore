@@ -3,13 +3,12 @@
 
 <mapper namespace="com.estore.dao.IMemberInfoDao">
 	
-    <resultMap id="memberInfoMap" type="memberInfo">
+    <resultMap id="memberInfo" type="memberInfo">
     	<id property="id" column="member_id" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="mobilePhone" column="mobile_phone" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="telephone" column="telephone" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="email" column="email" javaType="String" jdbcType="VARCHAR"></result>
-    	<!-- <result property="photo" column="photo" javaType="java.sql.Blob;" jdbcType="BLOB"></result> -->
-    	<result property="photoPath"  column="photoPath" javaType="String" jdbcType="VARCHAR" /> 
+    	<result property="photoPath"  column="photo" javaType="String" jdbcType="VARCHAR" /> 
     	<result property="sex" column="sex" javaType="Integer" jdbcType="INTEGER"></result>
     	<result property="birthday" column="birthday" javaType="Date" jdbcType="TIMESTAMP"></result>
     	<result property="location" column="location" javaType="String" jdbcType="VARCHAR"></result>
@@ -19,12 +18,15 @@
  -->    	
     </resultMap>
     <!-- 根据id 获取会员信息表 -->
-    <select id="getMemberInfoById" resultMap="memberInfoMap" parameterType="Integer">
-    	select *from t_member_info where id=#{id}
+    <select id="getMemberInfoById" resultMap="memberInfo" parameterType="Integer">
+    	
+    	select *from t_member_info where member_id=#{id}
     </select>
-    <insert id="memberRegister" parameterType="memberInfo">
-    	insert into t_member_info values(#{id},#{mobilePhone},#{telephone},
-    	#{email},#{photoPath},#{sex},#{birthday},#{location},#{memo})
+    <insert id="memberRegister" parameterType="memberInfo" >
+    	 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+					SELECT LAST_INSERT_ID() AS ID
+		</selectKey> 
+    	insert into t_member_info(mobile_phone,telephone,email,photo,sex,birthday,location,memo) values(#{mobilePhone},#{telephone},#{email},#{photoPath},#{sex},#{birthday},#{location},#{memo})
     </insert>
    
 </mapper>  

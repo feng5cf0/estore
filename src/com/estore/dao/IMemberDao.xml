@@ -5,6 +5,7 @@
 	
     <resultMap id="memberMap" type="member">
     	<id property="id" column="member_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="memberInfoId" column="member_info_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="memberAlias" column="member_alias" javaType="String" jdbcType="VARCHAR"/>
 		<result property="memberRealname" column="member_realname" javaType="String" jdbcType="VARCHAR"/>
 		<result property="memberType" column="member_type" javaType="String" jdbcType="VARCHAR"/>
@@ -19,7 +20,7 @@
     	<result property="loginTime" column="login_time" javaType="Date" jdbcType="TIMESTAMP"/>
     	<result property="loginIp" column="login_ip" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
-    	<association property="com.estore.entities.MemberInfo" column="member_id" javaType="com.estore.entities.MemberInfo" select="com.estore.dao.IMemberInfoDao.getMemberInfoById" />
+    	<association property="memberInfo" column="member_info_id" javaType="com.estore.entities.MemberInfo" select="com.estore.dao.IMemberInfoDao.getMemberInfoById" />
     	
     </resultMap>
    
@@ -27,9 +28,10 @@
 	<!-- 会员注册 -->
 	  
 	<insert id="save" parameterType="member">
-		<!-- insert into t_member(<include refid="memberColumns"/>)
-		values(<include refid="memberValues"/>) -->
-		insert into t_member values(#{id},#{memberAlias},#{memberRealname},#{memberType},
+		<selectKey resultType="java.lang.Short" order="AFTER" keyProperty="member_id">
+					SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+		insert into t_member values(#{id},#{memberInfoId},#{memberAlias},#{memberRealname},#{memberType},
     	#{memberPassword},#{integral},#{avaliable},#{isEmailAvaliable},#{lastLoginTime},#{lastLoginIp},
     	#{createTime},#{lastModifyTime},#{loginTime},#{loginIp},#{memo})
 		
@@ -42,8 +44,18 @@
 	<delete id="delete" parameterType="Integer">
 			delete from t_member where member_id=#{id}
 	</delete>
-	<select id="findMemberById" parameterType="Integer" resultMap="memberMap">
+	 <!-- <select id="findMemberById" parameterType="Integer" resultMap="memberMap">
 		select *from t_member where member_id=#{id}
+	</select>  -->
+	<!-- 根据会员名和密码查询会员信息 -->
+	<select id="findMemberByPassName" parameterType="map" resultMap="memberMap">
+		select *from t_member a,t_member_info b where
+		 a.member_info_id=b.member_id and
+		 a.member_alias=#{memberAlias} and a.member_password=#{memberPassword}
+	</select>  
+	<!-- 根据id查找会员表和会员信息表一起返回 -->
+	<select id="findMemberById" parameterType="Integer" resultMap="memberMap">
+		select *from t_member a,t_member_info b where a.member_info_id=b.member_id and a.member_id=#{id}
 	</select>
 
 	

@@ -14,6 +14,7 @@ public class Category extends BaseEntity {
 	private String categoryName;
 	private Integer parentCategory;
 	private Integer isAvaliable;
+	private Integer isLeaf;
 	private String picture;
 	
 	private Set<Category> subCategory;
@@ -47,5 +48,11 @@ public class Category extends BaseEntity {
 	}
 	public void setSubCategory(Set<Category> subCategory) {
 		this.subCategory = subCategory;
+	}
+	public Integer getIsLeaf() {
+		return isLeaf;
+	}
+	public void setIsLeaf(Integer isLeaf) {
+		this.isLeaf = isLeaf;
 	}
 }

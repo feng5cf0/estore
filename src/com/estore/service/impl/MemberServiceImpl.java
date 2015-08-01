@@ -3,7 +3,9 @@
  */
 package com.estore.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.estore.dao.IMemberDao;
 import com.estore.entities.Member;
@@ -33,7 +35,13 @@ public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> 
 		public void deleteMember(int id){
 			memberDao.delete(id);
 		}
-	
+		//根据登录名和登录密码查找member
+		public Member findMemberByPassName(String memberAlias,String memberPassword){
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("memberAlias", memberAlias);
+			map.put("memberPassword", memberPassword);
+			return memberDao.findMemberByPassName(map);
+		}
 	
 
 	@Override

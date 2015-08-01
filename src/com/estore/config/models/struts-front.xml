@@ -3,13 +3,18 @@
 <struts>
 	<package name="front" namespace="/front" extends="struts-default">
 		<action name="memberAction" class="memberAction">
+			<result name="toLoginPage" >/WEB-INF/jsp/member/memberLogin.jsp</result>
+			<result name="toRegisterPage">/WEB-INF/jsp/member/memberRegister.jsp</result>
 			<result name="success">/WEB-INF/back/success.jsp</result>
 			<result name="searchMemberAll">/WEB-INF/back/memberSearch.jsp</result>
 			<result name="deleteMember" type="redirectAction">front/memberAction!memberSearch.action</result>
+		    <result name="toMemberCenterPage">/WEB-INF/jsp/member/memberCenter.jsp</result>
+			<result name="logout">/main.jsp</result>
 		</action>
 		<action name="memberInfoAction" class="memberInfoAction">
 			<result name="success">/WEB-INF/back/success.jsp</result>
 			<result name="input">/WEB-INF/front/memberInfoAdd.jsp</result>
+			<result name="main">/main.jsp</result>
 			<interceptor-ref name="fileUpload">
                  <param name="maximumSize">1102400</param>
              </interceptor-ref>

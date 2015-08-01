@@ -1,14 +1,35 @@
 package com.estore.action.back;
 
-import java.util.Date;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.estore.entities.Member;
-import com.estore.entities.Money;
+import com.estore.entities.MemberInfo;
 import com.estore.service.IMemberService;
+import com.estore.util.JsonUtil;
+import com.estore.util.Property;
 import com.landicorp.core.action.BaseActionSupport;
+import com.landicorp.core.util.StringUtil;
 import com.opensymphony.xwork2.ActionContext;
 
 public class MemberAction extends BaseActionSupport {
@@ -18,18 +39,66 @@ public class MemberAction extends BaseActionSupport {
 	private static final long serialVersionUID = 1L;
 	private IMemberService memberService;
 	private Member member;
+	private MemberInfo memberInfo;
 	private List<Member> memberList;
 	private int memberId;
+	private String memberAlias;//登录账号
+	private String memberPassword;//登录密码
 	public MemberAction() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	//跳转到登录页面
+	public String toMemberLoginPage(){
+		return "toLoginPage";
+	}
+	//跳转到注册页面
+	public String toMemberRegisterPage(){
+		return "toRegisterPage";
+	}
+	//跳转到个人中心
+	public String toMemberCenterPage(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		if(session.getAttribute("member")==null){
+			return "toLoginPage";
+		}else{
+			return "toMemberCenterPage";
+		}
+	}
 	//会员注册
 	public String memberRegister(){
-		
 		this.memberService.SaveMember(member);
 		return "success";
 	}	
-	
+	//会员登录
+	public String memberLogin() throws Exception{
+		Property pro=new Property();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response =ServletActionContext.getResponse();
+		HttpSession session = request.getSession();
+		PrintWriter out = response.getWriter();
+		Member member=memberService.findMemberByPassName(memberAlias, memberPassword);
+		if(memberAlias.equals(member.getMemberAlias()) 
+		&& memberPassword.equals(member.getMemberPassword()) 
+		&& member.getIsEmailAvaliable()==0){
+			session.setAttribute("member", member);
+			pro.put("success", "success");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}else{
+			pro.put("error", "error");
+			return null;
+			
+		}
+	}
+	//会员退出
+	public String logout(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		session.removeAttribute("member");
+		return "logout";
+	}
 	//查询所有会员信息
 	public String memberSearch(){
 	    memberList = this.memberService.searchMemberAll();
@@ -42,8 +111,6 @@ public class MemberAction extends BaseActionSupport {
 		this.memberService.deleteMember(memberId);
 		return "deleteMember";
 	}
-	
-	
 	
 	public IMemberService getMemberService() {
 		return memberService;
@@ -69,6 +136,31 @@ public class MemberAction extends BaseActionSupport {
 	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
+
+	public MemberInfo getMemberInfo() {
+		return memberInfo;
+	}
+
+	public void setMemberInfo(MemberInfo memberInfo) {
+		this.memberInfo = memberInfo;
+	}
+
+	public String getMemberAlias() {
+		return memberAlias;
+	}
+
+	public void setMemberAlias(String memberAlias) {
+		this.memberAlias = memberAlias;
+	}
+
+	public String getMemberPassword() {
+		return memberPassword;
+	}
+
+	public void setMemberPassword(String memberPassword) {
+		this.memberPassword = memberPassword;
+	}
+	
 	
 	
 	

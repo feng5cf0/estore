@@ -8,16 +8,17 @@
     	<id property="id" column="category_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="categoryName" column="category_name" javaType="String" jdbcType="VARCHAR"/>
 		<result property="parentCategory" column="parent_category" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="isLeaf" column="is_leaf" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="isAvaliable" column="is_avaliable" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="picture" column="picture" javaType="String" jdbcType="VARCHAR"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	
     </resultMap>            
     <sql id="categoryColumns">
-    	category_name,parent_category,is_avaliable,picture,memo
+    	category_name,parent_category,is_leaf,is_avaliable,picture,memo
     </sql>
     <sql id="categoryValues">
-    	#{categoryName},#{parentCategory},#{isAvaliable},#{picture},#{memo}
+    	#{categoryName},#{parentCategory},#{isLeaf},#{isAvaliable},#{picture},#{memo}
     </sql>
     
 	<!-- 新增类别 -->

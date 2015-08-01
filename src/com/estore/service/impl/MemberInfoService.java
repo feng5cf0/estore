@@ -7,19 +7,26 @@ import com.landicorp.core.dao.base.IMyBatisDao;
 import com.landicorp.core.service.base.AbstractBaseServiceImpl;
 
 public class MemberInfoService extends AbstractBaseServiceImpl<MemberInfo, Integer> implements IMemberInfoService{
-	private IMemberInfoDao iMemberInfoDao;
+	private IMemberInfoDao 	memberInfoDao;
 	@Override
 	public MemberInfo getMemberInfoById(Integer id){
-		return iMemberInfoDao.getMemberInfoById(id);
+		return memberInfoDao.getMemberInfoById(id);
 	}
+	@Override
 	public void memberRegister(MemberInfo memberInfo){
-		iMemberInfoDao.memberRegister(memberInfo);
+		memberInfoDao.memberRegister(memberInfo);
 	}
 	
 	@Override
 	public IMyBatisDao<MemberInfo, Integer> getMyBatisDao() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.memberInfoDao;
+	}
+	public IMemberInfoDao getMemberInfoDao() {
+		return memberInfoDao;
+	}
+	public void setMemberInfoDao(IMemberInfoDao memberInfoDao) {
+		this.memberInfoDao = memberInfoDao;
 	}
 	
 }

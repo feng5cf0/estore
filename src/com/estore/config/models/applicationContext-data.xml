@@ -18,10 +18,14 @@
 	<bean id="categoryDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.ICategoryDao"></property>
 	</bean>
+	<bean id="goodsDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IGoodsDao"></property>
+	</bean>	
 	
 	<!-- service -->
 	<bean id="moneyService" class="com.estore.service.impl.MoneyServiceImpl"/>
 	<bean id="categoryService" class="com.estore.service.impl.CategoryServiceImpl"/>
+	<bean id="goodsService" class="com.estore.service.impl.GoodsServiceImpl"/>
 	
 	<!-- action -->
 	<bean id="moneyAction" class="com.estore.action.back.MoneyAction" scope="prototype"/>

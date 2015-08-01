@@ -33,11 +33,11 @@ public class Member extends BaseEntity{
 	private String loginIp;//登录ip
 	private MemberInfo memberInfo;
 
-	public MemberInfo getMemberInfo() {
-		return memberInfo;
+	public Integer getMemberInfoId() {
+		return memberInfoId;
 	}
-	public void setMemberInfo(MemberInfo memberInfo) {
-		this.memberInfo = memberInfo;
+	public void setMemberInfoId(Integer memberInfoId) {
+		this.memberInfoId = memberInfoId;
 	}
 	public String getMemberAlias() {
 		return memberAlias;
@@ -117,10 +117,10 @@ public class Member extends BaseEntity{
 	public void setLoginIp(String loginIp) {
 		this.loginIp = loginIp;
 	}
-	public Integer getMemberInfoId() {
-		return memberInfoId;
+	public MemberInfo getMemberInfo() {
+		return memberInfo;
 	}
-	public void setMemberInfoId(Integer memberInfoId) {
-		this.memberInfoId = memberInfoId;
+	public void setMemberInfo(MemberInfo memberInfo) {
+		this.memberInfo = memberInfo;
 	}
 }

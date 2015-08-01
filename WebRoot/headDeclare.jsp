@@ -12,6 +12,7 @@
 <link href="css/css.css" type="text/css" rel="stylesheet" />
 <link href="css/selectBox.css" type="text/css" rel="stylesheet" />
 <link href="css/dtree.css" rel="StyleSheet" type="text/css" />
+<link href="css/default.css" rel="StyleSheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.js">
 </script>
 <script src="js/dtree.js" type="text/javascript">

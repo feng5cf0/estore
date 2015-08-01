@@ -24,11 +24,17 @@
 			</result>
 		</action>
 		<action name="goodsAction" class="goodsAction">
+			<result name="loadAll">/WEB-INF/back/goods/goodsList.jsp</result>
+			<result name="addPrepare">/WEB-INF/back/goods/goodsAdd.jsp</result>
+			<result name="addGoods" type="redirectAction">
+				<param name="actionName">goodsAction</param>
+				<param name="method">loadAll</param>
+			</result>
 		</action>
 		<action name="goodsInAction" class="goodsInAction">
-			<result name="addBatch">/WEB-INF/back/addBatchSuccess.jsp</result>
-			<result name="loadBatch">/WEB-INF/back/goodsInList.jsp</result>
-			<result name="addPrepare">/WEB-INF/back/goodsIn.jsp</result>
+			<result name="addBatch">/WEB-INF/back/goods/addBatchSuccess.jsp</result>
+			<result name="loadBatch">/WEB-INF/back/goods/goodsInList.jsp</result>
+			<result name="addPrepare">/WEB-INF/back/goods/goodsIn.jsp</result>
 		</action>
 	</package>
 </struts>

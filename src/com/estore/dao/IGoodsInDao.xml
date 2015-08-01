@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IGoodsInDao">
+	
+    <resultMap id="goodsInMap" type="goodsIn" >
+    	<id property="id" column="batch_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="goodsName" column="goods_name" javaType="String" jdbcType="VARCHAR"/>
+		<result property="goodsId" column="goods_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="inPrice" column="in_price" javaType="Float" jdbcType="DECIMAL"/>
+		<result property="supplier" column="supplier" javaType="String" jdbcType="VARCHAR"/>
+		<result property="in_operator" column="in_operator" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="in_data" column="in_data" javaType="Date" jdbcType="TIMESTAMP"/>
+		<result property="store_operator" column="store_operator" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="store_data" column="store_data" javaType="Date" jdbcType="TIMESTAMP"/>
+		<result property="in_number" column="in_number" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="status" column="status" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	
+    </resultMap>
+    <sql id="goodsInColumns">
+    	goods_name,goods_id,in_price,supplier,in_operator,in_data,store_operator,store_data,in_number,status,memo
+    </sql>
+    <sql id="goodsInValues">
+    	#{goodsName},#{goodsId},#{inPrice},#{supplier},#{in_operator},#{in_data},#{store_operator},#{store_data},#{in_number},#{status},#{memo}
+    </sql>
+    
+	<!-- 进货登记 -->
+	<insert id="save" parameterType="goodsIn">
+		insert into t_goods_in(<include refid="goodsInColumns"/>)
+		values(<include refid="goodsInValues"/>)
+		
+		<!-- 配置Mysql主键自动增长 -->
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
+			select
+			LAST_INSERT_ID() as value
+		</selectKey>
+	</insert>
+	
+	<!-- 加载所有货币信息 -->
+	<select id="getAll" resultMap="goodsInMap" parameterType="map">
+		select *
+		from t_goods_in
+		<where>
+			<if test="category != null and category.id != null">
+				and category_id = #{category.id}
+			</if>
+			<if test="category != null and category.parentCategory != null">
+				and parent_category = #{category.parentCategory}
+			</if>
+		</where>
+		order by category_id desc
+		<include refid="Sql.pager" />
+	</select>
+	<!-- 加载所有货币数量 -->
+	<select id="getAllCount" resultType="int" parameterType="goodsIn" >
+		select count(*)
+		from t_goods_in
+		<where>
+			<if test="id != null">
+				and category_id = #{id}
+			</if>
+			<if test="parentCategory != null">
+				and parent_category = #{parentCategory}
+			</if>
+		</where>
+	</select>
+	
+</mapper>

@@ -12,9 +12,12 @@ public class GoodsIn extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer goodsId;
+	private String goodsName;
 	private Float inPrice;
 	private String supplier;
+	private Integer inOperator;
 	private Date inDate;
+	private Integer storeOperator;
 	private Date storeDate;
 	private Integer inNumber;
 	private Integer status;    //1-进货  2-入库
@@ -60,6 +63,24 @@ public class GoodsIn extends BaseEntity {
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	public String getGoodsName() {
+		return goodsName;
+	}
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+	public Integer getInOperator() {
+		return inOperator;
+	}
+	public void setInOperator(Integer inOperator) {
+		this.inOperator = inOperator;
+	}
+	public Integer getStoreOperator() {
+		return storeOperator;
+	}
+	public void setStoreOperator(Integer storeOperator) {
+		this.storeOperator = storeOperator;
 	}
 	
 }

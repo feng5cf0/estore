@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -16,6 +17,7 @@ import com.estore.entities.Member;
 import com.estore.entities.MemberInfo;
 import com.estore.service.IMemberInfoService;
 import com.estore.service.IMemberService;
+import com.estore.util.DateUtil;
 import com.estore.util.GetIpUtil;
 import com.landicorp.core.action.BaseActionSupport;
 
@@ -28,13 +30,14 @@ public class MemberInfoAction  extends BaseActionSupport{
     private IMemberService memberService;
     private MemberInfo memberInfo;
     private Member member;
-    private String sbirthday;
     private File pic;
     private String picContentType; // 文件的内容类型
     private String picFileName; // 上传文件名
 	private Integer id;
 	private InputStream inputStream;
     GetIpUtil getIpUtil = new GetIpUtil();
+    DateUtil dateUtil = new DateUtil();
+    
     //根据id查找会员信息，包括会员表信息 ，1对1关联
     public String getMemberInfoById(){
     	memberInfo = memberInfoService.getMemberInfoById(id);
@@ -45,46 +48,37 @@ public class MemberInfoAction  extends BaseActionSupport{
     //会员注册
     public String memberRegister(){
     	HttpServletRequest request = ServletActionContext.getRequest();
+    	
     	String loginIp=getIpUtil.getIpAddr(request);
-    	String realPath = ServletActionContext.getServletContext().getRealPath("/memberPic");
-    	String lj = realPath+"\\"+picFileName;
-    	try{
-	    	if(pic != null){
-	    		File savefile = new File(new File(realPath),picFileName);
-	    		if(!savefile.getParentFile().exists()){
-	    			savefile.getParentFile().mkdirs();
-	    		}
-	    		FileUtils.copyFile(pic, savefile);
-	    		}
-    	}catch(IOException e){
-    		e.printStackTrace();
-    	}catch(ParseException e){
-    		e.printStackTrace();
-    	}
-    	java.util.Date date = null;
-    	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟  
-    	try {
-    		 date=sdf.parse(sbirthday);
-		} catch (java.text.ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	memberInfo.setBirthday(date);
-    	memberInfo.setPhotoPath(lj);
-    	memberInfo.setMemo("fsdfdsfsd");
-    	member.setAvaliable(1);
+//    	String realPath = ServletActionContext.getServletContext().getRealPath("/memberPic");
+//    	String lj = realPath+"\\"+picFileName;
+//    	try{
+//	    	if(pic != null){
+//	    		File savefile = new File(new File(realPath),picFileName);
+//	    		if(!savefile.getParentFile().exists()){
+//	    			savefile.getParentFile().mkdirs();
+//	    		}
+//	    		FileUtils.copyFile(pic, savefile);
+//	    		}
+//    	}catch(IOException e){
+//    		e.printStackTrace();
+//    	}catch(ParseException e){
+//    		e.printStackTrace();
+//    	}
+    	memberInfoService.memberRegister(memberInfo);
+    	member.setAvaliable(0);
     	member.setCreateTime(new Date());
     	member.setIntegral(0);
-    	member.setIsEmailAvaliable(1);
-    	member.setLastLoginIp("");
-    	member.setLastLoginTime(new Date());
-    	member.setLastModifyTime(new Date());
-    	member.setLoginTime(new Date());
+    	member.setIsEmailAvaliable(0);
+    	//member.setLastLoginIp("");
+    	//member.setLastLoginTime(null);
+    	//member.setLastModifyTime(null);
+    	//member.setLoginTime(null);
     	member.setMemberType("会员");
     	member.setLoginIp(loginIp);
+    	member.setMemberInfoId(memberInfo.getId());
     	memberService.SaveMember(member);
-    	memberInfoService.memberRegister(memberInfo);
-    	return "success";
+    	return "main";
     }
 
     
@@ -163,13 +157,6 @@ public class MemberInfoAction  extends BaseActionSupport{
 		this.pic = pic;
 	}
 
-	public String getSbirthday() {
-		return sbirthday;
-	}
-
-	public void setSbirthday(String sbirthday) {
-		this.sbirthday = sbirthday;
-	}
 
 	
 	
