@@ -23,6 +23,13 @@
 				<param name="method">loadCategoryByParentId</param>
 			</result>
 		</action>
+		<action name="goodsAction" class="goodsAction">
+		</action>
+		<action name="goodsInAction" class="goodsInAction">
+			<result name="addBatch">/WEB-INF/back/addBatchSuccess.jsp</result>
+			<result name="loadBatch">/WEB-INF/back/goodsInList.jsp</result>
+			<result name="addPrepare">/WEB-INF/back/goodsIn.jsp</result>
+		</action>
 	</package>
 </struts>
 

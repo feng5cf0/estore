@@ -26,7 +26,10 @@
 		<typeAlias alias="memberInfo" type="com.estore.entities.MemberInfo"/>
 		<!-- 类别表 -->
 		<typeAlias alias="category" type="com.estore.entities.Category"/>
-
+		<!-- 进货表 -->
+		<typeAlias alias="goodsIn" type="com.estore.entities.GoodsIn"/>
+		<!-- 商品表 -->
+		<typeAlias alias="goods" type="com.estore.entities.Goods"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
