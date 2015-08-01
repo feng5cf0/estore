@@ -32,6 +32,7 @@ public class Member extends BaseEntity{
 	private Date loginTime =new Date() ;//登录时间
 	private String loginIp;//登录ip
 	private MemberInfo memberInfo;
+
 	public Integer getMemberInfoId() {
 		return memberInfoId;
 	}
@@ -122,6 +123,5 @@ public class Member extends BaseEntity{
 	public void setMemberInfo(MemberInfo memberInfo) {
 		this.memberInfo = memberInfo;
 	}
-	
 
 }
