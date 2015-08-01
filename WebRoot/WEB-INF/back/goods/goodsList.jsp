@@ -5,7 +5,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>应用类型管理</title>
-		<link href="../css/css.css" rel="stylesheet" type="text/css" />
 		<%@include file="/headDeclare.jsp"%>
 		<script type="text/javascript">
 function showItem() {
