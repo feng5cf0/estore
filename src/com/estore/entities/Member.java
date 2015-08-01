@@ -123,5 +123,4 @@ public class Member extends BaseEntity{
 	public void setMemberInfoId(Integer memberInfoId) {
 		this.memberInfoId = memberInfoId;
 	}
-	
 }
