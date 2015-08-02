@@ -1,32 +1,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ include file="/common.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/default.css">
+ <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/kefu.js"></script>
+ <script type="text/javascript" src="js/member/memberModify.js?radom=123"></script>
 <script src="js/lrtk.js"></script> 
 <script type="text/javascript">
 	$(function(){
 		$(".pro-left1-li").each(function(i){
 			var top = $(this).offset().top;
 			$(".pro-left1-lilb:eq("+i+")").css({"top":192-top});
-		})//左栏划上效果
+		});//左栏划上效果
 		
 		//二维码划上效果
 		$(".ewm-txt").hover(function(){
 			$(".ewm-pic").show();
 		},function(){
 			$(".ewm-pic").hide();
-		})
-	})
+		});
+	});
 </script>
 <title>个人中心</title>
 </head>
 
 <body>
+
 <!--顶部开始-->
 <div class="top">
 	<div class="top-con">
@@ -66,7 +70,7 @@
 				<div class="gwc-xllb" style="left:-8px;width:75px">
 					<a href="#">查看订单</a>
 					<a href="#">去结算</a>
-					<a href="#">个人中心</a>
+					<a href="front/memberAction!toMemberCenterPage">个人中心</a>
 				</div>
 		  </div>
 		</div>
@@ -237,16 +241,16 @@
 	<!--右侧列表开始-->
 	<div class="prolb-right prolb-right2">
 		<!--个人中心内容开始-->
-		<div class="now-tit">
+		<div class="now-tit" id="grzx">
 			<span>当前所在位置：个人中心</span>
 			<a class="btn" href="#">返回上一页</a>
 		</div>
 		<div class="now-titlb center-con">
 			<!--头像区域开始-->
-			<div class="center-tx">
+			<div class="center-tx" id="grxxcz">
 				<img class="tx" src="images/touxiang2.png" width="95" height="95"/>		
 				<div class="center-mid">
-					<h5>王女士<a href="#">修改个人信息</a></h5>
+					<h5>王女士<a href="#" id="memberModifyBtn">修改个人信息</a></h5>
 					<div class="txt7">会员级别：初级会员</div>
 					<div class="txt8">上次登录：2015-7-14 15:56:24</div>
 					<div>
@@ -255,15 +259,265 @@
 				</div>
 				<div class="center-xmlb">
 					<p><a class="lba" href="#">我的优惠券（7）</a></p>
-					<p><a class="lba" href="#">积分查询</a></p>
+					<p><a class="lba" href="#" id="integralSearch">积分查询</a></p>
 					<p><a class="lba" href="#">订单查询</a></p>
-					<p><a class="lba" href="#">产品收藏</a></p>
+					<p><a class="lba" href="#" id="cpscBtn">产品收藏</a></p>
 					<p><a class="lba" href="front/memberAction!logout">退出</a></p>
 				</div>	
 			</div>
 			<!--头像区域结束-->
+			<!--当前所在位置开始-->
+		<div class="now-tit" id="cpsc">
+			<span>当前所在位置：<a href="#">个人中心</a><span> > </span>产品收藏</span>
+			<a class="btn" href="#">返回个人中心</a>
+		</div>
+		<div class="now-titlb" id="cpscInfo">
+			<h4>产品收藏</h4>
+			<!--购物车列表开始-->
+			<div class="shop-prolb">
+				<h5>全部商品<span>15</span></h5>
+				<div class="shop-prolb-tit">
+					<div class="wid wid1"><input class="cbox" type="checkbox"/> 全选</div>
+					<div class="wid wid2">商品</div>
+					<div class="wid wid3">单价</div>
+					<div class="wid wid3">数量</div>
+					<div class="wid wid3">单重量</div>
+					<div class="wid wid3">总重量</div>
+					<div class="wid wid3">金额</div>
+					<div class="wid wid4">操作</div>
+				</div>
+				<div class="shop-prolb-body">
+					<div class="wid wid1"><input class="cbox" type="checkbox"/> </div>
+					<div class="wid wid2">
+						<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
+						<div class="txt1"><a href="#">防盗门锁 防盗门锁防盗门锁盗门锁防盗门盗门锁防盗门</a></div>
+					</div>
+					<div class="wid wid3 monys">￥99.00</div>
+					<div class="wid wid3">
+						<a class="num-jian" href="javascript:;">-</a><input class="num-inp" type="text"  value="1"/><a class="num-jian" href="javascript:;">+</a>
+					</div>
+					<div class="wid wid3">100.00克</div>
+					<div class="wid wid3">200.00克</div>
+					<div class="wid wid3 monys">￥198.00</div>
+					<div class="wid wid4">
+						<p><a href="#">删除</a></p>
+						<p><a href="#">移出收藏夹</a></p>
+					</div>
+				</div>
+				<div class="shop-prolb-body">
+					<div class="wid wid1"><input class="cbox" type="checkbox"/> </div>
+					<div class="wid wid2">
+						<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
+						<div class="txt1"><a href="#">防盗门锁 防盗门锁防盗门锁盗门锁防盗门盗门锁防盗门</a></div>
+					</div>
+					<div class="wid wid3 monys">￥99.00</div>
+					<div class="wid wid3">
+						<a class="num-jian" href="javascript:;">-</a><input class="num-inp" type="text"  value="1"/><a class="num-jian" href="javascript:;">+</a>
+					</div>
+					<div class="wid wid3">100.00克</div>
+					<div class="wid wid3">200.00克</div>
+					<div class="wid wid3 monys">￥198.00</div>
+					<div class="wid wid4">
+						<p><a href="#">删除</a></p>
+						<p><a href="#">移出收藏夹</a></p>
+					</div>
+				</div>
+				<!--结算开始-->
+				<div class="shop-end">
+					<div class="end-left">
+						<input class="cbox" type="checkbox"/>
+						<span>全选</span>
+						<a class="a1" href="#">删除</a>
+						<a class="a1" href="#">移出收藏夹</a>
+					</div>
+					<div class="end-right">
+						<span class="num1">已选<b>12</b>件商品</span>
+						<span class="num1">总重量<b>100</b>克</span>
+						<span>合计（不含运费）：</span><span class="mon1">￥599.00</span>
+						<input class="submit-btn" type="submit" value="去结算"/>
+					</div>
+				</div>
+				<!--结算结束-->
+			</div>
+			<!--购物车列表结束-->
+		</div>
+		<!--当前所在位置结束-->
+			<!--修改信息开始-->
+			<div id="modify" class="eduit-tit">
+				<a id="photoModify" href="#">头像修改</a>
+				<a id="grxxxg" class="hov" href="#">个人信息修改</a>
+				<a id="mmxg" href="#">密码修改</a>
+				<div class="line"></div>
+			</div>
+			<!-- 头像修改开始 -->
+			<div id="memberPhoto" class="white-conbg  write-adress" style="padding-top:30px">
+				<form action="front/memberInfoAction!picScan" method="post" id="picForm" enctype="multipart/form-data">
+					<div class="pay-lb uptx-img">
+	                <input id="pic" name="pic" class="file" type="file" /> 
+	                    <div class="file-ys">选择您要上传的头像</div>
+	                    <div class="up-pz">*头像的图片尺寸、大小说明</div>
+						<div class="uptx-img-wk">
+							<img id="image" name="image" src="${sessionScope.member.memberInfo.photoPath }" width="150" height="150"/>
+						</div>
+	                </div>
+					<div class="pay-lb">
+						<input class="chaxun-btn" type="submit" value="保 存" style="width:75px;margin-left:20px"/>
+					</div>
+				</form>
+			</div>
+			<!-- 头像修改结束 -->
+			<!-- 个人信息修改开始 -->
+			<div id="memberModify" class="white-conbg  write-adress" style="padding-top:30px">
+				<div class="pay-lb">
+                	<span class="span1"><span class="xinghao">*</span>姓名：</span>
+					<input class="inp1" type="text" value="${sessionScope.member.memberRealname }"/>
+                </div>
+                <div class="pay-lb">
+                	<span class="span1"><span class="xinghao">*</span>昵称：</span>
+					<input class="inp1" type="text" value="${sessionScope.member.memberAlias }"/>
+                </div>
+				<div class="pay-lb">
+                	<span class="span1"><span class="xinghao">*</span>性别：</span>
+					<input type="radio" style="vertical-align:sub"/> 男
+					<input type="radio" style="vertical-align:sub" checked="checked"/> 女
+					<input type="radio" style="vertical-align:sub"/> 保密
+                </div>
+				<div class="pay-lb">
+                	<span class="span1">生日：</span>
+					<select class="inp1" style="width:70px">
+                    	<option>1989</option>
+                        <option>1988</option>
+                        <option>1987</option>
+                    </select> 年
+					<select class="inp1" style="width:70px">
+                    	<option>4月</option>
+                        <option>3月</option>
+                        <option>2月</option>
+                    </select> 月
+					<select class="inp1" style="width:70px">
+                    	<option>26</option>
+                        <option>25</option>
+                        <option>24</option>
+                    </select> 日
+                </div>
+				<div class="pay-lb">
+                	<span class="span1">身份证号：</span>
+					<input class="inp1" type="text" style="width:300px"/>
+                </div>
+				<div class="pay-lb">
+                	<span class="span1">邮箱：</span>
+					<span style="font:bold 13px ''">11****72@qq.com</span>
+					<a href="#" style="color:#005ea7">修改</a>
+					<span style="color:#999">已验证</span>
+                </div>
+				<div class="pay-lb">
+                	<span class="span1">所在地：</span>
+					<select class="inp1" style="width:100px">
+                    	<option>山东省</option>
+                        <option>河北省</option>
+                        <option>江苏省</option>
+                    </select>
+					<select class="inp1" style="width:100px">
+                    	<option>济南市</option>
+                        <option>石家庄</option>
+                        <option>徐州</option>
+                    </select>
+					<select class="inp1" style="width:100px">
+                    	<option>二环以内</option>
+                        <option>二环以内</option>
+                        <option>二环以内</option>
+                    </select>
+					<div style="margin:15px 0px 0px 106px">
+						<input class="inp1" type="text" style="width:311px"/>
+					</div>
+                </div>
+				<div class="pay-lb">
+                	<span class="span1">营业执照：</span>
+                    <input class="file" type="file"/>
+                    <div class="file-ys">点击上传营业执照</div>
+                    <div class="up-pz">*营业执照的图片尺寸、大小说明</div>
+                    <div class="up-pz">
+                    	<img src="images/yingyezhizhao.jpg" width="500"/>
+                    </div>
+                </div>
+				<div class="pay-lb">
+                	<span class="span1">门头照：</span>
+                    <input class="file" type="file"/>
+                    <div class="file-ys">点击上传门头照</div>
+                    <div class="up-pz">*门头照的图片尺寸、大小说明</div>
+                    <div class="up-pz">
+                    	<!--<img src="images/yingyezhizhao.jpg" width="500"/>-->
+                    </div>
+                </div>
+				<div class="pay-lb">
+					<span class="span1">&nbsp;</span>
+					<input class="chaxun-btn" type="submit" value="保 存" style="width:75px"/>
+				</div>
+			</div>
+			<!--修改信息结束-->
+			<!--密码修改开始 -->
+			<div id="passwordModify" class="white-conbg  write-adress" style="padding-top:30px">
+				<div class="pay-lb">
+                	<span class="span1">原密码：</span>
+					<input name="password" id="password" class="inp1" type="password" style="width:200px"/>
+                	<input name="memberPassword" id="memberPassword" type="hidden" value="${sessionScope.member.memberPassword }"/>
+                	<input name="memberId" id="memberId" type="hidden" value="${sessionScope.member.id }"/>
+                </div>
+				<div class="pay-lb">
+                	<span class="span1">新密码：</span>
+					<input name="newPssword" id="newPssword" class="inp1" type="password" style="width:200px"/>
+                </div>
+				<div class="pay-lb">
+                	<span class="span1">再输入一次：</span>
+					<input name="reNewPssword" id="reNewPssword" class="inp1" type="password" style="width:200px"/>
+                </div>
+				<div class="pay-lb">
+					<span class="span1">&nbsp;</span>
+					<input id="passSaveBtn" class="chaxun-btn" type="button" value="保 存" style="width:75px"/>
+				</div>
+			</div>
+			<!--密码修改结束 -->
+			
+			<!--我的积分开始-->
+			<div id="myIntegral" class="white-conbg jifen-lb">
+				<!--我的积分列表开始-->
+				<h4>我的积分</h4>
+				<div class="jifen-num">
+					您的账户目前总积分：<b style="color:#ff4400">100</b>分
+					<a href="javascript:;">查看积分历史</a>
+				</div>
+				<div class="jifen-ls">
+					<div class="ls-tit">
+						<span>日期</span>
+						<span>调整积分</span>
+						<span>积分余额</span>
+						<span>积分来源</span>
+					</div>
+					<div class="ls-body">
+						<span>2015-7-14</span>
+						<span>33</span>
+						<span>100分</span>
+						<span>新增积分</span>
+					</div>
+					<div class="ls-body">
+						<span>2015-7-14</span>
+						<span>33</span>
+						<span>100分</span>
+						<span>新增积分</span>
+					</div>
+					<div class="ls-body">
+						<span>2015-7-14</span>
+						<span>33</span>
+						<span>100分</span>
+						<span>新增积分</span>
+					</div>
+				</div>
+				<!--我的积分列表结束-->
+			</div>
+			<!--我的积分结束-->
+			
 			<!--我的订单开始-->
-			<div class="white-conbg">
+			<div id="myOrder" class="white-conbg">
 				<div class="order-cxtit">
 					<h4>我的订单</h4>
 					<div class="ssk">
@@ -328,7 +582,7 @@
 			</div>
 			<!--我的订单结束-->
 			<!--我的收藏开始-->
-			<div class="white-conbg" style="position:relative">
+			<div id="myOrderInfo" class="white-conbg" style="position:relative">
 				<div class="order-cxtit">
 					<h4>我的订单</h4>
 				</div>
@@ -380,7 +634,7 @@
 			</div>
 			<!--我的收藏结束-->
 			<!--新上产品开始-->
-			<div class="white-conbg" style="position:relative">
+			<div id="newProduct" class="white-conbg" style="position:relative">
 				<div class="order-cxtit">
 					<h4>新上产品</h4>
 				</div>

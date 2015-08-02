@@ -10,11 +10,14 @@
 			<result name="deleteMember" type="redirectAction">front/memberAction!memberSearch.action</result>
 		    <result name="toMemberCenterPage">/WEB-INF/jsp/member/memberCenter.jsp</result>
 			<result name="logout">/main.jsp</result>
+			<result name="main">/WEB-INF/jsp/main/main.jsp</result>
 		</action>
 		<action name="memberInfoAction" class="memberInfoAction">
 			<result name="success">/WEB-INF/back/success.jsp</result>
 			<result name="input">/WEB-INF/front/memberInfoAdd.jsp</result>
 			<result name="main">/main.jsp</result>
+			<result name="txxg">/WEB-INF/jsp/member/memberCenter.jsp</result>
+		
 			<interceptor-ref name="fileUpload">
                  <param name="maximumSize">1102400</param>
              </interceptor-ref>

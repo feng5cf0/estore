@@ -42,6 +42,13 @@ public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> 
 			map.put("memberPassword", memberPassword);
 			return memberDao.findMemberByPassName(map);
 		}
+		//密码修改
+		public void updatePassword(String memberPassword,Integer id){
+			Member member = new Member();
+			member.setMemberPassword(memberPassword);
+			member.setId(id);
+			memberDao.passmodify(member);
+		}
 	
 
 	@Override

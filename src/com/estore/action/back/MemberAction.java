@@ -44,10 +44,14 @@ public class MemberAction extends BaseActionSupport {
 	private int memberId;
 	private String memberAlias;//登录账号
 	private String memberPassword;//登录密码
+	Property pro=new Property();
 	public MemberAction() {
 		// TODO Auto-generated constructor stub
 	}
-	
+	//跳转到首页
+	public String toMain(){
+		return "main";
+	}
 	//跳转到登录页面
 	public String toMemberLoginPage(){
 		return "toLoginPage";
@@ -73,7 +77,7 @@ public class MemberAction extends BaseActionSupport {
 	}	
 	//会员登录
 	public String memberLogin() throws Exception{
-		Property pro=new Property();
+		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response =ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
@@ -98,6 +102,23 @@ public class MemberAction extends BaseActionSupport {
 		HttpSession session = request.getSession();
 		session.removeAttribute("member");
 		return "logout";
+	}
+	//修改密码
+	public String passModify() throws IOException{
+		HttpServletResponse response =ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		PrintWriter out = response.getWriter();
+		if("".equals(memberPassword) || "".equals(memberId)){
+			pro.put("error", "error");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}
+		memberService.updatePassword(memberPassword,memberId);
+		session.removeAttribute("member");
+		pro.put("success", "success");
+		out.print(JsonUtil.getJsonStrByMap(pro));
+		return null;
 	}
 	//查询所有会员信息
 	public String memberSearch(){

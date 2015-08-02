@@ -44,36 +44,35 @@ public class MemberInfoAction  extends BaseActionSupport{
     	System.out.println(memberInfo);
     	return "success";
     }
-    
+    //图片预览中间件
+    public String picScan(){
+    	String realPath = ServletActionContext.getServletContext().getRealPath("/memberPic");
+    	String lj = realPath+"\\"+picFileName;
+    	try{
+	    	if(pic != null){
+	    		File savefile = new File(new File(realPath),picFileName);
+	    		if(!savefile.getParentFile().exists()){
+	    			savefile.getParentFile().mkdirs();
+	    		}
+	    		FileUtils.copyFile(pic, savefile);
+	    		}
+    	}catch(IOException e){
+    		e.printStackTrace();
+    	}catch(ParseException e){
+    		e.printStackTrace();
+    	}
+    	return null;//头像修改
+    }
     //会员注册
     public String memberRegister(){
     	HttpServletRequest request = ServletActionContext.getRequest();
     	
     	String loginIp=getIpUtil.getIpAddr(request);
-//    	String realPath = ServletActionContext.getServletContext().getRealPath("/memberPic");
-//    	String lj = realPath+"\\"+picFileName;
-//    	try{
-//	    	if(pic != null){
-//	    		File savefile = new File(new File(realPath),picFileName);
-//	    		if(!savefile.getParentFile().exists()){
-//	    			savefile.getParentFile().mkdirs();
-//	    		}
-//	    		FileUtils.copyFile(pic, savefile);
-//	    		}
-//    	}catch(IOException e){
-//    		e.printStackTrace();
-//    	}catch(ParseException e){
-//    		e.printStackTrace();
-//    	}
     	memberInfoService.memberRegister(memberInfo);
     	member.setAvaliable(0);
     	member.setCreateTime(new Date());
     	member.setIntegral(0);
     	member.setIsEmailAvaliable(0);
-    	//member.setLastLoginIp("");
-    	//member.setLastLoginTime(null);
-    	//member.setLastModifyTime(null);
-    	//member.setLoginTime(null);
     	member.setMemberType("会员");
     	member.setLoginIp(loginIp);
     	member.setMemberInfoId(memberInfo.getId());

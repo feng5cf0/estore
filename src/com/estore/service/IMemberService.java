@@ -10,4 +10,5 @@ public interface IMemberService  extends IBaseService<Member, Integer>{
 		public List<Member> searchMemberAll();
 		public void deleteMember(int id);
 		public Member findMemberByPassName(String memberAlias,String memberPassword);
+		public void updatePassword(String memberPassword,Integer id);
 }

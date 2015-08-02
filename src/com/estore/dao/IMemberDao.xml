@@ -36,6 +36,10 @@
     	#{createTime},#{lastModifyTime},#{loginTime},#{loginIp},#{memo})
 		
 	</insert>
+	<!-- 修改密码 -->
+	<update id="passmodify" parameterType="member">
+		update t_member set member_password=#{memberPassword} where member_id=#{id}
+	</update>
 	<!-- 查询所有会员信息 -->
 	<select id="searchMemberAll" resultMap="memberMap">
 			select * from t_member
