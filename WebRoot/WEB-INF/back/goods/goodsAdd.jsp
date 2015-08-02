@@ -11,7 +11,7 @@
   				top: 0%;  left: 0%;  width: 100%;  height: 100%;  
   				background-color: white;  z-index:1001;  -moz-opacity: 0.8;  
   				opacity:.80;  filter: alpha(opacity=80);  
-  			}  
+  			}
   			.categoryDiv {
   				display: none;  position: absolute;  
   				top: 25%;  left: 25%;  width: 50%;  height: 50%;  

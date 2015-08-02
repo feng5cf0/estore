@@ -21,17 +21,15 @@
   				z-index:1002;  overflow: auto;  
   			}
 		</style> 
-		<script language="javascript">
-			function categorySelect(){
+		<script type="text/javascript">
+			function updateAccount(){
 				alert();
-				document.getElementById('categoryDiv').style.display='block';
+				document.getElementById('accountDiv').style.display='block';
 				document.getElementById('fade').style.display='block'
 			}
 			function fileValue(){
 			
 			}
-		}
-		<script type="text/javascript">
 function showItem() {
 	window.location.href("${basePath}back/goodsInAction!addPrepare.action");
 
@@ -199,7 +197,7 @@ function addItem(){
 									${item.backAccount}
 								</td>
 								<td>
-									<a onclick="categorySelect();">${item.frontAccount}</a>
+									<a onclick="javascript:updateAccount();">${item.frontAccount}</a>
 								</td>
 								<td>
 									
@@ -241,14 +239,12 @@ function addItem(){
 							onmouseout="this.className='button4Out'"
 							onclick="document.getElementById('categoryDiv').style.display='none';document.getElementById('fade').style.display='none'" />
 					</td>
-				</tr>
-				<tr>
 					<td>&nbsp;</td>
 					<td align="center">
 						<input type="button" value="关 闭" class="button4"
 							onmouseover="this.className='button4Over'"
 							onmouseout="this.className='button4Out'"
-							onclick="document.getElementById('categoryDiv').style.display='none';document.getElementById('fade').style.display='none'" />
+							onclick="document.getElementById('accountDiv').style.display='none';document.getElementById('fade').style.display='none'" />
 					</td>
 				</tr>
 			</table>

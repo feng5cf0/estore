@@ -1,4 +1,4 @@
-success.jsp<%@page language="java" contentType="text/html; charset=utf-8"%>
+<%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@include file="/tagDeclare.jsp"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -7,7 +7,6 @@ success.jsp<%@page language="java" contentType="text/html; charset=utf-8"%>
 <html>
 	<head>
 		<%@include file="/headDeclare.jsp"%>
-		
 	</head>
 	<body>
 		<div id="rightcontent">
