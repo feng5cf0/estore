@@ -152,8 +152,6 @@ function isRightUse(name, mark, url) {
 								bgcolor="#cecece">
 								<input type="hidden" name="pager.curPageNum"
 									value="${pager.curPageNum}" />
-								<input type="hidden" value="${category.parentCategory}"
-									name="category.parentCategory" />
 								<tr>
 									<td width="200" class="tableitem1">
 										类别名称：
@@ -211,7 +209,7 @@ function isRightUse(name, mark, url) {
 									cellspacing="1">
 									<tr>
 										<td align="center">
-											<ld:check mark="rightInsertCommit">
+											<ld:check mark="goodsManager">
 												<input type="submit" value="确 定" class="button4"
 													onMouseOver="this.className='button4Over'"
 													onMouseOut="this.className='button4Out'"
@@ -277,7 +275,7 @@ function isRightUse(name, mark, url) {
 			</tr>
 		</table>
 		</div>
-		<div id="fade" class="black_overlay"></div> 
+		<div id="fade" class="black_overlay"></div>
 	</body>
 </html>
 

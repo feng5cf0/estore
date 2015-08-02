@@ -135,14 +135,14 @@ function addItem(){
 				</div>
 					<div class="buttonbg">
 						<div class="divbutton2">
-							<ld:check mark="rightInsert">
+							<ld:check mark="saleManager">
 								<input type="button" value="新增" class="button2"
 									onMouseOver="this.className='button2Over'"
 									onMouseOut="this.className='button2Out'" onclick="addItem();" />
 							</ld:check>
 						</div>
 						<div class="divbutton2">
-						<ld:check mark="rightDelete"> 
+						<ld:check mark="saleManager"> 
 							<input type="submit" value="删除" class="button2"
 								onMouseOver="this.className='button2Over'"
 								onMouseOut="this.className='button2Out'"
@@ -179,7 +179,7 @@ function addItem(){
 								操作
 							</td>
 						</tr>
-						<c:forEach items="${batchList}" var="item" varStatus="status">
+						<c:forEach items="${goodsInList}" var="item" varStatus="status">
 							<tr onclick="showItem(${item.id});"
 								class="tableitem${6-status.index%2}"
 								onMouseOver="this.className='tableitem9';this.style.cursor='hand';"

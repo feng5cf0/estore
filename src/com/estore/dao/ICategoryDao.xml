@@ -62,6 +62,11 @@
 		</where>
 	</select>
 	
+	<select id="getAllCategory" resultMap="categoryMap">
+		select *
+		from t_goods_category
+	</select>
+	
 	<!-- 加载商品类别树 -->
 	<select id="getForTree" resultMap="categoryMap">
 		select * 

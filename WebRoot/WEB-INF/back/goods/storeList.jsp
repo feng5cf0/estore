@@ -6,6 +6,31 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>应用类型管理</title>
 		<%@include file="/headDeclare.jsp"%>
+		<style> 
+  			.black_overlay{  
+  				display: none;  
+  				position: absolute;  
+  				top: 0%;  left: 0%;  width: 100%;  height: 100%;  
+  				background-color: white;  z-index:1001;  -moz-opacity: 0.8;  
+  				opacity:.80;  filter: alpha(opacity=80);  
+  			}  
+  			.accountDiv {
+  				display: none;  position: absolute;  
+  				top: 25%;  left: 25%;  width: 50%;  height: 50%;  
+  				padding: 16px;  border: 16px solid orange;  background-color: white;  
+  				z-index:1002;  overflow: auto;  
+  			}
+		</style> 
+		<script language="javascript">
+			function categorySelect(){
+				alert();
+				document.getElementById('categoryDiv').style.display='block';
+				document.getElementById('fade').style.display='block'
+			}
+			function fileValue(){
+			
+			}
+		}
 		<script type="text/javascript">
 function showItem() {
 	window.location.href("${basePath}back/goodsInAction!addPrepare.action");
@@ -22,7 +47,7 @@ function addItem(){
 				<div class="roadItem">
 					<div class="roadIcon"></div>
 					<div class="roadItem2">
-						您当前位置：商品管理 &gt; 商品信息管理
+						您当前位置：进销存管理 &gt; 库房管理
 					</div>
 				</div>
 			</div>
@@ -122,7 +147,7 @@ function addItem(){
 									&nbsp;
 								</td>
 								<td class="tabm">
-									商品信息
+									库存信息
 								</td>
 								<td class="tabr">
 									&nbsp;
@@ -132,28 +157,10 @@ function addItem(){
 					</div>
 				</div>
 				<form name="deleteForm" action="${basePath}back/goodsAction!delete.action" method="post">
-					<div class="buttonbg">
-						<div class="divbutton2">
-							<ld:check mark="rightInsert">
-								<input type="button" value="新增" class="button2"
-									onMouseOver="this.className='button2Over'"
-									onMouseOut="this.className='button2Out'" onclick="addItem();" />
-							</ld:check>
-						</div>
-						<div class="divbutton2">
-						<ld:check mark="rightDelete"> 
-							<input type="submit" value="删除" class="button2"
-								onMouseOver="this.className='button2Over'"
-								onMouseOut="this.className='button2Out'"
-								onclick="deleteItems();" />
-						</ld:check>
-						</div>
-					</div>
 				<div class="divtable">
 					<table width="100%" border="0" cellspacing="1" cellpadding="0"
 						bgcolor="#cecece">
 						<tr class="listtitle">
-							<td width="10%"></td>
 							<td width="10%">
 								序号
 							</td>
@@ -164,13 +171,10 @@ function addItem(){
 								所属类别
 							</td>
 							<td width="8%">
-								商品价格
-							</td>
-							<td width="8%">
-								展示数量
-							</td>
-							<td width="8%">
 								库存
+							</td>
+							<td width="8%">
+								前台展示库存
 							</td>
 							<td width="9%">
 								操作
@@ -183,9 +187,6 @@ function addItem(){
 								onMouseOut="this.className='tableitem${6-status.index%2}';this.style.cursor='hand';"
 								<ld:check mark="operateLogDetail">onclick="showItem(${item.id});"</ld:check>>
 								<td>
-									<input type="checkbox" name="deleteItems" value="${item.id}"/>
-								</td>
-								<td>
 									 ${status.count}
 								</td>
 								<td>
@@ -195,13 +196,10 @@ function addItem(){
 									${item.categoryId}
 								</td>
 								<td>
-									${item.goodsPrice}
-								</td>
-								<td>
-									${item.frontAccount}
-								</td>
-								<td>
 									${item.backAccount}
+								</td>
+								<td>
+									<a onclick="categorySelect();">${item.frontAccount}</a>
 								</td>
 								<td>
 									
@@ -214,7 +212,7 @@ function addItem(){
 				<div class="tablebottom">
 					<div class="tablebottomright">
 						<form
-							action="${basePath}back/goodsAction!loadAll.action"
+							action="${basePath}back/storeAction!loadAll.action"
 							id="pagerForm" method="post" name="pagerForm"
 							class="dmg-listli-item2">
 							
@@ -224,6 +222,39 @@ function addItem(){
 				</div>
 			</div>
 		</div>
+		<div id="accountDiv" class="accountDiv" >
+		  <form name="frontAccountForm" action="">
+			<table width="100%" id="table1" border="1" cellpadding="0"
+				cellspacing="1" bordercolor="98a8cc"
+				style="background-color: ffffff; border-collapse: collapse; display: inherit;"
+				frame="border">
+			<tr>
+				<span>前台展示数量:</span><input type="text" name="goods.frontAccount" id="goods.frontAccount" value="${goods.frontAccount}"/>
+			</tr>
+			</table>
+			<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+				<tr>
+					<td>&nbsp;</td>
+					<td align="center">
+						<input type="button" value="修 改" class="button4"
+							onmouseover="this.className='button4Over'"
+							onmouseout="this.className='button4Out'"
+							onclick="document.getElementById('categoryDiv').style.display='none';document.getElementById('fade').style.display='none'" />
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td align="center">
+						<input type="button" value="关 闭" class="button4"
+							onmouseover="this.className='button4Over'"
+							onmouseout="this.className='button4Out'"
+							onclick="document.getElementById('categoryDiv').style.display='none';document.getElementById('fade').style.display='none'" />
+					</td>
+				</tr>
+			</table>
+		  </form>
+		</div>
+		<div id="fade" class="black_overlay"></div>
 	</body>
 </html>
 

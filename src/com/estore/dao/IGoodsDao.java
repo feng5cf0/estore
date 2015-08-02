@@ -9,4 +9,6 @@ import com.landicorp.core.dao.base.IMyBatisDao;
 public interface IGoodsDao extends IMyBatisDao<Goods, Integer> {
 	public List<Goods> getAll(Map<String,Object> map);
 	public Integer getAllCount(Goods goods);
+	public List<Goods> getByCategory(Integer categoryId);
+	public List<Goods> getAllGoods();
 }

@@ -213,7 +213,7 @@ function isRightUse(name, mark, url) {
 											<input type="button" value="关 闭" class="button4"
 												onMouseOver="this.className='button4Over'"
 												onMouseOut="this.className='button4Out'"
-												onclick="window.close();" />
+												onclick="history.go(-1);" />
 										</td>
 									</tr>
 								</table>

@@ -10,11 +10,11 @@
 		<result property="goodsId" column="goods_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="inPrice" column="in_price" javaType="Float" jdbcType="DECIMAL"/>
 		<result property="supplier" column="supplier" javaType="String" jdbcType="VARCHAR"/>
-		<result property="in_operator" column="in_operator" javaType="Integer" jdbcType="INTEGER"/>
-		<result property="in_data" column="in_data" javaType="Date" jdbcType="TIMESTAMP"/>
-		<result property="store_operator" column="store_operator" javaType="Integer" jdbcType="INTEGER"/>
-		<result property="store_data" column="store_data" javaType="Date" jdbcType="TIMESTAMP"/>
-		<result property="in_number" column="in_number" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="inOperator" column="in_operator" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="inDate" column="in_data" javaType="Date" jdbcType="TIMESTAMP"/>
+		<result property="storeOperator" column="store_operator" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="storeDate" column="store_data" javaType="Date" jdbcType="TIMESTAMP"/>
+		<result property="inNumber" column="in_number" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="status" column="status" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	
@@ -23,7 +23,7 @@
     	goods_name,goods_id,in_price,supplier,in_operator,in_data,store_operator,store_data,in_number,status,memo
     </sql>
     <sql id="goodsInValues">
-    	#{goodsName},#{goodsId},#{inPrice},#{supplier},#{in_operator},#{in_data},#{store_operator},#{store_data},#{in_number},#{status},#{memo}
+    	#{goodsName},#{goodsId},#{inPrice},#{supplier},#{inOperator},#{inDate},#{storeOperator},#{storeDate},#{inNumber},#{status},#{memo}
     </sql>
     
 	<!-- 进货登记 -->
@@ -50,7 +50,7 @@
 				and parent_category = #{category.parentCategory}
 			</if>
 		</where>
-		order by category_id desc
+		order by batch_id desc
 		<include refid="Sql.pager" />
 	</select>
 	<!-- 加载所有货币数量 -->
@@ -66,5 +66,4 @@
 			</if>
 		</where>
 	</select>
-	
 </mapper>

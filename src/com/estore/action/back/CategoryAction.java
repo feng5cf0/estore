@@ -22,7 +22,7 @@ public class CategoryAction extends BaseActionSupport {
 		
 		this.categoryList = this.categoryService.getForTree();
 		
-		return "loadCategoryForTree";
+		return "loadCategoryForTree"; 
 	}
 	
 	public String loadCategoryByParentId(){

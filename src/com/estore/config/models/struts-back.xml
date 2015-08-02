@@ -30,11 +30,21 @@
 				<param name="actionName">goodsAction</param>
 				<param name="method">loadAll</param>
 			</result>
+			<result name="delete" type="redirectAction">
+				<param name="actionName">goodsAction</param>
+				<param name="method">loadAll</param>
+			</result>
 		</action>
 		<action name="goodsInAction" class="goodsInAction">
-			<result name="addBatch">/WEB-INF/back/goods/addBatchSuccess.jsp</result>
-			<result name="loadBatch">/WEB-INF/back/goods/goodsInList.jsp</result>
+			<result name="addBatch" type="redirectAction">
+				<param name="actionName">goodsInAction</param>
+				<param name="method">loadAll</param>
+			</result>
+			<result name="loadAll">/WEB-INF/back/goods/goodsInList.jsp</result>
 			<result name="addPrepare">/WEB-INF/back/goods/goodsIn.jsp</result>
+		</action>
+		<action name="storeAction" class="storeAction">
+			<result name="loadAll">/WEB-INF/back/goods/storeList.jsp</result>
 		</action>
 	</package>
 </struts>

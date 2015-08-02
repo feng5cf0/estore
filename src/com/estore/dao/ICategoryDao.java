@@ -10,7 +10,10 @@ public interface ICategoryDao extends IMyBatisDao<Category, Integer> {
 	
 	public List<Category> getForTree();
 	public List<Category> getAll(Map<String,Object> map);
+	public List<Category> getAllCategory();
 	public Integer getAllCount(Category category);
 	public List<Category> getByParentId(Map<String,Object> map);
 	public Integer getByParentIdCount(Integer parentId);
+	
+	
 }

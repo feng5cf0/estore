@@ -15,6 +15,7 @@ public class GoodsAction extends BaseActionSupport {
 	private IGoodsService goodsService;
 	private Goods goods;
 	private List<Goods> goodsList;
+	private Integer[] deleteItems;
 	
 	public String addPrepare(){
 		
@@ -37,10 +38,13 @@ public class GoodsAction extends BaseActionSupport {
 		return "loadAll";
 	}
 	
-	public String loadByCategory(){
-		return "loadByCategory";
+	public String delete(){
+		
+		this.goodsService.delete(this.deleteItems);
+		
+		return "delete";
 	}
-
+	
 	public ICategoryService getCategoryService() {
 		return categoryService;
 	}
@@ -70,5 +74,11 @@ public class GoodsAction extends BaseActionSupport {
 	}
 	public void setGoodsList(List<Goods> goodsList) {
 		this.goodsList = goodsList;
+	}
+	public Integer[] getDeleteItems() {
+		return deleteItems;
+	}
+	public void setDeleteItems(Integer[] deleteItems) {
+		this.deleteItems = deleteItems;
 	}
 }

@@ -20,16 +20,20 @@
 	</bean>
 	<bean id="goodsDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IGoodsDao"></property>
-	</bean>	
+	</bean>
+	<bean id="goodsInDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IGoodsInDao"></property>
+	</bean>
 	
 	<!-- service -->
 	<bean id="moneyService" class="com.estore.service.impl.MoneyServiceImpl"/>
 	<bean id="categoryService" class="com.estore.service.impl.CategoryServiceImpl"/>
 	<bean id="goodsService" class="com.estore.service.impl.GoodsServiceImpl"/>
-	
+	<bean id="goodsInService" class="com.estore.service.impl.GoodsInServiceImpl"/>
 	<!-- action -->
 	<bean id="moneyAction" class="com.estore.action.back.MoneyAction" scope="prototype"/>
 	<bean id="categoryAction" class="com.estore.action.back.CategoryAction" scope="prototype"/>
 	<bean id="goodsInAction" class="com.estore.action.back.GoodsInAction" scope="prototype"/>
 	<bean id="goodsAction" class="com.estore.action.back.GoodsAction" scope="prototype"/>
+	<bean id="storeAction" class="com.estore.action.back.StoreAction" scope="prototype"/>
 </beans>

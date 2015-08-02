@@ -14,22 +14,14 @@
 				<td>
 					<script type="text/javascript">
 						d = new dTree('d');
-						<c:forEach items="${rightList}" var="item">
-							<c:choose>
-								<c:when test="${item.isInherit==0||item.id==1}">
-									d.add(${item.id},${item.upRightId},'${item.rightName}',
-										'${basePath}core/rightSearch!searchRightByUpRightId.action?upRightId=${item.id}');
-								</c:when>
-								<c:otherwise>
-									d.add(${item.id},${item.upRightId},'${item.rightName}');
-								</c:otherwise>
-							</c:choose>
+						<c:forEach items="${categoryList}" var="item">
+							d.add(${item.id},${item.parentCategory},'${item.categoryName}','${basePath}back/categoryAction!loadCategoryByParentId.action?category.parentCategory=${item.id}');
 						</c:forEach>
 						d.config.useSelection = false;
-						d.config.target='rightList';
+						d.config.target='categoryList';
 						d.config.useIcons=false;
 						document.write(d);
-     				</script>
+     						</script>
 				</td>
 			</tr>
 		</table>

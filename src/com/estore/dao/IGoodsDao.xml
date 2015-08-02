@@ -60,6 +60,10 @@
 		</where>
 	</select>
 
+	<select id="getAllGoods" resultMap="goodsMap">
+		select *
+		from t_goods	
+	</select>
 	<!-- 修改商品 -->
 	<update id="update" parameterType="goods">
 		update t_goods m
@@ -81,4 +85,9 @@
 			#{idItem,javaType=Integer,jdbcType=INTEGER}
 		</foreach>
 	</delete>
+	
+	<select id="getByCategory" resultMap="goodsMap" parameterType="int">
+		select * from t_goods t		
+		where t.category_id = #{categoryId}
+	</select>
 </mapper>
