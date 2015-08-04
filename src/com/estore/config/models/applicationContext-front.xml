@@ -27,4 +27,20 @@
 	<bean id="memberInfoAction" class="com.estore.action.back.MemberInfoAction" scope="prototype"/>
 
 	<bean id="languageAction" class="com.estore.action.front.LanguageAction" scope="prototype"/>
+
+	<!-- 国际化 -->
+	<bean id="languageResource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="com.estore.i18n.resource.language" />
+	</bean>
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+	<util:list id="interceptors">
+		<ref bean="localeChangeInterceptor" />
+	</util:list>
+	<bean id="urlMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+    	<property name="interceptors" ref="interceptors" />
+    	<property name="order" value="1"></property>
+ 	</bean>
+ 	
+ 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+
 </beans>
