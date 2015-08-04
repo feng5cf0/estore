@@ -16,7 +16,13 @@ public class MemberInfoService extends AbstractBaseServiceImpl<MemberInfo, Integ
 	public void memberRegister(MemberInfo memberInfo){
 		memberInfoDao.memberRegister(memberInfo);
 	}
-	
+	@Override
+	public void changePhoto(String photoPath,Integer id){
+		MemberInfo memberInfo=new MemberInfo();
+		memberInfo.setId(id);
+		memberInfo.setPhotoPath(photoPath);
+		memberInfoDao.changePhoto(memberInfo);
+	}
 	@Override
 	public IMyBatisDao<MemberInfo, Integer> getMyBatisDao() {
 		// TODO Auto-generated method stub
@@ -28,5 +34,6 @@ public class MemberInfoService extends AbstractBaseServiceImpl<MemberInfo, Integ
 	public void setMemberInfoDao(IMemberInfoDao memberInfoDao) {
 		this.memberInfoDao = memberInfoDao;
 	}
+	
 	
 }

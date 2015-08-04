@@ -16,7 +16,7 @@
 			<result name="success">/WEB-INF/back/success.jsp</result>
 			<result name="input">/WEB-INF/front/memberInfoAdd.jsp</result>
 			<result name="main">/main.jsp</result>
-			<result name="txxg">/WEB-INF/jsp/member/memberCenter.jsp</result>
+			<result name="changPhoto">/main.jsp</result>
 		
 			<interceptor-ref name="fileUpload">
                  <param name="maximumSize">1102400</param>

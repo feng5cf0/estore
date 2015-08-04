@@ -17,12 +17,14 @@ import java.util.List;
 
 
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.estore.entities.Address;
 import com.estore.entities.Member;
 import com.estore.entities.MemberInfo;
 import com.estore.service.IMemberService;
@@ -46,7 +48,6 @@ public class MemberAction extends BaseActionSupport {
 	private String memberPassword;//登录密码
 	Property pro=new Property();
 	public MemberAction() {
-		// TODO Auto-generated constructor stub
 	}
 	//跳转到首页
 	public String toMain(){
@@ -82,11 +83,11 @@ public class MemberAction extends BaseActionSupport {
 		HttpServletResponse response =ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
-		Member member=memberService.findMemberByPassName(memberAlias, memberPassword);
-		if(memberAlias.equals(member.getMemberAlias()) 
-		&& memberPassword.equals(member.getMemberPassword()) 
-		&& member.getIsEmailAvaliable()==0){
-			session.setAttribute("member", member);
+		Member members=memberService.findMemberByPassName(memberAlias, memberPassword);
+		if(memberAlias.equals(members.getMemberAlias()) 
+		&& memberPassword.equals(members.getMemberPassword()) 
+		&& members.getIsEmailAvaliable()==0){
+			session.setAttribute("member", members);
 			pro.put("success", "success");
 			out.print(JsonUtil.getJsonStrByMap(pro));
 			return null;
@@ -181,9 +182,4 @@ public class MemberAction extends BaseActionSupport {
 	public void setMemberPassword(String memberPassword) {
 		this.memberPassword = memberPassword;
 	}
-	
-	
-	
-	
-	
 }

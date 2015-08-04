@@ -18,6 +18,8 @@ public class Member extends BaseEntity{
 	
 	private static final long serialVersionUID = 1L;
 	private Integer memberInfoId; //会员信息表的外键
+//	private Integer addressId; //会员信息表的外键
+	
 	private String memberAlias;	 //会员别名
 	private String memberRealname;	//真实姓名
 	private String memberType;    // 会员类型
@@ -32,7 +34,14 @@ public class Member extends BaseEntity{
 	private Date loginTime =new Date() ;//登录时间
 	private String loginIp;//登录ip
 	private MemberInfo memberInfo;
+//	private Address address;
 
+//	public Address getAddress() {
+//		return address;
+//	}
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 	public Integer getMemberInfoId() {
 		return memberInfoId;
 	}
@@ -123,4 +132,12 @@ public class Member extends BaseEntity{
 	public void setMemberInfo(MemberInfo memberInfo) {
 		this.memberInfo = memberInfo;
 	}
+//	public Integer getAddressId() {
+//		return addressId;
+//	}
+//	public void setAddressId(Integer addressId) {
+//		this.addressId = addressId;
+//	}
+//	
+	
 }

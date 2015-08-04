@@ -7,4 +7,5 @@ public interface IMemberInfoService extends IBaseService<MemberInfo, Integer>{
 
 		public MemberInfo getMemberInfoById(Integer id);
 		public void memberRegister(MemberInfo memberInfo);
+		public void changePhoto(String photoPath,Integer id);
 }

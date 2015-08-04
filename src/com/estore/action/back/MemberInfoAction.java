@@ -13,8 +13,10 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.aspectj.util.ConfigParser.ParseException;
 
+import com.estore.entities.Address;
 import com.estore.entities.Member;
 import com.estore.entities.MemberInfo;
+import com.estore.service.IAddressService;
 import com.estore.service.IMemberInfoService;
 import com.estore.service.IMemberService;
 import com.estore.util.DateUtil;
@@ -27,6 +29,7 @@ public class MemberInfoAction  extends BaseActionSupport{
 	 */
 	private static final long serialVersionUID = 1L;
 	private IMemberInfoService memberInfoService;
+	private IAddressService  addressService;
     private IMemberService memberService;
     private MemberInfo memberInfo;
     private Member member;
@@ -44,10 +47,12 @@ public class MemberInfoAction  extends BaseActionSupport{
     	System.out.println(memberInfo);
     	return "success";
     }
-    //图片预览中间件
+    
+    //头像修改
     public String picScan(){
     	String realPath = ServletActionContext.getServletContext().getRealPath("/memberPic");
     	String lj = realPath+"\\"+picFileName;
+    	String savePath="http://localhost:8080/estore/memberPic/"+picFileName;
     	try{
 	    	if(pic != null){
 	    		File savefile = new File(new File(realPath),picFileName);
@@ -56,17 +61,17 @@ public class MemberInfoAction  extends BaseActionSupport{
 	    		}
 	    		FileUtils.copyFile(pic, savefile);
 	    		}
+	    memberInfoService.changePhoto(savePath, id);
     	}catch(IOException e){
     		e.printStackTrace();
     	}catch(ParseException e){
     		e.printStackTrace();
     	}
-    	return null;//头像修改
+    	return "changPhoto";//头像修改
     }
     //会员注册
     public String memberRegister(){
     	HttpServletRequest request = ServletActionContext.getRequest();
-    	
     	String loginIp=getIpUtil.getIpAddr(request);
     	memberInfoService.memberRegister(memberInfo);
     	member.setAvaliable(0);
@@ -155,16 +160,11 @@ public class MemberInfoAction  extends BaseActionSupport{
 	public void setPic(File pic) {
 		this.pic = pic;
 	}
-
-
-	
-	
-
-    
-    
-	
-	
-    
-    
+	public IAddressService getAddressService() {
+		return addressService;
+	}
+	public void setAddressService(IAddressService addressService) {
+		this.addressService = addressService;
+	}
     
 }
