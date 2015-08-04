@@ -25,4 +25,6 @@
 	<!-- action -->
 	<bean id="memberAction" class="com.estore.action.back.MemberAction" scope="prototype"/>
 	<bean id="memberInfoAction" class="com.estore.action.back.MemberInfoAction" scope="prototype"/>
+
+	<bean id="languageAction" class="com.estore.action.front.LanguageAction" scope="prototype"/>
 </beans>
