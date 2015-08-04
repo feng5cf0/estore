@@ -16,6 +16,7 @@
 			<result name="success">/WEB-INF/back/success.jsp</result>
 			<result name="input">/WEB-INF/front/memberInfoAdd.jsp</result>
 			<result name="main">/main.jsp</result>
+			<result name="changPhoto">/main.jsp</result>
 			<result name="txxg">/WEB-INF/front/memberCenter.jsp</result>
 		
 			<interceptor-ref name="fileUpload">

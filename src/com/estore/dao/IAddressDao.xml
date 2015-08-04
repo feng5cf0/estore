@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IAddressDao">
+    <resultMap id="address" type="address">
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="address" column="address" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="postcode" column="postcode" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="linkmanName" column="linkman_name" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="linkmanPhone"  column="linkman_phone" javaType="String" jdbcType="VARCHAR" /> 
+    	<result property="isAvaliable" column="is_avaliable" javaType="Integer" jdbcType="INTEGER"></result>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="province" column="Province" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="city" column="city" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="area" column="area" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="addr" column="addr" javaType="String" jdbcType="VARCHAR"></result>
+    </resultMap>
+    <!-- 根据id 获取会员信息表 -->
+    <select id="getAddressById" resultMap="address" parameterType="Integer">
+    	select *from t_address where id=#{id}
+    </select>
+    
+	<insert id="addressRegister" parameterType="address" >
+    	 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+					SELECT LAST_INSERT_ID() AS ID
+		</selectKey> 
+    	insert into t_address(address,postcode,linkman_name,linkman_phone,is_avaliable,memo,province,city,area,addr) values(#{address},#{postcode},#{linkmanName},#{linkmanPhone},#{isAvaliable},#{memo},#{province},#{city},#{area},#{addr})
+    </insert>   
+</mapper>  

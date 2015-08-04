@@ -17,10 +17,14 @@
 	<bean id="memberInfoDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IMemberInfoDao"></property>
 	</bean>
+	<bean id="addressDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IAddressDao"></property>
+	</bean>
 	
 	<!-- service -->
 	<bean id="memberService" class="com.estore.service.impl.MemberServiceImpl"/>
 	<bean id="memberInfoService" class="com.estore.service.impl.MemberInfoService"/>
+	<bean id="addressService" class="com.estore.service.impl.AddressServiceIml"/>
 	
 	<!-- action -->
 	<bean id="memberAction" class="com.estore.action.back.MemberAction" scope="prototype"/>

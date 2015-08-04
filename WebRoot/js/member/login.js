@@ -17,10 +17,10 @@ $(function(){
 			dataType:"json",
 			url:"front/memberAction!memberLogin",
 			data:$('#memberLoginForm').serialize(),
-			async:false,
+			async:true,
 			success:function(data){
 				if(data.success=="success"){
-					window.open('main.jsp','_self');
+					document.location.href="front/memberAction!toMain";
 				}
 				if(data.error=="error"){
 					alert("用户名或者密码错误");

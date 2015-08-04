@@ -24,6 +24,7 @@
 		<!-- 会员表 -->
 		<typeAlias alias="member" type="com.estore.entities.Member"/>
 		<typeAlias alias="memberInfo" type="com.estore.entities.MemberInfo"/>
+		<typeAlias alias="address" type="com.estore.entities.Address"/>
 		<!-- 类别表 -->
 		<typeAlias alias="category" type="com.estore.entities.Category"/>
 		<!-- 进货表 -->
@@ -58,5 +59,6 @@
 		<mapper resource="com/estore/dao/ICategoryDao.xml"></mapper>
 		<mapper resource="com/estore/dao/IGoodsDao.xml"/>
 		<mapper resource="com/estore/dao/IGoodsInDao.xml"/>
+		<mapper resource="com/estore/dao/IAddressDao.xml"/>
 	</mappers>
 </configuration>	

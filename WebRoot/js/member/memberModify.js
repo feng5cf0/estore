@@ -5,6 +5,8 @@ $(function(){
 	$("#memberPhoto").hide();
 	$("#passwordModify").hide();
 	$("#myIntegral").hide();
+	$("#cpsc").hide();
+	$("#cpscInfo").hide();
 	//修改个人信息
 	$("#memberModifyBtn").click(function(){
 		$("#modify").show();//三个修改按钮
@@ -31,6 +33,7 @@ $(function(){
 		$("#myOrderInfo").hide();//我的订单列表
 		$("#newProduct").hide();//新产品
 		$("#memberModify").hide();//个人信息修改
+		$("#passwordModify").hide();//密码修改
 		return false;
 	});
 	
@@ -55,6 +58,8 @@ $(function(){
 		$("#newProduct").hide();//新产品
 		$("#memberModify").hide();//个人信息修改
 		$("#passwordModify").hide();//密码修改
+		$("#modify").hide();
+		
 		return false;
 	});
 	//产品收藏
@@ -122,22 +127,22 @@ $(function(){
 	});
 	//头像修改
 	
-	$("#pic").change(function(){
-			
-		$("#picForm").submit();
-		$.ajax({
-			type:"post",
-			dataType:"json",
-			url:"",
-			async:false,
-			success:function(data){
-				alert("图片预览");
-			},
-			error:function(request){
-				alert("系统异常，请联系管理员！");
-			}
-		});
-	});
+//	$("#pic").change(function(){
+//			
+//		$("#picForm").submit();
+//		$.ajax({
+//			type:"post",
+//			dataType:"json",
+//			url:"",
+//			async:false,
+//			success:function(data){
+//				alert("图片预览");
+//			},
+//			error:function(request){
+//				alert("系统异常，请联系管理员！");
+//			}
+//		});
+//	});
 	
 });
 

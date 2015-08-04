@@ -23,6 +23,9 @@ public class MemberInfo extends BaseEntity{
 	private int sex;//性别
 	private Date birthday;//出生日期
 	private String location;//出生地址
+	private String businessLicense;//营业执照
+	private String doorHeader;//门头照
+	
 	
 	
 	public String getMobilePhone() {
@@ -69,13 +72,18 @@ public class MemberInfo extends BaseEntity{
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	
-	
-	
-	
-	
-	
-	
+	public String getBusinessLicense() {
+		return businessLicense;
+	}
+	public void setBusinessLicense(String businessLicense) {
+		this.businessLicense = businessLicense;
+	}
+	public String getDoorHeader() {
+		return doorHeader;
+	}
+	public void setDoorHeader(String doorHeader) {
+		this.doorHeader = doorHeader;
+	}
 	
 	
 }

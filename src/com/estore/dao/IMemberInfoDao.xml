@@ -12,6 +12,8 @@
     	<result property="sex" column="sex" javaType="Integer" jdbcType="INTEGER"></result>
     	<result property="birthday" column="birthday" javaType="Date" jdbcType="TIMESTAMP"></result>
     	<result property="location" column="location" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="businessLicense" column="business_license" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="doorHeader" column="door_header" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	<!-- 关联到会员表 -->
 <!--     	<association property="member" column="member_id" javaType="com.estore.entities.Member" select="com.estore.dao.IMemberDao.getMemberById" />
@@ -26,7 +28,10 @@
     	 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
 					SELECT LAST_INSERT_ID() AS ID
 		</selectKey> 
-    	insert into t_member_info(mobile_phone,telephone,email,photo,sex,birthday,location,memo) values(#{mobilePhone},#{telephone},#{email},#{photoPath},#{sex},#{birthday},#{location},#{memo})
+    	insert into t_member_info(mobile_phone,telephone,email,photo,sex,birthday,location,memo,business_license,door_header) values(#{mobilePhone},#{telephone},#{email},#{photoPath},#{sex},#{birthday},#{location},#{memo},#{businessLicense},#{doorHeader})
     </insert>
+    <update id="changePhoto" parameterType="memberInfo">
+    	update t_member_info set photo=#{photoPath} where member_id=#{id}
+    </update>
    
 </mapper>  
