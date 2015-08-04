@@ -11,6 +11,8 @@
 		    <result name="toMemberCenterPage">/WEB-INF/front/memberCenter.jsp</result>
 			<result name="logout">/main.jsp</result>
 			<result name="main">/WEB-INF/front/main.jsp</result>
+			<result name="memberUpdate">/WEB-INF/front/main.jsp</result>
+			
 		</action>
 		<action name="memberInfoAction" class="memberInfoAction">
 			<result name="success">/WEB-INF/back/success.jsp</result>

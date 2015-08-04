@@ -41,7 +41,7 @@
 		</c:if>
 		<c:if test="${not empty sessionScope.member.memberAlias }">
 			<div class="top-left">
-				<a class="a1" href="#">${sessionScope.member.memberAlias }</a><a href="front/memberAction!toMemberRegisterPage">免费注册</a>
+				<a class="a1" href="front/memberAction!toMemberCenterPage">${sessionScope.member.memberAlias }</a><a href="front/memberAction!toMemberRegisterPage">免费注册</a>
 			</div>
 		</c:if>
 		<div class="top-right">
@@ -258,18 +258,409 @@
 					</div>
 				</div>
 				<div class="center-xmlb">
-					<p><a class="lba" href="#">我的优惠券（7）</a></p>
+					<p><a class="lba" href="#" id="pressWdyhq">我的优惠券（7）</a></p>
 					<p><a class="lba" href="#" id="integralSearch">积分查询</a></p>
-					<p><a class="lba" href="#">订单查询</a></p>
+					<p><a class="lba" href="#" id="findOrderAll">订单查询</a></p>
 					<p><a class="lba" href="#" id="cpscBtn">产品收藏</a></p>
 					<p><a class="lba" href="front/memberAction!logout">退出</a></p>
 				</div>	
 			</div>
 			<!--头像区域结束-->
+			<!-- 我的优惠券开始 -->
+			
+			<!-- 回收站开始 -->
+			<div class="eduit-tit" id="hszHeader">
+				<a href="#" id="pressWsy">未使用（3）</a>
+				<a href="#" id="pressYsy">已使用（5）</a>
+				<a href="#" id="pressygq">已过期（2）</a>
+				<a class="hov" href="#" id="pressHsz">回收站（1）</a>
+				<div class="line"></div>
+			</div>
+			<div id="hsz" class="white-conbg" style="padding-bottom:25px">
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：已过期
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：2015-7-14
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：已使用
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 回收站结束 -->
+			<!-- 未使用开始 -->
+			<!-- <div class="eduit-tit" id="wsyHeader">
+				<a class="hov" href="#">未使用（3）</a>
+				<a href="#">已使用（5）</a>
+				<a href="#">已过期（2）</a>
+				<a href="#">回收站（1）</a>
+				<div class="line"></div>
+			</div> -->
+			<div class="white-conbg" style="padding-bottom:25px" id="wsy">
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：2015-7-14
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：2015-7-14
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：2015-7-14
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 未使用结束-->
+			<!-- 已过期开始 -->
+			<div class="white-conbg" style="padding-bottom:25px" id="ygq">
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：已过期
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：已过期
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：已过期
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 已过期结束 -->
+			<!-- 已使用开始 -->
+			<div class="white-conbg" style="padding-bottom:25px" id="ysy">
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：已使用
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：已使用
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--优惠券列表-->
+				<div class="center-yhqlb">
+					<p class="quan-num">券编号：89756234</p>
+					<div>
+						<img class="quan-pic" src="images/youhuiquan.jpg" width="330"/>
+						<div class="quan-sm">
+							<p>1.优惠券使用说明1</p>
+							<p>2.优惠券使用说明2</p>
+							<div class="use-time">
+								有效时间：已使用
+								<input class="chaxun-btn" type="submit" value="删 除" style="width:75px;margin-left:20px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 已使用结束 -->
+			<!-- 我的优惠券结束 -->
+			<div class="now-tit" id="qbdd">
+			<span>当前所在位置：<a href="#">个人中心</a><span> > </span>全部订单</span>
+			<a class="btn" href="front/memberAction!toMemberCenterPage">返回个人中心</a>
+		   </div>
+		<div class="now-titlb center-con" id="wddd">
+			<!--我的订单开始-->
+			<div class="white-conbg">
+				<div class="order-cxtit" style="background:#f4f4f4">
+					<h4 style="color:#ff4400">全部订单</h4>
+					<div class="ssk">
+						<input class="inp" style="background:#fff" type="text" placeholder="您可以输入订单号查询"/>
+						<input class="chaxun-btn" type="submit" value="查询"/>
+					</div>
+				</div>
+				<!--我的订单列表开始-->
+				<div class="my-orderlb">
+					<span class="wid wid1">订单信息</span>
+					<span class="wid wid2">收件人</span>
+					<span class="wid wid2" style="margin-left:-1%;margin-right:1%">订单金额</span>
+					<span class="wid wid3">
+						<select>
+							<option>最近三个月</option>
+							<option>最近二个月</option>
+							<option>最近一个月</option>
+						</select>
+					</span>
+					<span class="wid wid3">
+						<select>
+							<option>全部状态</option>
+							<option>完成订单</option>
+							<option>已付款</option>
+						</select>
+					</span>
+					<span class="wid">操作</span>
+				</div>
+				<div class="my-orderlb my-orderlb2">
+					订单编号：<span style="color:#0160b2">98526545553</span>
+				</div>
+				<div class="shop-prolb-body my-orderlb3">
+					<div class="wid wid2">
+						<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
+						<div class="txt1"><a href="#">防盗门锁 防盗门锁防盗门锁盗门锁防盗门盗门锁防盗门</a></div>
+					</div>
+					<div class="wid wid3">小王</div>
+					<div class="wid wid3">￥99.00</div>
+					<div class="wid wid3" style="color:#999">2015-7-14 <br/>15:56:42</div>
+					<div class="wid wid3 monys">等待付款</div>
+					<div class="wid wid4" style="margin-left:2%">
+						<p><a href="#">付款</a></p>
+						<p><a href="#">查看</a></p>
+						<p><a href="#">取消订单</a></p>
+					</div>
+				</div>
+				<div class="shop-prolb-body my-orderlb3">
+					<div class="wid wid2">
+						<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
+						<div class="txt1"><a href="#">防盗门锁 防盗门锁防盗门锁盗门锁防盗门盗门锁防盗门</a></div>
+					</div>
+					<div class="wid wid3">小王</div>
+					<div class="wid wid3">
+						<p style="text-decoration:line-through;color:#999">￥105.00</p>
+						<p>￥69.00</p>
+						<p style="margin-top:5px"><span class="low-price">卖家降价</span></p>
+					</div>
+					<div class="wid wid3" style="color:#999">2015-7-14 <br/>15:56:42</div>
+					<div class="wid wid3" style="color:#999">已完成</div>
+					<div class="wid wid4" style="margin-left:2%">
+						<p><a href="#">付款</a></p>
+						<p><a href="#">查看</a></p>
+						<p><a href="#">取消订单</a></p>
+					</div>
+				</div>
+				<div class="my-orderlb my-orderlb2">
+					订单编号：<span style="color:#0160b2">98526545553</span>
+				</div>
+				<div class="shop-prolb-body my-orderlb3">
+					<div class="wid wid2">
+						<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
+						<div class="txt1"><a href="#">防盗门锁 防盗门锁防盗门锁盗门锁防盗门盗门锁防盗门</a></div>
+					</div>
+					<div class="wid wid3">小王</div>
+					<div class="wid wid3">￥99.00</div>
+					<div class="wid wid3" style="color:#999">2015-7-14 <br/>15:56:42</div>
+					<div class="wid wid3 monys">等待付款</div>
+					<div class="wid wid4" style="margin-left:2%">
+						<p><a href="#">付款</a></p>
+						<p><a href="#">查看</a></p>
+						<p><a href="#">取消订单</a></p>
+					</div>
+				</div>
+				<div class="shop-prolb-body my-orderlb3">
+					<div class="wid wid2">
+						<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
+						<div class="txt1"><a href="#">防盗门锁 防盗门锁防盗门锁盗门锁防盗门盗门锁防盗门</a></div>
+					</div>
+					<div class="wid wid3">小王</div>
+					<div class="wid wid3">
+						<p style="text-decoration:line-through;color:#999">￥105.00</p>
+						<p>￥69.00</p>
+						<p style="margin-top:5px"><span class="low-price">卖家降价</span></p>
+					</div>
+					<div class="wid wid3" style="color:#999">2015-7-14 <br/>15:56:42</div>
+					<div class="wid wid3" style="color:#999">已完成</div>
+					<div class="wid wid4" style="margin-left:2%">
+						<p><a href="#">付款</a></p>
+						<p><a href="#">查看</a></p>
+						<p><a href="#">取消订单</a></p>
+					</div>
+				</div>
+				<!--我的订单列表结束-->
+			</div>
+			<!--我的订单结束-->
+			<!--换页样式-->
+			<div class="total-huanye" style="margin-bottom:40px">
+				<a class="pre" href="#"></a>
+				<a class="num hov" href="#">1</a>
+				<a class="num" href="#">2</a>
+				<a class="num" href="#">3</a>
+				<a class="num" href="#">4</a>
+				<a class="num" href="#">5</a>
+				<span>...</span>
+				<a class="next" href="#"></a>
+				<span>共100页，到第<input type="text" class="inp" value="1"/>页</span>
+				<input class="sub" type="submit" value="确定"/>
+			</div>
+			<!--猜您喜欢开始-->
+			<div class="white-conbg" style="position:relative">
+				<div class="order-cxtit">
+					<h4>猜您喜欢</h4>
+				</div>
+				<div class="mysc-lb">
+					<a href="#" class="lbtn"></a><a href="#" class="rbtn"></a>
+					<div class="mysc-lbwk">
+						<!--循环开始-->
+						<div class="prolb-showlb prolb-showlb2">
+							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
+							<h5>玥玛锁业</h5>
+							<div class="txt1">
+								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+							</div>
+							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
+						</div>
+						<!--循环结束-->
+						<!--循环开始-->
+						<div class="prolb-showlb prolb-showlb2">
+							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
+							<h5>玥玛锁业</h5>
+							<div class="txt1">
+								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+							</div>
+							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
+						</div>
+						<!--循环结束-->
+						<!--循环开始-->
+						<div class="prolb-showlb prolb-showlb2">
+							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
+							<h5>玥玛锁业</h5>
+							<div class="txt1">
+								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+							</div>
+							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
+						</div>
+						<!--循环结束-->
+						<!--循环开始-->
+						<div class="prolb-showlb prolb-showlb2">
+							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
+							<h5>玥玛锁业</h5>
+							<div class="txt1">
+								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+							</div>
+							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
+						</div>
+						<!--循环结束-->
+					</div>
+				</div>
+			</div>
+			<!--猜您喜欢结束-->
+		</div>
 			<!--当前所在位置开始-->
 		<div class="now-tit" id="cpsc">
 			<span>当前所在位置：<a href="#">个人中心</a><span> > </span>产品收藏</span>
-			<a class="btn" href="#">返回个人中心</a>
+			<a class="btn" href="front/memberAction!toMemberCenterPage">返回个人中心</a>
 		</div>
 		<div class="now-titlb" id="cpscInfo">
 			<h4>产品收藏</h4>
@@ -368,19 +759,22 @@
 			<!-- 头像修改结束 -->
 			<!-- 个人信息修改开始 -->
 			<div id="memberModify" class="white-conbg  write-adress" style="padding-top:30px">
+			<form action="front/memberAction!UpdateMember" method="post" enctype="multipart/form-data">
 				<div class="pay-lb">
                 	<span class="span1"><span class="xinghao">*</span>姓名：</span>
-					<input class="inp1" type="text" value="${sessionScope.member.memberRealname }"/>
+					<input name="member.memberRealname" id="memberRealname" class="inp1" type="text" value="${sessionScope.member.memberRealname }"/>
+                	<input name="member.id" value="${sessionScope.member.id }" type="hidden"/>
+                	<input name="memberInfo.id" value="${sessionScope.member.memberInfo.id }" type="hidden"/>
                 </div>
                 <div class="pay-lb">
                 	<span class="span1"><span class="xinghao">*</span>昵称：</span>
-					<input class="inp1" type="text" value="${sessionScope.member.memberAlias }"/>
+					<input name="member.memberAlias" id="memberAlias" class="inp1" type="text" value="${sessionScope.member.memberAlias }"/>
                 </div>
 				<div class="pay-lb">
                 	<span class="span1"><span class="xinghao">*</span>性别：</span>
-					<input type="radio" style="vertical-align:sub"/> 男
-					<input type="radio" style="vertical-align:sub" checked="checked"/> 女
-					<input type="radio" style="vertical-align:sub"/> 保密
+					<input name="memberInfo.sex" id="sex" type="radio" style="vertical-align:sub" value="0"/> 
+					<input name="memberInfo.sex" id="sex" type="radio" style="vertical-align:sub" checked="checked" value="1"/> 女
+					<input name="memberInfo.sex" id="sex" type="radio" style="vertical-align:sub" value="2"/> 
                 </div>
 				<div class="pay-lb">
                 	<span class="span1">生日：</span>
@@ -402,11 +796,11 @@
                 </div>
 				<div class="pay-lb">
                 	<span class="span1">身份证号：</span>
-					<input class="inp1" type="text" style="width:300px"/>
+					<input name="memberInfo.IdCard" id="IdCard" class="inp1" type="text" style="width:300px"/>
                 </div>
 				<div class="pay-lb">
                 	<span class="span1">邮箱：</span>
-					<span style="font:bold 13px ''">11****72@qq.com</span>
+					<span name="memberInfo.email" id="email" style="font:bold 13px ''">11****72@qq.com</span>
 					<a href="#" style="color:#005ea7">修改</a>
 					<span style="color:#999">已验证</span>
                 </div>
@@ -428,7 +822,7 @@
                         <option>二环以内</option>
                     </select>
 					<div style="margin:15px 0px 0px 106px">
-						<input class="inp1" type="text" style="width:311px"/>
+						<input name="memberInfo.location" id="location" class="inp1" type="text" style="width:311px"/>
 					</div>
                 </div>
 				<div class="pay-lb">
@@ -451,8 +845,9 @@
                 </div>
 				<div class="pay-lb">
 					<span class="span1">&nbsp;</span>
-					<input class="chaxun-btn" type="submit" value="保 存" style="width:75px"/>
+					<input id="save" class="chaxun-btn" type="submit" value="保 存" style="width:75px"/>
 				</div>
+			</form>
 			</div>
 			<!--修改信息结束-->
 			<!--密码修改开始 -->

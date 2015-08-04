@@ -5,6 +5,7 @@
 	
     <resultMap id="memberInfo" type="memberInfo">
     	<id property="id" column="member_id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="IdCard" column="idcard" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="mobilePhone" column="mobile_phone" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="telephone" column="telephone" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="email" column="email" javaType="String" jdbcType="VARCHAR"></result>
@@ -20,6 +21,9 @@
  -->    	
     </resultMap>
     <!-- 根据id 获取会员信息表 -->
+    <update id="memberInfoUpdate" parameterType="memberInfo">
+    	update t_member_info set sex=#{sex},birthday=#{birthday},idcard=#{IdCard},email=#{email},location=#{location} where member_id=#{id}
+    </update>
     <select id="getMemberInfoById" resultMap="memberInfo" parameterType="Integer">
     	
     	select *from t_member_info where member_id=#{id}
@@ -28,7 +32,7 @@
     	 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
 					SELECT LAST_INSERT_ID() AS ID
 		</selectKey> 
-    	insert into t_member_info(mobile_phone,telephone,email,photo,sex,birthday,location,memo,business_license,door_header) values(#{mobilePhone},#{telephone},#{email},#{photoPath},#{sex},#{birthday},#{location},#{memo},#{businessLicense},#{doorHeader})
+    	insert into t_member_info(idcard,mobile_phone,telephone,email,photo,sex,birthday,location,memo,business_license,door_header) values(#{IdCard},#{mobilePhone},#{telephone},#{email},#{photoPath},#{sex},#{birthday},#{location},#{memo},#{businessLicense},#{doorHeader})
     </insert>
     <update id="changePhoto" parameterType="memberInfo">
     	update t_member_info set photo=#{photoPath} where member_id=#{id}
