@@ -7,7 +7,7 @@
 		<script type="text/javascript">
 				function confirm(){
 					window.parent.rightTree.location.reload();
-					window.location.href("${basePath}core/rightSearch!searchRightByUpRightId.action?upRightId=1");
+					window.location.href="${basePath}core/rightSearch!searchRightByUpRightId.action?upRightId=1";
 
 				}
 		</script>

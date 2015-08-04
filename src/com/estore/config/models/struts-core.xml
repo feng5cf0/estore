@@ -49,7 +49,6 @@
 			<result name="detail">/WEB-INF/core/userInfoDetal.jsp</result>
 			<result name="userActivity">/WEB-INF/dmp/promotionmanage/activitymanage/userSelect.jsp
 			</result>
-
 		</action>
 		<action name="userInsert" class="userInsertAction">
 			<result name="success">/WEB-INF/core/successWithInfo.jsp</result>

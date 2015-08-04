@@ -9,11 +9,11 @@
 		<%@include file="/headDeclare.jsp"%>
 		<script type="text/javascript">
 function showItem() {
-	window.location.href("${basePath}back/goodsInAction!addPrepare.action");
+	window.location.href="${basePath}back/goodsInAction!addPrepare.action";
 
 }
 function addItem(){
-	window.location.href("${basePath}back/goodsInAction!addPrepare.action");
+	window.location.href="${basePath}back/goodsInAction!addPrepare.action";
 }
 </script>
 	</head>

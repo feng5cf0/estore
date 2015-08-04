@@ -41,7 +41,7 @@ function cancleSubmit() {
 	document.getElementById("error").innerHTML = "";
 }
 </script>
-		<div>
+	<div>
 			<form action="${basePath}core/userLogin!login.action" id="form1" method="post">
 		<table width="1004" height="613" border="0" align="center" cellpadding="0" cellspacing="0" id="__01">
 	<tr>

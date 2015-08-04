@@ -27,7 +27,7 @@
   </filter>
   <filter-mapping>
     <filter-name>rightManage</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/back/*</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>illegalCharacterFilter</filter-name>

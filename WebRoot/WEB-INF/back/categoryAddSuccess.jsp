@@ -7,7 +7,7 @@
 		<script type="text/javascript">
 				function confirm(){
 					window.parent.categoryTree.location.reload();
-					window.location.href("${basePath}back/categoryAction!loadCategoryByParentId.action?category.parentCategory=${category.parentCategory}&pager.curPageNum=${pager.curPageNum}");
+					window.location.href="${basePath}back/categoryAction!loadCategoryByParentId.action?category.parentCategory=${category.parentCategory}&pager.curPageNum=${pager.curPageNum}";
 
 				}
 		</script>

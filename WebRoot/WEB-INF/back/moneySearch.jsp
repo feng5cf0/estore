@@ -32,7 +32,7 @@ function addItem() {
 				//window.pagerForm.submit();
 			//}
 			//、window.parent.rightTree.location.reload();
-		window.location.href("${basePath}back/moneyAction!addPrepare.action");
+		window.location.href="${basePath}back/moneyAction!addPrepare.action";
 	}
 		 
 		function editItem(id){
@@ -42,7 +42,7 @@ function addItem() {
 				//window.pagerForm.submit();
 			//}
 			//window.parent.rightTree.location.reload();
-			window.location.href("${basePath}back/moneyAction!updatePrepare.action?money.id=" +id);
+			window.location.href="${basePath}back/moneyAction!updatePrepare.action?money.id=" +id;
 		}
 		function deleteItems(){
 		if(isCheckboxSelected('deleteForm')){
@@ -51,7 +51,7 @@ function addItem() {
 		}
 		
 		function showItem(id){
-			window.location.href("${basePath}core/rightSearch!getRightDetail.action?right.id="+id+"&pager.curPageNum="+${pager.curPageNum});
+			window.location.href="${basePath}core/rightSearch!getRightDetail.action?right.id="+id+"&pager.curPageNum="+${pager.curPageNum};
 		}
 </script>
 	

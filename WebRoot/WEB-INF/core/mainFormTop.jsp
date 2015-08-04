@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@include file="/tagDeclare.jsp"%>
-<html >
+<html>
 <head>
 	<%@include file="/headDeclare.jsp"%>
 		<script type="text/javascript">
@@ -34,7 +34,7 @@
       second="0"+second;
      /*设置文本框的内容为当前时间*/
      document.getElementById('nowTime').innerHTML = "公告：现在是"+ year+"年"+month+"月"+day+"日   "+hour+":"+minute+":"+second; 
-  } 
+  }
   setInterval("disptime();",1000); 
 </script>
 <div class="noticeItem" id="nowTime">

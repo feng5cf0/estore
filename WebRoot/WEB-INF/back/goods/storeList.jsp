@@ -31,11 +31,11 @@
 			
 			}
 function showItem() {
-	window.location.href("${basePath}back/goodsInAction!addPrepare.action");
+	window.location.href="${basePath}back/goodsInAction!addPrepare.action";
 
 }
 function addItem(){
-	window.location.href("${basePath}back/goodsAction!addPrepare.action");
+	window.location.href="${basePath}back/goodsAction!addPrepare.action";
 }
 </script>
 	</head>

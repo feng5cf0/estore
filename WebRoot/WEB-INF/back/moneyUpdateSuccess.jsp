@@ -6,7 +6,7 @@
 		<%@include file="/headDeclare.jsp"%>
 		<script type="text/javascript">
 				function confirm(){
-					window.location.href("${basePath}back/moneyAction!loadMoney.action");
+					window.location.href="${basePath}back/moneyAction!loadMoney.action";
 
 				}
 		</script>

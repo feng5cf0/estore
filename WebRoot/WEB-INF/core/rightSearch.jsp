@@ -37,7 +37,7 @@ function addItem() {
 				//window.pagerForm.submit();
 			//}
 			//、window.parent.rightTree.location.reload();
-		window.location.href("${basePath}core/rightInsert!prepare.action?right.upRightId="+${upRightId});
+		window.location.href= "${basePath}core/rightInsert!prepare.action?right.upRightId="+${upRightId};
 	}
 		 
 		function editItem(id){
@@ -47,7 +47,7 @@ function addItem() {
 				//window.pagerForm.submit();
 			//}
 			//window.parent.rightTree.location.reload();
-			window.location.href("${basePath}core/rightUpdate!prepare.action?right.id=" +id);
+			window.location.href="${basePath}core/rightUpdate!prepare.action?right.id=" +id;
 		}
 		function deleteItems(){
 		if(isCheckboxSelected('deleteForm')){
@@ -56,7 +56,7 @@ function addItem() {
 		}
 		
 		function showItem(id){
-			window.location.href("${basePath}core/rightSearch!getRightDetail.action?right.id="+id+"&pager.curPageNum="+${pager.curPageNum});
+			window.location.href="${basePath}core/rightSearch!getRightDetail.action?right.id="+id+"&pager.curPageNum="+${pager.curPageNum};
 		}
 </script>
 	
