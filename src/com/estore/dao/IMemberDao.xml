@@ -33,7 +33,7 @@
 		<selectKey resultType="java.lang.Short" order="AFTER" keyProperty="member_id">
 					SELECT LAST_INSERT_ID() AS id
 		</selectKey>
-		insert into t_member values(#{id},#{memberInfoId},#{addressId},#{memberAlias},#{memberRealname},#{memberType},
+		insert into t_member values(#{id},#{memberInfoId},#{memberAlias},#{memberRealname},#{memberType},
     	#{memberPassword},#{integral},#{avaliable},#{isEmailAvaliable},#{lastLoginTime},#{lastLoginIp},
     	#{createTime},#{lastModifyTime},#{loginTime},#{loginIp},#{memo})
 		
