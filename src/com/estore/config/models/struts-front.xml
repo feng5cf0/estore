@@ -3,25 +3,32 @@
 <struts>
 	<package name="front" namespace="/front" extends="struts-default">
 		<action name="memberAction" class="memberAction">
-			<result name="toLoginPage" >/WEB-INF/jsp/member/memberLogin.jsp</result>
-			<result name="toRegisterPage">/WEB-INF/jsp/member/memberRegister.jsp</result>
+			<result name="toLoginPage" >/WEB-INF/front/memberLogin.jsp</result>
+			<result name="toRegisterPage">/WEB-INF/front/memberRegister.jsp</result>
 			<result name="success">/WEB-INF/back/success.jsp</result>
 			<result name="searchMemberAll">/WEB-INF/back/memberSearch.jsp</result>
 			<result name="deleteMember" type="redirectAction">front/memberAction!memberSearch.action</result>
-		    <result name="toMemberCenterPage">/WEB-INF/jsp/member/memberCenter.jsp</result>
+		    <result name="toMemberCenterPage">/WEB-INF/front/memberCenter.jsp</result>
 			<result name="logout">/main.jsp</result>
-			<result name="main">/WEB-INF/jsp/main/main.jsp</result>
+			<result name="main">/WEB-INF/front/main.jsp</result>
 		</action>
 		<action name="memberInfoAction" class="memberInfoAction">
 			<result name="success">/WEB-INF/back/success.jsp</result>
 			<result name="input">/WEB-INF/front/memberInfoAdd.jsp</result>
 			<result name="main">/main.jsp</result>
 			<result name="changPhoto">/main.jsp</result>
+			<result name="txxg">/WEB-INF/front/memberCenter.jsp</result>
 		
 			<interceptor-ref name="fileUpload">
                  <param name="maximumSize">1102400</param>
              </interceptor-ref>
              <interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="languageAction" class="languageAction">
+			<result name="changeLanguage" type="redirectAction">
+				<param name="actionName">memberAction</param>
+				<param name="method">main</param>
+			</result>
 		</action>
 	</package>
 </struts>
