@@ -15,7 +15,7 @@
 	<constant name="struts.ui.theme" value="simple" />
 	<!-- 允许上传文件的最大值　10*1024*1024 -->
 	<constant name="struts.multipart.maxSize" value="104857600" />
-
+	<constant name="struts.custom.i18n.resources" value="com.estore.i18n.resource.language"></constant>
 	<package name="myDefault" extends="struts-default">
 		<interceptors>
 			<interceptor name="exceptionDecorateInterceptor"

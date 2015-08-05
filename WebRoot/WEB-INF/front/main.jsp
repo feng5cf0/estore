@@ -3,6 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<%@include file="/headDeclare.jsp"%>
+<%@include file="/tagDeclare.jsp" %>
 <title>首页</title>
 <base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -25,7 +27,7 @@
 	<div class="top-con">
 		<c:if test="${empty sessionScope.member.memberAlias }">
 			<div class="top-left">
-				<a class="a1" href="front/memberAction!toMemberLoginPage">请登录</a><a href="front/memberAction!toMemberRegisterPage">免费注册</a>
+				<a class="a1" href="front/memberAction!toMemberLoginPage"><s:property value="getText('pleaselogin')"/></a><a href="front/memberAction!toMemberRegisterPage">免费注册</a>
 			</div>
 		</c:if>
 		<c:if test="${not empty sessionScope.member.memberAlias }">
@@ -72,7 +74,7 @@
 	<div class="logo-right">
 		<div class="yuyan-lb">
 			<a href="#"><img src="images/yuyan_1.png" width="79" height="20"/></a>
-			<a href="#"><img src="images/yuyan_2.png" width="79" height="20"/></a>
+			<a href="${basePath}front/languageAction!changeLanguage.action?request_locale=en_US"><img src="images/yuyan_2.png" width="79" height="20"/></a>
 			<a href="#"><img src="images/yuyan_3.png" width="79" height="20"/></a>
 			<a href="#"><img src="images/yuyan_4.png" width="79" height="20"/></a>
 			<a href="#"><img src="images/yuyan_5.png" width="79" height="20"/></a>

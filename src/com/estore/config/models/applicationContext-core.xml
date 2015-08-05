@@ -43,11 +43,6 @@
 			<ref bean="sqlSessionTemplate" />
 		</property>
 	</bean>
-	<bean id="patientDao" class="com.landicorp.core.dao.impl.PatientDaoImpl">
-		<property name="sqlSessionTemplate">
-			<ref bean="sqlSessionTemplate" />
-		</property>
-	</bean>	
 	<!-- 收银机程序升级dao -->
 	<bean id="checkstandVersionDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.landicorp.core.dao.ICheckstandVersionDao"></property>
@@ -63,7 +58,6 @@
 	</bean>
 	<!-- service -->
 	<bean id="userService" class="com.landicorp.core.service.impl.UserServiceImpl" />
-	<bean id="patientService" class="com.landicorp.core.service.impl.PatientServiceImpl" />
 	<bean id="roleService" class="com.landicorp.core.service.impl.RoleServiceImpl" />
 	<bean id="rightService" class="com.landicorp.core.service.impl.RightServiceImpl" />
 	<bean id="areaService" class="com.landicorp.core.service.impl.AreaServiceImpl" />
@@ -218,8 +212,5 @@
 
 	<bean id="serverSyncAction" class="com.landicorp.config.setting.ServerSyncAction"
 		scope="prototype" />
-		
-	<!-- 病人信息管理 -->
-	<bean id="patientInfoAction" class="com.landicorp.core.action.patient.PatientInfoAction" scope="prototype"></bean>
 	
 </beans>

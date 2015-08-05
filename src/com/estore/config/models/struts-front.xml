@@ -25,9 +25,9 @@
              <interceptor-ref name="defaultStack"/>
 		</action>
 		<action name="languageAction" class="languageAction">
-			<result name="changeLanguage" type="redirectAction">
+			<result name="changeLanguage" type="chain">
 				<param name="actionName">memberAction</param>
-				<param name="method">main</param>
+				<param name="method">toMain</param>
 			</result>
 		</action>
 	</package>
