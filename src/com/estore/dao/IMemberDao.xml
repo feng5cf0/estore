@@ -38,6 +38,10 @@
     	#{createTime},#{lastModifyTime},#{loginTime},#{loginIp},#{memo})
 		
 	</insert>
+	<!-- 个人信息修改 -->
+	<update id="memberUpdate" parameterType="member">
+		update t_member set member_alias=#{memberAlias},member_realname=#{memberRealname} where member_id=#{id}
+	</update>
 	<!-- 修改密码 -->
 	<update id="passmodify" parameterType="member">
 		update t_member set member_password=#{memberPassword} where member_id=#{id}
@@ -64,6 +68,4 @@
 	<select id="findMemberById" parameterType="Integer" resultMap="memberMap">
 		select *from t_member a,t_member_info b where a.member_info_id=b.member_id and a.member_id=#{id}
 	</select>
-
-	
 </mapper>  

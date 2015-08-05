@@ -7,6 +7,16 @@ $(function(){
 	$("#myIntegral").hide();
 	$("#cpsc").hide();
 	$("#cpscInfo").hide();
+	$("#qbdd").hide();
+	$("#wddd").hide();
+	$("#hszHeader").hide();
+	$("#hsz").hide();
+//	$("#wsyHeader").hide();
+	$("#wsy").hide();
+//	$("#ygqHeader").hide();
+	$("#ygq").hide();
+//	$("#ysyHeader").hide();
+	$("#ysy").hide();
 	//修改个人信息
 	$("#memberModifyBtn").click(function(){
 		$("#modify").show();//三个修改按钮
@@ -75,9 +85,116 @@ $(function(){
 		$("#myIntegral").hide();//我的积分
 		$("#grzx").hide();
 		$("#grxxcz").hide();
+		$("#modify").hide();
 		return false;
 	});
-	
+	//查询全部订单
+	$("#findOrderAll").click(function(){
+		$("#qbdd").show();
+		$("#wddd").show();
+		$("#cpsc").hide();
+		$("#cpscInfo").hide();
+		$("#memberPhoto").hide();//头像修改
+		$("#myOrder").hide();//我的订单
+		$("#myOrderInfo").hide();//我的订单列表
+		$("#newProduct").hide();//新产品
+		$("#memberModify").hide();//个人信息修改
+		$("#passwordModify").hide();//密码修改
+		$("#myIntegral").hide();//我的积分
+		$("#grzx").hide();
+		$("#grxxcz").hide();
+		$("#modify").hide();
+		return false;
+	});
+	//我的优惠券
+	//回收站
+	$("#pressHsz").click(function(){
+		$("#hsz").show();
+		$("#wsy").hide();
+		$("#ygq").hide();
+		$("#ysy").hide();
+		$("#qbdd").hide();
+		$("#wddd").hide();
+		$("#cpsc").hide();
+		$("#cpscInfo").hide();
+		$("#memberPhoto").hide();//头像修改
+		$("#myOrder").hide();//我的订单
+		$("#myOrderInfo").hide();//我的订单列表
+		$("#newProduct").hide();//新产品
+		$("#memberModify").hide();//个人信息修改
+		$("#passwordModify").hide();//密码修改
+		$("#myIntegral").hide();//我的积分
+		$("#modify").hide();
+		return false;
+	});
+	//已使用
+	$("#pressYsy").click(function(){
+		$("#hsz").hide();
+		$("#wsy").hide();
+		$("#ygq").hide();
+		$("#ysy").show();
+		$("#qbdd").hide();
+		$("#wddd").hide();
+		$("#cpsc").hide();
+		$("#cpscInfo").hide();
+		$("#memberPhoto").hide();//头像修改
+		$("#myOrder").hide();//我的订单
+		$("#myOrderInfo").hide();//我的订单列表
+		$("#newProduct").hide();//新产品
+		$("#memberModify").hide();//个人信息修改
+		$("#passwordModify").hide();//密码修改
+		$("#myIntegral").hide();//我的积分
+		$("#modify").hide();
+		return false;
+	});
+	//未使用
+	$("#pressWsy").click(function(){
+		$("#hsz").hide();
+		$("#wsy").show();
+		$("#ygq").hide();
+		$("#ysy").hide();
+		$("#qbdd").hide();
+		$("#wddd").hide();
+		$("#cpsc").hide();
+		$("#cpscInfo").hide();
+		$("#memberPhoto").hide();//头像修改
+		$("#myOrder").hide();//我的订单
+		$("#myOrderInfo").hide();//我的订单列表
+		$("#newProduct").hide();//新产品
+		$("#memberModify").hide();//个人信息修改
+		$("#passwordModify").hide();//密码修改
+		$("#myIntegral").hide();//我的积分
+		$("#modify").hide();
+		return false;
+	});
+	//已过期
+	$("#pressygq").click(function(){
+		$("#hsz").hide();
+		$("#wsy").hide();
+		$("#ygq").show();
+		$("#ysy").hide();
+		$("#qbdd").hide();
+		$("#wddd").hide();
+		$("#cpsc").hide();
+		$("#cpscInfo").hide();
+		$("#memberPhoto").hide();//头像修改
+		$("#myOrder").hide();//我的订单
+		$("#myOrderInfo").hide();//我的订单列表
+		$("#newProduct").hide();//新产品
+		$("#memberModify").hide();//个人信息修改
+		$("#passwordModify").hide();//密码修改
+		$("#myIntegral").hide();//我的积分
+		$("#modify").hide();
+		return false;
+	});
+	$("#pressWdyhq").click(function(){
+		$("#hszHeader").show();
+		$("#hsz").show();
+		$("#myOrder").hide();//我的订单
+		$("#myOrderInfo").hide();//我的订单列表
+		$("#newProduct").hide();//新产品
+		return false;
+	});
 	//密码修改
 	$("#passSaveBtn").click(function(){
 		var memberPassword=$("#memberPassword").val();
@@ -125,6 +242,8 @@ $(function(){
 			}
 		});
 	});
+	
+	//个人信息修改
 	//头像修改
 	
 //	$("#pic").change(function(){

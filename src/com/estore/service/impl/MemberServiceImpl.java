@@ -20,7 +20,13 @@ import com.landicorp.core.web.pager.Pager;
  */
 public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> implements
 		IMemberService {
-	private IMemberDao memberDao;
+		private IMemberDao memberDao;
+		//个人信息修改
+		@Override
+		public void updateMember(Member member) {
+			memberDao.memberUpdate(member);
+		}
+	
 	  //用户注册
 		@Override
 		public void SaveMember(Member member) {
@@ -136,5 +142,6 @@ public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> 
 	public void setMemberDao(IMemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
+	
 
 }

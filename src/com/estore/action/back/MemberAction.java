@@ -2,7 +2,11 @@ package com.estore.action.back;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
+
+
+
 
 
 
@@ -27,7 +31,9 @@ import org.apache.struts2.ServletActionContext;
 import com.estore.entities.Address;
 import com.estore.entities.Member;
 import com.estore.entities.MemberInfo;
+import com.estore.service.IMemberInfoService;
 import com.estore.service.IMemberService;
+import com.estore.service.impl.MemberInfoService;
 import com.estore.util.JsonUtil;
 import com.estore.util.Property;
 import com.landicorp.core.action.BaseActionSupport;
@@ -40,6 +46,7 @@ public class MemberAction extends BaseActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	private IMemberService memberService;
+	private IMemberInfoService memberInfoService;
 	private Member member;
 	private MemberInfo memberInfo;
 	private List<Member> memberList;
@@ -121,6 +128,14 @@ public class MemberAction extends BaseActionSupport {
 		out.print(JsonUtil.getJsonStrByMap(pro));
 		return null;
 	}
+	//个人信息修改
+	public String UpdateMember(){
+		memberService.updateMember(member);
+		memberInfo.setBirthday(new Date());
+		memberInfo.setEmail("12346@qq.com");
+		memberInfoService.memberInfoUpdate(memberInfo);
+		return "memberUpdate";
+	}
 	//查询所有会员信息
 	public String memberSearch(){
 	    memberList = this.memberService.searchMemberAll();
@@ -182,4 +197,11 @@ public class MemberAction extends BaseActionSupport {
 	public void setMemberPassword(String memberPassword) {
 		this.memberPassword = memberPassword;
 	}
+	public IMemberInfoService getMemberInfoService() {
+		return memberInfoService;
+	}
+	public void setMemberInfoService(IMemberInfoService memberInfoService) {
+		this.memberInfoService = memberInfoService;
+	}
+	
 }

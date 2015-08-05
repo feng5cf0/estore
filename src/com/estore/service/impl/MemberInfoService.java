@@ -9,6 +9,10 @@ import com.landicorp.core.service.base.AbstractBaseServiceImpl;
 public class MemberInfoService extends AbstractBaseServiceImpl<MemberInfo, Integer> implements IMemberInfoService{
 	private IMemberInfoDao 	memberInfoDao;
 	@Override
+	public void memberInfoUpdate(MemberInfo memberInfo){
+		memberInfoDao.memberInfoUpdate(memberInfo);
+	}
+	@Override
 	public MemberInfo getMemberInfoById(Integer id){
 		return memberInfoDao.getMemberInfoById(id);
 	}
