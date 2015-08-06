@@ -108,7 +108,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</dl>
 		<!--客服人员结束-->
 		<div style="clear:both"></div>
-	</div>
 </div>
+	</div>
+			<div class="copyright">
+			<div class="txt3">
+				<a href="#">首页</a> |
+				<a href="#">银行汇款</a> |
+				<a href="#">网站使用指南</a> |
+				<a href="#">荣誉证书</a> |
+				<a href="#">收货服务</a> |
+				<a href="#">联系我们</a> |
+			</div>
+			赞助商：上海赢科投资有限公司。 蒙ICP备06004630号
+		</div>
   </body>
 </html>
