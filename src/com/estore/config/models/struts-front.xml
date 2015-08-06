@@ -12,7 +12,6 @@
 			<result name="logout">/main.jsp</result>
 			<result name="main">/WEB-INF/front/main.jsp</result>
 			<result name="memberUpdate">/WEB-INF/front/main.jsp</result>
-			
 		</action>
 		<action name="memberInfoAction" class="memberInfoAction">
 			<result name="success">/WEB-INF/back/success.jsp</result>
@@ -31,6 +30,12 @@
 				<param name="actionName">memberAction</param>
 				<param name="method">toMain</param>
 			</result>
+		</action>
+		<action name="categoryFrontAction" class="categoryFrontAction">
+			<result name="loadCategory">/WEB-INF/front/frontCategory.jsp</result>
+		</action>
+		<action name="mainAction" class="mainAction">
+			<result name="toMain">/WEB-INF/front/main.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -5,39 +5,21 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.estore.entities.Address;
+import com.estore.entities.Category;
 import com.estore.entities.Member;
 import com.estore.entities.MemberInfo;
+import com.estore.service.ICategoryService;
 import com.estore.service.IMemberInfoService;
 import com.estore.service.IMemberService;
-import com.estore.service.impl.MemberInfoService;
 import com.estore.util.JsonUtil;
 import com.estore.util.Property;
 import com.landicorp.core.action.BaseActionSupport;
-import com.landicorp.core.util.StringUtil;
 import com.opensymphony.xwork2.ActionContext;
 
 public class MemberAction extends BaseActionSupport {
@@ -54,10 +36,12 @@ public class MemberAction extends BaseActionSupport {
 	private String memberAlias;//登录账号
 	private String memberPassword;//登录密码
 	Property pro=new Property();
+	
 	public MemberAction() {
 	}
 	//跳转到首页
 	public String toMain(){
+		
 		return "main";
 	}
 	//跳转到登录页面
@@ -202,6 +186,12 @@ public class MemberAction extends BaseActionSupport {
 	}
 	public void setMemberInfoService(IMemberInfoService memberInfoService) {
 		this.memberInfoService = memberInfoService;
+	}
+	public Property getPro() {
+		return pro;
+	}
+	public void setPro(Property pro) {
+		this.pro = pro;
 	}
 	
 }

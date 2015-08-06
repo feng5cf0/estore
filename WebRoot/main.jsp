@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
      <script type="text/javascript">
-     window.location.href = "front/memberAction!toMain";
+     window.location.href = "front/mainAction!toMain.action";
      </script>
   </head>
 

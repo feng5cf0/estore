@@ -56,6 +56,12 @@ public class CategoryServiceImpl extends AbstractBaseServiceImpl<Category, Integ
 		
 		return this.categoryDao.getAll(map);
 	}
+	
+	@Override
+	public List<Category> getForFront() {
+		
+		return this.categoryDao.getForFront();
+	}
 
 	public ICategoryDao getCategoryDao() {
 		return categoryDao;
@@ -63,6 +69,7 @@ public class CategoryServiceImpl extends AbstractBaseServiceImpl<Category, Integ
 	public void setCategoryDao(ICategoryDao categoryDao) {
 		this.categoryDao = categoryDao;
 	}
+
 
 
 

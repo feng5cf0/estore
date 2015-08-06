@@ -25,7 +25,8 @@ public class GoodsAction extends BaseActionSupport {
 	}
 	
 	public String addGoods(){
-		
+		//设置语言格式1中文
+		this.goods.setLocaleType(1);
 		this.goodsService.add(goods);
 		
 		return "addGoods";

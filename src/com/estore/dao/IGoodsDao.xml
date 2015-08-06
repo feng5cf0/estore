@@ -6,6 +6,7 @@
 	
     <resultMap id="goodsMap" type="goods" >
     	<id property="id" column="goods_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="localeType" column="locale_type" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="goodsName" column="goods_name" javaType="String" jdbcType="VARCHAR"/>
 		<result property="goodsDescription" column="goods_description" javaType="String" jdbcType="VARCHAR"/>
 		<result property="categoryId" column="category_id" javaType="Integer" jdbcType="INTEGER"/>
@@ -19,10 +20,10 @@
     	
     </resultMap>            
     <sql id="goodsColumns">
-    	goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo
+    	locale_type,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo
     </sql>
     <sql id="goodsValues">
-    	#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo}
+    	#{localeType},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo}
     </sql>
     
 	<!-- 新增类别 -->

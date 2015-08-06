@@ -10,4 +10,6 @@ public interface ICategoryService extends IBaseService<Category, Integer> {
 	public List<Category> getForTree();
 	public List<Category> getAll(Category category,Pager pager);
 	public List<Category> getByParentId(Integer parentId,Pager pager);
+	
+	public List<Category> getForFront();
 }

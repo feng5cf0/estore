@@ -32,4 +32,7 @@
 	<bean id="memberInfoAction" class="com.estore.action.back.MemberInfoAction" scope="prototype"/>
 
 	<bean id="languageAction" class="com.estore.action.front.LanguageAction" scope="prototype"/>
+
+	<bean id="categoryFrontAction" class="com.estore.action.front.CategoryFrontAction" scope="prototype"/>
+	<bean id="mainAction" class="com.estore.action.front.MainAction" scope="prototype"/>
 </beans>

@@ -12,7 +12,8 @@
 		<result property="isAvaliable" column="is_avaliable" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="picture" column="picture" javaType="String" jdbcType="VARCHAR"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
-    	
+    	<collection property="subCategory" column="category_id"
+    		select="com.estore.dao.ICategoryDao.getByPId"></collection>
     </resultMap>            
     <sql id="categoryColumns">
     	category_name,parent_category,is_leaf,is_avaliable,picture,memo
@@ -20,7 +21,11 @@
     <sql id="categoryValues">
     	#{categoryName},#{parentCategory},#{isLeaf},#{isAvaliable},#{picture},#{memo}
     </sql>
-    
+    <select id="getByPId" resultMap="categoryMap" parameterType="int">
+    	select *
+		from t_goods_category t
+		where t.parent_category = #{id}
+    </select>
 	<!-- 新增类别 -->
 	<insert id="save" parameterType="category">
 		insert into t_goods_category(<include refid="categoryColumns"/>)
@@ -104,5 +109,10 @@
 		select count(*)
 		from t_goods_category t
 		where t.parent_category = #{parentId}
+	</select>
+	<select id="getForFront" resultMap="categoryMap">
+		select *
+		from t_goods_category t
+		where t.parent_category = 1 ;
 	</select>
 </mapper>

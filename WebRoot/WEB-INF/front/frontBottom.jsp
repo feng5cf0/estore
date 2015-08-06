@@ -1,71 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ include file="/common.jsp"%>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="js/member/login.js"></script>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 
-<script type="text/javascript">
-	$(function(){
-		$(".pro-left1-li").each(function(i){
-			var top = $(this).offset().top;
-			$(".pro-left1-lilb:eq("+i+")").css({"top":192-top});
-		})//左栏划上效果
-		
-		//二维码划上效果
-		$(".ewm-txt").hover(function(){
-			$(".ewm-pic").show();
-		},function(){
-			$(".ewm-pic").hide();
-		})
-	})
-</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'frontBottom.jsp' starting page</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
 
-<title>个人中心</title>
-</head>
- <body>
-<!--顶部开始-->
-<div class="top2">
-	<div class="top-con">
-		<h1><a href="#"><img class="logo-img" src="images/logo.png" width="350" height="58"/></a></h1>
-	</div>
-</div>
-<!--顶部结束-->
-
-<!--内容区开始-->
-<div class="login-con2">
-	<img class="login-pic" src="images/login_pic.png" width="600" height="408"/>
-	<div class="login-right">
-		<h4><s:property value="getText('login.userlogin')"/></h4>
-		<!-- 会员登录表单 -->
-		<form action="front/memberAction!memberLogin" method="post" id="memberLoginForm">
-			<div class="register-lb login-lb">
-				<span class="span1"><s:property value="getText('index.username')"/>:</span>
-				<input name="memberAlias" id="memberAlias" class="inp1" type="text" placeholder="<s:property value="getText('login.usernametip')"/>"/>
-			</div>
-			<div class="register-lb login-lb">
-				<span class="span1"><s:property value="getText('login.password')"/>:</span>
-				<input name="memberPassword" id="memberPassword" class="inp1" type="password"/>
-			</div>
-			<div class="register-lb register-lb2 login-lb2">
-				<input class="cbox" type="checkbox"/><s:property value="getText('login.rememberpassword')"/><a class="a1" href="#"><s:property value="getText('login.forgetpassword')"/></a>
-			</div>
-			
-			<div class="register-lb login-lb2">
-				<input class="register-btn" type="button" id="loginbtn" value="<s:property value="getText('login.loginbutton')"/>"/>
-			</div>
-		</form>
-		
-		<div class="register-lb register-lb3 login-lb3">
-			<s:property value="getText('login.noaccount')"/><a href="front/memberAction!toMemberRegisterPage"><s:property value="getText('login.register')"/></a>
-		</div>
-	</div>
-	<div style="clear:both"></div>
-</div>
-
-<!--内容区结束-->
-
+  </head>
+  
+  <body>
 <!--底部开始-->
 <div class="map">
 	<div class="map-con">
@@ -153,18 +110,5 @@
 		<div style="clear:both"></div>
 	</div>
 </div>
-<div class="copyright">
-	<div class="txt3">
-		<a href="#">首页</a> |
-		<a href="#">银行汇款</a> |
-		<a href="#">网站使用指南</a> |
-		<a href="#">荣誉证书</a> |
-		<a href="#">收货服务</a> |
-		<a href="#">联系我们</a> |
-	</div>
-	赞助商：上海赢科投资有限公司。 蒙ICP备06004630号
-</div>
-<!--底部结束-->
-
-</body>
+  </body>
 </html>

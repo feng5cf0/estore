@@ -9,6 +9,7 @@ public class Goods extends BaseEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private Integer localeType;   //1--zh_CN;2---en_US;
 	private String goodsName;
 	private String goodsDescription;
 	private Integer categoryId;
@@ -73,5 +74,10 @@ public class Goods extends BaseEntity {
 	public void setFrontAccount(Integer frontAccount) {
 		this.frontAccount = frontAccount;
 	}
-
+	public Integer getLocaleType() {
+		return localeType;
+	}
+	public void setLocaleType(Integer localeType) {
+		this.localeType = localeType;
+	}
 }
