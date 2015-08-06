@@ -9,14 +9,33 @@ $(function(){
 	$("#cpscInfo").hide();
 	$("#qbdd").hide();
 	$("#wddd").hide();
+	
 	$("#hszHeader").hide();
 	$("#hsz").hide();
-//	$("#wsyHeader").hide();
 	$("#wsy").hide();
-//	$("#ygqHeader").hide();
 	$("#ygq").hide();
-//	$("#ysyHeader").hide();
 	$("#ysy").hide();
+	//个人信息修改
+	$("#grxxxg").click(function(){
+		$("#modify").show();//三个修改按钮
+		$("#memberModify").show();//个人信息修改
+		$("#memberPhoto").hide();//头像修改
+		$("#passwordModify").hide();//密码修改
+		$("#hszHeader").hide();//我的优惠券
+		$("#hsz").hide();
+		$("#wsy").hide();
+		$("#ygq").hide();
+		$("#ysy").hide();
+		$("#myIntegral").hide();//我的积分
+		$("#qbdd").hide();//全部订单
+		$("#cpsc").hide();
+		$("#cpscInfo").hide();//产品收藏
+		$("#myOrder").hide();//我的订单
+		$("#myOrderInfo").hide();//我的订单列表
+		$("#newProduct").hide();//新产品
+		$("#wddd").hide();
+		return false;
+	});
 	//修改个人信息
 	$("#memberModifyBtn").click(function(){
 		$("#modify").show();//三个修改按钮
@@ -24,18 +43,19 @@ $(function(){
 		$("#myOrder").hide();//我的订单
 		$("#myOrderInfo").hide();//我的订单列表
 		$("#newProduct").hide();//新产品
-		$("#passwordModify").hide();
+		$("#passwordModify").hide();//
+		$("#myIntegral").hide();//我的积分
+		$("#cpsc").hide();
+		$("#cpscInfo").hide();//产品收藏
+		$("#hszHeader").hide();//我的优惠券
+		$("#hsz").hide();
+		$("#wsy").hide();
+		$("#ygq").hide();
+		$("#ysy").hide();
+		$("#myIntegral").hide();//我的积分
 		return false;
 	});
-	$("#grxxxg").click(function(){
-		$("#modify").show();//三个修改按钮
-		$("#memberModify").show();//个人信息修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		$("#passwordModify").hide();
-		return false;
-	});
+	
 	//修改头像
 	$("#photoModify").click(function(){
 		$("#memberPhoto").show();
@@ -44,6 +64,14 @@ $(function(){
 		$("#newProduct").hide();//新产品
 		$("#memberModify").hide();//个人信息修改
 		$("#passwordModify").hide();//密码修改
+		$("#hszHeader").hide();//我的优惠券
+		$("#cpsc").hide();
+		$("#cpscInfo").hide();//产品收藏
+		$("#hsz").hide();
+		$("#wsy").hide();
+		$("#ygq").hide();
+		$("#ysy").hide();
+		$("#myIntegral").hide();//我的积分
 		return false;
 	});
 	
@@ -69,7 +97,11 @@ $(function(){
 		$("#memberModify").hide();//个人信息修改
 		$("#passwordModify").hide();//密码修改
 		$("#modify").hide();
-		
+		$("#hszHeader").hide();//我的优惠券
+		$("#hsz").hide();
+		$("#wsy").hide();
+		$("#ygq").hide();
+		$("#ysy").hide();
 		return false;
 	});
 	//产品收藏
@@ -104,6 +136,11 @@ $(function(){
 		$("#grzx").hide();
 		$("#grxxcz").hide();
 		$("#modify").hide();
+		$("#hszHeader").hide();//我的优惠券
+		$("#hsz").hide();
+		$("#wsy").hide();
+		$("#ygq").hide();
+		$("#ysy").hide();
 		return false;
 	});
 	//我的优惠券
@@ -190,6 +227,8 @@ $(function(){
 	$("#pressWdyhq").click(function(){
 		$("#hszHeader").show();
 		$("#hsz").show();
+		$("#modify").hide();//三个修改按钮
+		$("#memberModify").hide();//个人信息修改
 		$("#myOrder").hide();//我的订单
 		$("#myOrderInfo").hide();//我的订单列表
 		$("#newProduct").hide();//新产品
