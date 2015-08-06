@@ -39,7 +39,16 @@
 		</action>
 		<action name="pageJumpAction" class="pageJumpAction">
 			<result name="toNewProduct">/WEB-INF/front/newProduct.jsp</result>
-			<result name="toProductPromotion">/WEB-INF/front/productPromotion.jsp</result>
+			<result name="toproductpromotion">/WEB-INF/front/productPromotion.jsp</result>
+			<result name="toaboutus">/WEB-INF/front/aboutUs.jsp</result>
+			<result name="toaftersale">/WEB-INF/front/afterSale.jsp</result>
+			<result name="toonline">/WEB-INF/front/onlineMsg.jsp</result>
+			<result name="tocalllus">/WEB-INF/front/callUs.jsp</result>
+			<result name="toscanvideo">/WEB-INF/front/scanVideo.jsp</result>
+			<result name="todownloadcenter">/WEB-INF/front/downloadCenter.jsp</result>
+			<result name="toxsxl">/WEB-INF/front/productPromotionXSXL.jsp</result>
+			<result name="totg">/WEB-INF/front/productPromotionTG.jsp</result>
+			<result name="toyhq">/WEB-INF/front/productPromotionYHQ.jsp</result>
 		</action>
 	</package>
 </struts>

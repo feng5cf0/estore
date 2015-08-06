@@ -23,8 +23,50 @@ public class PageJumpAction {
 	//跳转到产品促销页面
 	public String toProductPromotion(){
 		
-		return "toProductPromotion";
+		return "toproductpromotion";
 	}
+	//跳转到关于我们页面
+	public String toAboutUs(){
+		
+		return "toaboutus";
+	}
+	//跳转到售后服务页面
+	public String toAfterSale(){
+		
+		return "toaftersale";
+	}
+	//跳转到在线留言页面
+		public String toOnLine(){
+			
+			return "toonline";
+	}
+		//跳转到联系我们页面
+		public String toCallUs(){
+			
+			return "tocalllus";
+	}
+		//跳转到售后服务-视频观看页面
+	public String toScanVideo(){
+		return "toscanvideo";
+	}
+	//跳转到售后服务-下载中心页面
+	public String toDownloadCenter(){
+		return "todownloadcenter";
+	}
+	//跳转到产品促销-限时限量页面
+	public String toXSXL(){
+		return "toxsxl";
+	}
+	//跳转到售后服务-团购页面
+	public String toTG(){
+		return "totg";
+	}
+	//跳转到售后服务-优惠券页面
+	public String toYHQ(){
+		return "toyhq";
+	}
+		
+		
 	public ICategoryService getCategoryService() {
 		return categoryService;
 	}

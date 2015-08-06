@@ -1,25 +1,32 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <%@include file="/headDeclare.jsp"%>
-<base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/default.css"/>
+<link rel="stylesheet" type="text/css" href="css/default.css">
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type=text/javascript src="js/kefu.js"></script>
+<script type="text/javascript" src="js/kefu.js"></script>
+<script src="js/lrtk.js"></script> 
 <script type="text/javascript">
 	$(function(){
 		$(".pro-left1-li").each(function(i){
 			var top = $(this).offset().top;
 			$(".pro-left1-lilb:eq("+i+")").css({"top":192-top});
+		})//左栏划上效果
+		
+		//二维码划上效果
+		$(".ewm-txt").hover(function(){
+			$(".ewm-pic").show();
+		},function(){
+			$(".ewm-pic").hide();
 		})
 	})
 </script>
+<title>在线留言</title>
 </head>
-  
-<body style="background:url(images/index_bg.jpg) repeat-x">
+
+<body>
 <!--顶部开始-->
 	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
 <!--顶部区结束-->
@@ -60,41 +67,66 @@
 		<!--网店链接结束-->
 	</div>
 	<!--左侧列表结束-->
-	
 	<!--右侧列表开始-->
-	<div class="prolb-right">
-		<!--banner区开始-->
-		<div class="prolb-right1">
-			<jsp:include page="/WEB-INF/front/frontBanner.jsp"></jsp:include>
+	<div class="prolb-right prolb-right2">
+		<!--当前所在位置开始-->
+		<div class="now-tit">
+			<span>当前所在位置：<a href="#">首页</a><span> > </span>在线留言</span>
 		</div>
-		<!--banner区结束-->
-		<!--热门推荐开始-->
-		<div class="prolb-show">
-			<jsp:include page="/WEB-INF/front/frontHot.jsp"></jsp:include>
+		<div class="now-titlb">
+			<h4>在线留言</h4>
+			<!--在线留言内容开始-->
+			<div class="about-us online-ly">
+				<div class="ly-lb">
+					<span class="name">公司名称：</span><input class="inp" type="text"/>
+				</div>
+				<div class="ly-lb">
+					<span class="name">联 系 人：</span><input class="inp" type="text"/>
+				</div>
+				<div class="ly-lb">
+					<span class="name">联系电话：</span><input class="inp" type="text"/>
+				</div>
+				<div class="ly-lb">
+					<span class="name">电子邮件：</span><input class="inp" type="text"/>
+				</div>
+				<div class="ly-lb">
+					<span class="name">公司地址：</span><input class="inp" type="text"/>
+				</div>
+				<div class="ly-lb">
+					<span class="name">邮  编：</span><input class="inp" type="text"/>
+				</div>
+				<div class="ly-lb">
+					<span class="name">传  真：</span><input class="inp" type="text"/>
+				</div>
+				<div class="ly-lb">
+					<span class="name">内容说明：</span><textarea class="inp inp3"></textarea>
+				</div>
+				<div class="ly-lb">
+					<span class="name">验 证 码：</span>
+					<input class="inp inp2" type="text"/>
+					<img class="yzm" src="images/yzm.png" width="44" height="18"/>
+				</div>
+				<div class="btn">
+					<input class="login-btn" type="submit" value="提交"/>
+					<input class="login-btn" style="background:#0160b2" type="submit" value="重设"/>
+				</div>
+			</div>
+			<!--在线留言内容结束-->
 		</div>
-		<!--热门推荐结束-->
-		<!--产品推荐开始-->
-		<div class="prolb-show">
-			<jsp:include page="/WEB-INF/front/frontRecommend.jsp"></jsp:include>
-		</div>
-		<!--产品推荐结束-->
-		
-		<!--最新产品开始-->
-		<div class="prolb-show">
-			<jsp:include page="/WEB-INF/front/frontNewGoods.jsp"></jsp:include>
-		</div>
-		<!--最新产品结束-->
-		
+		<!--当前所在位置结束-->
 	</div>
 	<!--右侧列表结束-->
 	<div style="clear:both"></div>
 </div>
 <!--内容区结束-->
+
 <jsp:include page="/WEB-INF/front/frontBottom.jsp"></jsp:include>
 <!--底部结束-->
 
 <!--客服代码开始-->
 <jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
 <!--客服代码结束-->
+
+
 </body>
 </html>

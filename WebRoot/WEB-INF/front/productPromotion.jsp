@@ -23,14 +23,13 @@
 		})
 	})
 </script>
-<title>最新产品</title>
+<title>产品促销</title>
 </head>
 
 <body>
 <!--顶部开始-->
 <jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
 <!--顶部结束-->
-
 <!--nav区开始-->
 <div class="nav">
 	<div class="nav-con">
@@ -72,7 +71,7 @@
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：</span><a href="#">首页</a><span> > </span>最新产品</a>
+			<span>当前所在位置：</span><a href="#">首页</a> <span>></span> <a href="#">产品促销</a>
 		</div>
 		<div class="now-titlb">
 			<h4>高级搜索<!--<span>搜到<b>128</b>件最新产品</span>--></h4>
@@ -152,12 +151,12 @@
 		</div>
 		<!--当前所在位置结束-->
 		<!--头部切换开始-->
-		<!--<div class="procx-tit">
-			<a class="hov" href="#">限时限量</a>
-			<a href="#">优惠券</a>
-			<a href="#">团购</a>
-			<a href="#">满立减</a>
-		</div>-->
+		<div class="procx-tit">
+			<a href="front/pageJumpAction!toXSXL">限时限量</a>
+			<a href="front/pageJumpAction!toYHQ">优惠券</a>
+			<a href="front/pageJumpAction!toTG">团购</a>
+			<a class="hov" href="front/pageJumpAction!toProductPromotion">满立减</a>
+		</div>
 		<div class="procx-px">
 			<span>排序：</span>
 			<a class="px-txt hov" href="#">默认</a>
@@ -174,74 +173,27 @@
 		</div>
 		<!--头部切换结束-->
 		<!--产品列表开始-->
-		<div class="new-prolb-wk">
-			<!--<div class="new-prolb">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<div class="txt1">
-					<p class="p1"><a href="#">高大上锁芯高大上锁芯高大上锁芯高大上锁芯</a></p>
-					<p class="p2">￥200.00</p>
+		<div class="mlj-prolb-wk">
+			<div class="mlj-prolb">
+				<img src="images/mlj_pic1.png" width="183" height="180"/>
+				<div class="pro-txt">
+					<h4>简约室内门锁简约室内门锁</h4>
+					<p class="p1">￥199.00</p>
+					<p class="p2">满200减30</p>
+					<p class="p3"><a href="#">查看详情</a></p>
+					<p class="p4">截止日期：2015-7-20</p>
 				</div>
-			</div>-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
 			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+			<div class="mlj-prolb">
+				<img src="images/mlj_pic1.png" width="183" height="180"/>
+				<div class="pro-txt">
+					<h4>简约室内门锁简约室内门锁</h4>
+					<p class="p1">￥199.00</p>
+					<p class="p2">满200减30</p>
+					<p class="p3"><a href="#">查看详情</a></p>
+					<p class="p4">截止日期：2015-7-20</p>
 				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
 			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
 			<div style="clear:both"></div>
 		</div>
 		<!--产品列表结束-->
@@ -277,7 +229,6 @@
 <!--客服代码开始-->
 <jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
 <!--客服代码结束-->
-
 
 </body>
 </html>

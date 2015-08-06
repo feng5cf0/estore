@@ -37,14 +37,14 @@
 <div class="nav">
 	<div class="nav-con">
 		<div class="fenlei-ys"><s:property value="getText('index.allcategory')"/></div>
-		<a href="#"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/mainAction!toMain.action"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/pageJumpAction!toNewProduct"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/pageJumpAction!toProductPromotion"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/pageJumpAction!toAboutUs"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/pageJumpAction!toAfterSale"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="#"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/pageJumpAction!toOnLine"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/pageJumpAction!toCallUs"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 	</div>
 </div>
 <!--nav区域结束-->
@@ -913,147 +913,11 @@
 </div>
 <!--内容区结束-->
 
-<!--底部开始-->
-<div class="map">
-	<div class="map-con">
-		<dl class="map-conlb">
-			<dt>购物指南</dt>
-			<dd><a href="#">购物流程</a></dd>
-			<dd><a href="#">帮助中心</a></dd>
-			<dd><a href="#">售后服务</a></dd>
-			<dd><a href="#">常见问题</a></dd>
-		</dl>
-		<dl class="map-conlb">
-			<dt>购物指南</dt>
-			<dd><a href="#">购物流程</a></dd>
-			<dd><a href="#">帮助中心</a></dd>
-			<dd><a href="#">售后服务</a></dd>
-			<dd><a href="#">常见问题</a></dd>
-		</dl>
-		<dl class="map-conlb">
-			<dt>购物指南</dt>
-			<dd><a href="#">购物流程</a></dd>
-			<dd><a href="#">帮助中心</a></dd>
-			<dd><a href="#">售后服务</a></dd>
-			<dd><a href="#">常见问题</a></dd>
-		</dl>
-		<dl class="map-conlb">
-			<dt>购物指南</dt>
-			<dd><a href="#">购物流程</a></dd>
-			<dd><a href="#">帮助中心</a></dd>
-			<dd><a href="#">售后服务</a></dd>
-			<dd><a href="#">常见问题</a></dd>
-		</dl>
-		<!--客服人员开始-->
-		<dl class="map-conlb serve-lb">
-			<dt>客服人员</dt>
-			<dd>
-				<a href="#"><img src="images/dt.gif" width="15" style="vertical-align:sub"/>小刘（技术服务）</a>
-				<div class="serve-xx">
-					<div class="xxlb"><span class="img"><img src="images/qq.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/mail.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/rentou.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/qiu.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/phone.png"/></span><span class="span1">928909766</span></div>
-					<div class="right-jt"></div>
-					<div class="right-jt2"></div>
-				</div>
-			</dd>
-			<dd>
-				<a href="#"><img src="images/dt.gif" width="15" style="vertical-align:sub"/>小刘（技术服务）</a>
-				<div class="serve-xx">
-					<div class="xxlb"><span class="img"><img src="images/qq.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/mail.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/rentou.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/qiu.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/phone.png"/></span><span class="span1">928909766</span></div>
-					<div class="right-jt"></div>
-					<div class="right-jt2"></div>
-				</div>
-			</dd>
-			<dd>
-				<a href="#"><img src="images/dt.gif" width="15" style="vertical-align:sub"/>小刘（技术服务）</a>
-				<div class="serve-xx">
-					<div class="xxlb"><span class="img"><img src="images/qq.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/mail.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/rentou.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/qiu.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/phone.png"/></span><span class="span1">928909766</span></div>
-					<div class="right-jt"></div>
-					<div class="right-jt2"></div>
-				</div>
-			</dd>
-			<dd>
-				<a href="#"><img src="images/dt.gif" width="15" style="vertical-align:sub"/>小刘（技术服务）</a>
-				<div class="serve-xx">
-					<div class="xxlb"><span class="img"><img src="images/qq.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/mail.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/rentou.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/qiu.png"/></span><span class="span1">928909766</span></div>
-					<div class="xxlb"><span class="img"><img src="images/phone.png"/></span><span class="span1">928909766</span></div>
-					<div class="right-jt"></div>
-					<div class="right-jt2"></div>
-				</div>
-			</dd>
-		</dl>
-		<!--客服人员结束-->
-		<div style="clear:both"></div>
-	</div>
-</div>
-<div class="copyright">
-	<div class="txt3">
-		<a href="#">首页</a> |
-		<a href="#">银行汇款</a> |
-		<a href="#">网站使用指南</a> |
-		<a href="#">荣誉证书</a> |
-		<a href="#">收货服务</a> |
-		<a href="#">联系我们</a> |
-	</div>
-	赞助商：上海赢科投资有限公司。 蒙ICP备06004630号
-</div>
+<jsp:include page="/WEB-INF/front/frontBottom.jsp"></jsp:include>
 <!--底部结束-->
 
-<!--返回顶部-->
-<a href="#0" class="cd-top">Top</a>
-<!--返回顶部-->
-
 <!--客服代码开始-->
-<DIV id=floatTools class=float0831>
-  <DIV class=floatL><A style="DISPLAY: none" id=aFloatTools_Show class=btnOpen 
-title=查看在线客服 
-onclick="javascript:$('#divFloatToolsView').animate({width: 'show', opacity: 'show'}, 'normal',function(){ $('#divFloatToolsView').show();kf_setCookie('RightFloatShown', 0, '', '/', 'www.istudy.com.cn'); });$('#aFloatTools_Show').attr('style','display:none');$('#aFloatTools_Hide').attr('style','display:block');" 
-href="javascript:void(0);">展开</A> <A id=aFloatTools_Hide class=btnCtn 
-title=关闭在线客服 
-onclick="javascript:$('#divFloatToolsView').animate({width: 'hide', opacity: 'hide'}, 'normal',function(){ $('#divFloatToolsView').hide();kf_setCookie('RightFloatShown', 1, '', '/', 'www.istudy.com.cn'); });$('#aFloatTools_Show').attr('style','display:block');$('#aFloatTools_Hide').attr('style','display:none');" 
-href="javascript:void(0);">收缩</A> </DIV>
-  <DIV id=divFloatToolsView class=floatR>
-    <DIV class=tp></DIV>
-    <DIV class=cn>
-      <UL>
-        <LI>
-          <H3 class=titZx>QQ咨询</H3>
-        </LI>
-        <LI><SPAN class=icoZx>在线咨询</SPAN> </LI>
-        <LI><A class=icoTc href="#">A老师</A> </LI>
-        <LI><A class=icoTc href="javascript:void(0);">B老师</A> </LI>
-        <LI><A class=icoTc href="#">C老师</A> </LI>
-        <LI class=bot><A class=icoTc href="javascript:void(0);">D老师</A> </LI>
-      </UL>
-      <UL class=webZx>
-        <LI class=webZx-in><A href="http://www.lanrentuku.com/" target="_blank" style="FLOAT: left"><IMG src="images/right_float_web.png" border="0px"></A> </LI>
-      </UL>
-      <UL>
-        <LI>
-          <H3 class=titDh>电话咨询</H3>
-        </LI>
-        <LI><SPAN class=icoTl>400-000-0000</SPAN> </LI>
-        <LI class=bot>
-          <H3 class=titDc><A href="http://www.lanrentuku.com/" target="_blank">新版调查</A></H3>
-        </LI>
-      </UL>
-    </DIV>
-  </DIV>
-</DIV>
+<jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
 <!--客服代码结束-->
 
 </body>
