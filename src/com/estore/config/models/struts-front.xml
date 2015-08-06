@@ -37,6 +37,10 @@
 		<action name="mainAction" class="mainAction">
 			<result name="toMain">/WEB-INF/front/main.jsp</result>
 		</action>
+		<action name="pageJumpAction" class="pageJumpAction">
+			<result name="toNewProduct">/WEB-INF/front/newProduct.jsp</result>
+			<result name="toProductPromotion">/WEB-INF/front/productPromotion.jsp</result>
+		</action>
 	</package>
 </struts>
 

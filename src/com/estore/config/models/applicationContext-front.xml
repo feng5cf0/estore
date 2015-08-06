@@ -35,4 +35,6 @@
 
 	<bean id="categoryFrontAction" class="com.estore.action.front.CategoryFrontAction" scope="prototype"/>
 	<bean id="mainAction" class="com.estore.action.front.MainAction" scope="prototype"/>
+	<bean id="pageJumpAction" class="com.estore.action.front.PageJumpAction" scope="prototype"/>
+		
 </beans>

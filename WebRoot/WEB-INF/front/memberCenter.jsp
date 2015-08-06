@@ -29,89 +29,22 @@
 <title>个人中心</title>
 </head>
 
-<body>
-
+<body style="background:url(images/index_bg.jpg) repeat-x">
 <!--顶部开始-->
-<div class="top">
-	<div class="top-con">
-		<c:if test="${empty sessionScope.member.memberAlias }">
-			<div class="top-left">
-				<a class="a1" href="front/memberAction!toMemberLoginPage">请登录</a><a href="front/memberAction!toMemberRegisterPage">免费注册</a>
-			</div>
-		</c:if>
-		<c:if test="${not empty sessionScope.member.memberAlias }">
-			<div class="top-left">
-				<a class="a1" href="front/memberAction!toMemberCenterPage">${sessionScope.member.memberAlias }</a><a href="front/memberAction!toMemberRegisterPage">免费注册</a>
-			</div>
-		</c:if>
-		<div class="top-right">
-			<a class="top-right-dw" href="javascript:;">设为首页</a> |
-			<div class="top-right-dw top-right-gwc" href="javascript:;">
-				<img src="images/gowoche.png" width="15" height="14"/>
-				<span class="txt">购物车</span>
-				<span class="num">2</span>
-				<img src="images/jt_xia.png" width="9" height="7"/>
-				<div class="gwc-xllb" style="displ ay:block">
-					<a href="#">我的积分</a>
-					<a href="#">我的余额</a>
-				</div>
-		    </div> |
-			<div class="top-right-dw top-right-scj" href="javascript:;">
-				<span class="txt">收藏夹</span>
-				<img src="images/jt_xia.png" width="9" height="7"/>
-				<div class="gwc-xllb" style="left:-7px;width:72px">
-					<a href="#">我的收藏</a>
-					<a href="#">我的收藏</a>
-				</div>
-		    </div> |
-			<div class="top-right-dw top-right-order" href="javascript:;">
-				<span class="txt">我的订单</span>
-				<img src="images/jt_xia.png" width="9" height="7"/>
-				<div class="gwc-xllb" style="left:-8px;width:75px">
-					<a href="#">查看订单</a>
-					<a href="#">去结算</a>
-					<a href="front/memberAction!toMemberCenterPage">个人中心</a>
-				</div>
-		  </div>
-		</div>
-	</div>
-</div>
-<!--顶部结束-->
-<!--logo区开始-->
-<div class="logo">
-	<h1><a href="#"><img class="logo-img" src="images/logo.png" width="350" height="58"/></a></h1>
-	<div class="logo-right">
-		<div class="yuyan-lb">
-			<a href="#"><img src="images/yuyan_1.png" width="79" height="20"/></a>
-			<a href="#"><img src="images/yuyan_2.png" width="79" height="20"/></a>
-			<a href="#"><img src="images/yuyan_3.png" width="79" height="20"/></a>
-			<a href="#"><img src="images/yuyan_4.png" width="79" height="20"/></a>
-			<a href="#"><img src="images/yuyan_5.png" width="79" height="20"/></a>
-			<select class="yy-sel">
-				<option>其他语言</option>
-				<option>其他语言</option>
-				<option>其他语言</option>
-			</select>
-		</div>
-		<div class="sosuo-ys">
-			<input class="inp" type="text" placeholder="搜索提示内容"/><input class="sub1" type="submit" value=" "/>
-			<input class="sub2" type="submit" value=" "/>
-		</div>
-	</div>
-</div>
-<!--logo区结束-->
-<!--nav区开始-->
+	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
+<!--顶部区结束-->
+<!-- nav区开始 -->
 <div class="nav">
 	<div class="nav-con">
-		<div class="fenlei-ys">全部分类</div>
-		<a href="#">首页</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">最新产品</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">产品促销</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">关于我们</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">售后服务</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">银行账号</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">在线留言</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">联系我们</a><img src="images/nav_line.png" width="2" height="33"/>
+		<div class="fenlei-ys"><s:property value="getText('index.allcategory')"/></div>
+		<a href="#"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 	</div>
 </div>
 <!--nav区域结束-->
@@ -120,120 +53,19 @@
 <div class="total-con">
 	<!--左侧列表开始-->
 	<div class="prolb-left">
-		<div class="prolb-left1">
-			<dl class="prolb-left1-dl">
-				<dt><img src="images/suo_biao.png" width="20"/>汽车钥匙</dt>
-				<dd class="pro-left1-li">
-					<a href="#">汽车编程仪</a>
-					<a href="#">汽车编程仪</a>
-					<div style="clear:both"></div>
-				</dd>
-				<dd class="pro-left1-li">
-					<a href="#">汽车编程仪</a>
-					<a href="#">汽车编程仪</a>
-					<div style="clear:both"></div>
-				</dd>
-				<dd class="pro-left1-li">
-					<a href="#">汽车编程仪</a>
-					<a href="#">汽车编程仪</a>
-					<div style="clear:both"></div>
-				</dd>
-			</dl>
-			<dl class="prolb-left1-dl">
-				<dt><img src="images/suo_biao.png" width="20"/>汽车钥匙</dt>
-				<dd class="pro-left1-li">
-					<a href="#">汽车编程仪</a>
-					<a href="#">汽车编程仪</a>
-					<div style="clear:both"></div>
-				</dd>
-				<dd class="pro-left1-li">
-					<a href="#">汽车编程仪</a>
-					<a href="#">汽车编程仪</a>
-					<div style="clear:both"></div>
-				</dd>
-				<dd class="pro-left1-li">
-					<a href="#">汽车编程仪</a>
-					<a href="#">汽车编程仪</a>
-					<div style="clear:both"></div>
-				</dd>
-			</dl>
-			<!--划上效果开始-->
-			<div class="pro-left1-lilb">
-				<div class="lb1">
-					<span class="tit">调表仪仪<b>|</b></span>
-					<span class="body">
-						<a class="lba" href="#">汽车编程</a>
-						<a class="lba" href="#">调表仪</a>
-						<a class="lba" href="#">汽车编程</a>
-						<a class="lba" href="#">调表仪</a>
-						<a class="lba" href="#">汽车编程</a>
-						<a class="lba" href="#">调表仪</a>
-						<a class="lba" href="#">汽车编程</a>
-						<a class="lba" href="#">调表仪</a>
-					</span>
-				</div>
-				<div class="lb1">
-					<span class="tit">调表仪<b>|</b></span>
-					<span class="body">
-						<a class="lba" href="#">汽车编程</a>
-						<a class="lba" href="#">调表仪</a>
-						<a class="lba" href="#">汽车编程</a>
-						<a class="lba" href="#">调表仪</a>
-						<a class="lba" href="#">汽车编程</a>
-						<a class="lba" href="#">调表仪</a>
-						<a class="lba" href="#">汽车编程</a>
-						<a class="lba" href="#">调表仪</a>
-					</span>
-				</div>
-			</div>
-			<!--划上效果结束-->
-		</div><!--列表1-->
+		<!-- 类别开始 -->
+		<div>
+			<jsp:include page="/WEB-INF/front/frontCategory.jsp"></jsp:include>
+		</div>
+		<!-- 类别结束 -->
 		<!--品牌产品开始-->
 		<div class="pp-pro">
-			<h3>品牌产品</h3>
-			<div class="pp-prolb">
-				<div class="cb-lbwk">
-					<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-					<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-					<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-					<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-					<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-					<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-					<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-					<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-					<div style="clear:both"></div>
-				</div>
-				<div class="pp-txtlb">
-					<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-					<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-					<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-					<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-					<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-					<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-				</div>
-			</div>
+			<jsp:include page="/WEB-INF/front/frontBrand.jsp"></jsp:include>
 		</div>
 		<!--品牌产品结束-->
 		<!--网店链接开始-->
 		<div class="pp-pro">
-			<h3>网店链接</h3>
-			<div class="wd-biao1">
-				<div class="img"><a href="#"><img src="images/wangdian_logo1.png" width="54" height="54"/></a></div>
-				<a href="#">淘宝网</a>
-			</div>
-			<div class="wd-biao1" style="float:right">
-				<div class="img"><a href="#"><img src="images/wangdian_logo1.png" width="54" height="54"/></a></div>
-				<a href="#">淘宝网</a>
-			</div>
-			<div style="clear:both"></div>
-			<div class="wd-biao3">
-				<div class="img"><a href="#"><img src="images/sumaitong.png" width="165" height="30"/></a></div>
-				<a href="#">速卖通</a>
-			</div>
-			<div class="wd-ewm">
-				<span class="ewm-txt">扫一扫，打开微店</span>
-				<div><img class="ewm-pic" src="images/erweima.png" width="160" height="161"/></div>			
-			</div>
+			<jsp:include page="/WEB-INF/front/frontShopLink.jsp"></jsp:include>
 		</div>
 		<!--网店链接结束-->
 	</div>
@@ -325,13 +157,6 @@
 			</div>
 			<!-- 回收站结束 -->
 			<!-- 未使用开始 -->
-			<!-- <div class="eduit-tit" id="wsyHeader">
-				<a class="hov" href="#">未使用（3）</a>
-				<a href="#">已使用（5）</a>
-				<a href="#">已过期（2）</a>
-				<a href="#">回收站（1）</a>
-				<div class="line"></div>
-			</div> -->
 			<div class="white-conbg" style="padding-bottom:25px" id="wsy">
 				<!--优惠券列表-->
 				<div class="center-yhqlb">

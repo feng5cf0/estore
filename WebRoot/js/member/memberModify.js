@@ -118,6 +118,11 @@ $(function(){
 		$("#grzx").hide();
 		$("#grxxcz").hide();
 		$("#modify").hide();
+		$("#hszHeader").hide();//我的优惠券
+		$("#hsz").hide();
+		$("#wsy").hide();
+		$("#ygq").hide();
+		$("#ysy").hide();
 		return false;
 	});
 	//查询全部订单
