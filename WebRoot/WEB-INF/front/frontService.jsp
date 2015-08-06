@@ -18,18 +18,20 @@
 	<link rel="stylesheet" type="text/css" href="css/default.css"/>
   </head>
   
-  <body>
+ <body>
 	<DIV id=floatTools class=float0831>
-  <DIV class=floatL><A style="DISPLAY: none" id=aFloatTools_Show class=btnOpen 
-title=查看在线客服 
-onclick="javascript:$('#divFloatToolsView').animate({width: 'show', opacity: 'show'}, 'normal',function(){ $('#divFloatToolsView').show();kf_setCookie('RightFloatShown', 0, '', '/', 'www.istudy.com.cn'); });$('#aFloatTools_Show').attr('style','display:none');$('#aFloatTools_Hide').attr('style','display:block');" 
-href="javascript:void(0);">展开</A> <A id=aFloatTools_Hide class=btnCtn 
-title=关闭在线客服 
-onclick="javascript:$('#divFloatToolsView').animate({width: 'hide', opacity: 'hide'}, 'normal',function(){ $('#divFloatToolsView').hide();kf_setCookie('RightFloatShown', 1, '', '/', 'www.istudy.com.cn'); });$('#aFloatTools_Show').attr('style','display:block');$('#aFloatTools_Hide').attr('style','display:none');" 
-href="javascript:void(0);">收缩</A> </DIV>
-	  <div id=divFloatToolsView class=floatR>
-	    <DIV class=tp></DIV>
-	    <DIV class=cn>
+  		<DIV class=floatL>
+  			<A style="DISPLAY: none" id=aFloatTools_Show class=btnOpen 
+  				title="查看在线客服" onclick="javascript:$('#divFloatToolsView').animate({width: 'show', opacity: 'show'}, 'normal',function(){ $('#divFloatToolsView').show();kf_setCookie('RightFloatShown', 0, '', '/', 'www.istudy.com.cn'); });$('#aFloatTools_Show').attr('style','display:none');$('#aFloatTools_Hide').attr('style','display:block');" 
+				href="javascript:void(0);">展开</A> <A id=aFloatTools_Hide class=btnCtn 
+				title=关闭在线客服  onclick="javascript:$('#divFloatToolsView').animate({width: 'hide', opacity: 'hide'}, 'normal',function(){ $('#divFloatToolsView').hide();kf_setCookie('RightFloatShown', 1, '', '/', 'www.istudy.com.cn'); });$('#aFloatTools_Show').attr('style','display:block');$('#aFloatTools_Hide').attr('style','display:none');" 
+				href="javascript:void(0);">
+				收缩
+			</A> 
+		</DIV>
+	  	<div id=divFloatToolsView class=floatR>
+	    	<DIV class=tp></DIV>
+	    		<DIV class=cn>
 	      <UL>
 	        <LI>
 	          <H3 class=titZx>QQ咨询</H3>

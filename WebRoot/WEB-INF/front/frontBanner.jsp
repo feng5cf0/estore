@@ -29,11 +29,11 @@
 		</div>
 	</div>
 	<div class="gonggao-con">
-		<h3>公告<a href="#">更多></a></h3>
+		<h3><<s:property value="getText('index.notice')"/><a href="#"><s:property value="getText('index.more')"/>&gt;</a></h3>
 		<div class="gg-lb">
-			<div class="lb-con"><span>【公告】</span><a href="#">限时限量折扣公告</a></div>
-			<div class="lb-con"><span>【公告】</span><a href="#">限时限量折扣公告</a></div>
-			<div class="lb-con"><span>【公告】</span><a href="#">限时限量折扣公告</a></div>
+			<div class="lb-con"><span>【<s:property value="getText('index.notice')"/>】</span><a href="#">限时限量折扣公告</a></div>
+			<div class="lb-con"><span>【<s:property value="getText('index.notice')"/>】</span><a href="#">限时限量折扣公告</a></div>
+			<div class="lb-con"><span>【<s:property value="getText('index.notice')"/>】</span><a href="#">限时限量折扣公告</a></div>
 		</div>
 		<div class="login-con">
 			<!--<div class="user-lb"><span>用户名：</span><input class="inp" type="text"/></div>
@@ -41,13 +41,13 @@
 			<div class="txlb">
 				<img class="tx" src="images/touxiang.png" width="53" height="53"/>
 				<div class="txt4">
-					<p>Hi,你好！</p>
-					<p><a href="front/memberAction!toMemberRegisterPage">注册为会员</a><span style="color:#777">去逛逛</span></p>
+					<p><s:property value="getText('index.hello')"/></p>
+					<p><a href="front/memberAction!toMemberRegisterPage"><s:property value="getText('index.registernotice')"/></a><span style="color:#777"><s:property value="getText('index.go')"/></span></p>
 				</div>
 			</div>
 			<div class="btn">
-				<input class="login-btn" type="submit" value="注册"/>
-				<input class="login-btn" style="background:#0160b2" type="submit" value="登录"/>
+				<input class="login-btn" type="submit" value="<s:property value="getText('index.registerbutton')"/>"/>
+				<input class="login-btn" style="background:#0160b2" type="submit" value="<s:property value="getText('index.loginbutton')"/>"/>
 			</div>
 			<!--<div class="forget-pw"><a href="#">忘记密码？</a></div>-->
 		</div>

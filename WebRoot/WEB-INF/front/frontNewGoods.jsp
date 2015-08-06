@@ -19,7 +19,7 @@
   </head>
   
 	<body>
-			<h3 class="prolb-show-tit">最新产品<a href="#"><span class="span1">更多</span><span class="span2">></span></a></h3>
+			<h3 class="prolb-show-tit"><s:property value="getText('index.newgoods')"/><a href="#"><span class="span1"><s:property value="getText('index.more')"/></span><span class="span2">&gt;</span></a></h3>
 			<div class="piclb3">
 				<div class="newpro-lb">
 					<div class="lb-left">

@@ -19,7 +19,7 @@
   </head>
   
 	<body>
-			<h3>热门推荐</h3>
+			<h3><s:property value="getText('index.hot')"/></h3>
 			<div class="piclb">
 				<a href="#"><img src="images/tuijian_pic1.png" width="192" height="226"/></a>
 				<a href="#"><img src="images/tuijian_pic1.png" width="192" height="226"/></a>

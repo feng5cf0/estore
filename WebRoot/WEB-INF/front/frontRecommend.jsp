@@ -19,7 +19,7 @@
   </head>
   
 	<body>
-			<h3 class="prolb-show-tit">产品推荐<a href="#"><span class="span1">更多</span><span class="span2">></span></a></h3>
+			<h3 class="prolb-show-tit"><<s:property value="getText('index.goodsRecommend')"/><a href="#"><span class="span1"><s:property value="getText('index.more')"/></span><span class="span2">&gt;</span></a></h3>
 			<div class="piclb2">
 				<!--循环开始-->
 				<div class="prolb-showlb">
