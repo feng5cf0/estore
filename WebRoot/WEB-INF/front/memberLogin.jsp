@@ -41,7 +41,7 @@
 		<!-- 会员登录表单 -->
 		<form action="front/memberAction!memberLogin" method="post" id="memberLoginForm">
 			<div class="register-lb login-lb">
-				<span class="span1"><s:property value="getText('index.username')"/>:</span>
+				<span class="span1"><s:property value="getText('login.username')"/>:</span>
 				<input name="memberAlias" id="memberAlias" class="inp1" type="text" placeholder="<s:property value="getText('login.usernametip')"/>"/>
 			</div>
 			<div class="register-lb login-lb">
