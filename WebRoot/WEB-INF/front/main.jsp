@@ -2,8 +2,9 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<%@include file="/headDeclare.jsp"%>
+  <%@include file="/headDeclare.jsp"%>
 <base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/default.css"/>
@@ -18,8 +19,9 @@
 	})
 </script>
 </head>
-  
+
 <body style="background:url(images/index_bg.jpg) repeat-x">
+
 <!--顶部开始-->
 	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
 <!--顶部区结束-->

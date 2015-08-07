@@ -78,8 +78,8 @@
 			<!--售后服务内容开始-->
 			<div class="about-us">
 				<div class="sh-serve-tit">
-					<a class="tit hov" href="front/pageJumpAction!toAfterSale">技术文章</a>
-					<a class="tit" href="front/pageJumpAction!toDownloadCenter">下载中心</a>
+					<a href="front/pageJumpAction!toAfterSale">技术文章</a>
+					<a class="tit hov" class="tit" href="front/pageJumpAction!toDownloadCenter">下载中心</a>
 					<a class="tit" href="front/pageJumpAction!toScanVideo">视频观看</a>
 					<div class="search">
 						<input class="inp" type="text" placeholder="请输入关键字..."/><input class="sub" type="submit" value="搜索"/>
