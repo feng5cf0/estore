@@ -40,7 +40,7 @@
 		<a href="front/pageJumpAction!toProductPromotion"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/pageJumpAction!toAboutUs"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/pageJumpAction!toAfterSale"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/pageJumpAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/pageJumpAction!toOnLine"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/pageJumpAction!toCallUs"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 	</div>
@@ -68,16 +68,16 @@
 		<!--网店链接结束-->
 	</div>
 	<!--左侧列表结束-->
-	<!--右侧列表开始-->
+		<!--右侧列表开始-->
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：</span><a href="#">首页</a><span> > </span>最新产品</a>
+			<span>当前所在位置：</span><a href="#">首页</a><span> > </span>商品列表</a><span> > </span>汽车、摩托车遥控拷贝器</a>
 		</div>
 		<div class="now-titlb">
-			<h4>高级搜索<!--<span>搜到<b>128</b>件最新产品</span>--></h4>
-			<div style="padding:0px 0px 20px 0px">
-				<div class="gaoji-sslb">
+			<h4>汽车、摩托车遥控拷贝器<span>搜到<b>128</b>件最新产品</span></h4>
+			<div style="padding:0px 0px 20px 0px" >
+				<!--<div class="gaoji-sslb">
 					<div class="gaoji-ss">
 						<span class="ss-tit">关键词：</span>
 						<input class="inp1" type="text" placeholder="请输入您要搜索的关键词..."/>
@@ -118,10 +118,11 @@
 					<input class="search-btn" type="submit" value="搜 索"/><a class="del-sstj" href="#">清空搜索条件</a>
 					<div style="clear:both"></div>
 				</div>
-				<div style="clear:both"></div>
-				<!--<div class="now-titlb-sy">
+				<div style="clear:both"></div>-->
+				<div class="now-titlb-sy">
 					<span class="sy-tit">品牌：</span>	
 					<span class="sy-lb">
+						<a href="#">不限</a>
 						<a href="#">永久</a>
 						<a class="hov" href="#">欧时力</a>
 						<a href="#">米阿科尔</a>
@@ -135,7 +136,8 @@
 				<div class="now-titlb-sy">
 					<span class="sy-tit">价格：</span>	
 					<span class="sy-lb">
-						<a class="hov" href="#">20-80元</a>
+						<a class="hov" href="#">不限</a>
+						<a href="#">20-80元</a>
 						<a href="#">20-80元</a>
 						<a href="#">20-80元</a>
 					</span>
@@ -143,11 +145,13 @@
 				<div class="now-titlb-sy">
 					<span class="sy-tit">类型：</span>	
 					<span class="sy-lb">
+						<a href="#">不限</a>
+						<a href="#">类型1</a>
 						<a href="#">类型1</a>
 						<a href="#">类型2</a>
 						<a class="hov" href="#">类型3</a>
 					</span>
-				</div>-->
+				</div>
 			</div>
 		</div>
 		<!--当前所在位置结束-->

@@ -49,6 +49,7 @@
 			<result name="toxsxl">/WEB-INF/front/productPromotionXSXL.jsp</result>
 			<result name="totg">/WEB-INF/front/productPromotionTG.jsp</result>
 			<result name="toyhq">/WEB-INF/front/productPromotionYHQ.jsp</result>
+			<result name="toBankAccount">/WEB-INF/front/bankAccount.jsp</result>
 		</action>
 	</package>
 </struts>

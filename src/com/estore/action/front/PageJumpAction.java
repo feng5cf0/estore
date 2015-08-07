@@ -65,6 +65,10 @@ public class PageJumpAction {
 	public String toYHQ(){
 		return "toyhq";
 	}
+	//跳转到银行账户页面
+	public String toBankAccount(){
+		return "toBankAccount";
+	}
 		
 		
 	public ICategoryService getCategoryService() {

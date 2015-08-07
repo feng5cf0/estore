@@ -1,27 +1,32 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
   <%@include file="/headDeclare.jsp"%>
-<base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/default.css"/>
+<link rel="stylesheet" type="text/css" href="css/default.css">
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type=text/javascript src="js/kefu.js"></script>
+<script type="text/javascript" src="js/kefu.js"></script>
+<script src="js/lrtk.js"></script> 
 <script type="text/javascript">
 	$(function(){
 		$(".pro-left1-li").each(function(i){
 			var top = $(this).offset().top;
 			$(".pro-left1-lilb:eq("+i+")").css({"top":192-top});
+		})//左栏划上效果
+		
+		//二维码划上效果
+		$(".ewm-txt").hover(function(){
+			$(".ewm-pic").show();
+		},function(){
+			$(".ewm-pic").hide();
 		})
 	})
 </script>
+<title>银行账户</title>
 </head>
 
-<body style="background:url(images/index_bg.jpg) repeat-x">
-
+<body>
 <!--顶部开始-->
 	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
 <!--顶部区结束-->
@@ -40,6 +45,7 @@
 	</div>
 </div>
 <!--nav区域结束-->
+
 
 <!--内容区开始-->
 <div class="total-con">
@@ -62,40 +68,62 @@
 		<!--网店链接结束-->
 	</div>
 	<!--左侧列表结束-->
-	
 	<!--右侧列表开始-->
-	<div class="prolb-right">
-		<!--banner区开始-->
-		<div class="prolb-right1">
-			<jsp:include page="/WEB-INF/front/frontBanner.jsp"></jsp:include>
+	<div class="prolb-right prolb-right2">
+		<!--当前所在位置开始-->
+		<div class="now-tit">
+			<span>当前所在位置：银行账户</span>
+			<!--<a class="btn" href="#">进入个人中心</a>-->
 		</div>
-		<!--banner区结束-->
-		<!--热门推荐开始-->
-		<div class="prolb-show">
-			<jsp:include page="/WEB-INF/front/frontHot.jsp"></jsp:include>
+		<div class="now-titlb" style="float:left; display:inline;">
+			<h4>转账银行账户</h4>
+			<!--购物车列表开始-->
+			<div class="shop-prolb" style="float:left; display:inline;">
+				<div class="yhzh_n">
+					<span class="yhzh_nz"><img src="images/yh_03.gif" /></span>
+					<span class="yhzh_ny">1111 2222 3333 4444 555</span>
+				</div>
+				<div class="yhzh_n">
+					<span class="yhzh_nz"><img src="images/yh_05.gif" /></span>
+					<span class="yhzh_ny">1111 2222 3333 4444 555</span>
+				</div>
+				<div class="yhzh_n">
+					<span class="yhzh_nz"><img src="images/yh_07.gif" /></span>
+					<span class="yhzh_ny">1111 2222 3333 4444 555</span>
+				</div>
+				<div class="yhzh_n">
+					<span class="yhzh_nz"><img src="images/yh_12.gif" /></span>
+					<span class="yhzh_ny">1111 2222 3333 4444 555</span>
+				</div>
+				<div class="yhzh_n">
+					<span class="yhzh_nz"><img src="images/yh_13.gif" /></span>
+					<span class="yhzh_ny">1111 2222 3333 4444 555</span>
+				</div>
+				<div class="yhzh_n">
+					<span class="yhzh_nz"><img src="images/yh_15.gif" /></span>
+					<span class="yhzh_ny">1111 2222 3333 4444 555</span>
+				</div>
+				<div class="yhzh_n">
+					<span class="yhzh_nz"><img src="images/yh_20.gif" /></span>
+					<span class="yhzh_ny">1111 2222 3333 4444 555</span>
+				</div>
+			</div>
+			<!--购物车列表结束-->
 		</div>
-		<!--热门推荐结束-->
-		<!--产品推荐开始-->
-		<div class="prolb-show">
-			<jsp:include page="/WEB-INF/front/frontRecommend.jsp"></jsp:include>
-		</div>
-		<!--产品推荐结束-->
+		<!--当前所在位置结束-->
 		
-		<!--最新产品开始-->
-		<div class="prolb-show">
-			<jsp:include page="/WEB-INF/front/frontNewGoods.jsp"></jsp:include>
-		</div>
-		<!--最新产品结束-->
 	</div>
 	<!--右侧列表结束-->
 	<div style="clear:both"></div>
 </div>
 <!--内容区结束-->
+
 <jsp:include page="/WEB-INF/front/frontBottom.jsp"></jsp:include>
 <!--底部结束-->
 
 <!--客服代码开始-->
 <jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
 <!--客服代码结束-->
+
 </body>
 </html>
