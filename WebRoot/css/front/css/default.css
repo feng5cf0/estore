@@ -330,7 +330,7 @@ a{text-decoration:none;}
 .now-titlb-sy{margin-top:15px;font:13px "宋体";color:#ff4400;overflow:hidden}
 .now-titlb-sy .sy-tit{float:left;display:block;width:80px;text-align:right;padding-top:4px}
 .now-titlb-sy .sy-lb{float:left;width:704px}
-.now-titlb-sy .sy-lb a{display:inline-block;margin:0px 30px 6px 0px;padding:4px 8px;color:#666}
+.now-titlb-sy .sy-lb a{display:inline-block;margin:0px 15px 6px 0px;padding:4px 8px;color:#666}
 .now-titlb-sy .sy-lb a:hover{background:#5dbfec;color:#fff;border-radius:3px}
 .now-titlb-sy .sy-lb a.hov{background:#5dbfec;color:#fff;border-radius:3px}
 .gaoji-sslb{width:100%}
@@ -760,40 +760,28 @@ a{text-decoration:none;}
 .zhuce-xy p{color:#555}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.yhzh_n{
+float:left;
+display:inline;
+width:720px;
+height:45px;
+margin:10px 0 10px 20px;
+overflow:hidden;
+}
+.yhzh_nz{
+float:left;
+display:inline;
+width:166px;
+height:45px;
+}
+.yhzh_ny{
+float:left;
+display:inline;
+font-size:14px;
+color:#333;
+line-height:45px;
+margin-left:20px;
+}
 
 
 
