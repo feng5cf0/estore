@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -77,29 +78,46 @@
 			<h4>在线留言</h4>
 			<!--在线留言内容开始-->
 			<div class="about-us online-ly">
+			<form action="front/onlineMsgAction!addOnlineMsg.action" method="post">
 				<div class="ly-lb">
-					<span class="name">公司名称：</span><input class="inp" type="text"/>
+					<span class="name">公司名称：</span>
+					<input name="onlineMsg.company" id="company" class="inp" type="text"/>
 				</div>
 				<div class="ly-lb">
-					<span class="name">联 系 人：</span><input class="inp" type="text"/>
+					<span class="name">联 系 人：</span>
+					<input name="onlineMsg.linkMan" id="linkMan"  class="inp" type="text"/>
+					<!-- 如果真名为空，就取会员昵称 -->
+					<c:if test="${not empty sessionScope.member.memberRealname }">
+					<input name="onlineMsg.createName" id="createName" value="${sessionScope.member.memberRealname }"  class="inp" type="hidden"/>
+					</c:if>
+					<c:if test="${empty sessionScope.member.memberRealname }">
+					<input name="onlineMsg.createName" id="createName" value="${sessionScope.member.memberAlias }"  class="inp" type="hidden"/>
+					</c:if>
+					
 				</div>
 				<div class="ly-lb">
-					<span class="name">联系电话：</span><input class="inp" type="text"/>
+					<span class="name">联系电话：</span>
+					<input name="onlineMsg.linkPhone" id="linkPhone"  class="inp" type="text"/>
 				</div>
 				<div class="ly-lb">
-					<span class="name">电子邮件：</span><input class="inp" type="text"/>
+					<span class="name">电子邮件：</span>
+					<input name="onlineMsg.email" id="email"  class="inp" type="text"/>
 				</div>
 				<div class="ly-lb">
-					<span class="name">公司地址：</span><input class="inp" type="text"/>
+					<span class="name">公司地址：</span>
+					<input name="onlineMsg.companyAddress" id="companyAddress"  class="inp" type="text"/>
 				</div>
 				<div class="ly-lb">
-					<span class="name">邮  编：</span><input class="inp" type="text"/>
+					<span class="name">邮  编：</span>
+					<input name="onlineMsg.zipCode" id="zipCode"  class="inp" type="text"/>
 				</div>
 				<div class="ly-lb">
-					<span class="name">传  真：</span><input class="inp" type="text"/>
+					<span class="name">传  真：</span>
+					<input name="onlineMsg.fax" id="fax"  class="inp" type="text"/>
 				</div>
 				<div class="ly-lb">
-					<span class="name">内容说明：</span><textarea class="inp inp3"></textarea>
+					<span class="name">内容说明：</span>
+					<textarea name="onlineMsg.memo" id="memo"  class="inp inp3"></textarea>
 				</div>
 				<div class="ly-lb">
 					<span class="name">验 证 码：</span>
@@ -108,8 +126,9 @@
 				</div>
 				<div class="btn">
 					<input class="login-btn" type="submit" value="提交"/>
-					<input class="login-btn" style="background:#0160b2" type="submit" value="重设"/>
+					<input class="login-btn" style="background:#0160b2" type="reset" value="重设"/>
 				</div>
+			</form>
 			</div>
 			<!--在线留言内容结束-->
 		</div>

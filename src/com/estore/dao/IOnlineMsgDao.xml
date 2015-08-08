@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.estore.dao.IOnlineMsgDao">
+    <resultMap id="onlineMsg" type="onlineMsg">
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="company" column="company" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="linkMan" column="link_man" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="linkPhone" column="link_phone" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="email"  column="email" javaType="String" jdbcType="VARCHAR" /> 
+    	<result property="companyAddress" column="company_address" javaType="Integer" jdbcType="INTEGER"></result>
+    	<result property="zipCode" column="zip_code" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="fax" column="fax" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"></result>
+    	<result property="createName" column="create_name" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    </resultMap>
+    <!-- 在线留言 -->
+	<insert id="addOnlineMsg" parameterType="onlineMsg" >
+    	 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+					SELECT LAST_INSERT_ID() AS ID
+		</selectKey> 
+    	insert into t_online_msg(company,link_man,link_phone,email,company_address,zip_code
+    	,fax,create_time,create_name,memo)
+    	 values(#{company},#{linkMan},#{linkPhone},#{email},#{companyAddress},
+    	 #{zipCode},#{fax},#{createTime},#{createName},#{memo})
+    </insert>   
+</mapper>  

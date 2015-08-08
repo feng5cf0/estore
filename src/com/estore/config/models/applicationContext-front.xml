@@ -11,6 +11,7 @@
 	<!-- entities -->
 	<bean id="member" class="com.estore.entities.Member"/>	
 	<bean id="memberInfo" class="com.estore.entities.MemberInfo"/>
+	<bean id="onlineMsg" class="com.estore.entities.OnlineMsg"/>
 	<!-- dao -->
 	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IMemberDao"></property>
@@ -21,11 +22,15 @@
 	<bean id="addressDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IAddressDao"></property>
 	</bean>
+	<bean id="onlineMsgDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IOnlineMsgDao"></property>
+	</bean>
 	
 	<!-- service -->
 	<bean id="memberService" class="com.estore.service.impl.MemberServiceImpl"/>
 	<bean id="memberInfoService" class="com.estore.service.impl.MemberInfoService"/>
 	<bean id="addressService" class="com.estore.service.impl.AddressServiceIml"/>
+	<bean id="onlineMsgService" class="com.estore.service.impl.OnlineMsgServiceImpl"/>
 	
 	<!-- action -->
 	<bean id="memberAction" class="com.estore.action.back.MemberAction" scope="prototype"/>
@@ -36,5 +41,6 @@
 	<bean id="categoryFrontAction" class="com.estore.action.front.CategoryFrontAction" scope="prototype"/>
 	<bean id="mainAction" class="com.estore.action.front.MainAction" scope="prototype"/>
 	<bean id="pageJumpAction" class="com.estore.action.front.PageJumpAction" scope="prototype"/>
+	<bean id="onlineMsgAction" class="com.estore.action.front.OnlineMsgAction" scope="prototype"/>
 		
 </beans>

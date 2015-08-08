@@ -31,6 +31,8 @@
 		<typeAlias alias="goodsIn" type="com.estore.entities.GoodsIn"/>
 		<!-- 商品表 -->
 		<typeAlias alias="goods" type="com.estore.entities.Goods"/>
+		<!-- 在线留言-->
+		<typeAlias alias="onlineMsg" type="com.estore.entities.OnlineMsg"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
@@ -60,5 +62,6 @@
 		<mapper resource="com/estore/dao/IGoodsDao.xml"/>
 		<mapper resource="com/estore/dao/IGoodsInDao.xml"/>
 		<mapper resource="com/estore/dao/IAddressDao.xml"/>
+		<mapper resource="com/estore/dao/IOnlineMsgDao.xml"/>
 	</mappers>
 </configuration>	

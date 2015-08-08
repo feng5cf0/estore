@@ -50,6 +50,14 @@
 			<result name="totg">/WEB-INF/front/productPromotionTG.jsp</result>
 			<result name="toyhq">/WEB-INF/front/productPromotionYHQ.jsp</result>
 			<result name="toBankAccount">/WEB-INF/front/bankAccount.jsp</result>
+			<result name="towjmmTXZHM">/WEB-INF/front/wjmmTXZHM.jsp</result>
+			<result name="towjmmYZSF">/WEB-INF/front/wjmmYZSF.jsp</result>
+			<result name="towjmmSZXMM">/WEB-INF/front/wjmmSZXMM.jsp</result>
+			<result name="towjmmWC">/WEB-INF/front/wjmmWC.jsp</result>
+		</action>
+		<action name="onlineMsgAction" class="onlineMsgAction">
+			<result name="tomain">/main.jsp</result>
+			
 		</action>
 	</package>
 </struts>

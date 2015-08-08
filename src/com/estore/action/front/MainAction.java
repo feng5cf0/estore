@@ -8,6 +8,10 @@ import com.landicorp.core.action.BaseActionSupport;
 
 public class MainAction extends BaseActionSupport {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<Category> categoryList;
 	private ICategoryService categoryService;
 	
