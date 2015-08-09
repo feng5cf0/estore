@@ -7,7 +7,7 @@
     	<result property="linkMan" column="link_man" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="linkPhone" column="link_phone" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="email"  column="email" javaType="String" jdbcType="VARCHAR" /> 
-    	<result property="companyAddress" column="company_address" javaType="Integer" jdbcType="INTEGER"></result>
+    	<result property="companyAddress" column="company_address" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="zipCode" column="zip_code" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="fax" column="fax" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"></result>
@@ -23,5 +23,9 @@
     	,fax,create_time,create_name,memo)
     	 values(#{company},#{linkMan},#{linkPhone},#{email},#{companyAddress},
     	 #{zipCode},#{fax},#{createTime},#{createName},#{memo})
-    </insert>   
+    </insert>
+    <!-- 后台查询 -->
+    <select id="getOnlineMsgAll" resultMap="onlineMsg">
+    	select *from t_online_msg
+    </select>   
 </mapper>  

@@ -3,6 +3,8 @@
  */
 package com.estore.service.impl;
 
+import java.util.List;
+
 import com.estore.dao.IOnlineMsgDao;
 import com.estore.entities.OnlineMsg;
 import com.estore.service.IOnlineMsgService;
@@ -16,6 +18,12 @@ import com.landicorp.core.service.base.AbstractBaseServiceImpl;
 public class OnlineMsgServiceImpl extends AbstractBaseServiceImpl<OnlineMsg, Integer> implements
  IOnlineMsgService{
 	private IOnlineMsgDao onlineMsgDao;
+	//后台显示
+	@Override
+	public List<OnlineMsg> getOnlineMsgAll() {
+		return onlineMsgDao.getOnlineMsgAll();
+	}
+	//在线留言
 	@Override
 	public void addOnlineMsg(OnlineMsg onlineMsg) {
 		onlineMsgDao.addOnlineMsg(onlineMsg);
@@ -35,6 +43,7 @@ public class OnlineMsgServiceImpl extends AbstractBaseServiceImpl<OnlineMsg, Int
 		this.onlineMsgDao = onlineMsgDao;
 	}
 
+	
 	
 	
 	

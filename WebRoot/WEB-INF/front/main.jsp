@@ -21,7 +21,7 @@
 </head>
 
 <body style="background:url(images/index_bg.jpg) repeat-x">
-
+<a href="front/pageJumpAction!test">fsdfdsd</a>
 <!--顶部开始-->
 	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
 <!--顶部区结束-->

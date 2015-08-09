@@ -54,9 +54,11 @@
 			<result name="towjmmYZSF">/WEB-INF/front/wjmmYZSF.jsp</result>
 			<result name="towjmmSZXMM">/WEB-INF/front/wjmmSZXMM.jsp</result>
 			<result name="towjmmWC">/WEB-INF/front/wjmmWC.jsp</result>
+			<result name="test">/WEB-INF/front/wdzb_atm.jsp</result>
 		</action>
 		<action name="onlineMsgAction" class="onlineMsgAction">
 			<result name="tomain">/main.jsp</result>
+			<result name="getOnlineMsg">/WEB-INF/back/onlineMsgSearch.jsp</result>
 			
 		</action>
 	</package>

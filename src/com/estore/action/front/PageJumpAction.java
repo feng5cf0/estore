@@ -20,6 +20,9 @@ public class PageJumpAction extends BaseActionSupport{
 		
 		return "toMain";
 	}
+	public String test(){
+		return "test";
+	}
 	//跳转到最新产品页面
 	public String toNewProduct(){
 		
