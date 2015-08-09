@@ -33,15 +33,15 @@
 <!--nav区开始-->
 <div class="nav">
 	<div class="nav-con">
-		<div class="fenlei-ys"><s:property value="getText('index.allcategory')"/></div>
-		<a href="front/mainAction!toMain.action"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toNewProduct"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toProductPromotion"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toAboutUs"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toAfterSale"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toOnLine"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toCallUs"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
+		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/onlineMsgAction!toOnLine"  style="width:60px;"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/callUsAction!toCallUs"  style="width:60px;"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 	</div>
 </div>
 <!--nav区域结束-->
@@ -78,9 +78,9 @@
 			<!--售后服务内容开始-->
 			<div class="about-us">
 				<div class="sh-serve-tit">
-					<a class="tit hov" href="front/pageJumpAction!toAfterSale">技术文章</a>
-					<a class="tit" href="front/pageJumpAction!toDownloadCenter">下载中心</a>
-					<a class="tit" href="front/pageJumpAction!toScanVideo">视频观看</a>
+					<a class="tit hov" href="front/afterSaleAction!toAfterSale">技术文章</a>
+					<a class="tit" href="front/afterSaleAction!toDownloadCenter">下载中心</a>
+					<a class="tit" href="front/afterSaleAction!toScanVideo">视频观看</a>
 					<div class="search">
 						<input class="inp" type="text" placeholder="请输入关键字..."/><input class="sub" type="submit" value="搜索"/>
 					</div>

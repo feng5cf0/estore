@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.estore.dao.IOnlineMsgDao;
+import com.estore.entities.Category;
 import com.estore.entities.OnlineMsg;
+import com.estore.service.ICategoryService;
 import com.estore.service.IOnlineMsgService;
 import com.landicorp.core.action.BaseActionSupport;
 import com.opensymphony.xwork2.ActionContext;
@@ -21,8 +23,16 @@ public class OnlineMsgAction extends BaseActionSupport{
 	private OnlineMsg onlineMsg;
 	private IOnlineMsgService onlineMsgService;
 	List<OnlineMsg> onlineMsgList = new ArrayList<OnlineMsg>();
+	private List<Category> categoryList;
+	private ICategoryService categoryService;
+	//跳转到在线留言页面
+	public String toOnLine(){
+		this.categoryList = this.categoryService.getForFront();		
+		return "toonline";
+	}
 	//在线留言
 	public String addOnlineMsg(){
+		this.categoryList = this.categoryService.getForFront();
 		onlineMsg.setCreateTime(new Date());
 		onlineMsgService.addOnlineMsg(onlineMsg);
 		return "tomain";
@@ -51,6 +61,18 @@ public class OnlineMsgAction extends BaseActionSupport{
 	}
 	public void setOnlineMsgList(List<OnlineMsg> onlineMsgList) {
 		this.onlineMsgList = onlineMsgList;
+	}
+	public List<Category> getCategoryList() {
+		return categoryList;
+	}
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
+	}
+	public ICategoryService getCategoryService() {
+		return categoryService;
+	}
+	public void setCategoryService(ICategoryService categoryService) {
+		this.categoryService = categoryService;
 	}
 	
 	

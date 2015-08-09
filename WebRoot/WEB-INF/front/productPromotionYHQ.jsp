@@ -33,15 +33,15 @@
 <!--nav区开始-->
 <div class="nav">
 	<div class="nav-con">
-		<div class="fenlei-ys"><s:property value="getText('index.allcategory')"/></div>
-		<a href="front/mainAction!toMain.action"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toNewProduct"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toProductPromotion"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toAboutUs"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toAfterSale"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toOnLine"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/pageJumpAction!toCallUs"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
+		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/onlineMsgAction!toOnLine"  style="width:60px;"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/callUsAction!toCallUs"  style="width:60px;"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 	</div>
 </div>
 <!--nav区域结束-->
@@ -152,10 +152,10 @@
 		<!--当前所在位置结束-->
 		<!--头部切换开始-->
 		<div class="procx-tit">
-			<a href="front/pageJumpAction!toXSXL">限时限量</a>
-			<a href="front/pageJumpAction!toYHQ" class="hov">优惠券</a>
-			<a href="front/pageJumpAction!toTG">团购</a>
-			<a href="front/pageJumpAction!toProductPromotion">满立减</a>
+			<a href="front/productPromotionAction!toXSXL">限时限量</a>
+			<a href="front/productPromotionAction!toYHQ" class="hov">优惠券</a>
+			<a href="front/productPromotionAction!toTG">团购</a>
+			<a href="front/productPromotionAction!toProductPromotion">满立减</a>
 		</div>
 		<div class="procx-px">
 			<span>排序：</span>

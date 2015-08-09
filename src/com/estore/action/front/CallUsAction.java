@@ -6,7 +6,8 @@ import com.estore.entities.Category;
 import com.estore.service.ICategoryService;
 import com.landicorp.core.action.BaseActionSupport;
 
-public class PageJumpAction extends BaseActionSupport{
+public class CallUsAction extends BaseActionSupport {
+
 	/**
 	 * 
 	 */
@@ -20,27 +21,11 @@ public class PageJumpAction extends BaseActionSupport{
 		
 		return "toMain";
 	}
-	public String test(){
-		return "test";
-	}
-	
-	
-	
-	
-	
-		
-		
-	
-	
-
-
-	
-		
-	public ICategoryService getCategoryService() {
-		return categoryService;
-	}
-	public void setCategoryService(ICategoryService categoryService) {
-		this.categoryService = categoryService;
+	//跳转到联系我们页面
+	public String toCallUs(){
+		this.categoryList = this.categoryService.getForFront();
+				
+		return "tocalllus";
 	}
 	public List<Category> getCategoryList() {
 		return categoryList;
@@ -48,4 +33,12 @@ public class PageJumpAction extends BaseActionSupport{
 	public void setCategoryList(List<Category> categoryList) {
 		this.categoryList = categoryList;
 	}
+	public ICategoryService getCategoryService() {
+		return categoryService;
+	}
+	public void setCategoryService(ICategoryService categoryService) {
+		this.categoryService = categoryService;
+	}
+	
+
 }

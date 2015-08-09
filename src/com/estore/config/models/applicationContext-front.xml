@@ -42,5 +42,11 @@
 	<bean id="mainAction" class="com.estore.action.front.MainAction" scope="prototype"/>
 	<bean id="pageJumpAction" class="com.estore.action.front.PageJumpAction" scope="prototype"/>
 	<bean id="onlineMsgAction" class="com.estore.action.front.OnlineMsgAction" scope="prototype"/>
+	<bean id="newProductAction" class="com.estore.action.front.NewProductAction" scope="prototype"/>
+	<bean id="productPromotionAction" class="com.estore.action.front.ProductPromotionAction" scope="prototype"/>
+	<bean id="aboutUsAction" class="com.estore.action.front.AboutUsAction" scope="prototype"/>
+	<bean id="afterSaleAction" class="com.estore.action.front.AfterSaleAction" scope="prototype"/>
+	<bean id="bankAccountAction" class="com.estore.action.front.BankAccountAction" scope="prototype"/>
+	<bean id="callUsAction" class="com.estore.action.front.CallUsAction" scope="prototype"/>
 		
 </beans>
