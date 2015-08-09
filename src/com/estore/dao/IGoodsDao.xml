@@ -26,18 +26,32 @@
     	#{localeType},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo}
     </sql>
     
-	<!-- 新增类别 -->
-	<insert id="save" parameterType="goods">
-		insert into t_goods(<include refid="goodsColumns"/>)
-		values(<include refid="goodsValues"/>)
-		
-		<!-- 配置Mysql主键自动增长 -->
-		<selectKey resultType="int" keyProperty="id" order="BEFORE">
-			select
-			LAST_INSERT_ID() as value
-		</selectKey>
+	<!-- 新增国际化 -->
+	<insert id="saveLocale" parameterType="goods">
+		insert into t_goods(goods_id,locale_type,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo)
+		values(#{id},#{localeType},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo})
 	</insert>
 	
+	<!-- 新增商品 -->
+	<insert id="sava" parameterType="goods">
+		insert into t_goods(<include refid="goodsColumns"/>)
+		values(<include refid="goodsValues"/>)
+	</insert>
+	
+	<!-- 加载商品国际化信息 -->
+	<select id="getLocaleById" resultMap="goodsMap" parameterType="map">
+		select *
+		from t_goods
+		<where>
+			<if test="goodsId != null ">
+				and goods_id = #{goodsId}
+			</if>
+			<if test="localeType != null">
+				and locale_type = #{localeType}
+			</if>
+		</where>
+		order by locale_type asc;	
+	</select>
 	<!-- 加载所有货币信息 -->
 	<select id="getAll" resultMap="goodsMap" parameterType="map">
 		select *
@@ -60,10 +74,17 @@
 			</if>
 		</where>
 	</select>
-
+	
+	<!-- 为商品树 -->
+	<select id="getForTree" resultMap="goodsMap">
+		select *
+		from t_goods
+		where locale_type = 1
+	</select>
 	<select id="getAllGoods" resultMap="goodsMap">
 		select *
-		from t_goods	
+		from t_goods
+		where locale_type = 1
 	</select>
 	<!-- 修改商品 -->
 	<update id="update" parameterType="goods">

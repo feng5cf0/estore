@@ -23,26 +23,25 @@
 		})
 	})
 </script>
-<title>最新产品</title>
 </head>
 
 <body>
 <!--顶部开始-->
-<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
-<!--顶部结束-->
+	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
+<!--顶部区结束-->
 
 <!--nav区开始-->
 <div class="nav">
 	<div class="nav-con">
-		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
-		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/onlineMsgAction!toOnLine"  style="width:60px;"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/callUsAction!toCallUs"  style="width:60px;"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<div class="fenlei-ys">全部分类</div>
+		<a href="#">首页</a><img src="images/nav_line.png" width="2" height="33"/>
+		<a class="hov" href="#">最新产品</a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#">产品促销</a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#">关于我们</a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#">售后服务</a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#">银行账号</a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#">在线留言</a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="#">联系我们</a><img src="images/nav_line.png" width="2" height="33"/>
 	</div>
 </div>
 <!--nav区域结束-->
@@ -56,11 +55,13 @@
 			<jsp:include page="/WEB-INF/front/frontCategory.jsp"></jsp:include>
 		</div>
 		<!-- 类别结束 -->
+		
 		<!--品牌产品开始-->
 		<div class="pp-pro">
 			<jsp:include page="/WEB-INF/front/frontBrand.jsp"></jsp:include>
 		</div>
 		<!--品牌产品结束-->
+		
 		<!--网店链接开始-->
 		<div class="pp-pro">
 			<jsp:include page="/WEB-INF/front/frontShopLink.jsp"></jsp:include>
@@ -68,16 +69,17 @@
 		<!--网店链接结束-->
 	</div>
 	<!--左侧列表结束-->
-		<!--右侧列表开始-->
+	
+	<!--右侧列表开始-->
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：</span><a href="#">首页</a><span> > </span>商品列表</a><span> > </span>汽车、摩托车遥控拷贝器</a>
+			<span>当前所在位置：</span><a href="#">首页</a><span> > </span>最新产品</a>
 		</div>
 		<div class="now-titlb">
-			<h4>汽车、摩托车遥控拷贝器<span>搜到<b>128</b>件最新产品</span></h4>
-			<div style="padding:0px 0px 20px 0px" >
-				<!--<div class="gaoji-sslb">
+			<h4>高级搜索<!--<span>搜到<b>128</b>件最新产品</span>--></h4>
+			<div style="padding:0px 0px 20px 0px">
+				<div class="gaoji-sslb">
 					<div class="gaoji-ss">
 						<span class="ss-tit">关键词：</span>
 						<input class="inp1" type="text" placeholder="请输入您要搜索的关键词..."/>
@@ -118,11 +120,10 @@
 					<input class="search-btn" type="submit" value="搜 索"/><a class="del-sstj" href="#">清空搜索条件</a>
 					<div style="clear:both"></div>
 				</div>
-				<div style="clear:both"></div>-->
-				<div class="now-titlb-sy">
+				<div style="clear:both"></div>
+				<!--<div class="now-titlb-sy">
 					<span class="sy-tit">品牌：</span>	
 					<span class="sy-lb">
-						<a href="#">不限</a>
 						<a href="#">永久</a>
 						<a class="hov" href="#">欧时力</a>
 						<a href="#">米阿科尔</a>
@@ -136,8 +137,7 @@
 				<div class="now-titlb-sy">
 					<span class="sy-tit">价格：</span>	
 					<span class="sy-lb">
-						<a class="hov" href="#">不限</a>
-						<a href="#">20-80元</a>
+						<a class="hov" href="#">20-80元</a>
 						<a href="#">20-80元</a>
 						<a href="#">20-80元</a>
 					</span>
@@ -145,13 +145,11 @@
 				<div class="now-titlb-sy">
 					<span class="sy-tit">类型：</span>	
 					<span class="sy-lb">
-						<a href="#">不限</a>
-						<a href="#">类型1</a>
 						<a href="#">类型1</a>
 						<a href="#">类型2</a>
 						<a class="hov" href="#">类型3</a>
 					</span>
-				</div>
+				</div>-->
 			</div>
 		</div>
 		<!--当前所在位置结束-->
@@ -275,8 +273,15 @@
 </div>
 <!--内容区结束-->
 
+
+<!-- 底部开始 -->
 <jsp:include page="/WEB-INF/front/frontBottom.jsp"></jsp:include>
 <!--底部结束-->
+
+
+<!--返回顶部-->
+<a href="#0" class="cd-top">Top</a>
+<!--返回顶部-->
 
 <!--客服代码开始-->
 <jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
@@ -285,27 +290,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

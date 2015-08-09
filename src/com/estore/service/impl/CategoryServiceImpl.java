@@ -7,6 +7,7 @@ import java.util.Map;
 import com.estore.dao.ICategoryDao;
 import com.estore.entities.Category;
 import com.estore.service.ICategoryService;
+import com.estore.util.Locale;
 import com.landicorp.core.dao.base.IMyBatisDao;
 import com.landicorp.core.service.base.AbstractBaseServiceImpl;
 import com.landicorp.core.web.pager.Pager;
@@ -63,12 +64,30 @@ public class CategoryServiceImpl extends AbstractBaseServiceImpl<Category, Integ
 		return this.categoryDao.getForFront();
 	}
 
+	@Override
+	public List<Category> getLocaleById(Integer categoryId,Integer localeType) {
+
+		Map<String,Object> map = new HashMap<String,Object>();
+		
+		map.put("categoryId", categoryId);
+		map.put("localeType", localeType);
+		
+		return this.categoryDao.getLocaleById(map);
+	}
+	
+	@Override
+	public void addLocale(Category category) {
+
+		this.categoryDao.savaLocale(category);
+	}
 	public ICategoryDao getCategoryDao() {
 		return categoryDao;
 	}
 	public void setCategoryDao(ICategoryDao categoryDao) {
 		this.categoryDao = categoryDao;
 	}
+
+
 
 
 

@@ -11,7 +11,9 @@ public class Category extends BaseEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private Integer localeType;
 	private String categoryName;
+	
 	private Integer parentCategory;
 	private Integer isAvaliable;
 	private Integer isLeaf;
@@ -54,5 +56,11 @@ public class Category extends BaseEntity {
 	}
 	public void setIsLeaf(Integer isLeaf) {
 		this.isLeaf = isLeaf;
+	}
+	public Integer getLocaleType() {
+		return localeType;
+	}
+	public void setLocaleType(Integer localeType) {
+		this.localeType = localeType;
 	}
 }

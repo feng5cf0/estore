@@ -46,6 +46,20 @@
 		<action name="storeAction" class="storeAction">
 			<result name="loadAll">/WEB-INF/back/goods/storeList.jsp</result>
 		</action>
+		<action name="categoryLocaleAction" class="categoryLocaleAction">
+			<result name="loadLocale">/WEB-INF/back/categoryLocaleFrame.jsp</result>
+			<result name="categoryLocaleTree">/WEB-INF/back/categoryLocaleTree.jsp</result>
+			<result name="categoryLocaleSearch">/WEB-INF/back/categoryLocaleSearch.jsp</result>
+			<result name="prepare">/WEB-INF/back/categoryLocaleAdd.jsp</result>
+			<result name="addCategoryLocale">/WEB-INF/back/categoryLocaleAddSuccess.jsp</result>
+		</action>
+		<action name="goodsLocaleAction" class="goodsLocaleAction">
+			<result name="loadLocale">/WEB-INF/back/goods/goodsLocaleFrame.jsp</result>
+			<result name="goodsLocaleTree">/WEB-INF/back/goods/goodsLocaleTree.jsp</result>
+			<result name="goodsLocaleSearch">/WEB-INF/back/goods/goodsLocaleSearch.jsp</result>
+			<result name="prepare">/WEB-INF/back/goods/goodsLocaleAdd.jsp</result>
+			<result name="addLocale">/WEB-INF/back/goods/goodsLocaleAddSuccess.jsp</result>
+		</action>
 	</package>
 </struts>
 

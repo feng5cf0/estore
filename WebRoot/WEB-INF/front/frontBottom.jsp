@@ -19,11 +19,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<link rel="stylesheet" type="text/css" href="css/default.css"/>
   </head>
   
   <body>
-<!--底部开始-->
+
 <div class="map">
 	<div class="map-con">
 		<dl class="map-conlb">
@@ -121,5 +121,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			赞助商：上海赢科投资有限公司。 蒙ICP备06004630号
 		</div>
+		
+			<!--返回顶部-->
+	<a href="#0" class="cd-top">Top</a>
+	<!--返回顶部-->
   </body>
 </html>

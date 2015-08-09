@@ -6,6 +6,7 @@
 	
     <resultMap id="categoryMap" type="category" >
     	<id property="id" column="category_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="localeType" column="locale_type" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="categoryName" column="category_name" javaType="String" jdbcType="VARCHAR"/>
 		<result property="parentCategory" column="parent_category" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="isLeaf" column="is_leaf" javaType="Integer" jdbcType="INTEGER"/>
@@ -16,16 +17,17 @@
     		select="com.estore.dao.ICategoryDao.getByPId"></collection>
     </resultMap>            
     <sql id="categoryColumns">
-    	category_name,parent_category,is_leaf,is_avaliable,picture,memo
+    	locale_type,category_name,parent_category,is_leaf,is_avaliable,picture,memo
     </sql>
     <sql id="categoryValues">
-    	#{categoryName},#{parentCategory},#{isLeaf},#{isAvaliable},#{picture},#{memo}
+    	#{localeType},#{categoryName},#{parentCategory},#{isLeaf},#{isAvaliable},#{picture},#{memo}
     </sql>
     <select id="getByPId" resultMap="categoryMap" parameterType="int">
     	select *
 		from t_goods_category t
 		where t.parent_category = #{id}
     </select>
+    
 	<!-- 新增类别 -->
 	<insert id="save" parameterType="category">
 		insert into t_goods_category(<include refid="categoryColumns"/>)
@@ -37,8 +39,27 @@
 			LAST_INSERT_ID() as value
 		</selectKey>
 	</insert>
+	<!-- 新增类别国际化信息 -->
+	<insert id="savaLocale" parameterType="category">
+		insert into t_goods_category(category_id,locale_type,category_name,parent_category,is_leaf,is_avaliable,picture,memo)
+		values(#{id},#{localeType},#{categoryName},#{parentCategory},#{isLeaf},#{isAvaliable},#{picture},#{memo})
+	</insert>
+	<!-- 加载商品国际化信息 -->
+	<select id="getLocaleById" resultMap="categoryMap" parameterType="map">
+		select *
+		from t_goods_category
+		<where>
+			<if test="categoryId != null">
+				and category_id = #{categoryId}
+			</if>
+			<if test="localeType != null">
+				and locale_type = #{localeType}
+			</if>
+		</where>
+		order by locale_type asc;
+	</select>
 	
-	<!-- 加载所有货币信息 -->
+	<!-- 加载所有类别信息 -->
 	<select id="getAll" resultMap="categoryMap" parameterType="map">
 		select *
 		from t_goods_category
@@ -49,10 +70,14 @@
 			<if test="category != null and category.parentCategory != null">
 				and parent_category = #{category.parentCategory}
 			</if>
+			<if test="category != null and category.localeType != null">
+				and locale_type = #{category.localeTyp}
+			</if>
 		</where>
 		order by category_id desc
 		<include refid="Sql.pager" />
 	</select>
+	
 	<!-- 加载所有货币数量 -->
 	<select id="getAllCount" resultType="int" parameterType="category" >
 		select count(*)
@@ -63,6 +88,9 @@
 			</if>
 			<if test="parentCategory != null">
 				and parent_category = #{parentCategory}
+			</if>
+			<if test="localeType != null">
+				and locale_type = #{category.localeTyp}
 			</if>
 		</where>
 	</select>
@@ -75,7 +103,10 @@
 	<!-- 加载商品类别树 -->
 	<select id="getForTree" resultMap="categoryMap">
 		select * 
-		from t_goods_category
+		from t_goods_category t
+		<where>
+			and t.locale_type = 1
+		</where>
 	</select>
 	<!-- 修改商品类别 -->
 	<update id="update" parameterType="category">

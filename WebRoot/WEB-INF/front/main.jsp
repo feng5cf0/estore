@@ -7,19 +7,8 @@
   <%@include file="/headDeclare.jsp"%>
 <base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/default.css"/>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type=text/javascript src="js/kefu.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$(".pro-left1-li").each(function(i){
-			var top = $(this).offset().top;
-			$(".pro-left1-lilb:eq("+i+")").css({"top":192-top});
-		})
-	})
-</script>
+	<%@include file="/frontHeadDeclare.jsp" %>
 </head>
-
 <body style="background:url(images/index_bg.jpg) repeat-x">
 <!--顶部开始-->
 	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
@@ -90,11 +79,12 @@
 	<div style="clear:both"></div>
 </div>
 <!--内容区结束-->
-<jsp:include page="/WEB-INF/front/frontBottom.jsp"></jsp:include>
-<!--底部结束-->
+	<jsp:include page="/WEB-INF/front/frontBottom.jsp"></jsp:include>
+	
+	<!--底部结束-->
 
-<!--客服代码开始-->
-<jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
-<!--客服代码结束-->
+	<!--客服代码开始-->
+	<jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
+	<!--客服代码结束-->
 </body>
 </html>

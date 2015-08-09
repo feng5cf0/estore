@@ -27,6 +27,7 @@
 			<field name="INDEPENDENT" />
 			<field name="INHERIT" />
 		</constant>
+		
 	</constants>
 	
 	<group name="available">

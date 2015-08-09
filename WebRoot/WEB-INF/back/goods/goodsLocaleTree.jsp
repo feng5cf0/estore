@@ -15,10 +15,17 @@
 					<script type="text/javascript">
 						d = new dTree('d');
 						<c:forEach items="${categoryList}" var="item">
-							d.add(${item.id},${item.parentCategory},'${item.categoryName}','${basePath}back/categoryAction!loadCategoryByParentId.action?category.parentCategory=${item.id}');
+							<c:choose>
+								<c:when test="${item.id > 0}">
+									d.add(${item.id},${item.parentCategory},'${item.categoryName}');
+								</c:when>
+								<c:when test="${item.id < 0 }">
+									d.add(${item.id},${item.parentCategory},'${item.categoryName}','${basePath}back/goodsLocaleAction!goodsLocaleSearch.action?goodsId=${item.id}');
+								</c:when>
+							</c:choose>
 						</c:forEach>
 						d.config.useSelection = false;
-						d.config.target='categoryList';
+						d.config.target='goodsLocaleSearch';
 						d.config.useIcons=false;
 						document.write(d);
      				</script>

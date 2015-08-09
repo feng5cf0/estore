@@ -12,4 +12,12 @@ public interface ICategoryService extends IBaseService<Category, Integer> {
 	public List<Category> getByParentId(Integer parentId,Pager pager);
 	
 	public List<Category> getForFront();
+	
+	/**
+	 * 通过类别id加载类别国际化信息
+	 * @param categoryId
+	 * @return
+	 */
+	public List<Category> getLocaleById(Integer categoryId,Integer localeType);
+	public void addLocale(Category category);
 }

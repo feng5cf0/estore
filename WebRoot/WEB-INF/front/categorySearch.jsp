@@ -23,20 +23,21 @@
 		})
 	})
 </script>
-<title>产品促销-限时限量</title>
+<title>最新产品</title>
 </head>
 
 <body>
 <!--顶部开始-->
-	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
-<!--顶部区结束-->
+<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
+<!--顶部结束-->
+
 <!--nav区开始-->
 <div class="nav">
 	<div class="nav-con">
 		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a class="hov" href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -67,16 +68,16 @@
 		<!--网店链接结束-->
 	</div>
 	<!--左侧列表结束-->
-	<!--右侧列表开始-->
+		<!--右侧列表开始-->
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：</span><a href="#">首页</a> <span>></span> <a href="#">产品促销</a>
+			<span>当前所在位置：</span><a href="#">首页</a><span> > </span>商品列表</a><span> > </span>汽车、摩托车遥控拷贝器</a>
 		</div>
 		<div class="now-titlb">
-			<h4>高级搜索<!--<span>搜到<b>128</b>件最新产品</span>--></h4>
-			<div style="padding:0px 0px 20px 0px">
-				<div class="gaoji-sslb">
+			<h4>汽车、摩托车遥控拷贝器<span>搜到<b>128</b>件最新产品</span></h4>
+			<div style="padding:0px 0px 20px 0px" >
+				<!--<div class="gaoji-sslb">
 					<div class="gaoji-ss">
 						<span class="ss-tit">关键词：</span>
 						<input class="inp1" type="text" placeholder="请输入您要搜索的关键词..."/>
@@ -117,10 +118,11 @@
 					<input class="search-btn" type="submit" value="搜 索"/><a class="del-sstj" href="#">清空搜索条件</a>
 					<div style="clear:both"></div>
 				</div>
-				<div style="clear:both"></div>
-				<!--<div class="now-titlb-sy">
+				<div style="clear:both"></div>-->
+				<div class="now-titlb-sy">
 					<span class="sy-tit">品牌：</span>	
 					<span class="sy-lb">
+						<a href="#">不限</a>
 						<a href="#">永久</a>
 						<a class="hov" href="#">欧时力</a>
 						<a href="#">米阿科尔</a>
@@ -134,7 +136,8 @@
 				<div class="now-titlb-sy">
 					<span class="sy-tit">价格：</span>	
 					<span class="sy-lb">
-						<a class="hov" href="#">20-80元</a>
+						<a class="hov" href="#">不限</a>
+						<a href="#">20-80元</a>
 						<a href="#">20-80元</a>
 						<a href="#">20-80元</a>
 					</span>
@@ -142,21 +145,23 @@
 				<div class="now-titlb-sy">
 					<span class="sy-tit">类型：</span>	
 					<span class="sy-lb">
+						<a href="#">不限</a>
+						<a href="#">类型1</a>
 						<a href="#">类型1</a>
 						<a href="#">类型2</a>
 						<a class="hov" href="#">类型3</a>
 					</span>
-				</div>-->
+				</div>
 			</div>
 		</div>
 		<!--当前所在位置结束-->
 		<!--头部切换开始-->
-		<div class="procx-tit">
-			<a href="front/productPromotionAction!toXSXL" class="hov">限时限量</a>
-			<a href="front/productPromotionAction!toYHQ">优惠券</a>
-			<a  href="front/productPromotionAction!toTG">团购</a>
-			<a  href="front/productPromotionAction!toProductPromotion">满立减</a>
-		</div>
+		<!--<div class="procx-tit">
+			<a class="hov" href="#">限时限量</a>
+			<a href="#">优惠券</a>
+			<a href="#">团购</a>
+			<a href="#">满立减</a>
+		</div>-->
 		<div class="procx-px">
 			<span>排序：</span>
 			<a class="px-txt hov" href="#">默认</a>
@@ -173,51 +178,74 @@
 		</div>
 		<!--头部切换结束-->
 		<!--产品列表开始-->
-		<div class="tg-prolb-wk">
-			<div class="tg-prolb">
-				<img src="images/tuangou_pic1.png" width="250" height="212"/>
-				<div class="sj-wk">
-					<div class="txt1">高大上锁芯高大上锁芯高大上锁芯高大上锁芯</div>
-					<div class="txt2">
-						<span>￥99.00</span><a href="#">抢购</a>
-					</div>
-					<div class="txt3">已有<b>200</b>人参团（剩余<b>80</b>）</div>
-					<div class="txt4"><img src="images/clock.png"/>倒计时：3时12分24秒</div>
+		<div class="new-prolb-wk">
+			<!--<div class="new-prolb">
+				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
+				<div class="txt1">
+					<p class="p1"><a href="#">高大上锁芯高大上锁芯高大上锁芯高大上锁芯</a></p>
+					<p class="p2">￥200.00</p>
 				</div>
-			</div>
-			<div class="tg-prolb">
-				<img src="images/tuangou_pic1.png" width="250" height="212"/>
-				<div class="sj-wk">
-					<div class="txt1">高大上锁芯高大上锁芯高大上锁芯高大上锁芯</div>
-					<div class="txt2">
-						<span>￥99.00</span><a href="#">抢购</a>
-					</div>
-					<div class="txt3">已有<b>200</b>人参团（剩余<b>80</b>）</div>
-					<div class="txt4"><img src="images/clock.png"/>倒计时：3时12分24秒</div>
+			</div>-->
+			<!--循环开始-->
+			<div class="prolb-showlb prolb-showlb2">
+				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
+				<h4>玥玛锁业</h4>
+				<div class="txt1">
+					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
 				</div>
+				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
 			</div>
-			<div class="tg-prolb">
-				<img src="images/tuangou_pic1.png" width="250" height="212"/>
-				<div class="sj-wk">
-					<div class="txt1">高大上锁芯高大上锁芯高大上锁芯高大上锁芯</div>
-					<div class="txt2">
-						<span>￥99.00</span><a href="#">抢购</a>
-					</div>
-					<div class="txt3">已有<b>200</b>人参团（剩余<b>80</b>）</div>
-					<div class="txt4"><img src="images/clock.png"/>倒计时：3时12分24秒</div>
+			<!--循环结束-->
+			<!--循环开始-->
+			<div class="prolb-showlb prolb-showlb2">
+				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
+				<h4>玥玛锁业</h4>
+				<div class="txt1">
+					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
 				</div>
+				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
 			</div>
-			<div class="tg-prolb">
-				<img src="images/tuangou_pic1.png" width="250" height="212"/>
-				<div class="sj-wk">
-					<div class="txt1">高大上锁芯高大上锁芯高大上锁芯高大上锁芯</div>
-					<div class="txt2">
-						<span>￥99.00</span><a href="#">抢购</a>
-					</div>
-					<div class="txt3">已有<b>200</b>人参团（剩余<b>80</b>）</div>
-					<div class="txt4"><img src="images/clock.png"/>倒计时：3时12分24秒</div>
+			<!--循环结束-->
+			<!--循环开始-->
+			<div class="prolb-showlb prolb-showlb2">
+				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
+				<h4>玥玛锁业</h4>
+				<div class="txt1">
+					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
 				</div>
+				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
 			</div>
+			<!--循环结束-->
+			<!--循环开始-->
+			<div class="prolb-showlb prolb-showlb2">
+				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
+				<h4>玥玛锁业</h4>
+				<div class="txt1">
+					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+				</div>
+				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
+			</div>
+			<!--循环结束-->
+			<!--循环开始-->
+			<div class="prolb-showlb prolb-showlb2">
+				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
+				<h4>玥玛锁业</h4>
+				<div class="txt1">
+					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+				</div>
+				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
+			</div>
+			<!--循环结束-->
+			<!--循环开始-->
+			<div class="prolb-showlb prolb-showlb2">
+				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
+				<h4>玥玛锁业</h4>
+				<div class="txt1">
+					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+				</div>
+				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
+			</div>
+			<!--循环结束-->
 			<div style="clear:both"></div>
 		</div>
 		<!--产品列表结束-->
@@ -254,5 +282,30 @@
 <jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
 <!--客服代码结束-->
 
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
