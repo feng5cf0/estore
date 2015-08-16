@@ -31,10 +31,16 @@
 	<div class="gonggao-con">
 		<h3><<s:property value="getText('index.notice')"/><a href="#"><s:property value="getText('index.more')"/>&gt;</a></h3>
 		<div class="gg-lb">
+		<c:if test="${not empty sessionScope.noticeListFour }">
 			<c:forEach items="${sessionScope.noticeListFour }" var="item">
 				<div class="lb-con"><span>【<s:property value="getText('index.notice')"/>】
 				</span><a href="#">${item.title }</a></div>
 			</c:forEach>
+		</c:if>
+		<c:if test="${empty sessionScope.noticeListFour }">
+			<div class="lb-con" style="color: red"><span>
+				</span>暂时没有公告</div>
+		</c:if>
 			<%-- <div class="lb-con"><span>【<s:property value="getText('index.notice')"/>】</span><a href="#">限时限量折扣公告</a></div>
 			<div class="lb-con"><span>【<s:property value="getText('index.notice')"/>】</span><a href="#">限时限量折扣公告</a></div> --%>
 		</div>

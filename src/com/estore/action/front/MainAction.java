@@ -31,11 +31,16 @@ public class MainAction extends BaseActionSupport {
 		HttpSession session = request.getSession();
 		this.categoryList = this.categoryService.getForFront();
 	    this.noticeListAll=noticeService.getNoticeAll();
-	    //获取最新的3个
-	    for(int i=0;i<=2;i++){
-	    	noticeListFour.add(noticeListAll.get(i));
-	    }
-	    session.setAttribute("noticeListFour", noticeListFour);
+	    session.setAttribute("noticeListFour", noticeListAll);
+//	    if(noticeListAll!=null){
+//	    /*	//获取最新的3个
+//		    for(int i=0;i<=2;i++){
+//		    	noticeListFour.add(noticeListAll.get(i));
+//		    }*/
+//		    
+//	    }else{
+//	    	
+//	    }
 		return "toMain";
 	}
 	
