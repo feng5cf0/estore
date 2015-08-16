@@ -33,5 +33,31 @@ public class AboutUsAction extends BaseActionSupport {
 			this.categoryService = categoryService;
 		}
 		
-
+		public static void main(String[] args) {
+			int n=5,b=0;
+			int[] s = new int[5];
+			int flag=-1;
+			s[0]=100;
+			s[1]=6;
+			s[2]=3;
+			s[3]=3;
+			s[4]=1;
+		    for(int k=0;k<n;k++)  
+		    {      
+		        for(int i=0;i<n-1;i++)  
+		        {  
+		        	if(flag==k) break;
+		            for(int j=i+1;j<n;j++)  
+		            {   
+		                if(s[i]+s[j]==s[k]){
+		                	flag=k;
+		                	b++;
+		                	break;
+		                }
+		            }  
+		        }  
+		    }  
+		    System.out.println(b); 
+		} 
+		
 }

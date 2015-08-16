@@ -12,6 +12,11 @@
 	<bean id="member" class="com.estore.entities.Member"/>	
 	<bean id="memberInfo" class="com.estore.entities.MemberInfo"/>
 	<bean id="onlineMsg" class="com.estore.entities.OnlineMsg"/>
+	<bean id="notice" class="com.estore.entities.Notice"/>
+	<bean id="bankAccount" class="com.estore.entities.BankAccount"/>
+	<bean id="technicalArticle" class="com.estore.entities.TechnicalArticle"/>
+	<bean id="page" class="com.estore.entities.Page"/>
+	
 	<!-- dao -->
 	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IMemberDao"></property>
@@ -25,12 +30,24 @@
 	<bean id="onlineMsgDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IOnlineMsgDao"></property>
 	</bean>
+	<bean id="noticeDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.INoticeDao"></property>
+	</bean>
+	<bean id="bankAccountDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IBankAccountDao"></property>
+	</bean>
+	<bean id="technicalArticleDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.ITechnicalArticleDao"></property>
+	</bean>
 	
 	<!-- service -->
 	<bean id="memberService" class="com.estore.service.impl.MemberServiceImpl"/>
 	<bean id="memberInfoService" class="com.estore.service.impl.MemberInfoService"/>
 	<bean id="addressService" class="com.estore.service.impl.AddressServiceIml"/>
 	<bean id="onlineMsgService" class="com.estore.service.impl.OnlineMsgServiceImpl"/>
+	<bean id="noticeService" class="com.estore.service.impl.NoticeServiceImpl"/>
+	<bean id="bankAccountService" class="com.estore.service.impl.BankAccountServiceImpl"/>
+	<bean id="technicalArticleService" class="com.estore.service.impl.TechnicalArticleServiceImpl"/>
 	
 	<!-- action -->
 	<bean id="memberAction" class="com.estore.action.back.MemberAction" scope="prototype"/>
@@ -48,5 +65,9 @@
 	<bean id="afterSaleAction" class="com.estore.action.front.AfterSaleAction" scope="prototype"/>
 	<bean id="bankAccountAction" class="com.estore.action.front.BankAccountAction" scope="prototype"/>
 	<bean id="callUsAction" class="com.estore.action.front.CallUsAction" scope="prototype"/>
-		
+	<bean id="technicalArticleAction" class="com.estore.action.front.TechnicalArticleAction" scope="prototype"/>
+	<bean id="forgetPassAction" class="com.estore.action.front.ForgetPassAction" scope="prototype"/>
+	<bean id="noticeAction" class="com.estore.action.back.NoticeAction" scope="prototype"/>
+	<!-- 生成验证码 -->	
+	<bean id="yzmAction" class="com.estore.action.back.YzmAction" scope="prototype"/>
 </beans>

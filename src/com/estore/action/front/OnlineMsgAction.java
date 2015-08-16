@@ -1,14 +1,24 @@
 package com.estore.action.front;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.estore.dao.IOnlineMsgDao;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.estore.entities.Category;
 import com.estore.entities.OnlineMsg;
 import com.estore.service.ICategoryService;
 import com.estore.service.IOnlineMsgService;
+import com.estore.util.JsonUtil;
+import com.estore.util.Property;
+import com.estore.util.YzmUtil;
+import com.estore.util.userUtil;
 import com.landicorp.core.action.BaseActionSupport;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -25,17 +35,37 @@ public class OnlineMsgAction extends BaseActionSupport{
 	List<OnlineMsg> onlineMsgList = new ArrayList<OnlineMsg>();
 	private List<Category> categoryList;
 	private ICategoryService categoryService;
+	Property pro=new Property();
+	private String yzm;
+	
 	//跳转到在线留言页面
 	public String toOnLine(){
-		this.categoryList = this.categoryService.getForFront();		
-		return "toonline";
+		this.categoryList = this.categoryService.getForFront();	
+			
+			return "toonline";
 	}
 	//在线留言
-	public String addOnlineMsg(){
-		this.categoryList = this.categoryService.getForFront();
-		onlineMsg.setCreateTime(new Date());
-		onlineMsgService.addOnlineMsg(onlineMsg);
-		return "tomain";
+	public String addOnlineMsg() throws Exception{
+		HttpServletResponse response =ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		PrintWriter out = response.getWriter();
+		
+		if(!YzmUtil.checkYzm(yzm, request.getSession().getId())){
+			pro.put("error", "error");
+			pro.put("errorMsg", "验证码错误");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}
+		if(onlineMsg!=null){
+			this.categoryList = this.categoryService.getForFront();
+			onlineMsg.setCreateTime(new Date());
+			onlineMsgService.addOnlineMsg(onlineMsg);
+			pro.put("success", "success");
+			pro.put("errorMsg", "验证码错误");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}
+		return null;
 	}
 	//后台显示
 	public String getOnlineMsgAll(){
@@ -73,6 +103,18 @@ public class OnlineMsgAction extends BaseActionSupport{
 	}
 	public void setCategoryService(ICategoryService categoryService) {
 		this.categoryService = categoryService;
+	}
+	public Property getPro() {
+		return pro;
+	}
+	public void setPro(Property pro) {
+		this.pro = pro;
+	}
+	public String getYzm() {
+		return yzm;
+	}
+	public void setYzm(String yzm) {
+		this.yzm = yzm;
 	}
 	
 	

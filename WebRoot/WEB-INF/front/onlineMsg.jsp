@@ -1,5 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page language="java" contentType="text/html; charset=utf-8"%>
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,6 +12,7 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/kefu.js"></script>
 <script src="js/lrtk.js"></script> 
+<script type="text/javascript" src="js/onlineMsg/onlineMsg.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$(".pro-left1-li").each(function(i){
@@ -78,7 +82,7 @@
 			<h4>在线留言</h4>
 			<!--在线留言内容开始-->
 			<div class="about-us online-ly">
-			<form action="front/onlineMsgAction!addOnlineMsg.action" method="post">
+			<form action="" method="post" id="onlineMsgForm">
 				<div class="ly-lb">
 					<span class="name">公司名称：</span>
 					<input name="onlineMsg.company" id="company" class="inp" type="text"/>
@@ -121,11 +125,12 @@
 				</div>
 				<div class="ly-lb">
 					<span class="name">验 证 码：</span>
-					<input class="inp inp2" type="text"/>
-					<img class="yzm" src="images/yzm.png" width="44" height="18"/>
+					<input name="yzm" class="inp inp2" type="text"/>
+					<img id="checkimg"  class="yzm" src="<%=contextPath %>/front/yzmAction!createYzm" width="44" height="18"/>
+					<span>看不清？</span><a class="huan" href="javascript:void(0);" onclick="flushYZM()">换一张</a>
 				</div>
 				<div class="btn">
-					<input class="login-btn" type="submit" value="提交"/>
+					<input id="onlineMsgBtn" class="login-btn" type="button" value="提交"/>
 					<input class="login-btn" style="background:#0160b2" type="reset" value="重设"/>
 				</div>
 			</form>

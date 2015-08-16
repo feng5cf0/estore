@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.INoticeDao">
+    <resultMap id="notice" type="notice">
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="title" column="title" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="content" column="content" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    	<result property="createUser"  column="create_user" javaType="String" jdbcType="VARCHAR" /> 
+    </resultMap>
+   <!-- 获取公告 -->
+    <select id="getNoticeAll" resultMap="notice">
+    	select *from t_notice order by create_time desc
+    </select>
+    
+	<insert id="addressRegister" parameterType="address" >
+    	 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+					SELECT LAST_INSERT_ID() AS ID
+		</selectKey> 
+    	insert into t_address(address,postcode,linkman_name,linkman_phone,is_avaliable,memo,province,city,area,addr) values(#{address},#{postcode},#{linkmanName},#{linkmanPhone},#{isAvaliable},#{memo},#{province},#{city},#{area},#{addr})
+    </insert>   
+</mapper>  
