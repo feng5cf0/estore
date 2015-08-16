@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.sf.json.JSONObject;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.estore.entities.Category;
@@ -19,6 +21,7 @@ import com.estore.service.IMemberInfoService;
 import com.estore.service.IMemberService;
 import com.estore.util.JsonUtil;
 import com.estore.util.Property;
+import com.estore.util.YzmUtil;
 import com.landicorp.core.action.BaseActionSupport;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -36,6 +39,7 @@ public class MemberAction extends BaseActionSupport {
 	private String memberAlias;//登录账号
 	private String memberPassword;//登录密码
 	
+	private String yzm;//验证码
 	Property pro=new Property();
 	
 	public MemberAction() {
@@ -76,17 +80,27 @@ public class MemberAction extends BaseActionSupport {
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		Member members=memberService.findMemberByPassName(memberAlias, memberPassword);
-		if(memberAlias.equals(members.getMemberAlias()) 
-		&& memberPassword.equals(members.getMemberPassword()) 
-		&& members.getIsEmailAvaliable()==0){
-			session.setAttribute("member", members);
-			pro.put("success", "success");
-			out.print(JsonUtil.getJsonStrByMap(pro));
-			return null;
+		if(members!=null){
+			if(memberAlias.equals(members.getMemberAlias()) 
+			&& memberPassword.equals(members.getMemberPassword()) 
+			&& members.getIsEmailAvaliable()==0){
+				session.setAttribute("member", members);
+				pro.put("success", "success");
+				pro.put("successMsg", "登录成功");
+				out.print(JsonUtil.getJsonStrByMap(pro));
+				return null;
+			}else{
+				pro.put("error", "error");
+				pro.put("errorMsg", "用户名或密码错误");
+				out.print(JsonUtil.getJsonStrByMap(pro));
+				return null;
+				
+			}
 		}else{
-			pro.put("error", "error");
-			return null;
-			
+				pro.put("error", "error");
+				pro.put("errorMsg", "用户数据为空");
+				out.print(JsonUtil.getJsonStrByMap(pro));
+				return null;
 		}
 	}
 	//会员退出
@@ -125,6 +139,7 @@ public class MemberAction extends BaseActionSupport {
 	public String memberSearch(){
 	    memberList = this.memberService.searchMemberAll();
 		ActionContext.getContext().getSession().put("memberList", memberList);
+		getRequest().put("memberList", memberList);
 		return "searchMemberAll";
 	}
 	//根据id删除一条会员记录
@@ -133,6 +148,34 @@ public class MemberAction extends BaseActionSupport {
 		this.memberService.deleteMember(memberId);
 		return "deleteMember";
 	}
+	//忘记密码-填写账户名
+	public String wjmmTxzhm() throws Exception{
+		HttpServletResponse response =ServletActionContext.getResponse();
+		PrintWriter out = response.getWriter();
+		HttpServletRequest request = ServletActionContext.getRequest();
+
+		if(!YzmUtil.checkYzm(yzm, request.getSession().getId())){
+			pro.put("error", "error");
+			pro.put("errorMsg", "验证码错误");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}
+		member = memberService.getMemberByName(memberAlias);
+		if(member==null){
+			pro.put("error", "error");
+			pro.put("errorMsg", "该用户不存在！");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}
+		JSONObject json = new JSONObject();
+		JSONObject memberjson = new JSONObject();
+		memberjson = json.fromObject(member);
+		pro.put("success", "success");
+		pro.put("memberjson", memberjson);
+		out.print(JsonUtil.getJsonStrByMap(pro));
+		return null;
+	}
+	
 	
 	public IMemberService getMemberService() {
 		return memberService;
@@ -194,5 +237,12 @@ public class MemberAction extends BaseActionSupport {
 	public void setPro(Property pro) {
 		this.pro = pro;
 	}
+	public String getYzm() {
+		return yzm;
+	}
+	public void setYzm(String yzm) {
+		this.yzm = yzm;
+	}
+	
 	
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.ITechnicalArticleDao">
+	
+    <resultMap id="technicalArticle" type="technicalArticle">
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="title" column="title" javaType="String" jdbcType="VARCHAR"/>
+		<result property="content" column="content" javaType="String" jdbcType="VARCHAR"/>
+		<result property="createUser" column="create_user" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+	<insert id="addTechnicalArticle" parameterType="technicalArticle">
+	    insert into t_technical_article(title,content,create_user,create_time) 
+	    values(#{title},#{content},#{createUser},#{createTime})		
+	</insert>
+	<select id="getTechnicalArticle" resultMap="technicalArticle">
+		select *from t_technical_article
+	</select>
+	
+	<!-- 分页查询 -->
+	<select id="pagingSearch" resultMap="technicalArticle" >
+		select *from t_technical_article where id limit 0,2
+	</select>
+</mapper>  

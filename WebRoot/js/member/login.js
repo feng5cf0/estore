@@ -17,13 +17,15 @@ $(function(){
 			dataType:"json",
 			url:"front/memberAction!memberLogin",
 			data:$('#memberLoginForm').serialize(),
-			async:true,
+			async:false,
 			success:function(data){
 				if(data.success=="success"){
 					document.location.href="front/mainAction!toMain.action";
+					alert(data.successMsg);
+					document.location.href="front/memberAction!toMain";
 				}
 				if(data.error=="error"){
-					alert("用户名或者密码错误");
+					alert("用户名或密码错误！");
 				}
 			},
 			error:function(request){

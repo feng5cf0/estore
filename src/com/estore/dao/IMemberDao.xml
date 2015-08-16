@@ -68,4 +68,9 @@
 	<select id="findMemberById" parameterType="Integer" resultMap="memberMap">
 		select *from t_member a,t_member_info b where a.member_info_id=b.member_id and a.member_id=#{id}
 	</select>
+	<!-- 忘记密码 找回密码模块 -->
+	<!-- 根据账户名获取账户信息 -->
+	<select id="getMemberByName" resultMap="memberMap" parameterType="String">
+		select *from t_member a,t_member_info b where a.member_info_id=b.member_id and a.member_alias=#{0}
+	</select>
 </mapper>  

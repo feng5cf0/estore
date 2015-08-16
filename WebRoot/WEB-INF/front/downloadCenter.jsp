@@ -107,7 +107,7 @@
 					<span class="time">2015-7-20 15:30:46</span>
 				</div>
 				<!--换页样式-->
-				<div class="total-huanye">
+				<!-- <div class="total-huanye">
 					<a class="pre" href="#"></a>
 					<a class="num hov" href="#">1</a>
 					<a class="num" href="#">2</a>
@@ -118,7 +118,7 @@
 					<a class="next" href="#"></a>
 					<span>共100页，到第<input type="text" class="inp" value="1"/>页</span>
 					<input class="sub" type="submit" value="确定"/>
-				</div>
+				</div> -->
 				<!--<div class="huanye2">
 					<a class="page-up" href="#"></a>
 					<a href="#">1</a>

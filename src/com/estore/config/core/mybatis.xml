@@ -36,6 +36,14 @@
 		<typeAlias alias="cart" type="com.estore.entities.Cart"/>
 		<typeAlias alias="order" type="com.estore.entities.Order"/>
 		<typeAlias alias="orderCart" type="com.estore.entities.OrderCart"/>
+		<!-- 公告-->
+		<typeAlias alias="notice" type="com.estore.entities.Notice"/>
+		<!-- 银行账号-->
+		<typeAlias alias="bankAccount" type="com.estore.entities.BankAccount"/>
+		<!-- 银行账号-->
+		<typeAlias alias="technicalArticle" type="com.estore.entities.TechnicalArticle"/>
+		<!-- 分页 -->
+		<typeAlias alias="page" type="com.estore.entities.Page"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
@@ -58,10 +66,10 @@
 		<mapper resource="com/landicorp/core/dao/ITenement.xml"></mapper>
 		-->
 		
-		<mapper resource="com/estore/dao/IMoneyDao.xml"></mapper>
-		<mapper resource="com/estore/dao/IMemberDao.xml"></mapper>
-		<mapper resource="com/estore/dao/IMemberInfoDao.xml"></mapper>
-		<mapper resource="com/estore/dao/ICategoryDao.xml"></mapper>
+		<mapper resource="com/estore/dao/IMoneyDao.xml"/>
+		<mapper resource="com/estore/dao/IMemberDao.xml"/>
+		<mapper resource="com/estore/dao/IMemberInfoDao.xml"/>
+		<mapper resource="com/estore/dao/ICategoryDao.xml" />
 		<mapper resource="com/estore/dao/IGoodsDao.xml"/>
 		<mapper resource="com/estore/dao/IGoodsInDao.xml"/>
 		<mapper resource="com/estore/dao/IAddressDao.xml"/>
@@ -70,5 +78,8 @@
 		
 		<mapper resource="com/estore/dao/IOrderDao.xml"></mapper>
 		<mapper resource="com/estore/dao/IOrderCartDao.xml"></mapper>
+		<mapper resource="com/estore/dao/INoticeDao.xml"/>
+		<mapper resource="com/estore/dao/IBankAccountDao.xml"/>
+		<mapper resource="com/estore/dao/ITechnicalArticleDao.xml"/>
 	</mappers>
 </configuration>	

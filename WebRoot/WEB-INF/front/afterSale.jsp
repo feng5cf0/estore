@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <%@include file="/headDeclare.jsp"%>
@@ -85,7 +86,20 @@
 						<input class="inp" type="text" placeholder="请输入关键字..."/><input class="sub" type="submit" value="搜索"/>
 					</div>
 				</div>
-				<div class="sh-serve-jslb">
+				<c:forEach items="${technicalArticlelist }" var="item">
+					<div class="sh-serve-jslb">
+							<div class="txt5">
+								<a href="#">${item.title }</a>
+							</div>
+							<div class="txt6">
+								<fmt:formatDate value="${item.createTime }"  pattern="yyyy/MM/dd  HH:mm:ss" />
+							</div>
+					</div>
+				
+				</c:forEach>
+				
+				
+				<!-- <div class="sh-serve-jslb">
 					<div class="txt5">
 						汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全
 					</div>
@@ -111,9 +125,9 @@
 					<div class="txt5">
 						汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全
 					</div>
-				</div>
+				</div> -->
 				<!--换页样式-->
-				<div class="total-huanye">
+				<!-- <div class="total-huanye">
 					<a class="pre" href="#"></a>
 					<a class="num hov" href="#">1</a>
 					<a class="num" href="#">2</a>
@@ -124,7 +138,7 @@
 					<a class="next" href="#"></a>
 					<span>共100页，到第<input type="text" class="inp" value="1"/>页</span>
 					<input class="sub" type="submit" value="确定"/>
-				</div>
+				</div> -->
 				<!--<div class="huanye2">
 					<a class="page-up" href="#"></a>
 					<a href="#">1</a>

@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/default.css">
+<script type="text/javascript" src="js/member/forgetPassword.js"></script>
 <title>设置新密码</title>
 </head>
 
@@ -60,17 +61,18 @@
 		<!--8个（line2:进度宽度为93px*个数，txt1:宽度为93px，jd-txt：left值为25px）-->
 		<!--流程导航结束-->
 		<div>
-		<form action="front/pageJumpAction!towjmmWC" method="post">
+		<form action="front/forgetPassAction!towjmmWC" method="post">
 			<div class="pw-inp">
 				<span class="span1">新密码：</span>
-				<input class="inp" type="text" placeholder="请输入您的新密码"/>
+				<input id="newpass" name="newpass" class="inp" type="text" placeholder="请输入您的新密码"/>
+				<input type="hidden" id="memberId" name="memberId" value="30"/>
 			</div>
 			<div class="pw-inp">
 				<span class="span1">再输入一次：</span>
-				<input class="inp" type="password"/>
+				<input id="renewpass" name="renewpass" class="inp" type="password"/>
 			</div>
 			<div class="pw-inp">
-				<input class="sub" type="submit" value="提交"/>
+				<input id="szxmmBtn" class="sub" type="button" value="提交"/>
 			</div>
 		</form>
 		</div>

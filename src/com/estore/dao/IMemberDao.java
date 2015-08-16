@@ -13,4 +13,6 @@ public interface IMemberDao extends IMyBatisDao<Member, Integer>{
 		public Member findMemberByPassName(Map<String, Object> map);
 		public void passmodify(Member member);
 		public void memberUpdate(Member member);
+		public Member getMemberByName(String memberAlias);
+		
 }

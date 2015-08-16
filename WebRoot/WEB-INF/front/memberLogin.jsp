@@ -50,7 +50,7 @@
 				<input name="memberPassword" id="memberPassword" class="inp1" type="password"/>
 			</div>
 			<div class="register-lb register-lb2 login-lb2">
-				<input class="cbox" type="checkbox"/><s:property value="getText('login.rememberpassword')"/><a class="a1" href="front/pageJumpAction!towjmmTXZHM"><s:property value="getText('login.forgetpassword')"/></a>
+				<input name="flag" id="flag" value="1" class="cbox" type="checkbox" /><s:property value="getText('login.rememberpassword')"/><a class="a1" href="front/forgetPassAction!towjmmTXZHM"><s:property value="getText('login.forgetpassword')"/></a>
 			</div>
 			
 			<div class="register-lb login-lb2">

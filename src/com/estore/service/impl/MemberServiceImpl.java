@@ -55,6 +55,10 @@ public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> 
 			member.setId(id);
 			memberDao.passmodify(member);
 		}
+		@Override
+		public Member getMemberByName(String memberAlias) {
+			return memberDao.getMemberByName(memberAlias);
+		}
 	
 
 	@Override
@@ -142,6 +146,8 @@ public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> 
 	public void setMemberDao(IMemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
+
+	
 	
 
 }

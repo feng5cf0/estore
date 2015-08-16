@@ -61,7 +61,7 @@
 		<!--8个（line2:进度宽度为93px*个数，txt1:宽度为93px，jd-txt：left值为25px）-->
 		<!--流程导航结束-->
 		<div>
-		<form action="front/pageJumpAction!towjmmSZXMM"  method="post">
+		<form action="front/forgetPassAction!towjmmSZXMM"  method="post">
 			<div class="pw-inp">
 				<span class="span1">请选择验证方式：</span>
 				<select class="inp">
@@ -87,7 +87,7 @@
 				<p class="p1">验证邮件已发送成功！</p>
 				<p class="p2">（请立即完成验证，邮箱验证不通过则修改邮箱失败）</p>
 				<p class="p3">验证邮件24小时内有效，请尽快登录您的邮箱点击验证链接完成验证。</p>
-				<a class="ck-mail" href="#">查看验证邮件</a>
+				<a class="ck-mail" href="front/forgetPassAction!wjmmszxmm">查看验证邮件</a>
 			</div>
 		</div>
 	</div>

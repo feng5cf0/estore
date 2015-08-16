@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IBankAccountDao">
+	
+    <resultMap id="bankAccount" type="bankAccount">
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="createUser" column="create_user" javaType="String" jdbcType="VARCHAR"/>
+		<result property="content" column="content" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+	<insert id="addBankAccount" parameterType="bankAccount">
+	    insert into t_bank_account(create_user,content,create_time) 
+	    values(#{createUser},#{content},#{createTime})		
+	</insert>
+	<select id="getBankAccountAll" resultMap="bankAccount">
+		select *from t_bank_account
+	</select>
+</mapper>  

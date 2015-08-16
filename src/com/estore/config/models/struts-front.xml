@@ -37,18 +37,26 @@
 		<action name="mainAction" class="mainAction">
 			<result name="toMain">/WEB-INF/front/main.jsp</result>
 		</action>
+		<!-- 可以删除 -->
 		<action name="pageJumpAction" class="pageJumpAction">
 			<result name="towjmmTXZHM">/WEB-INF/front/wjmmTXZHM.jsp</result>
 			<result name="towjmmYZSF">/WEB-INF/front/wjmmYZSF.jsp</result>
 			<result name="towjmmSZXMM">/WEB-INF/front/wjmmSZXMM.jsp</result>
 			<result name="towjmmWC">/WEB-INF/front/wjmmWC.jsp</result>
+			
 			<result name="test">/WEB-INF/front/wdzb_atm.jsp</result>
 		</action>
+		<!-- 公告 -->
 		
+		
+		<action name="noticeAction" class="noticeAction">
+			<result name="noticeSearch">/WEB-INF/back/noticeSearch.jsp</result>
+		</action>
 		<action name="onlineMsgAction" class="onlineMsgAction">
 			<result name="tomain">/main.jsp</result>
 			<result name="getOnlineMsg">/WEB-INF/back/onlineMsgSearch.jsp</result>
 			<result name="toonline">/WEB-INF/front/onlineMsg.jsp</result>
+			<result name="toLogin">/WEB-INF/front/memberLogin.jsp</result>
 		</action>
 		
 		<action name="newProductAction" class="newProductAction">
@@ -73,6 +81,9 @@
 		
 		<action name="bankAccountAction" class="bankAccountAction">
 			<result name="toBankAccount">/WEB-INF/front/bankAccount.jsp</result>
+			<result name="bankAccountSearch">/WEB-INF/back/bankAccountSearch.jsp</result>
+			<result name="toAddBankAccount">/WEB-INF/back/bankAccountAdd.jsp</result>
+			<result name="addSuccess">/WEB-INF/back/bankAccountSearch.jsp</result>
 		</action>
 		<action name="callUsAction" class="callUsAction">
 			<result name="tocalllus">/WEB-INF/front/callUs.jsp</result>
@@ -103,6 +114,20 @@
 				<param name="actionName">memberAction</param>
 				<param name="method">toMemberLoginPage</param>
 			</result>
+		</action>
+		<action name="forgetPassAction" class="forgetPassAction">
+			<result name="towjmmTXZHM">/WEB-INF/front/wjmmTXZHM.jsp</result>
+			<result name="towjmmYZSF">/WEB-INF/front/wjmmYZSF.jsp</result>
+			<result name="towjmmSZXMM">/WEB-INF/front/wjmmSZXMM.jsp</result>
+			<result name="towjmmWC">/WEB-INF/front/wjmmWC.jsp</result>
+		</action>
+		<action name="technicalArticleAction" class="technicalArticleAction">
+			<result name="getTechnicalArticle">/WEB-INF/back/technicalArticleSearch.jsp</result>
+			<result name="toAddTechnicalArticle">/WEB-INF/back/addTechnicalArticle.jsp</result>
+		</action>
+		<!-- 生成验证码 -->
+		<action name="yzmAction" class="yzmAction">
+			
 		</action>
 	</package>
 </struts>

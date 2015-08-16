@@ -30,17 +30,8 @@
 										</label>
 									</td>
 									<td width="16%" align="left">
-										<input name="user.userAlias" type="text" class="dmg-input"
-											id="user.userAlias" value="${user.userAlias}" />
-									</td>
-									<td width="7%" align="right">
-										<label for="textfield">
-											用户编码：
-										</label>
-									</td>
-									<td width="12%" align="left">
-										<input name="user.userNum" type="text" class="dmg-input"
-											id="user.userNum" value="${user.userNum}" />
+										<input name="member.memberAlias" type="text" class="dmg-input"
+											id="memberAlias" />
 									</td>
 									<td width="24%"></td>
 								</tr>
@@ -51,8 +42,8 @@
 										</label>
 									</td>
 									<td width="16%" align="left">
-										<input name="user.userName" type="text" class="dmg-input"
-											id="user.userName" value="${user.userName}" />
+										<input name="member.memberRealname" type="text" class="dmg-input"
+											id="memberRealname" />
 									</td>
 									<td width="16%" align="right">
 										<label for="textfield">
@@ -60,9 +51,11 @@
 										</label>
 									</td>
 									<td width="16%" align="left">
-										<ld:select id="user.available" name="user.available"
-											groupName="availableAll" value="${user.available}"
-											className="dmg-select" />
+										<select name="member.avaliable">
+											<option value="2">全部</option>
+											<option value="1">有效</option>
+											<option value="0">无效</option>
+										</select>
 									</td>
 									<td width="24%">
 										<input type="submit" value="查询" class="button2"

@@ -1,14 +1,20 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ include file="/common.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<link rel="stylesheet" href="<%=contextPath%>/js/common/validation/css/validationEngine.jquery.css" type="text/css"/>
+<script type="text/javascript" src="<%=contextPath%>/js/common/validation/js/languages/jquery.validationEngine-zh_CN.js" ></script>
+<script type="text/javascript" src="<%=contextPath%>/js/common/validation/js/jquery.validationEngine.js"  ></script>
+<script type="text/javascript" src="js/member/forgetPassword.js"></script>
 <link rel="stylesheet" type="text/css" href="css/default.css">
 <title>填写账户名</title>
 </head>
-
 <body>
 <!--顶部开始-->
 <div class="top2">
@@ -37,7 +43,7 @@
 						<p class="p1">填写账户名</p>		
 					</div>
 					<div class="txt1">
-						<p class="p2 p3">2</p>
+						<p class="p2 p3" id="cssyzsf">2</p>
 						<p class="p1">验证身份</p>
 						
 					</div>
@@ -60,24 +66,24 @@
 		<!--7个（line2:进度宽度为108px*个数，txt1:宽度为108px，jd-txt：left值为18px）-->
 		<!--8个（line2:进度宽度为93px*个数，txt1:宽度为93px，jd-txt：left值为25px）-->
 		<!--流程导航结束-->
-		<div style="disp lay:none">
-		<form action="front/pageJumpAction!towjmmYZSF"  method="post">
+		<div id="txyhm1" style="disp lay:none">
+		<form action=""  method="post" id="txyhmForm">
 			<div class="pw-inp">
 				<span class="span1">用户名：</span>
-				<input class="inp" type="text" placeholder="用户名/邮箱/已验证手机"/>
+				<input id="memberAlias" name="memberAlias" class="inp validate[required]"  type="text" placeholder="用户名/邮箱/已验证手机"/>
 			</div>
 			<div class="pw-inp">
 				<span class="span1">验证码：</span>
-				<input class="inp" type="text" placeholder=""/>
-				<img class="yzm" src="images/yanzhengma.jpg" width="100" style="vertical-align:middle"/>
-				<span>看不清？</span><a class="huan" href="javascript:;">换一张</a>
+				<input id="yzm" name="yzm" class="inp" type="text" placeholder=""/>
+				<img id="checkimg" class="yzm" src="<%=contextPath %>/front/yzmAction!createYzm" width="100" style="vertical-align:middle"/>
+				<span>看不清？</span><a class="huan" href="javascript:void(0);" onclick="flushYZM()">换一张</a>
 			</div>
 			<div class="pw-inp">
-				<input class="sub" type="submit" value="提交"/>
+				<input id="submitBtn" class="sub" type="button" value="提交"/>
 			</div>
 		</form>
 		</div>
-		<div style="display:none">
+		<div style="display:none" id="txyhm2">
 			<div class="pw-inp">
 				<span class="span1">请选择验证方式：</span>
 				<select class="inp">
@@ -86,23 +92,23 @@
 			</div>
 			<div class="pw-inp">
 				<span class="span1">昵称：</span>
-				<span class="span2">liuxiaoxiao426</span>
+				<span id="nc" class="span2"></span>
 			</div>
 			<div class="pw-inp">
 				<span class="span1">邮箱地址：</span>
-				<span class="span2">928909786@qq.com</span>
+				<span id="yxdz" class="span2"></span>
 			</div>
 			<div class="pw-inp">
-				<input class="sub" type="submit" value="发送验证邮件"/>
+				<input id="fsyzyj" class="sub" type="button" value="发送验证邮件"/>
 			</div>
 		</div>
-		<div style="display:none;margin-left:370px">
+		<div style="display:none;margin-left:370px" id="txyhm3">
 			<div class="yz-pass"></div>
 			<div class="pw-inp" style="margin-left:60px">
 				<p class="p1">验证邮件已发送成功！</p>
 				<p class="p2">（请立即完成验证，邮箱验证不通过则修改邮箱失败）</p>
 				<p class="p3">验证邮件24小时内有效，请尽快登录您的邮箱点击验证链接完成验证。</p>
-				<a class="ck-mail" href="#">查看验证邮件</a>
+				<a class="ck-mail" href="front/forgetPassAction!wjmmszxmm">查看验证邮件</a>
 			</div>
 		</div>
 	</div>
