@@ -37,7 +37,7 @@
 	          <H3 class=titZx>QQ咨询</H3>
 	        </LI>
 	        <LI><SPAN class=icoZx>在线咨询</SPAN> </LI>
-	        <LI><a class=icoTc  href="http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes">洪震平</a> </LI>
+	        <LI><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=574591725&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:574591725:41" alt="联系我们" title="联系我们"/></a> </LI>
 	        <LI><A class=icoTc href="javascript:void(0);">B老师</A> </LI>
 	        <LI><A class=icoTc href="#">C老师</A> </LI>
 	        <LI class=bot><A class=icoTc href="javascript:void(0);">D老师</A> </LI>
