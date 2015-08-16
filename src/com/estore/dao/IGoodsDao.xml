@@ -6,6 +6,7 @@
 	
     <resultMap id="goodsMap" type="goods" >
     	<id property="id" column="goods_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="goodsCode" column="goods_code" javaType="String" jdbcType="VARCHAR"/>
 		<result property="localeType" column="locale_type" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="goodsName" column="goods_name" javaType="String" jdbcType="VARCHAR"/>
 		<result property="goodsDescription" column="goods_description" javaType="String" jdbcType="VARCHAR"/>
@@ -17,23 +18,23 @@
     	<result property="backAccount" column="back_account" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="frontAccount" column="front_account" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
-    	
+    	<result property="addTime" column="add_time" javaType="Date" jdbcType="TIMESTAMP"/>
     </resultMap>            
     <sql id="goodsColumns">
-    	locale_type,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo
+    	goods_code,locale_type,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo,add_time
     </sql>
     <sql id="goodsValues">
-    	#{localeType},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo}
+    	#{goodsCode},#{localeType},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo},#{addTime}
     </sql>
     
 	<!-- 新增国际化 -->
 	<insert id="saveLocale" parameterType="goods">
 		insert into t_goods(goods_id,locale_type,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo)
-		values(#{id},#{localeType},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo})
+		values(#{id},#{localeType},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo}),#{addTime}
 	</insert>
 	
 	<!-- 新增商品 -->
-	<insert id="sava" parameterType="goods">
+	<insert id="save" parameterType="goods">
 		insert into t_goods(<include refid="goodsColumns"/>)
 		values(<include refid="goodsValues"/>)
 	</insert>
@@ -111,5 +112,26 @@
 	<select id="getByCategory" resultMap="goodsMap" parameterType="int">
 		select * from t_goods t		
 		where t.category_id = #{categoryId}
+	</select>
+	
+	<!-- 前台根据类别加载商品信息 -->
+	<select id="getByCategoryId" resultMap="goodsMap" parameterType="map">
+		select * 
+		from t_goods t		
+		<where>
+			<if test="#{categoryId != null}">
+				and t.category_id = #{categoryId}
+			</if>
+			<if test="#{localeType != null}">
+				and t.locale_type = #{localeType}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 通过商品id获取中文商品信息 -->
+	<select id="getZHByGoodsId" resultMap="goodsMap" parameterType="int">
+		select *
+		from t_goods t
+		where t.goods_id = #{goodsId} and locale_type=1
 	</select>
 </mapper>

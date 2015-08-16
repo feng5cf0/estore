@@ -12,11 +12,25 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
-	<link rel="stylesheet" type="text/css" href="css/default.css"/>
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/kefu.js"></script>
+	<script src="js/lrtk.js"></script> 
+	<script type="text/javascript">
+		$(function(){
+			$(".pro-left1-li").each(function(i){
+				var top = $(this).offset().top;
+				$(".pro-left1-lilb:eq("+i+")").css({"top":192-top});
+			})//左栏划上效果
+			
+			//二维码划上效果
+			$(".ewm-txt").hover(function(){
+				$(".ewm-pic").show();
+			},function(){
+				$(".ewm-pic").hide();
+			})
+		})
+	</script>
   </head>
   
   <body>
@@ -36,7 +50,7 @@
 			<a class="top-right-dw" href="javascript:;"><s:property value="getText('index.sethomepage')"/></a> |
 			<div class="top-right-dw top-right-gwc" href="javascript:;">
 				<img src="images/gowoche.png" width="15" height="14"/>
-				<span class="txt"><s:property value="getText('index.cart')"/></span>
+				<span class="txt"><a href="${basePath}front/cartFrontAction!getAll.action"><s:property value="getText('index.cart')"/></a></span>
 				<span class="num">2</span>
 				<img src="images/jt_xia.png" width="9" height="7"/>
 				<div class="gwc-xllb" style="displ ay:block">

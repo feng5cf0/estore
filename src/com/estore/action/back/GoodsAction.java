@@ -16,6 +16,7 @@ public class GoodsAction extends BaseActionSupport {
 	private Goods goods;
 	private List<Goods> goodsList;
 	private Integer[] deleteItems;
+	private String categoryCode;
 	
 	public String addPrepare(){
 		
@@ -27,6 +28,10 @@ public class GoodsAction extends BaseActionSupport {
 	public String addGoods(){
 		//设置语言格式1中文
 		this.goods.setLocaleType(1);
+		
+		//设置商品编码
+		this.goods.setGoodsCode(this.categoryCode+this.goods.getGoodsCode());
+		
 		this.goodsService.add(goods);
 		
 		return "addGoods";
@@ -81,5 +86,11 @@ public class GoodsAction extends BaseActionSupport {
 	}
 	public void setDeleteItems(Integer[] deleteItems) {
 		this.deleteItems = deleteItems;
+	}
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
 	}
 }

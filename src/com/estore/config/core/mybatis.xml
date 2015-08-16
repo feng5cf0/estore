@@ -33,6 +33,9 @@
 		<typeAlias alias="goods" type="com.estore.entities.Goods"/>
 		<!-- 在线留言-->
 		<typeAlias alias="onlineMsg" type="com.estore.entities.OnlineMsg"/>
+		<typeAlias alias="cart" type="com.estore.entities.Cart"/>
+		<typeAlias alias="order" type="com.estore.entities.Order"/>
+		<typeAlias alias="orderCart" type="com.estore.entities.OrderCart"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
@@ -63,5 +66,9 @@
 		<mapper resource="com/estore/dao/IGoodsInDao.xml"/>
 		<mapper resource="com/estore/dao/IAddressDao.xml"/>
 		<mapper resource="com/estore/dao/IOnlineMsgDao.xml"/>
+		<mapper resource="com/estore/dao/ICartDao.xml"/>
+		
+		<mapper resource="com/estore/dao/IOrderDao.xml"></mapper>
+		<mapper resource="com/estore/dao/IOrderCartDao.xml"></mapper>
 	</mappers>
 </configuration>	

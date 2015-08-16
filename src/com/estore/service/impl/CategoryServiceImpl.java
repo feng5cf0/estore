@@ -80,12 +80,25 @@ public class CategoryServiceImpl extends AbstractBaseServiceImpl<Category, Integ
 
 		this.categoryDao.savaLocale(category);
 	}
+	
+	@Override
+	public List<Category> getByCategoryId(Integer categoryId, Integer localeType) {
+
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("categoryId", categoryId);
+		map.put("localeType", localeType);
+		
+		
+		return this.categoryDao.getByCategoryId(map);
+	}
+	
 	public ICategoryDao getCategoryDao() {
 		return categoryDao;
 	}
 	public void setCategoryDao(ICategoryDao categoryDao) {
 		this.categoryDao = categoryDao;
 	}
+
 
 
 

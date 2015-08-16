@@ -146,7 +146,7 @@ function addItem() {
 								<tr class="tableitem${6-status.index%2}"
 									onMouseOver="this.className='tableitem9';this.style.cursor='hand';"
 									onMouseOut="this.className='tableitem${6-status.index%2}';this.style.cursor='hand';"
-									<ld:check mark="rightDetail">onclick="showItem(${item.id});"</ld:check>>
+									>
 									<td>
 										<input type="checkbox" name="delete" id="delete"
 											value="${item.id}" />

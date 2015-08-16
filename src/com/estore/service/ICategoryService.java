@@ -20,4 +20,12 @@ public interface ICategoryService extends IBaseService<Category, Integer> {
 	 */
 	public List<Category> getLocaleById(Integer categoryId,Integer localeType);
 	public void addLocale(Category category);
+	
+	/**
+	 * 前台选择类别后，加载子类别
+	 * @param categoryId
+	 * @param localeType
+	 * @return
+	 */
+	public List<Category> getByCategoryId(Integer categoryId,Integer localeType);
 }

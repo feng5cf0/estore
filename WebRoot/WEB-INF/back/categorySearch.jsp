@@ -4,11 +4,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-	<c:if test="operatorSuccess">
 	<script type="text/javascript">
 		window.parent.categoryTree.location.reload();
 	</script>
-	</c:if>
 <script type="text/javascript">
 
 function checkIsInherit(id, isInherit) {
@@ -28,16 +26,9 @@ function setAvailable(id, upRightId, page) {
 				+ id + "&upRightId=" + upRightId + "&pager.curPageNum=" + page;
 	}
 }
-function addItem() {
-	//var returnValue
-//	= showLargeDialog("${basePath}core/rightInsert!prepare.action?right.upRightId="+${upRightId});
-		//	if(!!returnValue){
-			//	showLargeDialog("${basePath}core/rightSearch!getRightDetail.action?right.id="+returnValue);
-				//document.pagerForm['pager.curPageNum'].value=1;
-				//window.pagerForm.submit();
-			//}
-			//、window.parent.rightTree.location.reload();
-		window.location.href="${basePath}back/categoryAction!addPrepare.action?category.parentCategory="+${category.parentCategory};
+	function addItem(categoryCode) {
+
+		window.location.href="${basePath}back/categoryAction!addPrepare.action?category.parentCategory="+${category.parentCategory}+"&category.categoryCode="+categoryCode;
 	}
 		 
 		function editItem(id){
@@ -92,7 +83,7 @@ function addItem() {
 							<ld:check mark="categoryManager">
 								<input type="button" value="新增" class="button2"
 									onMouseOver="this.className='button2Over'"
-									onMouseOut="this.className='button2Out'" onclick="addItem();" />
+									onMouseOut="this.className='button2Out'" onclick="addItem('${category.categoryCode}');" />
 							</ld:check>
 						</div>
 						<div class="divbutton2">
@@ -134,7 +125,7 @@ function addItem() {
 								<tr class="tableitem${6-status.index%2}"
 									onMouseOver="this.className='tableitem9';this.style.cursor='hand';"
 									onMouseOut="this.className='tableitem${6-status.index%2}';this.style.cursor='hand';"
-									<ld:check mark="categoryManager">onclick="showItem(${item.id});"</ld:check>>
+								>
 									<td>
 										<input type="checkbox" name="delete" id="delete"
 											value="${item.id}" />

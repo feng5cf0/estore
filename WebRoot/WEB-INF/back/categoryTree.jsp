@@ -15,7 +15,7 @@
 					<script type="text/javascript">
 						d = new dTree('d');
 						<c:forEach items="${categoryList}" var="item">
-							d.add(${item.id},${item.parentCategory},'${item.categoryName}','${basePath}back/categoryAction!loadCategoryByParentId.action?category.parentCategory=${item.id}');
+							d.add(${item.id},${item.parentCategory},'${item.categoryName}','${basePath}back/categoryAction!loadCategoryByParentId.action?category.parentCategory=${item.id}&category.categoryCode=${item.categoryCode}');
 						</c:forEach>
 						d.config.useSelection = false;
 						d.config.target='categoryList';

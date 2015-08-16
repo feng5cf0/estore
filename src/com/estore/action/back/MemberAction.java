@@ -35,17 +35,18 @@ public class MemberAction extends BaseActionSupport {
 	private int memberId;
 	private String memberAlias;//登录账号
 	private String memberPassword;//登录密码
+	
 	Property pro=new Property();
 	
 	public MemberAction() {
 	}
 	//跳转到首页
 	public String toMain(){
-		
 		return "main";
 	}
 	//跳转到登录页面
 	public String toMemberLoginPage(){
+		
 		return "toLoginPage";
 	}
 	//跳转到注册页面

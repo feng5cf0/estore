@@ -16,4 +16,5 @@ public interface IGoodsDao extends IMyBatisDao<Goods, Integer> {
 	public List<Goods> getLocaleById(Map<String,Object> map);
 	public void saveLocale(Goods goods);
 	public List<Goods> getForTree();
+	public List<Goods> getByCategoryId(Map<String, Object> map);
 }

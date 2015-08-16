@@ -1,5 +1,7 @@
 package com.estore.entities;
 
+import java.util.Date;
+
 import com.landicorp.core.entities.base.BaseEntity;
 
 public class Goods extends BaseEntity {
@@ -9,6 +11,7 @@ public class Goods extends BaseEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private String goodsCode;
 	private Integer localeType;   //1--zh_CN;2---en_US;
 	private String goodsName;
 	private String goodsDescription;
@@ -19,6 +22,7 @@ public class Goods extends BaseEntity {
 	private Float goodsPrice;
 	private Integer backAccount;
 	private Integer frontAccount;
+	private Date addTime;
 	
 	public String getGoodsName() {
 		return goodsName;
@@ -79,5 +83,17 @@ public class Goods extends BaseEntity {
 	}
 	public void setLocaleType(Integer localeType) {
 		this.localeType = localeType;
+	}
+	public String getGoodsCode() {
+		return goodsCode;
+	}
+	public void setGoodsCode(String goodsCode) {
+		this.goodsCode = goodsCode;
+	}
+	public Date getAddTime() {
+		return addTime;
+	}
+	public void setAddTime(Date addTime) {
+		this.addTime = addTime;
 	}
 }

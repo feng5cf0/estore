@@ -31,7 +31,7 @@
 						<td width="82%" valign="top">
 							<ld:check mark="categoryManager">
 								<iframe
-									src="${basePath}back/categoryAction!loadCategoryByParentId.action?category.parentCategory=1"
+									src="${basePath}back/categoryAction!loadCategoryByParentId.action?category.parentCategory=1&category.categoryCode=001"
 									name="categoryList" width="100%" height="600" marginwidth="1"
 									marginheight="1" frameborder="0">
 								</iframe>

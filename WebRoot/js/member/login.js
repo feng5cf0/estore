@@ -20,7 +20,7 @@ $(function(){
 			async:true,
 			success:function(data){
 				if(data.success=="success"){
-					document.location.href="front/memberAction!toMain";
+					document.location.href="front/mainAction!toMain.action";
 				}
 				if(data.error=="error"){
 					alert("用户名或者密码错误");

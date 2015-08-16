@@ -79,6 +79,53 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 		this.goodsDao.saveLocale(goods);
 	}
 
+	@Override
+	public List<Goods> getByCategoryId(Integer categoryId, Integer localeType) {
+
+		Map<String,Object> map = new HashMap<String,Object>();
+		//List<Goods> goodsList = new ArrayList<Goods>();
+//		List<Category> categoryList = new ArrayList<Category>();
+//		
+//		//获取所有子类别
+//		map.put("categoryId", categoryId);
+//		map.put("localeType", localeType);
+//		categoryList = this.categoryDao.getByParentId(map);
+//		List<Category> tempList = categoryList;
+//		for(Category category : tempList){
+//			map.put("categoryId",category.getId());
+//			
+//			for(Category a:this.categoryDao.getByParentId(map)){
+//				categoryList.add(a);
+//			}
+//		}
+//		categoryList.add(this.categoryDao.getByCategoryId(map)
+		
+		
+		map.put("categoryId", categoryId);
+		map.put("localeType", localeType);
+		
+		
+		return this.goodsDao.getByCategoryId(map);
+	}
+
+	@Override
+	public Goods getByGoodsId(Integer goodsId, Integer localeType) {
+		
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("goodsId", goodsId);
+		map.put("localeType", localeType);
+		
+		List<Goods> goodsList = this.goodsDao.getLocaleById(map);
+		
+		Goods goods = null;
+		
+		if(goodsList.size() >0){
+			goods = goodsList.get(0);
+		}
+		
+		return goods;
+	}
+	
 	public IGoodsDao getGoodsDao() {
 		return goodsDao;
 	}
@@ -91,5 +138,7 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 	public void setCategoryDao(ICategoryDao categoryDao) {
 		this.categoryDao = categoryDao;
 	}
+
+
 
 }

@@ -38,22 +38,12 @@
 			<result name="toMain">/WEB-INF/front/main.jsp</result>
 		</action>
 		<action name="pageJumpAction" class="pageJumpAction">
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			<result name="towjmmTXZHM">/WEB-INF/front/wjmmTXZHM.jsp</result>
 			<result name="towjmmYZSF">/WEB-INF/front/wjmmYZSF.jsp</result>
 			<result name="towjmmSZXMM">/WEB-INF/front/wjmmSZXMM.jsp</result>
 			<result name="towjmmWC">/WEB-INF/front/wjmmWC.jsp</result>
 			<result name="test">/WEB-INF/front/wdzb_atm.jsp</result>
 		</action>
-		
 		
 		<action name="onlineMsgAction" class="onlineMsgAction">
 			<result name="tomain">/main.jsp</result>
@@ -87,7 +77,32 @@
 		<action name="callUsAction" class="callUsAction">
 			<result name="tocalllus">/WEB-INF/front/callUs.jsp</result>
 		</action>
-		
+		<action name="goodsSearchAction" class="goodsSearchAction">
+			<result name="getByCategory">/WEB-INF/front/goodsSearch.jsp</result>
+		</action>
+		<action name="goodsDetailAction" class="goodsDetailAction">
+			<result name="prepare">/WEB-INF/front/goodsDetail.jsp</result>
+		</action>
+		<action name="cartFrontAction" class="cartFrontAction">
+			<result name="addCart">/WEB-INF/front/cart.jsp</result>
+			<result name="toLogin" type="redirectAction">
+				<param name="actionName">memberAction</param>
+				<param name="method">toMemberLoginPage</param>
+			</result>
+			<result name="getAll">/WEB-INF/front/cart.jsp</result>
+			<result name="toOrder">/WEB-INF/front/order.jsp</result>
+		</action> 
+		<action name="orderFrontAction" class="orderFrontAction">
+			<result name="addOrder">/WEB-INF/front/orderPay.jsp</result>
+			<result name="pay" type="redirectAction">
+				<param name="actionName">orderFrontAction</param>
+				<param name="method">get</param>
+			</result>
+			<result name="getOrder">/WEB-INF/front/memberCenterOrder.jsp</result>
+			<result name="toLogin" type="redirectAction">
+				<param name="actionName">memberAction</param>
+				<param name="method">toMemberLoginPage</param>
+			</result>
+		</action>
 	</package>
 </struts>
-

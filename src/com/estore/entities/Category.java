@@ -11,6 +11,7 @@ public class Category extends BaseEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private String categoryCode;
 	private Integer localeType;
 	private String categoryName;
 	
@@ -62,5 +63,11 @@ public class Category extends BaseEntity {
 	}
 	public void setLocaleType(Integer localeType) {
 		this.localeType = localeType;
+	}
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
 	}
 }

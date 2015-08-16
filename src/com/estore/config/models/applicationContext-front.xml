@@ -48,5 +48,8 @@
 	<bean id="afterSaleAction" class="com.estore.action.front.AfterSaleAction" scope="prototype"/>
 	<bean id="bankAccountAction" class="com.estore.action.front.BankAccountAction" scope="prototype"/>
 	<bean id="callUsAction" class="com.estore.action.front.CallUsAction" scope="prototype"/>
-		
+	<bean id="goodsSearchAction" class="com.estore.action.front.GoodsSearchAction" scope="prototype"/>
+	<bean id="goodsDetailAction" class="com.estore.action.front.GoodsDetailAction" scope="prototype"/>
+	<bean id="cartFrontAction" class="com.estore.action.front.CartFrontAction" scope="prototype"/>
+	<bean id="orderFrontAction" class="com.estore.action.front.OrderFrontAction" scope="prototype"/>
 </beans>

@@ -123,6 +123,7 @@ function isRightUse(name, mark, url) {
 									value="${pager.curPageNum}" />
 								<input type="hidden" value="${category.parentCategory}"
 									name="category.parentCategory" />
+								<input type="hidden" value="${parentCode}" name="parentCode"/>
 								<tr>
 									<td width="200" class="tableitem1">
 										类别名称：
@@ -130,6 +131,16 @@ function isRightUse(name, mark, url) {
 									<td class="tableitem3">
 										<input type="text" id="category.categoryName" name="category.categoryName"
 											value="${category.categoryName}" maxlength="20" />
+										<FONT color=red>*</FONT>
+									</td>
+								</tr>
+								<tr>
+									<td width="200" class="tableitem1">
+										类别编码：
+									</td>
+									<td class="tableitem3">
+										<input type="text" id="category.categoryCode" name="category.categoryCode"
+											value="${category.categoryCode}" maxlength="20" />
 										<FONT color=red>*</FONT>
 									</td>
 								</tr>

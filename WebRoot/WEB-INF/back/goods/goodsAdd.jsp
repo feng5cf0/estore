@@ -25,15 +25,17 @@
 				document.getElementById('categoryDiv').style.display='block';
 				document.getElementById('fade').style.display='block'
 			}
-			function fileValue(id,name){
+			function fileValue(id,name,code){
 				var _id = id;
 				var _name = name;
+				var _code = code;
 				
 				document.getElementById('categoryDiv').style.display='none';
 				document.getElementById('fade').style.display='none'
 				
 				document.getElementById("goods.categoryId").value = _id;
 				document.getElementById("categoryName").value = _name;
+				document.getElementById("categoryCode").value= _code;
 			
 			}
 function changeArea(areaId, areaName) {
@@ -174,6 +176,17 @@ function isRightUse(name, mark, url) {
 									</td>
 								</tr>
 								<tr>
+									<td width="200" class="tableitem4">
+										商品代码：
+									</td>
+									<td class="tableitem2">
+										<input type="hidden" name="categoryCode" value="${categoryCode}" id="categoryCode"/>
+										<input type="text" id="goods.goodsCode" name="goods.goodsCode"
+											value="${goods.goodsCode}" maxlength="20"/>
+										<FONT color=red>*</FONT>
+									</td>
+								</tr>
+								<tr>
 									<td width="200" class="tableitem1">
 										商品描述：
 									</td>
@@ -247,7 +260,8 @@ function isRightUse(name, mark, url) {
 								<c:when test="${item.isLeaf == 1}">
 									var id = ${item.id};
 									var name = "${item.categoryName}";
-									d.add(${item.id},${item.parentCategory},'${item.categoryName}','javascript:fileValue(${item.id},\''+name+'\');');
+									var code ="${item.categoryCode}";
+									d.add(${item.id},${item.parentCategory},'${item.categoryName}','javascript:fileValue(${item.id},\''+name+'\',\''+code+'\');');
 								</c:when>
 								<c:when test="${item.isLeaf != 1}">
 									var id = ${item.id};

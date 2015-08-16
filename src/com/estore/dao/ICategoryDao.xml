@@ -6,6 +6,7 @@
 	
     <resultMap id="categoryMap" type="category" >
     	<id property="id" column="category_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="categoryCode" column="category_code" javaType="String" jdbcType="VARCHAR"/>
 		<result property="localeType" column="locale_type" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="categoryName" column="category_name" javaType="String" jdbcType="VARCHAR"/>
 		<result property="parentCategory" column="parent_category" javaType="Integer" jdbcType="INTEGER"/>
@@ -17,10 +18,10 @@
     		select="com.estore.dao.ICategoryDao.getByPId"></collection>
     </resultMap>            
     <sql id="categoryColumns">
-    	locale_type,category_name,parent_category,is_leaf,is_avaliable,picture,memo
+    	category_code,locale_type,category_name,parent_category,is_leaf,is_avaliable,picture,memo
     </sql>
     <sql id="categoryValues">
-    	#{localeType},#{categoryName},#{parentCategory},#{isLeaf},#{isAvaliable},#{picture},#{memo}
+    	#{categoryCode},#{localeType},#{categoryName},#{parentCategory},#{isLeaf},#{isAvaliable},#{picture},#{memo}
     </sql>
     <select id="getByPId" resultMap="categoryMap" parameterType="int">
     	select *
@@ -132,18 +133,32 @@
 	
 	<select id="getByParentId" resultMap="categoryMap" parameterType="map">
 		select *
-		from t_goods_category t
-		where t.parent_category = #{parentId}
+		from t_goods_category t 
+		where t.parent_category = #{parentId} and locale_type = 1
 		<include refid="Sql.pager" />		
 	</select>
 	<select id="getByParentIdCount" resultType="int" parameterType="int">
 		select count(*)
 		from t_goods_category t
-		where t.parent_category = #{parentId}
+		where t.parent_category = #{parentId} and locale_type = 1
 	</select>
 	<select id="getForFront" resultMap="categoryMap">
 		select *
 		from t_goods_category t
 		where t.parent_category = 1 ;
+	</select>
+	
+	<!-- 前台点击类别后获取子类别 -->
+	<select id="getByCategoryId" resultMap="categoryMap" parameterType="map">
+		select *
+		from t_goods_category t
+		<where>
+			<if test="#{categoryId != null}">
+				and t.category_id = #{categoryId}
+			</if>
+			<if test="#{localeType != null}">
+				and t.locale_type = #{localeType}
+			</if>
+		</where>
 	</select>
 </mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IOrderDao">
+	
+    <resultMap id="orderMap" type="order" >
+    	<id property="id" column="order_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="memberId" column="member_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="priceAmount" column="price_amount" javaType="Float" jdbcType="DECIMAL"/>
+		<result property="isOnsale" column="is_onsale" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="priceOnsale" column="price_onsale" javaType="Float" jdbcType="DECIMAL"/>
+		<result property="moneyType" column="money_type" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="payMoney" column="pay_money" javaType="Float" jdbcType="DECIMAL"/>
+    	<result property="address" column="address" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"></result>
+    	<result property="sendTime" column="send_time" javaType="Date" jdbcType="TIMESTAMP"/>
+		<result property="sendType" column="send_type" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="transformFee" column="transform_fee" javaType="Float" jdbcType="DECIMAL"/>
+		<result property="status" column="status" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="payPic" column="pay_pic" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="sendPic" column="send_pic" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="handlerId" column="handler_id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	
+    	<collection property="cartSet" column="order_id" select="com.estore.dao.ICartDao.getByOrderId"></collection>
+    </resultMap>
+    <sql id="orderColumns">
+    	member_id,price_amount,is_onsale,price_onsale,money_type,
+    	pay_money,address,create_time,send_time,send_type,transform_fee,status,pay_pic,send_pic,handler_id,memo
+    </sql>
+    <sql id="orderValues">
+    	#{memberId},#{priceAmount},#{isOnsale},#{priceOnsale},#{moneyType},#{payMoney},#{address},#{createTime},#{sendTime},#{sendType},
+    	#{transformFee},#{status},#{payPic},#{sendPic},#{handlerId},#{memo}
+    </sql>
+    
+	<!-- 新增购物车 -->
+	<insert id="save" parameterType="order" keyProperty="id" useGeneratedKeys="true">
+		insert into t_order(<include refid="orderColumns"/>)
+		values(<include refid="orderValues"/>)
+		
+		<!-- 配置Mysql主键自动增长 -->
+		<selectKey resultType="int" keyProperty="id" order="AFTER" >
+			select
+			LAST_INSERT_ID() as value
+		</selectKey>
+	</insert>
+	
+	<select id="getOrder" resultMap="orderMap" parameterType="order">
+		select * from t_order
+		<where>
+			<if test="memberId != null">
+				and member_id = #{memberId}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+		</where>
+	</select>
+</mapper>

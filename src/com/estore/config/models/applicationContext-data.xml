@@ -24,12 +24,22 @@
 	<bean id="goodsInDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IGoodsInDao"></property>
 	</bean>
-	
+	<bean id="cartDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.ICartDao"></property>
+	</bean>
+	<bean id="orderDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IOrderDao"></property>
+	</bean>
+	<bean id="orderCartDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IOrderCartDao"></property>
+	</bean>
 	<!-- service -->
 	<bean id="moneyService" class="com.estore.service.impl.MoneyServiceImpl"/>
 	<bean id="categoryService" class="com.estore.service.impl.CategoryServiceImpl"/>
 	<bean id="goodsService" class="com.estore.service.impl.GoodsServiceImpl"/>
 	<bean id="goodsInService" class="com.estore.service.impl.GoodsInServiceImpl"/>
+	<bean id="cartService" class="com.estore.service.impl.CartServiceImpl"/>
+	<bean id="orderService" class="com.estore.service.impl.OrderServiceImpl"/>
 	<!-- action -->
 	<bean id="moneyAction" class="com.estore.action.back.MoneyAction" scope="prototype"/>
 	<bean id="categoryAction" class="com.estore.action.back.CategoryAction" scope="prototype"/>

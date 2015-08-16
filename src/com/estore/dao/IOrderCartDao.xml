@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IOrderCartDao">
+	
+    <resultMap id="orderCartMap" type="orderCart" >
+		<result property="orderId" column="order_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="cartId" column="cart_id" javaType="Integer" jdbcType="INTEGER"/>
+    </resultMap>     
+    <sql id="orderCartColumns">
+    	order_id,cart_id
+    </sql>
+    <sql id="orderCartValues">
+    	#{orderId},#{cartId}
+    </sql>
+    
+	<!-- 新增商品 -->
+	<insert id="save" parameterType="orderCart">
+		insert into t_order_cart(<include refid="orderCartColumns"/>)
+		values(<include refid="orderCartValues"/>)
+	</insert>
+</mapper>
