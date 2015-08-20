@@ -91,6 +91,10 @@ public class CategoryServiceImpl extends AbstractBaseServiceImpl<Category, Integ
 		
 		return this.categoryDao.getByCategoryId(map);
 	}
+	@Override
+	public List<Category> getByCategoryCode(String categoryCode) {
+		return this.categoryDao.getByCategoryCode(categoryCode);
+	}
 	
 	public ICategoryDao getCategoryDao() {
 		return categoryDao;
@@ -98,6 +102,7 @@ public class CategoryServiceImpl extends AbstractBaseServiceImpl<Category, Integ
 	public void setCategoryDao(ICategoryDao categoryDao) {
 		this.categoryDao = categoryDao;
 	}
+
 
 
 

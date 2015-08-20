@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IAttributeValueDao">
+	
+    <resultMap id="attributeValueMap" type="attributeValue" >
+    	<id property="id" column="attribute_value_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="attributeId" column="attribute_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="attributeValue" column="attribute_value" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    </resultMap>            
+    <sql id="attributeValueColumns">
+    	attribute_value_id,attribute_id,attribute_value,memo
+    </sql>
+    <sql id="attributeValueValues">
+    	#{id},#{attributeId},#{attributeValue},#{memo}
+    </sql>
+    
+</mapper>

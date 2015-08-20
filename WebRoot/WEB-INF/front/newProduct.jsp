@@ -8,7 +8,7 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/kefu.js"></script>
 <script src="js/lrtk.js"></script> 
-<script type="text/javascript">
+<script type="text/javascript"> 
 	$(function(){
 		$(".pro-left1-li").each(function(i){
 			var top = $(this).offset().top;
@@ -177,64 +177,9 @@
 		<!--头部切换结束-->
 		<!--产品列表开始-->
 		<div class="new-prolb-wk">
-			<!--<div class="new-prolb">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<div class="txt1">
-					<p class="p1"><a href="#">高大上锁芯高大上锁芯高大上锁芯高大上锁芯</a></p>
-					<p class="p2">￥200.00</p>
-				</div>
-			</div>-->
 			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
+			
+			
 			<div class="prolb-showlb prolb-showlb2">
 				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
 				<h4>玥玛锁业</h4>
@@ -248,6 +193,7 @@
 		</div>
 		<!--产品列表结束-->
 		<!--换页样式-->
+		<!--
 		<div class="total-huanye">
 			<a class="pre" href="#"></a>
 			<a class="num hov" href="#">1</a>
@@ -260,13 +206,7 @@
 			<span>共100页，到第<input type="text" class="inp" value="1"/>页</span>
 			<input class="sub" type="submit" value="确定"/>
 		</div>
-		<!--<div class="huanye2">
-			<a class="page-up" href="#"></a>
-			<a href="#">1</a>
-			<a class="hov" href="#">2</a>
-			<a href="#">3</a>
-			<a class="page-down" href="#"></a>
-		</div>-->
+		--><!-- 分页结束 -->
 	</div>
 	<!--右侧列表结束-->
 	<div style="clear:both"></div>

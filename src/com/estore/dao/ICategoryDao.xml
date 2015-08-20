@@ -161,4 +161,10 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="getByCategoryCode" resultMap="categoryMap" parameterType="string">
+		select *
+		from t_goods_category
+		where category_code like '${categoryCode}%'
+	</select>
 </mapper>

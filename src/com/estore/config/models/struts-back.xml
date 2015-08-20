@@ -60,6 +60,9 @@
 			<result name="prepare">/WEB-INF/back/goods/goodsLocaleAdd.jsp</result>
 			<result name="addLocale">/WEB-INF/back/goods/goodsLocaleAddSuccess.jsp</result>
 		</action>
+		<action name="orderAction" class="orderAction">
+			<result name="loadOrder">/WEB-INF/back/order/orderSearch.jsp</result>
+		</action>
 	</package>
 </struts>
 

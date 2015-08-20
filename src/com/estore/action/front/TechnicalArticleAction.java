@@ -1,6 +1,5 @@
 package com.estore.action.front;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -12,9 +11,9 @@ import com.estore.entities.TechnicalArticle;
 import com.estore.service.impl.TechnicalArticleServiceImpl;
 import com.estore.util.JsonUtil;
 import com.estore.util.Property;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class TechnicalArticleAction extends BaseActionSupport{
+public class TechnicalArticleAction extends ActionSupport{
 
 	/**
 	 * 

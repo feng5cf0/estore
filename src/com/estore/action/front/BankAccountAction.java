@@ -7,9 +7,9 @@ import com.estore.entities.BankAccount;
 import com.estore.entities.Category;
 import com.estore.service.IBankAccountService;
 import com.estore.service.ICategoryService;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class BankAccountAction extends BaseActionSupport {
+public class BankAccountAction extends ActionSupport {
 
 	/**
 	 * 

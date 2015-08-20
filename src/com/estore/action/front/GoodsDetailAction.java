@@ -7,9 +7,9 @@ import com.estore.entities.Goods;
 import com.estore.service.ICategoryService;
 import com.estore.service.IGoodsService;
 import com.estore.util.Locale;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class GoodsDetailAction extends BaseActionSupport {
+public class GoodsDetailAction extends ActionSupport {
 	
 	private Goods goods;
 	private IGoodsService goodsService;
@@ -23,6 +23,9 @@ public class GoodsDetailAction extends BaseActionSupport {
 		this.categoryList = this.categoryService.getForFront();
 		
 		this.goods = this.goodsService.getByGoodsId(goodsId,Locale.ZHCN);
+
+		//System.out.print(ServletActionContext.getRequest().getSession().getAttribute("member"));
+		//System.out.print(ServletActionContext.getRequest().getSession().getId());
 		
 		return "prepare";
 	}

@@ -1,6 +1,7 @@
 package com.estore.entities;
 
 import java.util.Date;
+import java.util.Set;
 
 import com.landicorp.core.entities.base.BaseEntity;
 
@@ -23,6 +24,8 @@ public class Goods extends BaseEntity {
 	private Integer backAccount;
 	private Integer frontAccount;
 	private Date addTime;
+	
+	private Set<GoodsAttribute> goodsAttributeList;
 	
 	public String getGoodsName() {
 		return goodsName;
@@ -95,5 +98,11 @@ public class Goods extends BaseEntity {
 	}
 	public void setAddTime(Date addTime) {
 		this.addTime = addTime;
+	}
+	public Set<GoodsAttribute> getGoodsAttributeList() {
+		return goodsAttributeList;
+	}
+	public void setGoodsAttributeList(Set<GoodsAttribute> goodsAttributeList) {
+		this.goodsAttributeList = goodsAttributeList;
 	}
 }

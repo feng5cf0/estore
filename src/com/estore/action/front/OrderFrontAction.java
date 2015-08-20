@@ -2,15 +2,17 @@ package com.estore.action.front;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.estore.entities.Category;
 import com.estore.entities.Member;
 import com.estore.entities.Order;
 import com.estore.service.ICategoryService;
 import com.estore.service.IOrderService;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class OrderFrontAction extends BaseActionSupport {
+public class OrderFrontAction extends ActionSupport {
 
 	private Integer[] cartIds;
 	private IOrderService orderService;
@@ -28,8 +30,10 @@ public class OrderFrontAction extends BaseActionSupport {
 			order = new Order();
 		}
 		
-		//获取当前登录用户
-		Member member = (Member)getSession().get("member");
+		//判断是否登录
+		Map<String,Object> session = ActionContext.getContext().getSession();
+		Member member = (Member)session.get("member");
+
 		if(member == null){
 			
 			return "login";
@@ -52,7 +56,10 @@ public class OrderFrontAction extends BaseActionSupport {
 		
 		this.categoryList = this.categoryService.getForFront();
 		
-		Member member = (Member)getSession().get("member");
+		//判断是否登录
+		Map<String,Object> session = ActionContext.getContext().getSession();
+		Member member = (Member)session.get("member");
+		
 		if(member == null){
 			return "toLogin";
 		}

@@ -22,5 +22,5 @@ public interface ICategoryDao extends IMyBatisDao<Category, Integer> {
 	public List<Category> getLocaleById(Map<String,Object> map);
 	public void savaLocale(Category category);
 	public List<Category> getByCategoryId(Map<String, Object> map);
-	
+	public List<Category> getByCategoryCode(@Param(value="categoryCode") String categoryCode);
 }

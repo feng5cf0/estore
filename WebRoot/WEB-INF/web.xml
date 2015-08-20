@@ -12,15 +12,6 @@
   <listener>
     <listener-class>com.landicorp.config.setting.SystemInitListener</listener-class>
   </listener>
-  <servlet>
-    <servlet-name>XFireServlet</servlet-name>
-    <servlet-class>org.codehaus.xfire.spring.XFireSpringServlet</servlet-class>
-    <load-on-startup>0</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>XFireServlet</servlet-name>
-    <url-pattern>/webService/*</url-pattern>
-  </servlet-mapping>
   <filter>
     <filter-name>rightManage</filter-name>
     <filter-class>com.landicorp.core.web.rightmanage.RightManagerFilter</filter-class>
@@ -58,12 +49,4 @@
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
-  <servlet>
-    <servlet-name>xfire</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>xfire</servlet-name>
-    <url-pattern>*.ws</url-pattern>
-  </servlet-mapping>
 </web-app>

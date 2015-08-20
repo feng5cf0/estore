@@ -1,15 +1,18 @@
 package com.estore.action.front;
 
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.estore.entities.Category;
 import com.estore.entities.Goods;
 import com.estore.service.ICategoryService;
 import com.estore.service.IGoodsService;
-import com.estore.util.Locale;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class GoodsSearchAction extends BaseActionSupport {
+public class GoodsSearchAction extends ActionSupport {
 	
 	private Goods goods;
 	private List<Goods> goodsList;
@@ -19,6 +22,7 @@ public class GoodsSearchAction extends BaseActionSupport {
 	private ICategoryService categoryService;
 	private List<Category> categoryList2;
 	private IGoodsService goodsService;
+	private String categoryCode;
 	
 	public String getByCategory(){
 		
@@ -26,13 +30,16 @@ public class GoodsSearchAction extends BaseActionSupport {
 		this.categoryList = this.categoryService.getForFront();
 
 		//选择类别后加载的类别数据
-		this.categoryList2 = this.categoryService.getByCategoryId(categoryId,Locale.ZHCN);
+		//this.categoryList2 = this.categoryService.getByCategoryId(categoryId,Locale.ZHCN);
+		this.categoryList2 = this.categoryService.getByCategoryCode(categoryCode);
 		
-		//选择类别后加载的商品
-		this.goodsList = this.goodsService.getByCategoryId(categoryId,Locale.ZHCN);
-		
-		//this.category = this.category
-		
+		//String c = categoryCode;
+		List<Goods> list = this.goodsService.getByGoodsCode(categoryCode);
+		ServletActionContext.getRequest().getSession().setAttribute("goodsList", list);
+		//this.goodsList = this.frontGoodsService.getByGoodsCode(1000);
+		//map.put("goodsLis", list);
+		//String c = categoryCode;
+		//this.goodsService.getByCategoryId(categoryId, Locale.ZHCN);
 		return "getByCategory";
 	}
 
@@ -83,6 +90,12 @@ public class GoodsSearchAction extends BaseActionSupport {
 	}
 	public void setGoodsService(IGoodsService goodsService) {
 		this.goodsService = goodsService;
+	}
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
 	}
 	
 }

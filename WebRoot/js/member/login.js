@@ -21,8 +21,8 @@ $(function(){
 			success:function(data){
 				if(data.success=="success"){
 					document.location.href="front/mainAction!toMain.action";
-					alert(data.successMsg);
-					document.location.href="front/memberAction!toMain";
+					//alert(data.successMsg);
+					//document.location.href="front/memberAction!toMain";
 				}
 				if(data.error=="error"){
 					alert("用户名或密码错误！");

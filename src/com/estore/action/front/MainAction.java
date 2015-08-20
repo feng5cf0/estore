@@ -12,9 +12,9 @@ import com.estore.entities.Category;
 import com.estore.entities.Notice;
 import com.estore.service.ICategoryService;
 import com.estore.service.INoticeService;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class MainAction extends BaseActionSupport {
+public class MainAction extends ActionSupport {
 	
 	/**hzp
 	 * 
@@ -26,6 +26,7 @@ public class MainAction extends BaseActionSupport {
 	private ICategoryService categoryService;
 	private INoticeService noticeService;
 	public String toMain(){
+		
 		List<Notice> noticeListFour = new ArrayList<Notice>();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();

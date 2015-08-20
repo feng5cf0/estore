@@ -13,4 +13,6 @@
 			<ref bean="sqlSessionTemplate" />
 		</property>
 	</bean>
+	
+	<bean id="orderAction" class="com.estore.action.back.OrderAction" scope="prototype"/>
 </beans>

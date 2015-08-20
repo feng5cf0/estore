@@ -134,4 +134,10 @@
 		from t_goods t
 		where t.goods_id = #{goodsId} and locale_type=1
 	</select>
+	
+	<select id="getByGoodsCode" resultMap="goodsMap" parameterType="map">
+		select *
+		from t_goods
+		where goods_code like '${goodsCode}%'
+	</select>
 </mapper>
