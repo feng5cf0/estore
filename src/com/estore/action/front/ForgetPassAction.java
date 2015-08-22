@@ -58,7 +58,8 @@ public class ForgetPassAction extends BaseActionSupport {
 		    mailInfo.setToAddress(email);    
 		    mailInfo.setSubject("设置新密码，邮箱验证");    
 		    mailInfo.setContent("<a href='#'>点击激活！</a>");  
-		    MailSender.sendTextMail(mailInfo);
+//		    MailSender.sendTextMail(mailInfo);
+		    MailSender.sendHtmlMail(mailInfo);
 		    pro.put("flag", "1");
 		    pro.put("email", email);
 		    pro.put("msg", "发送成功");

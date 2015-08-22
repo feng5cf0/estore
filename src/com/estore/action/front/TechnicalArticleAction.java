@@ -1,6 +1,5 @@
 package com.estore.action.front;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -23,6 +22,7 @@ public class TechnicalArticleAction extends BaseActionSupport{
 	private TechnicalArticleServiceImpl technicalArticleService;
 	private TechnicalArticle technicalArticle;
 	private List<TechnicalArticle> technicalArticlelist;
+	private Integer id;
 	Property pro=new Property();
 	//添加技术文章
 	public String addTechnicalArticle() throws Exception{
@@ -48,13 +48,55 @@ public class TechnicalArticleAction extends BaseActionSupport{
 	public String toAddTechnicalArticle(){
 		return "toAddTechnicalArticle";
 	}
+	//后台跳转到技术文章修改页面
+	public String toUpdateTechnicalArticle(){
+		this.technicalArticle=technicalArticleService.getTechById(id);
+		return "toUpdateTechnicalArticle";
+	}
 	//分页获取技术文章
 	public String pagingSearch(){
 		this.technicalArticlelist=this.technicalArticleService.pagingSearch();
 		return null;
 	}
-	
-	
+	//删除
+	public String delete() throws Exception{
+		HttpServletResponse response =ServletActionContext.getResponse();
+		PrintWriter out = response.getWriter();
+		if(id!=null){
+			technicalArticleService.deleteTechnicalArticle(id);
+			pro.put("msg", "success");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}else{
+			pro.put("msg", "error");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}
+	}
+	//修改
+	public String update() throws Exception{
+		HttpServletResponse response =ServletActionContext.getResponse();
+		PrintWriter out = response.getWriter();
+		if(technicalArticle!=null){
+			technicalArticleService.updateTechnicalArticle(technicalArticle);
+			pro.put("msg", "success");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}else{
+			pro.put("msg", "error");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return null;
+		}
+	}
+	//模糊查询
+	public String searchMHCX() throws Exception{
+//		HttpServletResponse response =ServletActionContext.getResponse();
+//		PrintWriter out = response.getWriter();
+		technicalArticlelist=technicalArticleService.getTechMHCX(technicalArticle);
+//		pro.put("msg", "success");
+//		out.print(JsonUtil.getJsonStrByMap(pro));
+		return "searchList";
+	}
 	public TechnicalArticleServiceImpl getTechnicalArticleService() {
 		return technicalArticleService;
 	}
@@ -75,6 +117,18 @@ public class TechnicalArticleAction extends BaseActionSupport{
 	}
 	public void setTechnicalArticle(TechnicalArticle technicalArticle) {
 		this.technicalArticle = technicalArticle;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Property getPro() {
+		return pro;
+	}
+	public void setPro(Property pro) {
+		this.pro = pro;
 	}
 	
 	

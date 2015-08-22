@@ -11,7 +11,9 @@
 </head>
 <body style="background:url(images/index_bg.jpg) repeat-x">
 <!--顶部开始-->
+
 	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
+	
 <!--顶部区结束-->
 <!--nav区开始-->
 <div class="nav">

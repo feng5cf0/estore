@@ -43,7 +43,7 @@ public class OrderServiceImpl extends AbstractBaseServiceImpl<Order, Integer> im
 
 	@Override
 	public List<Order> getOrder(Order order) {
-		return this.orderDao.getOrder(Order order);
+		return this.orderDao.getOrder(order);
 	}
 
 	public IOrderDao getOrderDao() {

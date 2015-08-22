@@ -11,6 +11,34 @@ import com.landicorp.core.service.base.AbstractBaseServiceImpl;
 public class TechnicalArticleServiceImpl extends AbstractBaseServiceImpl<TechnicalArticle, Integer> 
 		implements ITechnicalArticleService{
 	private ITechnicalArticleDao technicalArticleDao;
+	
+	/*
+	 * 模糊查询
+	 * */
+	
+	
+	@Override
+	public List<TechnicalArticle> getTechMHCX(TechnicalArticle technicalArticle) {
+		// TODO Auto-generated method stub
+		return technicalArticleDao.getTechMHCX(technicalArticle);
+	}
+	
+	@Override
+	public TechnicalArticle getTechById(Integer id) {
+		return technicalArticleDao.getTechById(id);
+		
+	}
+	
+	@Override
+	public void updateTechnicalArticle(TechnicalArticle technicalArticle) {
+		technicalArticleDao.updateTechnicalArticle(technicalArticle);
+		
+	}
+	@Override
+	public void deleteTechnicalArticle(Integer id) {
+		technicalArticleDao.deleteTechnicalArticle(id);
+		
+	}
 	@Override
 	public List<TechnicalArticle> pagingSearch() {
 		return technicalArticleDao.pagingSearch();
@@ -37,6 +65,10 @@ public class TechnicalArticleServiceImpl extends AbstractBaseServiceImpl<Technic
 	public void setTechnicalArticleDao(ITechnicalArticleDao technicalArticleDao) {
 		this.technicalArticleDao = technicalArticleDao;
 	}
+
+	
+	
+	
 	
 
 	

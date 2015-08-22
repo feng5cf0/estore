@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<%@include file="/headDeclare.jsp"%>
-		    <script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js?v=222"> </script>
+		    <script type="text/javascript" charset="utf-8" src="js/afterSale/customerSer.js?v=171"> </script>
 	</head>
 	<body>
 		<div id="rightcontent">
@@ -13,57 +13,13 @@
 				<div class="roadItem">
 					<div class="roadIcon"></div>
 					<div class="roadItem2">
-						您当前位置：系统管理 &gt; 技术文章管理
+						您当前位置：系统管理 &gt; 客服管理
 					</div>
 				</div>
 			</div>
 			<div class="roadbody1">
 				<div class="roadbody">
-					<div class="roadbody">
-						<form action="front/technicalArticleAction!searchMHCX" method="post" id="searchForm">
-							<table class="rightseach2">
-								<tr>
-									<td width="16%" align="right">
-										<label for="textfield">
-											编辑者
-										</label>
-									</td>
-									<td width="16%" align="left">
-										<input id="createUser" name="technicalArticle.createUser" type="text" class="dmg-input" />
-									</td>
-									<td width="24%"></td>
-								</tr>
-								<tr>
-									<td width="16%" align="right">
-										<label for="textfield">
-											标题
-										</label>
-									</td>
-									<td width="16%" align="left">
-										<input id="title" name="technicalArticle.title" type="text" class="dmg-input" />
-									</td>
-									<!-- <td width="16%" align="right">
-										<label for="textfield">
-											用户状态：
-										</label>
-									</td> -->
-									<!-- <td width="16%" align="left">
-										<select name="member.avaliable">
-											<option value="2">全部</option>
-											<option value="1">有效</option>
-											<option value="0">无效</option>
-										</select>
-									</td> -->
-									<td width="24%">
-										<input id="searchBtn" type="submit" value="查询" class="button2"
-											onmouseover="this.className='button2Over'"
-											onmouseout="this.className='button2Out'" />
-										<!-- <input type="hidden" value="0" name="pager.curPageNum" /> -->
-									</td>
-								</tr>
-							</table>
-						</form>
-					</div>
+				
 					<div class="righttitle">
 						<div class="tab1">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -72,7 +28,7 @@
 										&nbsp;
 									</td>
 									<td class="tabm">
-										技术文章
+										客服管理
 									</td>
 									<td class="tabr">
 									</td>
@@ -87,7 +43,7 @@
 							<ld:check mark="saleManager">
 								<input type="button" value="新增" class="button2"
 									onMouseOver="this.className='button2Over'"
-									onMouseOut="this.className='button2Out'" onclick="toAddTechnicalArticle();" />
+									onMouseOut="this.className='button2Out'" onclick="toAdd();" />
 							</ld:check>
 						</div>
 					</div>
@@ -102,10 +58,13 @@
 									序号
 								</td>
 								<td>
-									编辑者
+									客服名字
 								</td>
 								<td>
-									标题
+									qq生成代码
+								</td>
+								<td>
+									编辑人
 								</td>
 								<td>
 									编辑时间
@@ -115,7 +74,7 @@
 								</td>
 							</tr>
 
-							<c:forEach items="${technicalArticlelist }" var="item" varStatus="status">
+							<c:forEach items="${customerSerList }" var="item" varStatus="status">
 								<tr
 									onMouseOver="this.className='tableitem9';this.style.cursor='hand';"
 									onMouseOut="this.className='tableitem${6-status.index%2}';this.style.cursor='hand';"
@@ -125,18 +84,27 @@
 										${status.count}
 									</td>
 									<td>
-										<c:out value="${item.createUser}" />
+										<c:out value="${item.name}" />
+									</td>
+									
+									<td style="width: 300px;">
+										<c:if test="${fn:length(item.qqCode) >80 }">
+											<c:out value="${fn:substring(item.qqCode, 0, 80)}..." />
+										</c:if>
+										<c:if test="${fn:length(item.qqCode) <=80 }">
+											<c:out value="${item.qqCode }" />
+										</c:if>
 									</td>
 									<td>
-										<c:out value="${item.title}" />
+										<c:out value="${item.createUser}" />
 									</td>
 									<td>
 										<fmt:formatDate value="${item.createTime }"  pattern="yyyy/MM/dd" />
 									</td>
 									<td>
-										<a style="color:red" href="javascript:void(0)" onclick="deleteTechnicalArticle(${item.id})">删除</a>
+										<a style="color:red" href="javascript:void(0)" onclick="detailCustomerSer(${item.id})">详情</a>
+										<a style="color:red" href="javascript:void(0)" onclick="deleteCustomerSer(${item.id})">删除</a>
 										<a style="color:red" href="javascript:void(0)" onclick="toUpdatePage(${item.id})">编辑</a>
-										
 									</td>
 									
 									

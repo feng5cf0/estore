@@ -36,11 +36,14 @@
 	        <LI>
 	          <H3 class=titZx>QQ咨询</H3>
 	        </LI>
+	        
 	        <LI><SPAN class=icoZx>在线咨询</SPAN> </LI>
-	        <LI><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=574591725&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:574591725:41" alt="联系我们" title="联系我们"/></a> </LI>
-	        <LI><A class=icoTc href="javascript:void(0);">B老师</A> </LI>
+	        <c:forEach items="${customerSerList }" var="item">
+	      		  <LI>${item.qqCode }</LI>
+	        </c:forEach>
+	        <!-- <LI><A class=icoTc href="javascript:void(0);">B老师</A> </LI>
 	        <LI><A class=icoTc href="#">C老师</A> </LI>
-	        <LI class=bot><A class=icoTc href="javascript:void(0);">D老师</A> </LI>
+	        <LI class=bot><A class=icoTc href="javascript:void(0);">D老师</A> </LI> -->
 	      </UL>
 	      <UL class=webZx>
 	        <LI class=webZx-in><A href="http://www.lanrentuku.com/" target="_blank" style="FLOAT: left"><IMG src="images/right_float_web.png" border="0px"></A> </LI>

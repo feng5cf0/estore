@@ -44,6 +44,8 @@
 		<typeAlias alias="technicalArticle" type="com.estore.entities.TechnicalArticle"/>
 		<!-- 分页 -->
 		<typeAlias alias="page" type="com.estore.entities.Page"/>
+		<!-- 客服 -->
+		<typeAlias alias="customerSer" type="com.estore.entities.customerSer"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
@@ -81,5 +83,7 @@
 		<mapper resource="com/estore/dao/INoticeDao.xml"/>
 		<mapper resource="com/estore/dao/IBankAccountDao.xml"/>
 		<mapper resource="com/estore/dao/ITechnicalArticleDao.xml"/>
+		<mapper resource="com/estore/dao/ICustomerSerDao.xml"/>
+		
 	</mappers>
 </configuration>	
