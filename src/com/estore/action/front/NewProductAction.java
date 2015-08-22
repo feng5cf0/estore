@@ -4,9 +4,9 @@ import java.util.List;
 
 import com.estore.entities.Category;
 import com.estore.service.ICategoryService;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class NewProductAction extends BaseActionSupport{
+public class NewProductAction extends ActionSupport{
 		/**
 	 * 
 	 */

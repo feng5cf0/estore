@@ -1,6 +1,8 @@
 package com.estore.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.estore.dao.IOrderCartDao;
 import com.estore.dao.IOrderDao;
@@ -9,6 +11,7 @@ import com.estore.entities.OrderCart;
 import com.estore.service.IOrderService;
 import com.landicorp.core.dao.base.IMyBatisDao;
 import com.landicorp.core.service.base.AbstractBaseServiceImpl;
+import com.landicorp.core.web.pager.Pager;
 
 public class OrderServiceImpl extends AbstractBaseServiceImpl<Order, Integer> implements
 		IOrderService {
@@ -44,6 +47,23 @@ public class OrderServiceImpl extends AbstractBaseServiceImpl<Order, Integer> im
 	@Override
 	public List<Order> getOrder(Order order) {
 		return this.orderDao.getOrder(order);
+	}
+
+
+	@Override
+	public List<Order> getAll(Order order, Pager pager) {
+
+		Map<String,Object> map = new HashMap<String,Object>();
+		
+		if(pager != null){
+			pager.setTotalCount(this.orderDao.getAllCount(map));
+		}
+		
+		map.put("order", order);
+		map.put("pager", pager);
+		
+		
+		return this.orderDao.getAll(map);
 	}
 
 	public IOrderDao getOrderDao() {

@@ -1,18 +1,22 @@
 package com.estore.action.front;
 
+import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.apache.struts2.ServletActionContext;
+
 import com.estore.entities.Category;
 import com.estore.entities.Notice;
 import com.estore.entities.customerSer;
 import com.estore.service.ICategoryService;
 import com.estore.service.ICustomerSerService;
 import com.estore.service.INoticeService;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class MainAction extends BaseActionSupport {
+public class MainAction extends ActionSupport {
 	
 	/**hzp
 	 * 
@@ -27,6 +31,8 @@ public class MainAction extends BaseActionSupport {
 	private INoticeService noticeService;
 	//跳转到前端首页
 	public String toMain(){
+		
+		List<Notice> noticeListFour = new ArrayList<Notice>();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		

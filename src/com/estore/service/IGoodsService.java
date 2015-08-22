@@ -19,4 +19,5 @@ public interface IGoodsService extends IBaseService<Goods, Integer> {
 	public List<Goods> getByCategoryId(Integer categoryId,Integer localeType);
 	
 	public Goods getByGoodsId(Integer goodsId,Integer localeType);
+	public List<Goods> getByGoodsCode(String goodsCode);
 }

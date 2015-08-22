@@ -57,4 +57,11 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="getAll" resultMap="orderMap" parameterType="map">
+		select * from t_order
+	</select>
+	<select id="getAllCount" resultType="int" parameterType="map">
+		select count(*) from t_order
+	</select>
 </mapper>

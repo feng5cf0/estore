@@ -1,6 +1,5 @@
 package com.estore.action.front;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -17,9 +16,9 @@ import com.estore.service.ICategoryService;
 import com.estore.service.impl.MemberServiceImpl;
 import com.estore.util.JsonUtil;
 import com.estore.util.Property;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class ForgetPassAction extends BaseActionSupport {
+public class ForgetPassAction extends ActionSupport {
 
 	/**
 	 * 

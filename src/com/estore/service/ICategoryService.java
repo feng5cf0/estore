@@ -28,4 +28,6 @@ public interface ICategoryService extends IBaseService<Category, Integer> {
 	 * @return
 	 */
 	public List<Category> getByCategoryId(Integer categoryId,Integer localeType);
+	
+	public List<Category> getByCategoryCode(String categoryCode);
 }

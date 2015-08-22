@@ -16,6 +16,10 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/kefu.js"></script>
     <script type="text/javascript" src="js/lrtk.js"></script>
+    <link rel="stylesheet" href="js/common/validation/css/validationEngine.jquery.css" type="text/css"/>
+    <link rel="stylesheet" href="js/common/validation/css/template.css" type="text/css"/>
+	<script type="text/javascript" src="js/common/validation/js/languages/jquery.validationEngine-zh_CN.js" ></script>
+	<script type="text/javascript" src="js/common/validation/js/jquery.validationEngine.js"  ></script>
    
   </head>
   

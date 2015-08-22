@@ -7,9 +7,9 @@ import com.estore.entities.TechnicalArticle;
 import com.estore.service.ICategoryService;
 import com.estore.service.impl.TechnicalArticleServiceImpl;
 import com.estore.util.Property;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class AfterSaleAction extends BaseActionSupport {
+public class AfterSaleAction extends ActionSupport {
 
 	/**
 	 * 

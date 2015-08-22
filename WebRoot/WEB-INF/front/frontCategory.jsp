@@ -3,8 +3,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-  	<%@include file="/headDeclare.jsp"%>
-  	<%@include file="/tagDeclare.jsp"%>
   	<%@include file="/frontHeadDeclare.jsp" %>
     <base href="<%=basePath%>">
     
@@ -26,11 +24,11 @@
 				<dt><img src="images/suo_biao.png" width="20"/>${item.categoryName }</dt>
 				<dd class="pro-left1-li">
 					<c:forEach items="${item.subCategory}" var="subItem" varStatus="status">
-						<a href="${basePath }front/goodsSearchAction!getByCategory.action?categoryId=${subItem.id}">${subItem.categoryName }</a>
+						<a href="${basePath }front/goodsSearchAction!getByCategory.action?categoryId=${subItem.id}&categoryCode=${subItem.categoryCode}">${subItem.categoryName }</a>
 					</c:forEach>
 					<div style="clear:both"></div>
 					
-					<!--划上效果开始-->
+					<!--划上效果开始--><!--
 					<div class="white-bg"></div>
 					<div class="pro-left1-lilb">
 						<div class="left1-lilb-div">
@@ -102,7 +100,7 @@
 							</div>
 						</div>
 					</div>
-					<!--划上效果结束-->
+					--><!--划上效果结束-->
 				</dd>
 			</c:forEach>
 		</dl>

@@ -2,6 +2,7 @@ package com.estore.action.front;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.estore.entities.Attribute;
 import com.estore.entities.Cart;
@@ -12,9 +13,10 @@ import com.estore.service.ICartService;
 import com.estore.service.ICategoryService;
 import com.estore.service.IGoodsService;
 import com.estore.util.Locale;
-import com.landicorp.core.action.BaseActionSupport;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class CartFrontAction extends BaseActionSupport {
+public class CartFrontAction extends ActionSupport {
 
 	private Goods goods;
 	private Cart cart;
@@ -41,7 +43,8 @@ public class CartFrontAction extends BaseActionSupport {
 		cart.setMakeDate(new Date());
 		
 		//判断是否登录
-		Member member = (Member)getSession().get("member");
+		Map<String,Object> session = ActionContext.getContext().getSession();
+		Member member = (Member)session.get("member");
 		
 		if(member != null){
 			cart.setMemberId(member.getId());
@@ -70,7 +73,8 @@ public class CartFrontAction extends BaseActionSupport {
 		
 		
 		//判断是否登录
-		Member member = (Member)getSession().get("member");
+		Map<String,Object> session = ActionContext.getContext().getSession();
+		Member member = (Member)session.get("member");
 		
 		if(member != null){
 			//取出所有cart

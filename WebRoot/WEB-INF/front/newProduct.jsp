@@ -8,7 +8,7 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/kefu.js"></script>
 <script src="js/lrtk.js"></script> 
-<script type="text/javascript">
+<script type="text/javascript"> 
 	$(function(){
 		$(".pro-left1-li").each(function(i){
 			var top = $(this).offset().top;
@@ -33,15 +33,15 @@
 <!--nav区开始-->
 <div class="nav">
 	<div class="nav-con">
-		<div class="fenlei-ys">全部分类</div>
-		<a href="#">首页</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a class="hov" href="#">最新产品</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">产品促销</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">关于我们</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">售后服务</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">银行账号</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">在线留言</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">联系我们</a><img src="images/nav_line.png" width="2" height="33"/>
+		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
+		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a class="hov" href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/onlineMsgAction!toOnLine"  style="width:60px;"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/callUsAction!toCallUs"  style="width:60px;"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 	</div>
 </div>
 <!--nav区域结束-->
@@ -177,64 +177,9 @@
 		<!--头部切换结束-->
 		<!--产品列表开始-->
 		<div class="new-prolb-wk">
-			<!--<div class="new-prolb">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<div class="txt1">
-					<p class="p1"><a href="#">高大上锁芯高大上锁芯高大上锁芯高大上锁芯</a></p>
-					<p class="p2">￥200.00</p>
-				</div>
-			</div>-->
 			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
-			<div class="prolb-showlb prolb-showlb2">
-				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
-				<h4>玥玛锁业</h4>
-				<div class="txt1">
-					<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-			</div>
-			<!--循环结束-->
-			<!--循环开始-->
+			
+			
 			<div class="prolb-showlb prolb-showlb2">
 				<a href="#"><img src="images/new_pic1.png" width="188" height="175"/></a>
 				<h4>玥玛锁业</h4>
@@ -248,6 +193,7 @@
 		</div>
 		<!--产品列表结束-->
 		<!--换页样式-->
+		<!--
 		<div class="total-huanye">
 			<a class="pre" href="#"></a>
 			<a class="num hov" href="#">1</a>
@@ -260,13 +206,7 @@
 			<span>共100页，到第<input type="text" class="inp" value="1"/>页</span>
 			<input class="sub" type="submit" value="确定"/>
 		</div>
-		<!--<div class="huanye2">
-			<a class="page-up" href="#"></a>
-			<a href="#">1</a>
-			<a class="hov" href="#">2</a>
-			<a href="#">3</a>
-			<a class="page-down" href="#"></a>
-		</div>-->
+		--><!-- 分页结束 -->
 	</div>
 	<!--右侧列表结束-->
 	<div style="clear:both"></div>

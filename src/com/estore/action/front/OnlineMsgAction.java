@@ -1,6 +1,5 @@
 package com.estore.action.front;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,11 +17,10 @@ import com.estore.service.IOnlineMsgService;
 import com.estore.util.JsonUtil;
 import com.estore.util.Property;
 import com.estore.util.YzmUtil;
-import com.estore.util.userUtil;
-import com.landicorp.core.action.BaseActionSupport;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class OnlineMsgAction extends BaseActionSupport{
+public class OnlineMsgAction extends ActionSupport{
 
 	/**
 	 * 在线留言

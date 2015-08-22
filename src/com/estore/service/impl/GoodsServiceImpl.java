@@ -126,6 +126,16 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 		return goods;
 	}
 	
+	@Override
+	public List<Goods> getByGoodsCode(String goodsCode) {
+		
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("goodsCode", goodsCode);
+		
+		return this.goodsDao.getByGoodsCode(map);
+	
+	}
+	
 	public IGoodsDao getGoodsDao() {
 		return goodsDao;
 	}
@@ -138,6 +148,7 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 	public void setCategoryDao(ICategoryDao categoryDao) {
 		this.categoryDao = categoryDao;
 	}
+
 
 
 
