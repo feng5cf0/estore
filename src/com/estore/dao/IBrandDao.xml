@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IBrandDao">
+	
+    <resultMap id="brandMap" type="brand" >
+    	<id property="id" column="brand_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="brandName" column="brand_name" javaType="String" jdbcType="VARCHAR"/>
+		<result property="brandPic" column="brand_pic" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    </resultMap>       
+    <sql id="brandColumns">
+    	brand_id,brand_name,brand_pic,memo
+    </sql>
+    <sql id="brandValues">
+    	#{id},#{brandName},#{brandPic},#{memo}
+    </sql>
+    
+    <!-- 获取品牌列表 -->
+    <select id="getAll" resultMap="brandMap">
+    	select *
+    	from t_brand
+    </select>
+    
+    <!-- 通过品牌id获取信息 -->
+    <select id="getById" resultMap="brandMap" parameterType="int">
+    	select *
+    	from t_brand
+    	where brand_id = #{brandId}
+    </select>
+    <select id="getByNum" resultMap="brandMap" parameterType="int">
+    	select *
+    	from t_brand
+    </select>
+</mapper>

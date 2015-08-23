@@ -2,7 +2,9 @@ package com.estore.action.front;
 
 import java.util.List;
 
+import com.estore.entities.Brand;
 import com.estore.entities.Category;
+import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -14,9 +16,12 @@ public class AboutUsAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private List<Category> categoryList;
 	private ICategoryService categoryService;
+	private IBrandService brandService;
+	private List<Brand> brandList;
 	//跳转到关于我们页面
 		public String toAboutUs(){
 			this.categoryList = this.categoryService.getForFront();
+			this.brandList = this.brandService.getAll();
 			return "toaboutus";
 		}
 		public List<Category> getCategoryList() {
@@ -58,6 +63,19 @@ public class AboutUsAction extends ActionSupport {
 		        }  
 		    }  
 		    System.out.println(b); 
+		}
+		
+		public IBrandService getBrandService() {
+			return brandService;
+		}
+		public void setBrandService(IBrandService brandService) {
+			this.brandService = brandService;
+		}
+		public List<Brand> getBrandList() {
+			return brandList;
+		}
+		public void setBrandList(List<Brand> brandList) {
+			this.brandList = brandList;
 		} 
 		
 }

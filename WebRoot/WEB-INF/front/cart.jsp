@@ -39,6 +39,23 @@
 			return false;
 		}
 	}
+	
+	function allMoney(i){
+		if(document.getElementById("cbox"+i).checked){
+		
+			var nowMoney = document.getElementById("amount"+i).innerHTML;
+			var allMoney = document.getElementById("allAmount").innerHTML;
+			
+			document.getElementById("allAmount").innerHTML = parseFloat(nowMoney)+parseFloat(allMoney);
+		
+		}else{
+		
+			var nowMoney = document.getElementById("amount"+i).innerHTML;
+			var allMoney = document.getElementById("allAmount").innerHTML;
+			
+			document.getElementById("allAmount").innerHTML = parseFloat(allMoney) - parseFloat(nowMoney);		
+		}
+	}
 </script>
 </head>
 
@@ -101,24 +118,49 @@
 					<div class="shop-prolb-tit">
 						<div class="wid wid1"><input class="cbox" type="checkbox"/> 全选</div>
 						<div class="wid wid2">商品</div>
+						<div class="wid wid3">属性</div>
 						<div class="wid wid3">单价</div>
 						<div class="wid wid3">数量</div>
 						<div class="wid wid3">金额</div>
 						<div class="wid wid4">操作</div>
 					</div>
 					
-					<c:forEach items="${cartList}"  var="item">
+					<c:forEach items="${cartList}"  var="item" varStatus="status">
 						<div class="shop-prolb-body">
-							<div class="wid wid1"><input class="cbox" type="checkbox" name="cartIds" value="${item.id}"/> </div>
+							<div class="wid wid1">
+								<input class="cbox" type="checkbox" name="cartIds" value="${item.id}"
+									id="cbox${status.count}" 
+									onclick="allMoney(${status.count});"/>
+							</div>
 							<div class="wid wid2">
 								<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
 								<div class="txt1"><a href="#">${item.goods.goodsName}</a></div>
 							</div>
-							<div class="wid wid3 monys">${item.goods.goodsPrice}</div>
+							<div class="wid wid3" align="center">
+								<div class="txt1">
+									<c:if test="${item.goodsAttribute.attributeValue1 != null}">
+										${item.goodsAttribute.attributeValue1.attributeValue}
+									</c:if>
+									<c:if test="${item.goodsAttribute.attributeValue2 != null}">
+										/${item.goodsAttribute.attributeValue2.attributeValue}
+									</c:if>
+									<c:if test="${item.goodsAttribute.attributeValue3 != null}">
+										/${item.goodsAttribute.attributeValue3.attributeValue}
+									</c:if>
+								</div>
+							</div>
+							<div class="wid wid3 monys" id="price${status.count}">
+								<c:if test="${item.goodsAttribute.price != null}">
+									${item.goodsAttribute.price}
+								</c:if>
+								<c:if test="${item.goodsAttribute.price == null}">
+									${item.goods.goodsPrice}
+								</c:if>
+							</div>
 							<div class="wid wid3">
 								<a class="num-jian" href="javascript:;">-</a><input class="num-inp" type="text"  value="1"/><a class="num-jian" href="javascript:;">+</a>
 							</div>
-							<div class="wid wid3 monys">${item.amount}</div>
+							<div class="wid wid3 monys" id="amount${status.count}">${item.amount}</div>
 							<div class="wid wid4">
 								<p><a href="#">删除</a></p>
 								<p><a href="#">移入收藏夹</a></p>
@@ -136,7 +178,7 @@
 						</div>
 						<div class="end-right">
 							<span class="num1">已选<b>12</b>件商品</span>
-							<span>合计（不含运费）：</span><span class="mon1">￥599.00</span>
+							<span>合计（不含运费）：</span><span class="mon1">￥</span><span class="mon1" id="allAmount">0.00</span>
 							<input class="submit-btn" type="submit" value="去结算"/>
 						</div>
 					</div>

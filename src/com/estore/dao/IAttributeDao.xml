@@ -8,12 +8,21 @@
     	<id property="id" column="attribute_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="attributeName" column="attribute_name" javaType="String" jdbcType="VARCHAR"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
-    </resultMap>       
+		
+		<collection property="attributeValueSet" column="attribute_id" select="com.estore.dao.IAttributeValueDao.getByAttributeId"></collection>    	
+    </resultMap>
     <sql id="attributeColumns">
     	attribute_id,attribute_name,memo
     </sql>
     <sql id="attributeValues">
     	#{id},#{attributeName},#{memo}
     </sql>
+    
+    <!-- 通过id获取属性信息 -->
+    <select id="getById" parameterType="int" resultMap="attributeMap">
+    	select *
+    	from t_attribute
+    	where attribute_id = #{attributeId}
+    </select>
     
 </mapper>

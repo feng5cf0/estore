@@ -2,13 +2,19 @@ package com.estore.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+import com.estore.dao.IAttributeDao;
 import com.estore.dao.ICategoryDao;
+import com.estore.dao.IGoodsAttributeDao;
 import com.estore.dao.IGoodsDao;
+import com.estore.entities.Attribute;
+import com.estore.entities.AttributeValue;
 import com.estore.entities.Category;
 import com.estore.entities.Goods;
+import com.estore.entities.GoodsAttribute;
 import com.estore.service.IGoodsService;
 import com.landicorp.core.dao.base.IMyBatisDao;
 import com.landicorp.core.service.base.AbstractBaseServiceImpl;
@@ -19,7 +25,8 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 
 	private IGoodsDao goodsDao;
 	private ICategoryDao categoryDao;
-	
+	private IGoodsAttributeDao goodsAttributeDao;
+	private IAttributeDao attributeDao;
 	@Override
 	public IMyBatisDao<Goods, Integer> getMyBatisDao() {
 		
@@ -136,6 +143,72 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 	
 	}
 	
+	@Override
+	public Goods getDetailForFront(Integer goodsId) {
+		
+		return this.goodsDao.getDetailForFront(goodsId);
+	}
+	
+	@Override
+	public List<Attribute> getGoodsAttribute(Integer goodsId) {
+
+		List<Attribute> attributeList = new ArrayList<Attribute>();
+		
+		List<GoodsAttribute> list = this.goodsAttributeDao.getByGoodsId(goodsId);
+		
+		Attribute attribute = null;
+		
+		//第一属性
+		
+		if(list.get(0).getAttributeValueId1() != null && list.get(0).getAttributeValueId1() != 0){
+			
+			attribute = new Attribute();
+			attribute.setId(list.get(0).getAttributeValue1().getAttributeId());
+			attribute.setAttributeName(this.attributeDao.getById(attribute.getId()).getAttributeName());
+			attribute.setAttributeValueSet(new HashSet<AttributeValue>());
+			for(GoodsAttribute ga : list){
+				attribute.getAttributeValueSet().add(ga.getAttributeValue1());
+			}
+			
+			attributeList.add(attribute);
+			
+		}
+		
+		//第二属性
+		
+		if(list.get(0).getAttributeValueId2() != null && list.get(0).getAttributeValueId2() != 0){
+			
+			attribute = new Attribute();
+			attribute.setId(list.get(0).getAttributeValue2().getAttributeId());
+			attribute.setAttributeName(this.attributeDao.getById(attribute.getId()).getAttributeName());
+			attribute.setAttributeValueSet(new HashSet<AttributeValue>());
+			for(GoodsAttribute ga : list){
+				attribute.getAttributeValueSet().add(ga.getAttributeValue2());
+			}
+			
+			attributeList.add(attribute);
+			
+		}
+
+		//第三属性
+		
+		if(list.get(0).getAttributeValueId3() != null && list.get(0).getAttributeValueId3() != 0){
+			
+			attribute = new Attribute();
+			attribute.setId(list.get(0).getAttributeValue3().getAttributeId());
+			attribute.setAttributeName(this.attributeDao.getById(attribute.getId()).getAttributeName());
+			attribute.setAttributeValueSet(new HashSet<AttributeValue>());
+			for(GoodsAttribute ga : list){
+				attribute.getAttributeValueSet().add(ga.getAttributeValue3());
+			}
+			
+			attributeList.add(attribute);
+			
+		}
+		
+		return attributeList;
+	}
+	
 	public IGoodsDao getGoodsDao() {
 		return goodsDao;
 	}
@@ -148,8 +221,17 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 	public void setCategoryDao(ICategoryDao categoryDao) {
 		this.categoryDao = categoryDao;
 	}
-
-
-
+	public IGoodsAttributeDao getGoodsAttributeDao() {
+		return goodsAttributeDao;
+	}
+	public void setGoodsAttributeDao(IGoodsAttributeDao goodsAttributeDao) {
+		this.goodsAttributeDao = goodsAttributeDao;
+	}
+	public IAttributeDao getAttributeDao() {
+		return attributeDao;
+	}
+	public void setAttributeDao(IAttributeDao attributeDao) {
+		this.attributeDao = attributeDao;
+	}
 
 }

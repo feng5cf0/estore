@@ -14,6 +14,7 @@ public class Goods extends BaseEntity {
 	
 	private String goodsCode;
 	private Integer localeType;   //1--zh_CN;2---en_US;
+	private Integer brandId;
 	private String goodsName;
 	private String goodsDescription;
 	private Integer categoryId;
@@ -25,7 +26,8 @@ public class Goods extends BaseEntity {
 	private Integer frontAccount;
 	private Date addTime;
 	
-	private Set<GoodsAttribute> goodsAttributeList;
+	private Set<GoodsAttribute> goodsAttributeSet;
+	private Brand brand;
 	
 	public String getGoodsName() {
 		return goodsName;
@@ -99,10 +101,22 @@ public class Goods extends BaseEntity {
 	public void setAddTime(Date addTime) {
 		this.addTime = addTime;
 	}
-	public Set<GoodsAttribute> getGoodsAttributeList() {
-		return goodsAttributeList;
+	public Set<GoodsAttribute> getGoodsAttributeSet() {
+		return goodsAttributeSet;
 	}
-	public void setGoodsAttributeList(Set<GoodsAttribute> goodsAttributeList) {
-		this.goodsAttributeList = goodsAttributeList;
+	public void setGoodsAttributeSet(Set<GoodsAttribute> goodsAttributeSet) {
+		this.goodsAttributeSet = goodsAttributeSet;
+	}
+	public Integer getBrandId() {
+		return brandId;
+	}
+	public void setBrandId(Integer brandId) {
+		this.brandId = brandId;
+	}
+	public Brand getBrand() {
+		return brand;
+	}
+	public void setBrand(Brand brand) {
+		this.brand = brand;
 	}
 }

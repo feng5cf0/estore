@@ -7,12 +7,15 @@ import com.landicorp.core.entities.base.BaseEntity;
 public class Cart extends BaseEntity {
 
 	private Integer goodsId;
+	private Integer goodsAttributeId;
 	private Integer localeType;
 	private Integer memberId;
 	private Integer total;
 	private Float amount;
 	private Date makeDate;
 	private Integer status;  //购物车状态  1-正常  2-删除
+	
+	private GoodsAttribute goodsAttribute;
 	
 	private Goods goods;
 	
@@ -63,6 +66,18 @@ public class Cart extends BaseEntity {
 	}
 	public void setGoods(Goods goods) {
 		this.goods = goods;
+	}
+	public Integer getGoodsAttributeId() {
+		return goodsAttributeId;
+	}
+	public void setGoodsAttributeId(Integer goodsAttributeId) {
+		this.goodsAttributeId = goodsAttributeId;
+	}
+	public GoodsAttribute getGoodsAttribute() {
+		return goodsAttribute;
+	}
+	public void setGoodsAttribute(GoodsAttribute goodsAttribute) {
+		this.goodsAttribute = goodsAttribute;
 	}
 	
 }

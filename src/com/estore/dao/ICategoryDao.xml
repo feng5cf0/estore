@@ -145,7 +145,7 @@
 	<select id="getForFront" resultMap="categoryMap">
 		select *
 		from t_goods_category t
-		where t.parent_category = 1 ;
+		where t.parent_category = 1
 	</select>
 	
 	<!-- 前台点击类别后获取子类别 -->

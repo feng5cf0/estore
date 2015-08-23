@@ -60,51 +60,14 @@
 		<div class="now-titlb">
 			<h4>汽车、摩托车遥控拷贝器<span>搜到<b>128</b>件最新产品</span></h4>
 			<div style="padding:0px 0px 20px 0px" >
-				<!--<div class="gaoji-sslb">
-					<div class="gaoji-ss">
-						<span class="ss-tit">关键词：</span>
-						<input class="inp1" type="text" placeholder="请输入您要搜索的关键词..."/>
-					</div>
-					<div style="clear:both"></div>
-				</div>
-				<div class="gaoji-sslb">
-					<div class="gaoji-ss">
-						<span class="ss-tit">品牌：</span>
-						<select class="inp1 inp2">
-							<option>玥玛锁业</option>
-							<option>品牌2</option>
-							<option>品牌3</option>
-							<option>品牌4</option>
-						</select>
-					</div>
-					<div class="gaoji-ss" style="margin-left:78px">
-						<span class="ss-tit">类型：</span>
-						<select class="inp1 inp2">
-							<option>民用锁具</option>
-							<option>民用锁具2</option>
-							<option>民用锁具3</option>
-							<option>民用锁具4</option>
-						</select>
-					</div>
-					<div style="clear:both"></div>
-				</div>
-				<div class="gaoji-sslb">
-					<div class="gaoji-ss">
-						<span class="ss-tit">价格：</span>
-						<select class="inp1 inp2">
-							<option>100元以下</option>
-							<option>100~300元</option>
-							<option>300~500元</option>
-							<option>500元以上</option>
-						</select>
-					</div>
-					<input class="search-btn" type="submit" value="搜 索"/><a class="del-sstj" href="#">清空搜索条件</a>
-					<div style="clear:both"></div>
-				</div>
-				<div style="clear:both"></div>-->
 				<div class="now-titlb-sy">
-					<span class="sy-tit">品牌：</span>	
+					<span class="sy-tit">品牌：</span>
 					<span class="sy-lb">
+						<a href="#">不限</a>
+						<c:forEach items="${brandList}" var="item">
+							<a href="#">${item.brandName }</a>
+						</c:forEach>
+						<!--
 						<a href="#">不限</a>
 						<a href="#">永久</a>
 						<a class="hov" href="#">欧时力</a>
@@ -114,6 +77,7 @@
 						<a href="#">永久</a>
 						<a href="#">欧时力</a>
 						<a href="#">米阿科尔</a>
+						-->
 					</span>
 				</div>
 				<div class="now-titlb-sy">
@@ -126,13 +90,16 @@
 					</span>
 				</div>
 				<div class="now-titlb-sy">
-					<span class="sy-tit">类型：</span>	
+					<span class="sy-tit">类别：</span>	
 					<span class="sy-lb">
+					<a href="#" class="hov">不限</a>
+					<!--
 						<a href="#">不限</a>
 						<a href="#">类型1</a>
 						<a href="#">类型1</a>
 						<a href="#">类型2</a>
 						<a class="hov" href="#">类型3</a>
+					-->
 					</span>
 				</div>
 			</div>

@@ -61,7 +61,7 @@
 				</div>
 		    </div> |
 			<div class="top-right-dw top-right-order" href="javascript:;">
-				<span class="txt"><s:property value="getText('index.myorder')"/></span>
+				<a href="${basePath}front/orderFrontAction!get.action"><span class="txt"><s:property value="getText('index.myorder')"/></span></a>
 				<img src="images/jt_xia.png" width="9" height="7"/>
 				<div class="gwc-xllb" style="left:-8px;width:75px">
 					<a href="#">查看订单</a>

@@ -16,20 +16,46 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<link rel="stylesheet" type="text/css" href="css/default.css"/>
+	
+	<script type="text/javascript">
+		function changePic(picId){
+			var bannerPic = document.getElementById("banner"+picId);
+		}
+		function toRegister(){
+			window.location.href = "${basePath}front/memberAction!toMemberRegisterPage";	
+		}
+		function toLogin(){
+			window.location.href = "${basePath}front/memberAction!toMemberLoginPage";
+		}
+		function moreNotice(){
+			<c:if test="${not empty sessionScope.noticeListFour }">
+				alert("加载中。。。");
+			</c:if>
+			<c:if test="${empty sessionScope.noticeListFour }">
+				alert("没有更多消息!");
+			</c:if>
+		}
+	</script>
   </head>
   
 <body>
 	<div class="banner">
 		<ul>
-			<li class="banner-lb"><a href="#"><img src="images/banner1.png" width="602" height="312"/></a></li>
-			<li class="banner-lb"><a href="#"><img src="images/banner1.png" width="602" height="312"/></a></li>
+			<c:forEach begin="1" end="6" var="item">
+				<li class="banner-lb"><a href="#"><img src="images/banner${item }.png" width="602" height="312" id="banner${item }"/></a></li>
+			</c:forEach>
 		</ul>
 		<div class="banner-btn">
-			<a href="#"></a><a href="#"></a><a href="#"></a><a href="#"></a><a href="#"></a><a href="#"></a>
+			<a href="javascript:changePic(1);"></a>
+			<a href="javascript:changePic(2);"></a>
+			<a href="javascript:changePic(3);"></a>
+			<a href="javascript:changePic(4);"></a>
+			<a href="javascript:changePic(5);"></a>
+			<a href="javascript:changePic(6);"></a>
 		</div>
 	</div>
 	<div class="gonggao-con">
-		<h3><<s:property value="getText('index.notice')"/><a href="#"><s:property value="getText('index.more')"/>&gt;</a></h3>
+		<h3><<s:property value="getText('index.notice')"/><a href="javascript:moreNotice();"><s:property value="getText('index.more')"/>&gt;</a></h3>
 		<div class="gg-lb">
 		<c:if test="${not empty sessionScope.noticeListFour }">
 			<c:forEach items="${sessionScope.noticeListFour }" var="item">
@@ -38,15 +64,11 @@
 			</c:forEach>
 		</c:if>
 		<c:if test="${empty sessionScope.noticeListFour }">
-			<div class="lb-con" style="color: red"><span>
-				</span>暂时没有公告</div>
+			<div class="lb-con" style="color: red">
+				<span></span>暂时没有公告</div>
 		</c:if>
-			<%-- <div class="lb-con"><span>【<s:property value="getText('index.notice')"/>】</span><a href="#">限时限量折扣公告</a></div>
-			<div class="lb-con"><span>【<s:property value="getText('index.notice')"/>】</span><a href="#">限时限量折扣公告</a></div> --%>
 		</div>
 		<div class="login-con">
-			<!--<div class="user-lb"><span>用户名：</span><input class="inp" type="text"/></div>
-					<div class="user-lb"><span>密码：</span><input class="inp" type="password"/></div>-->
 			<div class="txlb">
 				<img class="tx" src="images/touxiang.png" width="53" height="53"/>
 				<div class="txt4">
@@ -55,10 +77,11 @@
 				</div>
 			</div>
 			<div class="btn">
-				<input class="login-btn" type="submit" value="<s:property value="getText('index.registerbutton')"/>"/>
-				<input class="login-btn" style="background:#0160b2" type="submit" value="<s:property value="getText('index.loginbutton')"/>"/>
+				<input class="login-btn" type="button" value="<s:property value="getText('index.registerbutton')"/>"
+					onclick="toRegister();"/>
+				<input class="login-btn" style="background:#0160b2" type="button" value="<s:property value="getText('index.loginbutton')"/>"
+					onclick="toLogin();"/>
 			</div>
-			<!--<div class="forget-pw"><a href="#">忘记密码？</a></div>-->
 		</div>
 	</div>
 	<div style="clear:both"></div>

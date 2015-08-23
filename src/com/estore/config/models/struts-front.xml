@@ -95,7 +95,10 @@
 			<result name="prepare">/WEB-INF/front/goodsDetail.jsp</result>
 		</action>
 		<action name="cartFrontAction" class="cartFrontAction">
-			<result name="addCart">/WEB-INF/front/cart.jsp</result>
+			<result name="addCart" type="redirectAction">
+				<param name="actionName">cartFrontAction</param>
+				<param name="method">getAll</param>
+			</result>
 			<result name="toLogin" type="redirectAction">
 				<param name="actionName">memberAction</param>
 				<param name="method">toMemberLoginPage</param>

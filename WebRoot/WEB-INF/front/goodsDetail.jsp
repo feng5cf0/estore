@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html; charset=utf-8"%>
+ <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -23,6 +23,17 @@
 			$(".ewm-pic").hide();
 		})
 	})
+	function chooseAttribute(statusX,statusY,attrName){
+		var attr = document.getElementsByName("attr"+statusX);
+		for(var i=1;i<=attr.length;i++){
+			document.getElementById("attr"+statusX+i).className="color-ys";
+		}
+		
+		document.getElementById("attr"+statusX+statusY).className="color-ys xz"
+		
+		document.getElementById("attributeList"+statusX).value = attrName;
+		
+	}
 </script>
 </head>
 
@@ -92,68 +103,53 @@
 				</ul>
 			</div>
 			
-			<form action="${basePath}front/cartFrontAction!addCart.action">
-			<div class="proxq-tit-right">
-				<h3>${goods.goodsName}</h3>
-				<input type="hidden" value="${goods.id}" name="goods.id"/>
-				<div class="proxq-tit-jg">
-					<div class="jglb">
-						<span class="xqjg1"><s:property value="getText('goodsdetail.price')"/></span><span class="xqjg2">${goods.goodsPrice}</span>
-						<div class="chakan-bzjg">
-							<<s:property value="getText('goodsdetail.otherprice')"/><img src="images/xia_jt.png" width="10"/>
-							<div class="chakan-bzjg-zk">
-								<p>美元：268元</p><p>日元：268元</p><p>港元：268元</p>
+			<form action="${basePath}front/cartFrontAction!addCart.action" method="post">
+				<div class="proxq-tit-right">
+					<h3>${goods.goodsName}</h3>
+					<input type="hidden" value="${goods.id}" name="goods.id"/>
+					<div class="proxq-tit-jg">
+						<div class="jglb">
+							<span class="xqjg1"><s:property value="getText('goodsdetail.price')"/></span><span class="xqjg2">${goods.goodsPrice}</span>
+							<div class="chakan-bzjg">
+								<s:property value="getText('goodsdetail.otherprice')"/><img src="images/xia_jt.png" width="10"/>
+								<div class="chakan-bzjg-zk">
+									<p>美元：268元</p><p>日元：268元</p><p>港元：268元</p>
+								</div>
 							</div>
+							<div style="clear:both"></div>
 						</div>
-						<div style="clear:both"></div>
+						<div class="jglb">
+							<span><s:property value="getText('goodsdetail.onsale')"/></span><span class="jglb-ys">满300减30</span>
+						</div>
 					</div>
-					<div class="jglb">
-						<span><s:property value="getText('goodsdetail.onsale')"/></span><span class="jglb-ys">满300减30</span>
+					<div class="proxq-tit-cslb">
+						<span class="cs-tit">品牌：</span>
+						<span class="cs-body"><b>${goods.brand.brandName}</b></span>
+					</div>
+					<c:forEach items="${attributeList}" var="item" varStatus="statusX">
+						<input type="hidden" name="attributeList" id="attributeList${statusX.count}" value=""/>
+						<div class="proxq-tit-cslb">
+							<span class="cs-tit">${item.attributeName}：</span>
+							<span class="cs-body">
+								<c:forEach items="${item.attributeValueSet}" var="attr" varStatus="statusY">
+									<a class="color-ys" id="attr${statusX.count }${statusY.count}" name="attr${statusX.count}" href="javascript:chooseAttribute(${statusX.count},${statusY.count},'${attr.attributeValue}');">${attr.attributeValue}</a>
+								</c:forEach>
+							</span>
+						</div>
+					</c:forEach>
+					<div class="proxq-tit-cslb">
+						<span class="cs-tit">购买数量：</span>
+						<span class="cs-body">
+							<a class="num-jian2" href="javascript:;">-</a>
+							<input class="num-inp2" type="text" value="1" name="total"/>
+							<a class="num-jian2" href="javascript:;">+</a>
+						</span>
+					</div>
+					<div class="proxq-tit-cslb" style="margin-left:70px">
+						<input class="submit-btn submit-btn2" type="submit" value="<s:property value="getText('goodsdetail.addcart')"/>"/>
+						<input class="submit-btn submit-btn2" type="submit" value="<s:property value="getText('goodsdetail.addfavorit')"/>" style="background:#5dbfec"/>
 					</div>
 				</div>
-				<div class="proxq-tit-cslb">
-					<span class="cs-tit">编码：</span>
-					<span class="cs-body"><b>TRK VW OO</b></span>
-				</div>
-				<div class="proxq-tit-cslb">
-					<span class="cs-tit">制造厂：</span>
-					<span class="cs-body"><input class="radio" type="radio" checked="checked"/>售后</span>
-				</div>
-				<div class="proxq-tit-cslb">
-					<span class="cs-tit">芯片：</span>
-					<span class="cs-body">
-						<input class="radio" type="radio" checked="checked"/>48芯片
-						<input class="radio" type="radio"/>68芯片
-					</span>
-				</div>
-				<div class="proxq-tit-cslb">
-					<span class="cs-tit">备用钥匙：</span>
-					<span class="cs-body">
-						<input class="radio" type="radio" checked="checked"/>是的，需要
-						<input class="radio" type="radio"/>不需要，谢谢
-					</span>
-				</div>
-				<div class="proxq-tit-cslb">
-					<span class="cs-tit">颜色：</span>
-					<span class="cs-body">
-						<a class="color-ys" href="javascript:;">白色</a>
-						<a class="color-ys xz" href="javascript:;">金色</a>
-						<a class="color-ys" href="javascript:;">灰色</a>
-					</span>
-				</div>
-				<div class="proxq-tit-cslb">
-					<span class="cs-tit">购买数量：</span>
-					<span class="cs-body">
-						<a class="num-jian2" href="javascript:;">-</a>
-						<input class="num-inp2" type="text" value="1" name="total"/>
-						<a class="num-jian2" href="javascript:;">+</a>
-					</span>
-				</div>
-				<div class="proxq-tit-cslb" style="margin-left:70px">
-					<input class="submit-btn submit-btn2" type="submit" value="<s:property value="getText('goodsdetail.addcart')"/>"/>
-					<input class="submit-btn submit-btn2" type="submit" value="<s:property value="getText('goodsdetail.addfavorit')"/>" style="background:#5dbfec"/>
-				</div>
-			</div>
 			</form>
 			<div style="clear:both"></div>
 		</div>

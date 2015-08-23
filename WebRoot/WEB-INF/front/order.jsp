@@ -90,6 +90,7 @@
 				<div class="shop-prolb-tit">
 					<div class="wid wid1">&nbsp;</div>
 					<div class="wid wid2" style="margin-left:-60px">商品</div>
+					<div class="wid wid3">属性</div>
 					<div class="wid wid3" style="margin-left:35px">单价</div>
 					<div class="wid wid3">数量</div>
 					<div class="wid wid3">金额</div>
@@ -104,16 +105,36 @@
 							<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
 							<div class="txt1"><a href="#">${item.goods.goodsName}</a></div>
 						</div>
-						<div class="wid wid3 monys" style="margin-left:8px">${ item.goods.goodsPrice}</div>
+						<div class="wid wid3" align="center">
+							<div class="txt1">
+								<c:if test="${item.goodsAttribute.attributeValue1 != null}">
+									${item.goodsAttribute.attributeValue1.attributeValue}
+								</c:if>
+								<c:if test="${item.goodsAttribute.attributeValue2 != null}">
+									/${item.goodsAttribute.attributeValue2.attributeValue}
+								</c:if>
+								<c:if test="${item.goodsAttribute.attributeValue3 != null}">
+									/${item.goodsAttribute.attributeValue3.attributeValue}
+								</c:if>
+							</div>
+						</div>
+						<div class="wid wid3 monys" id="price${status.count}" style="margin-left:8px">
+							<c:if test="${item.goodsAttribute.price != null}">
+								${item.goodsAttribute.price}
+							</c:if>
+							<c:if test="${item.goodsAttribute.price == null}">
+								${item.goods.goodsPrice}
+							</c:if>
+						</div>
 						<div class="wid wid3">
-							<a class="num-jian" href="javascript:;">-</a><input class="num-inp" type="text"  value="1"/><a class="num-jian" href="javascript:;">+</a>
+							${item.total}
 						</div>
 						<div class="wid wid3 monys">${item.amount}</div>
 						<div class="wid wid4">
 							<p><a href="#">删除</a></p>
 							<p><a href="#">移入收藏夹</a></p>
 						</div>
-					</div>		
+					</div>
 				</c:forEach>
 			</div>
 			<!--购物车列表结束-->

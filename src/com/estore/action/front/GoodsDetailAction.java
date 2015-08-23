@@ -2,8 +2,12 @@ package com.estore.action.front;
 
 import java.util.List;
 
+import com.estore.entities.Attribute;
+import com.estore.entities.AttributeValue;
+import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.entities.Goods;
+import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.estore.service.IGoodsService;
 import com.estore.util.Locale;
@@ -16,16 +20,23 @@ public class GoodsDetailAction extends ActionSupport {
 	private Integer goodsId;
 	private List<Category> categoryList;
 	private ICategoryService categoryService;
+	private List<AttributeValue> attributeValueList;
+	private List<Attribute> attributeList;
+	
+	private IBrandService brandService;
+	private List<Brand> brandList;
 	
 	public String prepare(){
 		
 		//类别栏数据
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 		
 		this.goods = this.goodsService.getByGoodsId(goodsId,Locale.ZHCN);
-
-		//System.out.print(ServletActionContext.getRequest().getSession().getAttribute("member"));
-		//System.out.print(ServletActionContext.getRequest().getSession().getId());
+		this.attributeList = this.goodsService.getGoodsAttribute(goodsId);
+		
+		
+		//this.goods = this.goodsService.getDetailForFront(goodsId);
 		
 		return "prepare";
 	}
@@ -60,6 +71,30 @@ public class GoodsDetailAction extends ActionSupport {
 	public void setCategoryService(ICategoryService categoryService) {
 		this.categoryService = categoryService;
 	}
-	
+	public List<AttributeValue> getAttributeValueList() {
+		return attributeValueList;
+	}
+	public void setAttributeValueList(List<AttributeValue> attributeValueList) {
+		this.attributeValueList = attributeValueList;
+	}
+	public List<Attribute> getAttributeList() {
+		return attributeList;
+	}
+	public void setAttributeList(List<Attribute> attributeList) {
+		this.attributeList = attributeList;
+	}
+	public IBrandService getBrandService() {
+		return brandService;
+	}
+	public void setBrandService(IBrandService brandService) {
+		this.brandService = brandService;
+	}
 
+	public List<Brand> getBrandList() {
+		return brandList;
+	}
+
+	public void setBrandList(List<Brand> brandList) {
+		this.brandList = brandList;
+	}
 }

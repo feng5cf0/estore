@@ -7,10 +7,14 @@ public class GoodsAttribute extends BaseEntity {
 	private Integer goodsId;
 	private Integer attributeValueId1;
 	private Integer attributeValueId2;
-	private Integer attribtueValueId3;
+	private Integer attributeValueId3;
 	private Float price;
 	private Integer backAccount;
 	private Integer frontAccount;
+	
+	private AttributeValue attributeValue1;
+	private AttributeValue attributeValue2;
+	private AttributeValue attributeValue3;
 	
 	public Integer getGoodsId() {
 		return goodsId;
@@ -30,12 +34,6 @@ public class GoodsAttribute extends BaseEntity {
 	public void setAttributeValueId2(Integer attributeValueId2) {
 		this.attributeValueId2 = attributeValueId2;
 	}
-	public Integer getAttribtueValueId3() {
-		return attribtueValueId3;
-	}
-	public void setAttribtueValueId3(Integer attribtueValueId3) {
-		this.attribtueValueId3 = attribtueValueId3;
-	}
 	public Float getPrice() {
 		return price;
 	}
@@ -53,6 +51,30 @@ public class GoodsAttribute extends BaseEntity {
 	}
 	public void setFrontAccount(Integer frontAccount) {
 		this.frontAccount = frontAccount;
+	}
+	public AttributeValue getAttributeValue1() {
+		return attributeValue1;
+	}
+	public void setAttributeValue1(AttributeValue attributeValue1) {
+		this.attributeValue1 = attributeValue1;
+	}
+	public AttributeValue getAttributeValue2() {
+		return attributeValue2;
+	}
+	public void setAttributeValue2(AttributeValue attributeValue2) {
+		this.attributeValue2 = attributeValue2;
+	}
+	public AttributeValue getAttributeValue3() {
+		return attributeValue3;
+	}
+	public void setAttributeValue3(AttributeValue attributeValue3) {
+		this.attributeValue3 = attributeValue3;
+	}
+	public Integer getAttributeValueId3() {
+		return attributeValueId3;
+	}
+	public void setAttributeValueId3(Integer attributeValueId3) {
+		this.attributeValueId3 = attributeValueId3;
 	}
 	
 }

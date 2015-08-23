@@ -22,24 +22,15 @@
 	<h3><s:property value="getText('index.brand')"/></h3>
 	<div class="pp-prolb">
 		<div class="cb-lbwk">
-			
-			<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-			<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-			<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-			<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-			<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-			<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-			<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
-			<a class="cb-lb" href="#"><img src="images/chebiao1.png" width="58" height="40"/></a>
+			<c:forEach items="${brandList}" var="item">
+				<a class="cb-lb" href="#"><img src="${item.brandPic }" width="58" height="40"/></a>
+			</c:forEach>
 			<div style="clear:both"></div>
 		</div>
 		<div class="pp-txtlb">
-			<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-			<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-			<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-			<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-			<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
-			<a href="#">忍者神龟系列忍者神龟系列忍者神龟系列</a>
+			<c:forEach items="${brandList}" var="item">
+				<a href="">${item.brandName}</a>
+			</c:forEach>
 		</div>
 	</div>  
 	</body>

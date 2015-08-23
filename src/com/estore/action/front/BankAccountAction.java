@@ -4,8 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import com.estore.entities.BankAccount;
+import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.service.IBankAccountService;
+import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -20,6 +22,8 @@ public class BankAccountAction extends ActionSupport {
 	private ICategoryService categoryService;
 	private IBankAccountService bankAccountService;
 	private BankAccount bankAccount;
+	private IBrandService brandService;
+	private List<Brand> brandList;
 	public String toMain(){
 		
 		this.categoryList = this.categoryService.getForFront();
@@ -29,6 +33,7 @@ public class BankAccountAction extends ActionSupport {
 	//跳转到银行账户页面
 	public String toBankAccount(){
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 		return "toBankAccount";
 	}
 	//后台跳转到银行账户添加页面
@@ -80,7 +85,18 @@ public class BankAccountAction extends ActionSupport {
 	public void setBankAccountList(List<BankAccount> bankAccountList) {
 		this.bankAccountList = bankAccountList;
 	}
-	
+	public IBrandService getBrandService() {
+		return brandService;
+	}
+	public void setBrandService(IBrandService brandService) {
+		this.brandService = brandService;
+	}
+	public List<Brand> getBrandList() {
+		return brandList;
+	}
+	public void setBrandList(List<Brand> brandList) {
+		this.brandList = brandList;
+	}
 	
 
 }

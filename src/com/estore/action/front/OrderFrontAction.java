@@ -4,9 +4,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.entities.Member;
 import com.estore.entities.Order;
+import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.estore.service.IOrderService;
 import com.opensymphony.xwork2.ActionContext;
@@ -21,10 +23,12 @@ public class OrderFrontAction extends ActionSupport {
 	
 	private List<Category> categoryList;
 	private ICategoryService categoryService;
-	
+	private IBrandService brandService;
+	private List<Brand> brandList;
 	public String addOrder(){
 		
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 		
 		if(order == null){
 			order = new Order();
@@ -40,6 +44,7 @@ public class OrderFrontAction extends ActionSupport {
 		}
 		order.setMemberId(member.getId());
 		order.setCreateTime(new Date());
+		order.setStatus(1);
 		
 		this.orderService.addOrder(order,cartIds);
 		
@@ -48,6 +53,7 @@ public class OrderFrontAction extends ActionSupport {
 	public String pay(){
 		
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 		
 		return "pay";
 	}
@@ -55,6 +61,7 @@ public class OrderFrontAction extends ActionSupport {
 	public String get(){
 		
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 		
 		//判断是否登录
 		Map<String,Object> session = ActionContext.getContext().getSession();
@@ -63,9 +70,9 @@ public class OrderFrontAction extends ActionSupport {
 		if(member == null){
 			return "toLogin";
 		}
-		
+		order = new Order();
 		order.setMemberId(member.getId());
-		order.setStatus(1);//
+		order.setStatus(1);
 		
 		this.orderList = this.orderService.getOrder(order);
 		
@@ -107,5 +114,17 @@ public class OrderFrontAction extends ActionSupport {
 	}
 	public void setCategoryService(ICategoryService categoryService) {
 		this.categoryService = categoryService;
+	}
+	public IBrandService getBrandService() {
+		return brandService;
+	}
+	public void setBrandService(IBrandService brandService) {
+		this.brandService = brandService;
+	}
+	public List<Brand> getBrandList() {
+		return brandList;
+	}
+	public void setBrandList(List<Brand> brandList) {
+		this.brandList = brandList;
 	}
 }

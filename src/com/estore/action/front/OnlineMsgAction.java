@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.entities.OnlineMsg;
+import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.estore.service.IOnlineMsgService;
 import com.estore.util.JsonUtil;
@@ -35,10 +37,12 @@ public class OnlineMsgAction extends ActionSupport{
 	private ICategoryService categoryService;
 	Property pro=new Property();
 	private String yzm;
-	
+	private IBrandService brandService;
+	private List<Brand> brandList;
 	//跳转到在线留言页面
 	public String toOnLine(){
-		this.categoryList = this.categoryService.getForFront();	
+		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 			
 			return "toonline";
 	}
@@ -113,6 +117,18 @@ public class OnlineMsgAction extends ActionSupport{
 	}
 	public void setYzm(String yzm) {
 		this.yzm = yzm;
+	}
+	public IBrandService getBrandService() {
+		return brandService;
+	}
+	public void setBrandService(IBrandService brandService) {
+		this.brandService = brandService;
+	}
+	public List<Brand> getBrandList() {
+		return brandList;
+	}
+	public void setBrandList(List<Brand> brandList) {
+		this.brandList = brandList;
 	}
 	
 	

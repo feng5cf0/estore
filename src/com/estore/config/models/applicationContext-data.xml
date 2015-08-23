@@ -33,6 +33,18 @@
 	<bean id="orderCartDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IOrderCartDao"></property>
 	</bean>
+	<bean id="attributeDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IAttributeDao"></property>
+	</bean>
+	<bean id="attribtueValueDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IAttributeValueDao"></property>
+	</bean>
+	<bean id="goodsAttributeDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IGoodsAttributeDao"></property>
+	</bean>
+	<bean id="brandDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IBrandDao"></property>
+	</bean>
 	<!-- service -->
 	<bean id="moneyService" class="com.estore.service.impl.MoneyServiceImpl"/>
 	<bean id="categoryService" class="com.estore.service.impl.CategoryServiceImpl"/>
@@ -40,6 +52,8 @@
 	<bean id="goodsInService" class="com.estore.service.impl.GoodsInServiceImpl"/>
 	<bean id="cartService" class="com.estore.service.impl.CartServiceImpl"/>
 	<bean id="orderService" class="com.estore.service.impl.OrderServiceImpl"/>
+	<bean id="goodsAttributeService" class="com.estore.service.impl.GoodsAttributeServiceImpl"/>
+	<bean id="brandService" class="com.estore.service.impl.BrandServiceImpl"/>
 	<!-- action -->
 	<bean id="moneyAction" class="com.estore.action.back.MoneyAction" scope="prototype"/>
 	<bean id="categoryAction" class="com.estore.action.back.CategoryAction" scope="prototype"/>

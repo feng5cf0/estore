@@ -5,8 +5,10 @@ import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.entities.Goods;
+import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.estore.service.IGoodsService;
 import com.opensymphony.xwork2.ActionContext;
@@ -23,11 +25,13 @@ public class GoodsSearchAction extends ActionSupport {
 	private List<Category> categoryList2;
 	private IGoodsService goodsService;
 	private String categoryCode;
-	
+	private IBrandService brandService;
+	private List<Brand> brandList;
 	public String getByCategory(){
 		
 		//类别栏数据
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 
 		//选择类别后加载的类别数据
 		//this.categoryList2 = this.categoryService.getByCategoryId(categoryId,Locale.ZHCN);
@@ -96,6 +100,18 @@ public class GoodsSearchAction extends ActionSupport {
 	}
 	public void setCategoryCode(String categoryCode) {
 		this.categoryCode = categoryCode;
+	}
+	public IBrandService getBrandService() {
+		return brandService;
+	}
+	public void setBrandService(IBrandService brandService) {
+		this.brandService = brandService;
+	}
+	public List<Brand> getBrandList() {
+		return brandList;
+	}
+	public void setBrandList(List<Brand> brandList) {
+		this.brandList = brandList;
 	}
 	
 }

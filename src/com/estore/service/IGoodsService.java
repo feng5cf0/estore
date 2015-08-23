@@ -1,6 +1,8 @@
 package com.estore.service;
 
 import java.util.List;
+
+import com.estore.entities.Attribute;
 import com.estore.entities.Category;
 import com.estore.entities.Goods;
 import com.landicorp.core.service.base.IBaseService;
@@ -20,4 +22,8 @@ public interface IGoodsService extends IBaseService<Goods, Integer> {
 	
 	public Goods getByGoodsId(Integer goodsId,Integer localeType);
 	public List<Goods> getByGoodsCode(String goodsCode);
+	
+	public Goods getDetailForFront(Integer goodsId);
+	
+	public List<Attribute> getGoodsAttribute(Integer goodsId);
 }

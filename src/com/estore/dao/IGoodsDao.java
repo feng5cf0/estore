@@ -19,4 +19,6 @@ public interface IGoodsDao extends IMyBatisDao<Goods, Integer> {
 	public List<Goods> getByCategoryId(Map<String, Object> map);
 	
 	public List<Goods> getByGoodsCode(Map<String,Object> map);
+	
+	public Goods getDetailForFront(Integer goodsId);
 }

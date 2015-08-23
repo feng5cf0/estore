@@ -175,6 +175,7 @@
 			</div>
 			<!--我的订单结束-->
 			<!--换页样式-->
+			<!--分页
 			<div class="total-huanye" style="margin-bottom:40px">
 				<a class="pre" href="#"></a>
 				<a class="num hov" href="#">1</a>
@@ -187,6 +188,7 @@
 				<span>共100页，到第<input type="text" class="inp" value="1"/>页</span>
 				<input class="sub" type="submit" value="确定"/>
 			</div>
+			-->
 			<!--猜您喜欢开始-->
 			<div class="white-conbg" style="position:relative">
 				<div class="order-cxtit">

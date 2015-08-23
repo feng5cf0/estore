@@ -6,20 +6,26 @@
 	
     <resultMap id="goodsAttributeMap" type="goodsAttribute" >
     	<id property="id" column="goods_attribute_id" javaType="Integer" jdbcType="INTEGER"/>
-		<result property="goodsId" column="goods_id" javaType="String" jdbcType="VARCHAR"/>
-		<result property="attributeValue1" column="attribute_value_1" javaType="Integer" jdbcType="INTEGER"/>
-		<result property="attributeValue2" column="attribute_value_2" javaType="String" jdbcType="VARCHAR"/>
-		<result property="attributeValue3" column="attribute_value_3" javaType="String" jdbcType="VARCHAR"/>
-		<result property="categoryId" column="price" javaType="Integer" jdbcType="INTEGER"/>
-		<result property="isAvaliable" column="back_account" javaType="Integer" jdbcType="INTEGER"/>
-    	<result property="picture" column="front_account" javaType="String" jdbcType="VARCHAR"/>
+		<result property="goodsId" column="goods_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="attributeValueId1" column="attribute_value_1" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="attributeValueId2" column="attribute_value_2" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="attributeValueId3" column="attribute_value_3" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="price" column="price" javaType="Float" jdbcType="DECIMAL"/>
+		<result property="backAccount" column="back_account" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="frontAccount" column="front_account" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
-    </resultMap>            
+    
+		<association property="attributeValue1" column="attribute_value_1" select="com.estore.dao.IAttributeValueDao.getById"/>
+		<association property="attributeValue2" column="attribute_value_2" select="com.estore.dao.IAttributeValueDao.getById"/>
+		<association property="attributeValue2" column="attribute_value_3" select="com.estore.dao.IAttributeValueDao.getById"/>
+    </resultMap>
     <sql id="goodsAttributeColumns">
-    	goods_code,locale_type,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo,add_time
+    	goods_attribute_id,goods_id,attribute_value_1,
+    	attribute_value_2,attribute_value_3,price,back_account,front_account,memo
     </sql>
     <sql id="goodsAttributeValues">
-    	#{goodsCode},#{localeType},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo},#{addTime}
+    	#{id},#{goodsId},#{attributeValue1},#{attributeValue2},#{attributeValue3},
+    	#{price},#{back_account},#{front_account},#{memo}
     </sql>
     
     <!-- 通过商品id获取商品的属性信息 -->
@@ -32,4 +38,57 @@
     		</if>
     	</where>
     </select>
+    
+    <!-- 通过属性，商品id获取商品属性信息 -->
+    <select id="getByAttribute" parameterType="map" resultMap="goodsAttributeMap">
+		select a.*,b.attribute_value attribute1,c.attribute_value attribute2,d.attribute_value attribute3
+		from t_goods_attribute a
+		left join t_attribute_value b on a.attribute_value_1 = b.attribute_value_id
+		left join t_attribute_value c on a.attribute_value_2 = c.attribute_value_id
+		left join t_attribute_value d on a.attribute_value_3 = d.attribute_value_id
+    	<where>
+    		<if test="goodsId != null">
+    			and goods_id = #{goodsId}
+    		</if>
+    		<if test="attribute1 != null">
+    			and b.attribute_value = #{attribute1}
+    		</if>
+    		<if test="attribute2 != null">
+    			and c.attribute_value = #{attribute2}
+    		</if>
+    		<if test="attribute3 != null">
+    			and d.attribute_value = #{attribute3}
+    		</if>
+    	</where>
+    </select>
+    
+    <!-- 通过属性，商品id获取商品属性Id -->
+    <select id="getIdByAttribute" parameterType="map" resultType="int">
+		select a.goods_attribute_id
+		from t_goods_attribute a
+		left join t_attribute_value b on a.attribute_value_1 = b.attribute_value_id
+		left join t_attribute_value c on a.attribute_value_2 = c.attribute_value_id
+		left join t_attribute_value d on a.attribute_value_3 = d.attribute_value_id
+    	<where>
+    		<if test="goodsId != null">
+    			and goods_id = #{goodsId}
+    		</if>
+    		<if test="attribute1 != null">
+    			and b.attribute_value = #{attribute1}
+    		</if>
+    		<if test="attribute2 != null">
+    			and c.attribute_value = #{attribute2}
+    		</if>
+    		<if test="attribute3 != null">
+    			and d.attribute_value = #{attribute3}
+    		</if>
+    	</where>
+    </select>
+    
+    <select id="getById" parameterType="int" resultMap="goodsAttributeMap">
+    	select *
+    	from t_goods_attribute
+    	where goods_attribute_id = #{goodsAttributeId}
+    </select>
+    
 </mapper>

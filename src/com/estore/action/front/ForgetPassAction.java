@@ -10,8 +10,10 @@ import org.apache.struts2.ServletActionContext;
 
 import com.estore.email.Mail;
 import com.estore.email.MailSender;
+import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.entities.Member;
+import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.estore.service.impl.MemberServiceImpl;
 import com.estore.util.JsonUtil;
@@ -29,10 +31,14 @@ public class ForgetPassAction extends ActionSupport {
 	private Member member;
 	private MemberServiceImpl memberService;
 	Property pro=new Property();
+	
+	private IBrandService brandService;
+	private List<Brand> brandList;
 
 	//跳转到忘记密码-填写账户名界面
 	public String towjmmTXZHM(){
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 		return "towjmmTXZHM";
 	}
 	//跳转到忘记密码-验证身份界面
@@ -46,6 +52,7 @@ public class ForgetPassAction extends ActionSupport {
 		String email = request.getParameter("email").replace("%40", "@");
 		
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 		if(email!=null && !"".equals(email)){
 			Mail mailInfo = new Mail();   
 			mailInfo.setMailServerHost("smtp.sina.com");    
@@ -75,6 +82,7 @@ public class ForgetPassAction extends ActionSupport {
 	}
 	public String towjmmSZXMM() throws Exception{
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 		HttpServletResponse response =ServletActionContext.getResponse();
 		PrintWriter out = response.getWriter();
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -97,6 +105,7 @@ public class ForgetPassAction extends ActionSupport {
 	//跳转到忘记密码-完成界面
 	public String towjmmWC(){
 		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
 		return "towjmmWC";
 	}
 
@@ -133,7 +142,17 @@ public class ForgetPassAction extends ActionSupport {
 	public void setPro(Property pro) {
 		this.pro = pro;
 	}
-	
-	
+	public IBrandService getBrandService() {
+		return brandService;
+	}
+	public void setBrandService(IBrandService brandService) {
+		this.brandService = brandService;
+	}
+	public List<Brand> getBrandList() {
+		return brandList;
+	}
+	public void setBrandList(List<Brand> brandList) {
+		this.brandList = brandList;
+	}
 	
 }

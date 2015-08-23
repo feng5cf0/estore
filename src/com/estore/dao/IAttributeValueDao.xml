@@ -9,12 +9,25 @@
 		<result property="attributeId" column="attribute_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="attributeValue" column="attribute_value" javaType="String" jdbcType="VARCHAR"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
-    </resultMap>            
+    
+    </resultMap>
     <sql id="attributeValueColumns">
     	attribute_value_id,attribute_id,attribute_value,memo
     </sql>
     <sql id="attributeValueValues">
     	#{id},#{attributeId},#{attributeValue},#{memo}
     </sql>
+    <!-- 通过Id获取属性值 -->
+    <select id="getById" parameterType="int" resultMap="attributeValueMap">
+    	select *
+    	from t_attribute_value
+    	where attribute_value_id = #{attributeValueId}
+    </select>
     
+    <!-- 通过属性id获取该属性的属性值 -->
+    <select id="getByAttributeId" parameterType="int" resultMap="attributeValueMap">
+    	select *
+    	from t_attribute_value
+		where attribute_id = #{attributeId}
+    </select>
 </mapper>

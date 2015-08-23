@@ -8,6 +8,7 @@
     	<id property="id" column="cart_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="localeType" column="locale_type" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="goodsId" column="goods_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="goodsAttributeId" column="goods_attribute" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="memberId" column="member_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="total" column="total" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="amount" column="amount" javaType="Float" jdbcType="DECIMAL"/>
@@ -17,13 +18,14 @@
     	
     	<association property="goods" column="goods_id" select="com.estore.dao.IGoodsDao.getZHByGoodsId">
     	</association>
+    	<association property="goodsAttribute" column="goods_attribute" select="com.estore.dao.IGoodsAttributeDao.getById"/>
     	
     </resultMap>
     <sql id="cartColumns">
-    	locale_type,goods_id,member_id,total,amount,make_date,status,memo
+    	locale_type,goods_id,goods_attribute,member_id,total,amount,make_date,status,memo
     </sql>
     <sql id="cartValues">
-    	#{localeType},#{goodsId},#{memberId},#{total},#{amount},#{makeDate},#{status},#{memo}
+    	#{localeType},#{goodsId},#{goodsAttribute},#{memberId},#{total},#{amount},#{makeDate},#{status},#{memo}
     </sql>
     
 	<!-- 新增购物车 -->

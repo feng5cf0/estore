@@ -21,86 +21,16 @@
 	<body>
 			<h3 class="prolb-show-tit"><s:property value="getText('index.goodsRecommend')"/><a href="#"><span class="span1"><s:property value="getText('index.more')"/></span><span class="span2">&gt;</span></a></h3>
 			<div class="piclb2">
-				<!--循环开始-->
-				<div class="prolb-showlb">
-					<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
-					<h4>玥玛锁业</h4>
-					<div class="txt1">
-						<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+				<c:forEach items="${goodsRecommendList}" var="item">
+					<div class="prolb-showlb">
+						<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
+						<h4>${item.goodsName }</h4>
+						<div class="txt1">
+							<a href="#">功能：${item.goodsDescription }</a>
+						</div>
+						<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>${item.goodsPrice }</div>
 					</div>
-					<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-				</div>
-				<!--循环结束-->
-				<!--循环开始-->
-				<div class="prolb-showlb">
-					<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
-					<h4>玥玛锁业</h4>
-					<div class="txt1">
-						<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-					</div>
-					<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-				</div>
-				<!--循环结束-->
-				<!--循环开始-->
-				<div class="prolb-showlb">
-					<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
-					<h4>玥玛锁业</h4>
-					<div class="txt1">
-						<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-					</div>
-					<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-				</div>
-				<!--循环结束-->
-				<!--循环开始-->
-				<div class="prolb-showlb">
-					<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
-					<h4>玥玛锁业</h4>
-					<div class="txt1">
-						<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-					</div>
-					<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-				</div>
-				<!--循环结束-->
-				<!--循环开始-->
-				<div class="prolb-showlb">
-					<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
-					<h4>玥玛锁业</h4>
-					<div class="txt1">
-						<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-					</div>
-					<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-				</div>
-				<!--循环结束-->
-				<!--循环开始-->
-				<div class="prolb-showlb">
-					<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
-					<h4>玥玛锁业</h4>
-					<div class="txt1">
-						<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-					</div>
-					<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-				</div>
-				<!--循环结束-->
-				<!--循环开始-->
-				<div class="prolb-showlb">
-					<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
-					<h4>玥玛锁业</h4>
-					<div class="txt1">
-						<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-					</div>
-					<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-				</div>
-				<!--循环结束-->
-				<!--循环开始-->
-				<div class="prolb-showlb">
-					<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
-					<h4>玥玛锁业</h4>
-					<div class="txt1">
-						<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-					</div>
-					<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-				</div>
-				<!--循环结束-->
+				</c:forEach>
 				<div style="clear:both"></div>
 			</div>
 	</body>

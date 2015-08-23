@@ -56,11 +56,8 @@
 			<jsp:include page="/WEB-INF/front/frontBanner.jsp"></jsp:include>
 		</div>
 		<!--banner区结束-->
-		<!--热门推荐开始-->
-		<div class="prolb-show">
-			<jsp:include page="/WEB-INF/front/frontHot.jsp"></jsp:include>
-		</div>
-		<!--热门推荐结束-->
+		
+		
 		<!--产品推荐开始-->
 		<div class="prolb-show">
 			<jsp:include page="/WEB-INF/front/frontRecommend.jsp"></jsp:include>

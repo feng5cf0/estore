@@ -47,6 +47,7 @@
 		<typeAlias type="com.estore.entities.Attribute" alias="attribute"/>
 		<typeAlias type="com.estore.entities.AttributeValue" alias="attributeValue"/>
 		<typeAlias type="com.estore.entities.GoodsAttribute" alias="goodsAttribute"/>
+		<typeAlias type="com.estore.entities.Brand" alias="brand"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
@@ -84,9 +85,9 @@
 		<mapper resource="com/estore/dao/INoticeDao.xml"/>
 		<mapper resource="com/estore/dao/IBankAccountDao.xml"/>
 		<mapper resource="com/estore/dao/ITechnicalArticleDao.xml"/>
-		
 		<mapper resource="com/estore/dao/IAttributeDao.xml"/>
 		<mapper resource="com/estore/dao/IAttributeValueDao.xml"/>
 		<mapper resource="com/estore/dao/IGoodsAttributeDao.xml"/>
+		<mapper resource="com/estore/dao/IBrandDao.xml"/>
 	</mappers>
 </configuration>	

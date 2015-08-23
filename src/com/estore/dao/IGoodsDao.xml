@@ -8,6 +8,7 @@
     	<id property="id" column="goods_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="goodsCode" column="goods_code" javaType="String" jdbcType="VARCHAR"/>
 		<result property="localeType" column="locale_type" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="brandId" column="brand_id" javaType="Integer" jdbcType="INTEGER"/>
 		<result property="goodsName" column="goods_name" javaType="String" jdbcType="VARCHAR"/>
 		<result property="goodsDescription" column="goods_description" javaType="String" jdbcType="VARCHAR"/>
 		<result property="categoryId" column="category_id" javaType="Integer" jdbcType="INTEGER"/>
@@ -19,12 +20,33 @@
     	<result property="frontAccount" column="front_account" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="addTime" column="add_time" javaType="Date" jdbcType="TIMESTAMP"/>
-    </resultMap>            
+    
+    	<association property="brand" column="brand_id" select="com.estore.dao.IBrandDao.getById"/>
+    </resultMap>
+    <resultMap id="goodsDetailMap" type="goods" >
+    	<id property="id" column="goods_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="goodsCode" column="goods_code" javaType="String" jdbcType="VARCHAR"/>
+		<result property="localeType" column="locale_type" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="brandId" column="brand_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="goodsName" column="goods_name" javaType="String" jdbcType="VARCHAR"/>
+		<result property="goodsDescription" column="goods_description" javaType="String" jdbcType="VARCHAR"/>
+		<result property="categoryId" column="category_id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="isAvaliable" column="is_avaliable" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="picture" column="picture" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="goodsUrl" column="goods_url" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="goodsPrice" column="goods_price" javaType="Float" jdbcType="DECIMAL"/>
+    	<result property="backAccount" column="back_account" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="frontAccount" column="front_account" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="addTime" column="add_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    	
+    	<collection property="goodsAttributeSet" column="goods_id" select="com.estore.dao.IGoodsAttributeDao.getByGoodsId"></collection>
+    </resultMap>
     <sql id="goodsColumns">
-    	goods_code,locale_type,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo,add_time
+    	goods_code,locale_type,brand_id,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo,add_time
     </sql>
     <sql id="goodsValues">
-    	#{goodsCode},#{localeType},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo},#{addTime}
+    	#{goodsCode},#{localeType},#{brandId},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo},#{addTime}
     </sql>
     
 	<!-- 新增国际化 -->
@@ -139,5 +161,23 @@
 		select *
 		from t_goods
 		where goods_code like '${goodsCode}%'
+	</select>
+	
+	<!-- 前台商品详细 -->
+	<select id="getDetailForFront" parameterType="int" resultMap="goodsDetailMap">
+		select *
+		from t_goods
+		where goods_id = #{goodsId}
+	</select>
+	
+	<!-- 通过品牌加载商品信息 -->
+	<select id="getByBrandId" parameterType="int" resultMap="goodsMap">
+		select *
+		from t_goods
+		<where>
+			<if test="brandId != null">
+				and brand_id = #{brandId}
+			</if>
+		</where>
 	</select>
 </mapper>
