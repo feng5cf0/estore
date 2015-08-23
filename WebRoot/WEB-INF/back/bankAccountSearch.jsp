@@ -138,7 +138,7 @@
 							</c:forEach>
 						</table>
 					</div>
-					<div class="tablebottom">
+					<%-- <div class="tablebottom">
 						<div class="tablebottomright">
 							<form
 								action="${basePath}core/userSearch!searchUser.action"
@@ -153,7 +153,7 @@
 								<ld:pager type="form" action="pagerForm" />
 							</form>
 						</div>
-					</div>
+					</div> --%>
 				</div>
 			</div>
 		</div>

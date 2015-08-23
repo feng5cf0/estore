@@ -86,13 +86,12 @@
 									<td>
 										<c:out value="${item.name}" />
 									</td>
-									
 									<td style="width: 300px;">
 										<c:if test="${fn:length(item.qqCode) >80 }">
-											<c:out value="${fn:substring(item.qqCode, 0, 80)}..." />
+											<c:out value="${fn:substring(item.qqCode, 0, 80)}..." escapeXml="true"/>
 										</c:if>
 										<c:if test="${fn:length(item.qqCode) <=80 }">
-											<c:out value="${item.qqCode }" />
+											<c:out value="${item.qqCode }" escapeXml="true"/>
 										</c:if>
 									</td>
 									<td>

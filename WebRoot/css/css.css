@@ -142,7 +142,7 @@ a.btn:hover span{background:url(../images/btn.gif) right -20px;color:#000;paddin
 
 .cont{background:url(../images/bg.gif) repeat-y center;}
 .head{text-align:center;}
-.top{width:958px;height:75px;background:url(../images/topbg.gif) repeat-x; overflow:hidden;}
+.top{width:958px;height:75px;background:url(../images/topbg.gif) repeat-x; overflow:visible;}
 .topleft{width:300px;height:64px;background:url(../images/logo.gif) no-repeat;float:left;}
 .topright{height:28px;padding:47px 7px 0 0;float:right;}
 .menu{width:958px;height:30px;background:url(../images/menubg.gif) repeat-x;}

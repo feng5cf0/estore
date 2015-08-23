@@ -43,10 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </div>
 	        <div class="control-group">
 	         <label><span style="color:red">*</span>qq生成的代码</label>
-	         <div class="control-group">
-		 		<script id="content" name="customerSer.qqCode" type="text/plain" style="width:1024px;height:450px;"></script>
-		 	</div>
-	         <!-- <textarea name="customerSer.qqCode" rows="15" cols="100" ></textarea> -->
+	         <textarea name="customerSer.qqCode" rows="15" cols="100" >${customerSer.qqCode }</textarea>
 	        </div>
 	        <div class="control-group">
 	        	
