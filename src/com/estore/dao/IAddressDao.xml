@@ -4,6 +4,7 @@
 <mapper namespace="com.estore.dao.IAddressDao">
     <resultMap id="address" type="address">
     	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="memberId" column="memberid" javaType="Integer" jdbcType="INTEGER"></result>
     	<result property="address" column="address" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="postcode" column="postcode" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="linkmanName" column="linkman_name" javaType="String" jdbcType="VARCHAR"></result>
@@ -17,7 +18,7 @@
     </resultMap>
     <!-- 根据id 获取会员信息表 -->
     <select id="getAddressById" resultMap="address" parameterType="Integer">
-    	select *from t_address where id=#{id}
+    	select *from t_address where memberid=#{memberId}
     </select>
     
 	<insert id="addressRegister" parameterType="address" >

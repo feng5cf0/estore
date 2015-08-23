@@ -74,7 +74,7 @@
 		<!--个人中心内容开始-->
 		<div class="now-tit" id="grzx">
 			<span>当前所在位置：个人中心</span>
-			<a class="btn" href="#">返回上一页</a>
+			<a class="btn" href="front/mainAction!toMain.action">返回上一页</a>
 		</div>
 		<div class="now-titlb center-con">
 			<!--头像区域开始-->

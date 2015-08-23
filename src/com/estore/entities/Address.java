@@ -8,6 +8,7 @@ public class Address extends BaseEntity{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String address;//具体地址
+	private Integer memberId;//关联会员表
 	private String postcode;//邮政编码
 	private String linkmanName;//联系人
 	private String linkmanPhone;//
@@ -17,6 +18,13 @@ public class Address extends BaseEntity{
 	private String area;//区
 	private String addr;//省市区后的地址
 	
+	
+	public Integer getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(Integer memberId) {
+		this.memberId = memberId;
+	}
 	public String getAddress() {
 		return address;
 	}
