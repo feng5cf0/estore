@@ -135,8 +135,8 @@ public class MailSender  {
 	    mailInfo.setFromAddress("apex_test@sina.com");    
 	    mailInfo.setToAddress("574591725@qq.com");    
 	    mailInfo.setSubject("测试发送");    
-	    mailInfo.setContent("123443teretrt11");  
-	    MailSender.sendTextMail(mailInfo);
+	    mailInfo.setContent("<a href='http://www.baidu.com'>百度</a>");  
+	    MailSender.sendHtmlMail(mailInfo);
 	}
 } 
 

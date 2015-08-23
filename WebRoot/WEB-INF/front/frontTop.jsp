@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/kefu.js"></script>
+	<script type="text/javascript" src="js/main/main.js"></script>
+	<script src="js/lrtk.js"></script> 
 	<script src="js/lrtk.js"></script>
 	<script type="text/javascript">
 		$(function(){
@@ -41,7 +43,7 @@
 			</div>
 		</c:if>
 		<div class="top-right">
-			<a class="top-right-dw" href="javascript:;"><s:property value="getText('index.sethomepage')"/></a> |
+			<a class="top-right-dw" href="javascript:void(0);" onclick="setHome(this,'http://www.baidu.com')"><s:property value="getText('index.sethomepage')"/></a> 
 			<div class="top-right-dw top-right-gwc" href="javascript:;">
 				<img src="images/gowoche.png" width="15" height="14"/>
 				<span class="txt"><a href="${basePath}front/cartFrontAction!getAll.action"><s:property value="getText('index.cart')"/></a></span>
@@ -51,7 +53,7 @@
 					<a href="#">我的积分</a>
 					<a href="#">我的余额</a>
 				</div>
-		    </div> |
+		    </div> 
 			<div class="top-right-dw top-right-scj" href="javascript:;">
 				<span class="txt"><s:property value="getText('index.favorite')"/></span>
 				<img src="images/jt_xia.png" width="9" height="7"/>
@@ -59,7 +61,7 @@
 					<a href="#">我的收藏</a>
 					<a href="#">我的收藏</a>
 				</div>
-		    </div> |
+		    </div> 
 			<div class="top-right-dw top-right-order" href="javascript:;">
 				<a href="${basePath}front/orderFrontAction!get.action"><span class="txt"><s:property value="getText('index.myorder')"/></span></a>
 				<img src="images/jt_xia.png" width="9" height="7"/>

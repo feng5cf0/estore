@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.ICustomerSerDao">
+	
+    <resultMap id="customerSer" type="customerSer">
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="name" column="name" javaType="String" jdbcType="VARCHAR"/>
+		<result property="qqCode" column="qq_code" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"/>
+		<result property="createUser" column="create_user" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+	<select id="getCustomerSer" resultMap="customerSer">
+		select *from t_customer_service
+	</select>
+	<insert id="addCustomerSer" parameterType="customerSer">
+		insert into t_customer_service(name,qq_code,create_time,create_user)
+		values(#{name},#{qqCode},#{createTime},#{createUser})
+	</insert>
+	<delete id="deleteCusSer" parameterType="Integer">
+			delete from t_customer_service where id=#{id}
+	</delete>
+	<update id="updateCusSer" parameterType="customerSer" >
+		update t_customer_service set name=#{name},qq_code=#{qqCode},create_user=#{createUser}
+		where id=#{id}
+	</update>
+	<select id="getCustomerSerById" resultMap="customerSer" parameterType="Integer">
+		select *from t_customer_service where id=#{id}
+	</select>
+</mapper>  

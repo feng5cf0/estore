@@ -38,7 +38,8 @@ public class MemberAction extends BaseActionSupport {
 	private int memberId;
 	private String memberAlias;//登录账号
 	private String memberPassword;//登录密码
-	
+	private List<Category> categoryList;
+	private ICategoryService categoryService;
 	private String yzm;//验证码
 	Property pro=new Property();
 	
@@ -61,6 +62,8 @@ public class MemberAction extends BaseActionSupport {
 	public String toMemberCenterPage(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
+		//分类
+		this.categoryList = this.categoryService.getForFront();
 		if(session.getAttribute("member")==null){
 			return "toLoginPage";
 		}else{
@@ -242,6 +245,18 @@ public class MemberAction extends BaseActionSupport {
 	}
 	public void setYzm(String yzm) {
 		this.yzm = yzm;
+	}
+	public List<Category> getCategoryList() {
+		return categoryList;
+	}
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
+	}
+	public ICategoryService getCategoryService() {
+		return categoryService;
+	}
+	public void setCategoryService(ICategoryService categoryService) {
+		this.categoryService = categoryService;
 	}
 	
 	

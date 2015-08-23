@@ -12,7 +12,9 @@ import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.entities.Notice;
 import com.estore.service.IBrandService;
+import com.estore.entities.customerSer;
 import com.estore.service.ICategoryService;
+import com.estore.service.ICustomerSerService;
 import com.estore.service.INoticeService;
 import com.opensymphony.xwork2.ActionSupport;
 public class MainAction extends ActionSupport {
@@ -22,30 +24,32 @@ public class MainAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	private List<Category> categoryList;
-	
 	private List<Notice> noticeListAll;
+	private List<customerSer> customerSerList;
+	
+	private ICustomerSerService customerSerService;
 	private ICategoryService categoryService;
 	private INoticeService noticeService;
 	private IBrandService brandService;
 	private List<Brand> brandList;
+	//跳转到前端首页
 	public String toMain(){
 		
 		List<Notice> noticeListFour = new ArrayList<Notice>();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
+		
+		//分类
 		this.categoryList = this.categoryService.getForFront();
 		this.brandList = this.brandService.getAll();
 	    this.noticeListAll=noticeService.getNoticeAll();
+	    //公告
+		this.noticeListAll=noticeService.getNoticeAll();
+	    //客服
+	    this.customerSerList = customerSerService.getCustomerSer();
+	    
 	    session.setAttribute("noticeListFour", noticeListAll);
-//	    if(noticeListAll!=null){
-//	    /*	//获取最新的3个
-//		    for(int i=0;i<=2;i++){
-//		    	noticeListFour.add(noticeListAll.get(i));
-//		    }*/
-//		    
-//	    }else{
-//	    	
-//	    }
+	    session.setAttribute("customerSerList", customerSerList);
 		return "toMain";
 	}
 	
@@ -85,6 +89,23 @@ public class MainAction extends ActionSupport {
 	public void setBrandList(List<Brand> brandList) {
 		this.brandList = brandList;
 	}
+
+	public List<customerSer> getCustomerSerList() {
+		return customerSerList;
+	}
+
+	public void setCustomerSerList(List<customerSer> customerSerList) {
+		this.customerSerList = customerSerList;
+	}
+
+	public ICustomerSerService getCustomerSerService() {
+		return customerSerService;
+	}
+
+	public void setCustomerSerService(ICustomerSerService customerSerService) {
+		this.customerSerService = customerSerService;
+	}
+
 
 	
 }

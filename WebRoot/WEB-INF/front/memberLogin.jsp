@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="js/member/login.js"></script>
+<script type="text/javascript" src="js/member/login.js?v=122"></script>
 
 <script type="text/javascript">
 	$(function(){
@@ -43,11 +43,11 @@
 		<form action="front/memberAction!memberLogin" method="post" id="memberLoginForm">
 			<div class="register-lb login-lb">
 				<span class="span1"><s:property value="getText('login.username')"/>:</span>
-				<input name="memberAlias" id="memberAlias" class="inp1" type="text" placeholder="<s:property value="getText('login.usernametip')"/>"/>
+				<input name="memberAlias" id="memberAlias" class="inp1 validate[required]" type="text" placeholder="<s:property value="getText('login.usernametip')"/>"/>
 			</div>
 			<div class="register-lb login-lb">
 				<span class="span1"><s:property value="getText('login.password')"/>:</span>
-				<input name="memberPassword" id="memberPassword" class="inp1" type="password"/>
+				<input name="memberPassword" id="memberPassword" class="inp1 validate[required]" type="password"/>
 			</div>
 			<div class="register-lb register-lb2 login-lb2">
 				<input name="flag" id="flag" value="1" class="cbox" type="checkbox" /><s:property value="getText('login.rememberpassword')"/><a class="a1" href="front/forgetPassAction!towjmmTXZHM"><s:property value="getText('login.forgetpassword')"/></a>

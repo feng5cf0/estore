@@ -23,4 +23,27 @@
 	<select id="pagingSearch" resultMap="technicalArticle" >
 		select *from t_technical_article where id limit 0,2
 	</select>
+	<!-- delete -->
+	<delete id="deleteTechnicalArticle" parameterType="Integer">
+		delete from t_technical_article where id=#{id}
+	</delete>
+	<!-- update -->
+	<update id="updateTechnicalArticle" parameterType="technicalArticle">
+			update t_technical_article set title=#{title},content=#{content},create_user=#{createUser} 
+			where id=#{id}
+	</update>
+	<!-- 根据id查找 -->
+	<select id="getTechById" parameterType="Integer" resultMap="technicalArticle">
+			select *from t_technical_article where id=#{id}
+	</select>
+	<!-- 模糊查询 ： 编写者  文章标题 -->
+	<select id="getTechMHCX" parameterType="technicalArticle" resultMap="technicalArticle">
+			select *from t_technical_article where 1=1 
+			<if test="createUser!=null">
+				and create_user like '%${createUser}%'
+			</if>
+			<if test="title!=null">
+				and title like '%${title}%'
+			</if>
+	</select>
 </mapper>  

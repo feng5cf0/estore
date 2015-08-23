@@ -16,6 +16,7 @@
 	<bean id="bankAccount" class="com.estore.entities.BankAccount"/>
 	<bean id="technicalArticle" class="com.estore.entities.TechnicalArticle"/>
 	<bean id="page" class="com.estore.entities.Page"/>
+	<bean id="customer" class="com.estore.entities.customerSer"/>
 	
 	<!-- dao -->
 	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
@@ -39,6 +40,9 @@
 	<bean id="technicalArticleDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.ITechnicalArticleDao"></property>
 	</bean>
+	<bean id="customerSerDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.ICustomerSerDao"></property>
+	</bean>
 	
 	<!-- service -->
 	<bean id="memberService" class="com.estore.service.impl.MemberServiceImpl"/>
@@ -48,6 +52,7 @@
 	<bean id="noticeService" class="com.estore.service.impl.NoticeServiceImpl"/>
 	<bean id="bankAccountService" class="com.estore.service.impl.BankAccountServiceImpl"/>
 	<bean id="technicalArticleService" class="com.estore.service.impl.TechnicalArticleServiceImpl"/>
+	<bean id="customerSerService" class="com.estore.service.impl.CustomerSerServiceImpl"/>
 	
 	<!-- action -->
 	<bean id="memberAction" class="com.estore.action.back.MemberAction" scope="prototype"/>
@@ -72,6 +77,7 @@
 	<bean id="technicalArticleAction" class="com.estore.action.front.TechnicalArticleAction" scope="prototype"/>
 	<bean id="forgetPassAction" class="com.estore.action.front.ForgetPassAction" scope="prototype"/>
 	<bean id="noticeAction" class="com.estore.action.back.NoticeAction" scope="prototype"/>
+	<bean id="customerSerAction" class="com.estore.action.back.CustomerSerAction" scope="prototype"/>
 	<!-- 生成验证码 -->	
 	<bean id="yzmAction" class="com.estore.action.back.YzmAction" scope="prototype"/>
 </beans>

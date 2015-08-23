@@ -1,6 +1,7 @@
 $(function(){
 	//用户登录
 	$("#loginbtn").click(function(){
+//		$("#memberLoginForm").validationEngine();
 		var memberAlias = $("#memberAlias").val();
 		var memberPassword = $("#memberPassword").val();
 		if(memberAlias==null || memberAlias=="" || memberAlias==undefined){
@@ -11,7 +12,8 @@ $(function(){
 			alert("请输入登录密码!");
 			return false;
 		}
-		
+//		if(fnSubmit()){
+			
 		$.ajax({
 			type:"post",
 			dataType:"json",
@@ -20,6 +22,7 @@ $(function(){
 			async:false,
 			success:function(data){
 				if(data.success=="success"){
+					alert("登录成功！");
 					document.location.href="front/mainAction!toMain.action";
 					//alert(data.successMsg);
 					//document.location.href="front/memberAction!toMain";
@@ -32,6 +35,15 @@ $(function(){
 				alert("系统异常，请联系管理员！");
 			}
 		});
+//	}
 		
 	});
 });
+
+//页面校验
+function fnSubmit(){
+	if(!$("#memberLoginForm").validationEngine("validate")){
+		return false;
+	}
+	return true;
+}

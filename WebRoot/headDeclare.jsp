@@ -48,3 +48,5 @@
 </script>
 <script type='text/javascript' src='js/loadmask/jquery.loadmask.js'>
 </script>
+<script type='text/javascript' src='js/jquery.js'>
+</script>

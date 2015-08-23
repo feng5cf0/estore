@@ -127,6 +127,15 @@
 		<action name="technicalArticleAction" class="technicalArticleAction">
 			<result name="getTechnicalArticle">/WEB-INF/back/technicalArticleSearch.jsp</result>
 			<result name="toAddTechnicalArticle">/WEB-INF/back/addTechnicalArticle.jsp</result>
+			<result name="toUpdateTechnicalArticle">/WEB-INF/back/updateTechnicalArticle.jsp</result>
+			<result name="searchList">/WEB-INF/back/technicalArticleSearch.jsp</result>
+		</action>
+		<!-- 客服 -->
+		<action name="customerSerAction" class="customerSerAction">
+			<result name="getcustomerSer">/WEB-INF/back/customerSerSearch.jsp</result>
+			<result name="toadd">/WEB-INF/back/addCustomerSer.jsp</result>
+			<result name="toUpdate">/WEB-INF/back/updateCustomerSer.jsp</result>
+			<result name="toDetail">/WEB-INF/back/CustomerSerDetail.jsp</result>
 		</action>
 		<!-- 生成验证码 -->
 		<action name="yzmAction" class="yzmAction">

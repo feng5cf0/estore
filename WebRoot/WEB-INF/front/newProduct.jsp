@@ -33,15 +33,15 @@
 <!--nav区开始-->
 <div class="nav">
 	<div class="nav-con">
-		<div class="fenlei-ys">全部分类</div>
-		<a href="#">首页</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a class="hov" href="#">最新产品</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">产品促销</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">关于我们</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">售后服务</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">银行账号</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">在线留言</a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="#">联系我们</a><img src="images/nav_line.png" width="2" height="33"/>
+		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
+		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a class="hov" href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/onlineMsgAction!toOnLine"  style="width:60px;"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/callUsAction!toCallUs"  style="width:60px;"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 	</div>
 </div>
 <!--nav区域结束-->

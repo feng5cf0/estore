@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<%@include file="/headDeclare.jsp"%>
-		    <script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js"> </script>
+		    <script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js?v=222"> </script>
 	</head>
 	<body>
 		<div id="rightcontent">
@@ -20,47 +20,45 @@
 			<div class="roadbody1">
 				<div class="roadbody">
 					<div class="roadbody">
-						<form action="${basePath}core/userSearch!searchUser.action">
+						<form action="front/technicalArticleAction!searchMHCX" method="post" id="searchForm">
 							<table class="rightseach2">
 								<tr>
 									<td width="16%" align="right">
 										<label for="textfield">
-											登录名称：
+											编辑者
 										</label>
 									</td>
 									<td width="16%" align="left">
-										<input name="member.memberAlias" type="text" class="dmg-input"
-											id="memberAlias" />
+										<input id="createUser" name="technicalArticle.createUser" type="text" class="dmg-input" />
 									</td>
 									<td width="24%"></td>
 								</tr>
 								<tr>
 									<td width="16%" align="right">
 										<label for="textfield">
-											用户全称：
+											标题
 										</label>
 									</td>
 									<td width="16%" align="left">
-										<input name="member.memberRealname" type="text" class="dmg-input"
-											id="memberRealname" />
+										<input id="title" name="technicalArticle.title" type="text" class="dmg-input" />
 									</td>
-									<td width="16%" align="right">
+									<!-- <td width="16%" align="right">
 										<label for="textfield">
 											用户状态：
 										</label>
-									</td>
-									<td width="16%" align="left">
+									</td> -->
+									<!-- <td width="16%" align="left">
 										<select name="member.avaliable">
 											<option value="2">全部</option>
 											<option value="1">有效</option>
 											<option value="0">无效</option>
 										</select>
-									</td>
+									</td> -->
 									<td width="24%">
-										<input type="submit" value="查询" class="button2"
+										<input id="searchBtn" type="submit" value="查询" class="button2"
 											onmouseover="this.className='button2Over'"
 											onmouseout="this.className='button2Out'" />
-										<input type="hidden" value="0" name="pager.curPageNum" />
+										<!-- <input type="hidden" value="0" name="pager.curPageNum" /> -->
 									</td>
 								</tr>
 							</table>
@@ -136,7 +134,9 @@
 										<fmt:formatDate value="${item.createTime }"  pattern="yyyy/MM/dd" />
 									</td>
 									<td>
-										<a style="color:red" href="front/memberAction!memberDelete.action?memberId=${item.id }">删除</a>
+										<a style="color:red" href="javascript:void(0)" onclick="deleteTechnicalArticle(${item.id})">删除</a>
+										<a style="color:red" href="javascript:void(0)" onclick="toUpdatePage(${item.id})">编辑</a>
+										
 									</td>
 									
 									
@@ -144,7 +144,7 @@
 							</c:forEach>
 						</table>
 					</div>
-					<div class="tablebottom">
+					<%-- <div class="tablebottom">
 						<div class="tablebottomright">
 							<form
 								action="${basePath}core/userSearch!searchUser.action"
@@ -159,7 +159,7 @@
 								<ld:pager type="form" action="pagerForm" />
 							</form>
 						</div>
-					</div>
+					</div> --%>
 				</div>
 			</div>
 		</div>

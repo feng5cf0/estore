@@ -58,9 +58,18 @@
 		<h3><<s:property value="getText('index.notice')"/><a href="javascript:moreNotice();"><s:property value="getText('index.more')"/>&gt;</a></h3>
 		<div class="gg-lb">
 		<c:if test="${not empty sessionScope.noticeListFour }">
-			<c:forEach items="${sessionScope.noticeListFour }" var="item">
-				<div class="lb-con"><span>【<s:property value="getText('index.notice')"/>】
-				</span><a href="#">${item.title }</a></div>
+			<c:forEach items="${sessionScope.noticeListFour }" var="item" begin="0" end="3">
+				<div class="lb-con">
+				<span>【<s:property value="getText('index.notice')"/>】</span>
+				<a href="#">
+					<c:if test="${fn:length(item.title) >6 }">
+						<c:out value="${fn:substring(item.title, 0, 6)}..." />
+					</c:if>
+					<c:if test="${fn:length(item.title) <=20 }">
+						<c:out value="${item.title}" />
+					</c:if>
+				</a>
+				</div>
 			</c:forEach>
 		</c:if>
 		<c:if test="${empty sessionScope.noticeListFour }">
