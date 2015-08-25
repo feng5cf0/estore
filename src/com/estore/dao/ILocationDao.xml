@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.ILocationDao">
+	
+    <resultMap id="locationMap" type="location" >
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="code" column="code" javaType="String" jdbcType="VARCHAR"/>
+		<result property="name" column="name" javaType="String" jdbcType="VARCHAR"/>
+		<result property="pcode" column="pcode" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="locationColumns">
+    	id,code,name,pcode
+    </sql>
+    <sql id="locationValues">
+    	#{id},#{code},#{name},#{pcode}
+    </sql>
+    
+    <!-- 通过父级编码搜索国家 -->
+    <select id="getCountryByPcode" parameterType="string" resultMap="locationMap">
+    	select *
+    	from t_location_country
+    	where pcode = #{code}
+    </select>
+    <!-- 通过父级编码搜索省 -->
+    <select id="getProvinceByPcode" parameterType="string" resultMap="locationMap">
+    	select *
+    	from t_location_province
+    	where pcode = #{code}
+    </select>
+    <!-- 通过父级编码搜索市 -->
+    <select id="getCityByPcode" parameterType="string" resultMap="locationMap">
+    	select *
+    	from t_location_city
+    	where pcode = #{code}
+    </select>
+	<!-- 通过父级编码搜索县区 -->
+	    <!-- 通过父级编码搜索市 -->
+    <select id="getAreaByPcode" parameterType="string" resultMap="locationMap">
+    	select *
+    	from t_location_area
+    	where pcode = #{code}
+    </select>
+</mapper>

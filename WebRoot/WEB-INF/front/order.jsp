@@ -22,7 +22,85 @@
 			$(".ewm-pic").hide();
 		})
 	})
-	
+	function useNewAddress(){
+		var newAddress = document.getElementById("newAddress");
+		if(newAddress.checked == true){
+			document.getElementById("newAddressArea").style.display = "none";
+		}else{
+			document.getElementById("newAddressArea").style.display = "block";
+			
+		    selectCountry();
+		    $('#country').bind("change", selectProvince);
+		    $('#province').bind("change", selectCity);
+		    $('#city').bind("change", selectArea);
+		}
+	}
+
+	function selectCountry() {
+	    $.ajax(
+	    {
+	        type: "post",
+	        url: "${basePath}front/locationFrontAction!getCountry.action",
+	        dataType:"json",
+	        success: function (msg) {
+	        	eval(msg);
+	            for (var i = 0; i < msg.length; i++) {
+	                $("#country").append("<option value=" + msg[i].code + ">" + msg[i].name + "</option>");
+	            }
+	            selectProvince();
+	        }
+	    });
+	}
+	function selectProvince() {
+	    $("#province").html("");
+	    $.ajax(
+	    {
+	        type: "post",
+	        url: "${basePath}front/locationFrontAction!getProvince.action",
+	        data: { "pcode":$('#country').attr("value") },
+	        dataType:"json",
+	        success: function (msg) {
+	        	eval(msg);
+	            for (var i = 0; i < msg.length; i++) {
+	                $("#province").append("<option value=" + msg[i].code + ">" + msg[i].name + "</option>");
+	            }
+	            selectCity();
+	        }
+	    });
+	}
+	function selectCity() {
+	    $("#city").html("");
+	    $.ajax(
+	    {
+	        type: "post",
+	        url: "${basePath}front/locationFrontAction!getCity.action",
+	        data: { "pcode":$('#province').attr("value") },
+	        dataType:"json",
+	        success: function (msg) {
+	        	eval(msg);
+	            for (var i = 0; i < msg.length; i++) {
+	                $("#city").append("<option value=" + msg[i].code + ">" + msg[i].name + "</option>");
+	            }
+	            selectArea();
+	        }
+	    });
+	}
+	function selectArea() {
+	    $("#area").html("");
+	    $.ajax(
+	    {
+	        type: "post",
+	        url: "${basePath}front/locationFrontAction!getArea.action",
+	        data: { "pcode":$('#city').attr("value") },
+	        dataType:"json",
+	        success: function (msg) {
+	        	eval(msg);
+	            for (var i = 0; i < msg.length; i++) {
+	                $("#area").append("<option value=" + msg[i].code + ">" + msg[i].name + "</option>");
+	            }
+	        }
+	    });
+	}
 </script>
 </head>
 
@@ -138,118 +216,110 @@
 				</c:forEach>
 			</div>
 			<!--购物车列表结束-->
-            <h3 class="shuohuo-h3">收件地址</h3>
-            <div class="adress-lb">
-            	<input type="radio" checked="checked"/>
-                <span>小王  山东省济南市，经十路，18767389876</span>
-            </div>
-            <div class="adress-lb">
-            	<input type="radio"/>
-                <span>小王  山东省济南市，经十路，18767389876</span>
-            </div>
-            <h3 class="shuohuo-h3" style="margin-bottom:10px">填写具体信息</h3>
-			<!--填写收货信息开始-->
-			<div class="write-pay write-adress yunfei-fs">
-				<div class="pay-lb">
-                	<span class="span1">送货方式：</span>
-                    <select class="inp1">
-                    	<option>请选择</option>
-                        <option>请选择</option>
-                        <option>请选择</option>
-                    </select>
-                </div>
-                <div class="pay-lb">
-                	<span class="span1">付款方式：</span>
-                    <select class="inp1">
-                    	<option>请选择</option>
-                        <option>请选择</option>
-                        <option>请选择</option>
-                    </select>
-                </div>
-                <div class="pay-lb">
-                	<span class="span1">快递费用支付：</span>
-                    <input type="checkbox" style="vertical-align:sub"/>
-                    <span>买方支付快递费或快递费到付</span>
-                    <p class="fs-notice">如果您有支付运费的账户，请在这里输入</p>
-                    <input class="inp1 inp2 inp-margin" type="text"/>
-                </div>
-                <div class="pay-lb">
-                	<span class="span1">快递保险：</span>
-                     <input type="checkbox" style="vertical-align:sub"/>
-                    <span>要求购买快递保险（保险费按照报关金额的总金额比例征收，保险条款依照快递公司条例为准。）</span>
-                </div>
-                 <div class="pay-lb">
-                	<span class="span1">海关发票：</span>
-                    <input type="checkbox" style="vertical-align:sub"/>
-                    <span>自定义海关发票</span>
-                    <div class="fs-notice">
-                    	 <input type="checkbox" style="vertical-align:sub"/>
-                   		 <span>锁匠工具</span>
-                    </div>
-                    <div class="fs-notice">
-                    	 <input type="checkbox" style="vertical-align:sub"/>
-                   		 <span>锁匠用品</span>
-                    </div>
-                    <div class="fs-notice">
-                    	 <input type="checkbox" style="vertical-align:sub"/>
-                   		 <span>空白电子芯片</span>
-                    </div>
-                </div>
-				<div class="pay-lb">
-                	<span class="span1" style="float:left">业务员：</span>
-                    <div class="ywy-lbwk">
-                      <div class="ywy-lb">
-                          <img class="tx" src="images/touxiang.png" width="43"/>
-                          <span class="name">王小姐</span>
-                          <span class="name">Leno</span>
-                      </div>
-                      <div class="ywy-lb ywy-lb-huang">
-                          <img class="tx" src="images/touxiang.png" width="43"/>
-                          <span class="name">王小姐</span>
-                          <span class="name">Leno</span>
-                      </div>
-                      <div class="ywy-lb">
-                          <img class="tx" src="images/touxiang.png" width="43"/>
-                          <span class="name">王小姐</span>
-                          <span class="name">Leno</span>
-                      </div>
-                      <div class="ywy-lb">
-                          <img class="tx" src="images/touxiang.png" width="43"/>
-                          <span class="name">王小姐</span>
-                          <span class="name">Leno</span>
-                      </div>
-                      <div class="ywy-lb">
-                          <img class="tx" src="images/touxiang.png" width="43"/>
-                          <span class="name">王小姐</span>
-                          <span class="name">Leno</span>
-                      </div>
-                      <div class="ywy-lb">
-                          <img class="tx" src="images/touxiang.png" width="43"/>
-                          <span class="name">王小姐</span>
-                          <span class="name">Leno</span>
-                      </div>
-                      <div class="ywy-lb">
-                          <img class="tx" src="images/touxiang.png" width="43"/>
-                          <span class="name">王小姐</span>
-                          <span class="name">Leno</span>
-                      </div>
-                      <div class="ywy-lb">
-                          <img class="tx" src="images/touxiang.png" width="43"/>
-                          <span class="name">王小姐</span>
-                          <span class="name">Leno</span>
-                      </div>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
-                <div class="pay-lb">
-                	<span class="span1" style="float:left">收货备注：</span>
-                    <textarea class="textarea"></textarea>
-                </div>
-			</div>
-			<!--填写收货信息开始-->
+			
+			<!-- 收货地址开始 -->
+	            <h3 class="shuohuo-h3">收件地址</h3>
+	            <c:forEach items="${addressList}" var="item" varStatus="status">
+		            <div class="adress-lb">
+		            	<input type="radio" checked="checked" value="${item.id}" id="address${status.count}" name="addressRadio"/>
+		                <span>
+		      				<c:if test="${item.linkmanName != null}">${item.linkmanName}&nbsp;&nbsp;&nbsp;</c:if>
+		      				<c:if test="${item.province != null}">${item.province},</c:if>
+		      				<c:if test="${item.city != null}">${item.city},</c:if>
+		      				<c:if test="${item.area != null}">${item.area}</c:if>
+		      				<c:if test="${item.addr != null}">(${item.addr}),</c:if>
+		      				<c:if test="${item.linkmanPhone != null}">${item.linkmanPhone}</c:if>
+		                </span>
+		            </div>
+	            </c:forEach>
+		        <div class="adress-lb">
+		          	<input type="radio" name="addressRadio" value="0" id="newAddress" onchange="javascript:useNewAddress();"/>使用新地址
+		            <h3 class="shuohuo-h3" style="margin-bottom:10px;margin-left:0px">
+		            	<input type="radio" name="addressRadio" value="0" id="newAddress" onchange="javascript:useNewAddress();"/>使用新地址
+		            </h3>
+		        </div>
+	            <div id="newAddressArea" class="adress-lb" style="display: none">
+	            	<div>
+	            		<span>国家:</span>
+						<select name="address.country" id="country"></select>
+	            		<span>省:</span>
+						<select name="address.province" id="province"></select>
+						<span>市:</span>
+						<select name="address.city" id="city">
+						</select>
+						<span>区:</span>
+						<select name="address.area" id="area"></select>
+	            	</div>
+	            	<div>
+		            	<span>街道/门牌号:</span><input type="text" name="address.detail"/>
+	            	</div>
+	            	<div>
+	            		<span>联系人:</span><input type="text" name="address.linkmanName"/>
+	            		<span>联系电话:</span><input type="text" name="address.linkmanPhone"/>
+	            		<span>邮编:</span><input type="text" name="address.postcode"/>
+	            	</div>
+	            </div>
+	            <h3 class="shuohuo-h3" style="margin-bottom:10px"><span>运费:￥</span><span></span></h3>
+	            <h3 class="shuohuo-h3" style="margin-bottom:10px">填写具体信息</h3>
+				<!--填写收货信息开始-->
+				<div class="write-pay write-adress yunfei-fs">
+	                <div class="pay-lb">
+	                	<span class="span1">付款方式：</span>
+	                    <select class="inp1" name="order.payType">
+	                    	<option value="1">银联</option>
+	                        <option value="2">支付宝</option>
+	                    </select>
+	                </div>
+	                <div class="pay-lb">
+	                	<span class="span1">快递保险：</span>
+	                     <input type="checkbox" style="vertical-align:sub"/>
+	                    <span>要求购买快递保险（保险费按照报关金额的总金额比例征收，保险条款依照快递公司条例为准。）</span>
+	                </div>
+	                <!--
+	                 <div class="pay-lb">
+	                	<span class="span1">海关发票：</span>
+	                    <input type="checkbox" style="vertical-align:sub"/>
+	                    <span>自定义海关发票</span>
+	                    <div class="fs-notice">
+	                    	 <input type="checkbox" style="vertical-align:sub"/>
+	                   		 <span>锁匠工具</span>
+	                    </div>
+	                    <div class="fs-notice">
+	                    	 <input type="checkbox" style="vertical-align:sub"/>
+	                   		 <span>锁匠用品</span>
+	                    </div>
+	                    <div class="fs-notice">
+	                    	 <input type="checkbox" style="vertical-align:sub"/>
+	                   		 <span>空白电子芯片</span>
+	                    </div>
+	                </div>
+					<div class="pay-lb">
+	                	<span class="span1" style="float:left">业务员：</span>
+	                    <div class="ywy-lbwk">
+	                      <div class="ywy-lb">
+	                          <img class="tx" src="images/touxiang.png" width="43"/>
+	                          <span class="name">王小姐</span>
+	                          <span class="name">Leno</span>
+	                      </div>
+	                      <div class="ywy-lb ywy-lb-huang">
+	                          <img class="tx" src="images/touxiang.png" width="43"/>
+	                          <span class="name">王小姐</span>
+	                          <span class="name">Leno</span>
+	                      </div>
+	                    <div style="clear:both"></div>
+	                </div>
+	                -->
+	                <div class="pay-lb">
+	                	<span class="span1" style="float:left" >收货备注：</span>
+	                    <textarea class="textarea" name="order.memo"></textarea>
+	                </div>
+				</div>
+			
+			<!--收货地址结束-->
+			
             <!--结算开始-->
             <div class="shop-end2">
-                <span>应付总额：</span><span class="mon1">￥599.00</span>
+                <span>应付总额：￥</span><span class="mon1">0.00</span>
                 <input class="submit-btn submit-btn2" type="submit" value="提交" style="background:#5dbfec"/>
             </div>
             <!--结算结束-->
@@ -268,7 +338,6 @@
 	<!--客服代码开始-->
 	<jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
 	<!--客服代码结束-->
-
 
 </body>
 </html>

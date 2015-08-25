@@ -208,6 +208,18 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 		
 		return attributeList;
 	}
+	@Override
+	public List<Goods> getByBrandId(Integer brandId) {
+		return this.goodsDao.getByBrandId(brandId);
+	}
+	@Override
+	public List<Goods> getByCondition(Map<String, Object> map) {
+		return this.goodsDao.getByCondition(map);
+	}
+	@Override
+	public List<Goods> getRecommend() {
+		return this.goodsDao.getRecommend();
+	}
 	
 	public IGoodsDao getGoodsDao() {
 		return goodsDao;
@@ -233,5 +245,8 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 	public void setAttributeDao(IAttributeDao attributeDao) {
 		this.attributeDao = attributeDao;
 	}
+
+
+
 
 }

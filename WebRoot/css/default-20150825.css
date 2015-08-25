@@ -1,6 +1,6 @@
 /* CSS Document */
 /*清零代码*/
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr, acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong, sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption, tbody,tfoot,thead,tr,th,td,input{border:0;outline:0;vertical-align:baseline; background:transparent;margin:0;padding:0;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr, acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong, sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption, tbody,tfoot,thead,tr,th,td{border:0;outline:0;vertical-align:baseline; background:transparent;margin:0;padding:0;}
 body{line-height:1;}
 body{-webkit-tap-highlight-color:rgba(0,0,0,0); }
 input，textarea{-webkit-appearance: none}
@@ -12,7 +12,6 @@ ins{text-decoration:none;}
 del{text-decoration:line-through;}
 table{border-collapse:collapse;border-spacing:0;}
 a{text-decoration:none;}
-
 /*qq客服样式开始*/
 .float0831 {
 	POSITION: fixed; TOP: 180px; RIGHT: 1px; _position: absolute;font:12px "宋体";color:#333;
@@ -330,7 +329,7 @@ a{text-decoration:none;}
 .now-titlb-sy{margin-top:15px;font:13px "宋体";color:#ff4400;overflow:hidden}
 .now-titlb-sy .sy-tit{float:left;display:block;width:80px;text-align:right;padding-top:4px}
 .now-titlb-sy .sy-lb{float:left;width:704px}
-.now-titlb-sy .sy-lb a{display:inline-block;margin:0px 15px 6px 0px;padding:4px 8px;color:#666}
+.now-titlb-sy .sy-lb a{display:inline-block;margin:0px 30px 6px 0px;padding:4px 8px;color:#666}
 .now-titlb-sy .sy-lb a:hover{background:#5dbfec;color:#fff;border-radius:3px}
 .now-titlb-sy .sy-lb a.hov{background:#5dbfec;color:#fff;border-radius:3px}
 .gaoji-sslb{width:100%}
@@ -580,7 +579,7 @@ a{text-decoration:none;}
 .ywy-lb .name{float:left;display:block;width:44px;overflow:hidden;margin-top:4px;margin-left:2px;color:#333;font-size:13px}
 /*产品详情-商品详情样式*/
 .proxq-tit{margin:20px 0px}
-.proxq-tit-left{float:left;width:375px; background:green;}
+.proxq-tit-left{float:left;width:375px}
 .proxq-tit .proxq-pic1{border:1px solid #ddd}
 .proxq-tit-ul li{float:left;margin-right:7px;margin-top:15px}
 .proxq-tit-right{float:right;width:388px;}
@@ -760,36 +759,42 @@ a{text-decoration:none;}
 .zhuce-xy p{color:#555}
 
 
-.yhzh_n{
-float:left;
-display:inline;
-width:720px;
-height:45px;
-margin:10px 0 10px 20px;
-overflow:hidden;
-}
-.yhzh_nz{
-float:left;
-display:inline;
-width:166px;
-height:45px;
-}
-.yhzh_ny{
-float:left;
-display:inline;
-font-size:14px;
-color:#333;
-line-height:45px;
-margin-left:20px;
-}
 
 
-.sjsj{
-	font-size:12px;
-	color:#666;
-	font-weight:lighter;
-	margin-left:15px;
-	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

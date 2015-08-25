@@ -1,7 +1,10 @@
 package com.estore.action.front;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -11,7 +14,6 @@ import com.estore.entities.Goods;
 import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.estore.service.IGoodsService;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoodsSearchAction extends ActionSupport {
@@ -27,26 +29,134 @@ public class GoodsSearchAction extends ActionSupport {
 	private String categoryCode;
 	private IBrandService brandService;
 	private List<Brand> brandList;
+	private Integer brandId;
+	private Brand brand;
+	private Integer price;
 	public String getByCategory(){
 		
 		//类别栏数据
 		this.categoryList = this.categoryService.getForFront();
 		this.brandList = this.brandService.getAll();
 
-		//选择类别后加载的类别数据
-		//this.categoryList2 = this.categoryService.getByCategoryId(categoryId,Locale.ZHCN);
-		this.categoryList2 = this.categoryService.getByCategoryCode(categoryCode);
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		Map<String,Object> goodsCondition = null;
+		if(session.getAttribute("goodsCondition") == null){
+			goodsCondition = new HashMap<String,Object>();
+			session.setAttribute("goodsCondition", goodsCondition);
+		}else{
+			goodsCondition = (Map<String,Object>)session.getAttribute("goodsCondition");
+		}
 		
-		//String c = categoryCode;
-		List<Goods> list = this.goodsService.getByGoodsCode(categoryCode);
-		ServletActionContext.getRequest().getSession().setAttribute("goodsList", list);
-		//this.goodsList = this.frontGoodsService.getByGoodsCode(1000);
-		//map.put("goodsLis", list);
-		//String c = categoryCode;
-		//this.goodsService.getByCategoryId(categoryId, Locale.ZHCN);
+		if(category != null && category.getCategoryCode() != null && !"".equals(category.getCategoryCode()) && !"0".equals(category.getCategoryCode())){
+			
+			goodsCondition.put("category", category);
+			
+		}else{
+			goodsCondition.remove("category");
+		}
+
+		this.categoryList2 = this.categoryService.getByCategoryCode(goodsCondition.get("categoryCode").toString());
+		this.goodsList = this.goodsService.getByCondition(goodsCondition);
+		//清空数据
+		
 		return "getByCategory";
 	}
+	
+	public String getByCategoryCode(){
+		
+		//类别栏数据
+		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();		
 
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		Map<String,Object> goodsCondition = null;
+		if(session.getAttribute("goodsCondition") == null){
+			goodsCondition = new HashMap<String,Object>();
+			session.setAttribute("goodsCondition", goodsCondition);
+		}else{
+			goodsCondition = (Map<String,Object>)session.getAttribute("goodsCondition");
+		}
+		
+		if(categoryCode != null && !"".equals(categoryCode) && !"0".equals("categoryCode")){
+			goodsCondition.put("categoryCode", categoryCode);
+			this.categoryList2 = this.categoryService.getByCategoryCode(categoryCode);
+		}
+		
+		this.goodsList = this.goodsService.getByCondition(goodsCondition);
+		
+		return "getByCategoryCode";
+	}
+	
+	public String getByBrand(){
+		
+		//类别栏数据
+		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();		
+		
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		Map<String,Object> goodsCondition = null;
+		if(session.getAttribute("goodsCondition") == null){
+			goodsCondition = new HashMap<String,Object>();
+			session.setAttribute("goodsCondition", goodsCondition);
+		}else{
+			goodsCondition = (Map<String,Object>)session.getAttribute("goodsCondition");
+		}
+		
+		if(brand != null && brand.getId() != 0){
+			goodsCondition.put("brand", brand);
+		}else{
+			goodsCondition.remove("brand");
+		}
+		
+		this.categoryList2 = this.categoryService.getByCategoryCode(goodsCondition.get("categoryCode").toString());
+		
+		//this.goodsList = this.goodsService.getByBrandId(brandId);
+		this.goodsList = this.goodsService.getByCondition(goodsCondition);
+		return "getByBrand";
+	}
+
+	public String getByPrice(){
+		
+		//类别栏数据
+		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
+
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		Map<String,Object> goodsCondition = null;
+		if(session.getAttribute("goodsCondition") == null){
+			goodsCondition = new HashMap<String,Object>();
+			session.setAttribute("goodsCondition", goodsCondition);
+		}else{
+			goodsCondition = (Map<String,Object>)session.getAttribute("goodsCondition");
+		}
+		
+		if(price != null && price != 0){
+			if(price == 1){
+				goodsCondition.put("price", 1);
+				goodsCondition.put("beginPrice", 0);
+				goodsCondition.put("endPrice", 50);
+			}else if(price == 2){
+				goodsCondition.put("price", 2);
+				goodsCondition.put("beginPrice", 50);
+				goodsCondition.put("endPrice", 100);		
+			}else if(price == 3){
+				goodsCondition.put("price", 3);
+				goodsCondition.put("beginPrice", 100);
+			}
+			
+		}else{
+			goodsCondition.remove("price");
+			goodsCondition.remove("beginPrice");
+			goodsCondition.remove("endPrice");
+		}
+		
+		this.categoryList2 = this.categoryService.getByCategoryCode(goodsCondition.get("categoryCode").toString());
+		
+		this.goodsList = this.goodsService.getByCondition(goodsCondition);
+		
+		return "getByPrice";
+	}
+	
 	public Goods getGoods() {
 		return goods;
 	}
@@ -113,5 +223,22 @@ public class GoodsSearchAction extends ActionSupport {
 	public void setBrandList(List<Brand> brandList) {
 		this.brandList = brandList;
 	}
-	
+	public Integer getBrandId() {
+		return brandId;
+	}
+	public void setBrandId(Integer brandId) {
+		this.brandId = brandId;
+	}
+	public Brand getBrand() {
+		return brand;
+	}
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
 }

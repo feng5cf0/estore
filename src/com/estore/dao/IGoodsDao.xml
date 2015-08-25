@@ -20,6 +20,7 @@
     	<result property="frontAccount" column="front_account" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="addTime" column="add_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    	<result property="isRecommend" column="is_recommend" javaType="Integer" jdbcType="INTEGER"/>
     
     	<association property="brand" column="brand_id" select="com.estore.dao.IBrandDao.getById"/>
     </resultMap>
@@ -39,7 +40,7 @@
     	<result property="frontAccount" column="front_account" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="addTime" column="add_time" javaType="Date" jdbcType="TIMESTAMP"/>
-    	
+    	<result property="isRecommend" column="is_recommend" javaType="Integer" jdbcType="INTEGER"/>
     	<collection property="goodsAttributeSet" column="goods_id" select="com.estore.dao.IGoodsAttributeDao.getByGoodsId"></collection>
     </resultMap>
     <sql id="goodsColumns">
@@ -179,5 +180,33 @@
 				and brand_id = #{brandId}
 			</if>
 		</where>
+	</select>
+	
+	<select id="getByCondition" parameterType="map" resultMap="goodsMap">
+		select *
+		from t_goods
+		<where>
+			<if test="brand != null and brand.id != 0">
+				and brand_id = #{brand.id}
+			</if>
+			<if test="category != null and category.categoryCode != '' ">
+				and goods_code like '${category.categoryCode}%'
+			</if>
+			<if test="categoryCode != null and categoryCode != '' ">
+				and goods_code like '${categoryCode}%'
+			</if>
+			<if test="beginPrice != null">
+				and goods_price > #{beginPrice}
+			</if>
+			<if test="endPrice != null">
+				and #{endPrice} > goods_price
+			</if>
+		</where>
+	</select>
+	
+	<select id="getRecommend" resultMap="goodsMap">
+		select *
+		from t_goods
+		where is_recommend = 1
 	</select>
 </mapper>

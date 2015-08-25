@@ -3,10 +3,23 @@
 <html >
 <head>
 <%@include file="/frontHeadDeclare.jsp"%>
-<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/default.css"/>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/kefu.js"></script>
 <script src="js/lrtk.js"></script>
+
+	<script type="text/javascript">
+		function byBrand(brandId){
+			window.location.href = "${basePath }front/goodsSearchAction!getByBrand.action?brand.id="+brandId;
+		}
+		function byPrice(priceId){
+			window.location.href = "${basePath }front/goodsSearchAction!getByPrice.action?price="+priceId;
+		}
+		function byCategory(categoryCode){
+			window.location.href = "${basePath }front/goodsSearchAction!getByCategory.action?category.categoryCode="+categoryCode;
+		}
+	</script>
+
 </head>
 
 <body>
@@ -55,51 +68,101 @@
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：</span><a href="#">首页</a><span> > </span>商品列表</a><span> > </span>汽车、摩托车遥控拷贝器</a>
+			<span>当前所在位置：</span>
+			<a href="#">首页</a>
+			<c:if test="${not empty sessionScope.goodsCondition.category}">
+				<span>&gt;</span>${sessionScope.goodsCondition.category.categoryName}
+			</c:if>
+			<c:if test="${not empty sessionScope.goodsCondition.brand}">
+				<span>&gt;</span>${sessionScope.goodsCondition.brand.brandName}
+			</c:if>
 		</div>
 		<div class="now-titlb">
-			<h4>汽车、摩托车遥控拷贝器<span>搜到<b>128</b>件最新产品</span></h4>
+			<h4>
+				<!--
+					汽车、摩托车遥控拷贝器
+				-->
+				<span>搜到<b><s:property value="goodsList.size()"/></b>件最新产品</span></h4>
 			<div style="padding:0px 0px 20px 0px" >
 				<div class="now-titlb-sy">
 					<span class="sy-tit">品牌：</span>
 					<span class="sy-lb">
-						<a href="#">不限</a>
-						<c:forEach items="${brandList}" var="item">
-							<a href="#">${item.brandName }</a>
-						</c:forEach>
-						<!--
-						<a href="#">不限</a>
-						<a href="#">永久</a>
-						<a class="hov" href="#">欧时力</a>
-						<a href="#">米阿科尔</a>
-						<a href="#">丽莎</a>
-						<a href="#">多米西</a>
-						<a href="#">永久</a>
-						<a href="#">欧时力</a>
-						<a href="#">米阿科尔</a>
-						-->
+						<c:if test="${empty sessionScope.goodsCondition.brand}">
+							<a href="javascript:byBrand(0);" class="hov">不限</a>
+							<c:forEach items="${brandList}" var="item">
+								<a href="javascript:byBrand(${item.id});">${item.brandName }</a>
+							</c:forEach>
+						</c:if>
+						<c:if test="${not empty sessionScope.goodsCondition.brand}">
+							<a href="javascript:byBrand(0);">不限</a>
+							<c:forEach items="${brandList}" var="item">
+								<c:if test="${item.id == sessionScope.goodsCondition.brand.id}">
+									<a href="javascript:byBrand(${item.id});" class="hov">${item.brandName }</a>
+								</c:if>
+								<c:if test="${item.id != sessionScope.goodsCondition.brand.id}">
+									<a href="javascript:byBrand(${item.id});">${item.brandName }</a>
+								</c:if>
+							</c:forEach>
+						</c:if>
 					</span>
 				</div>
 				<div class="now-titlb-sy">
-					<span class="sy-tit">价格：</span>	
+					<span class="sy-tit">价格：</span>
 					<span class="sy-lb">
-						<a class="hov" href="#">不限</a>
-						<a href="#">20-80元</a>
-						<a href="#">20-80元</a>
-						<a href="#">20-80元</a>
+						<c:if test="${empty sessionScope.goodsCondition.price}">
+							<a class="hov" href="javascript:byPrice(0);">不限</a>
+							<a href="javascript:byPrice(1);">0-50元</a>
+							<a href="javascript:byPrice(2);">50-100元</a>
+							<a href="javascript:byPrice(3);">100元以上</a>
+						</c:if>
+						<c:if test="${not empty sessionScope.goodsCondition.price}">
+							<c:if test="${sessionScope.goodsCondition.price == 0}">
+								<a href="javascript:byPrice(0);" class="hov">不限</a>
+							</c:if>
+							<c:if test="${sessionScope.goodsCondition.price != 0}">
+								<a href="javascript:byPrice(0);">不限</a>
+							</c:if>
+							<c:if test="${sessionScope.goodsCondition.price == 1}">
+								<a href="javascript:byPrice(1);" class="hov">0-50元</a>
+							</c:if>
+							<c:if test="${sessionScope.goodsCondition.price != 1}">
+								<a href="javascript:byPrice(1);">0-50元</a>
+							</c:if>
+							<c:if test="${sessionScope.goodsCondition.price == 2}">
+								<a href="javascript:byPrice(2);" class="hov">50-100元</a>
+							</c:if>
+							<c:if test="${sessionScope.goodsCondition.price != 2}">
+								<a href="javascript:byPrice(2);">50-100元</a>
+							</c:if>
+							<c:if test="${sessionScope.goodsCondition.price == 3}">
+								<a href="javascript:byPrice(3);" class="hov">100元以上</a>
+							</c:if>
+							<c:if test="${sessionScope.goodsCondition.price != 3}">
+								<a href="javascript:byPrice(3);" >100元以上</a>
+							</c:if>
+						</c:if>
 					</span>
 				</div>
 				<div class="now-titlb-sy">
 					<span class="sy-tit">类别：</span>	
 					<span class="sy-lb">
-					<a href="#" class="hov">不限</a>
-					<!--
-						<a href="#">不限</a>
-						<a href="#">类型1</a>
-						<a href="#">类型1</a>
-						<a href="#">类型2</a>
-						<a class="hov" href="#">类型3</a>
-					-->
+						<c:if test="${empty sessionScope.goodsCondition.category}">
+							<a href="javascript:byCategory('0');" class="hov">不限</a>
+							<c:forEach items="${categoryList2}" var="citem">
+								<a href="javascript:byCategory('${citem.categoryCode}');">${citem.categoryName }</a>
+							</c:forEach>
+						</c:if>
+						<c:if test="${not empty sessionScope.goodsCondition.category}">
+							<a href="javascript:byCategory('0');">不限</a>
+							<c:forEach items="${categoryList2}" var="citem">
+								<c:if test="${citem.categoryCode == sessionScope.goodsCondition.category.categoryCode}">
+									<a href="javascript:byCategory('${citem.categoryCode}');" class="hov">${citem.categoryName }</a>
+								</c:if>
+								<c:if test="${citem.categoryCode != sessionScope.goodsCondition.category.categoryCode}">
+									<a href="javascript:byCategory('${citem.categoryCode}');">${citem.categoryName }</a>
+								</c:if>
+							</c:forEach>
+						</c:if>
 					</span>
 				</div>
 			</div>
@@ -116,10 +179,7 @@
 			<span>排序：</span>
 			<a class="px-txt hov" href="#">默认</a>
 			<a class="px-txt" href="#">按价格</a>
-			<a class="px-txt" href="#">按名称</a>
-			<a class="px-txt" href="#">按厂家</a>
-			<a class="px-txt" href="#">默认</a>
-			<a class="px-txt" href="#">按产品代号</a>
+			<a class="px-txt" href="#">按销量</a>
 			<div class="huanye1">
 				<a class="l-jt" href="#"></a>
 				<span class="num">1</span>/32
@@ -131,12 +191,14 @@
 		<!--产品列表开始-->
 		<div class="new-prolb-wk">
 			<c:forEach items="${goodsList}" var="item">
-				<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}"><img src="/a.jsp" width="188" height="175" alt=""/></a>
-				<h4><a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}">${item.goodsName}</a></h4>
-				<div class="txt1">
-					<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}">描述：${item.goodsDescription}</a>
+				<div class="prolb-showlb prolb-showlb2">
+					<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}"><img src="/a.jsp" width="188" height="175" alt=""/></a>
+					<h4><a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}">${item.goodsName}</a></h4>
+					<div class="txt1">
+						<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}">描述：${item.goodsDescription}</a>
+					</div>
+					<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">价格： ${item.goodsPrice}</span></div>
 				</div>
-				<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif"></span></div>
 			</c:forEach>
 			<div style="clear:both"></div>
 		</div>

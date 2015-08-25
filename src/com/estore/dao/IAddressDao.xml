@@ -11,10 +11,11 @@
     	<result property="linkmanPhone"  column="linkman_phone" javaType="String" jdbcType="VARCHAR" /> 
     	<result property="isAvaliable" column="is_avaliable" javaType="Integer" jdbcType="INTEGER"></result>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="country" column="country" javaType="String" jdbcType="VARCHAR"/>
     	<result property="province" column="Province" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="city" column="city" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="area" column="area" javaType="String" jdbcType="VARCHAR"></result>
-    	<result property="addr" column="addr" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="detail" column="addr" javaType="String" jdbcType="VARCHAR"></result>
     </resultMap>
     <!-- 根据id 获取会员信息表 -->
     <select id="getAddressById" resultMap="address" parameterType="Integer">
@@ -26,5 +27,5 @@
 					SELECT LAST_INSERT_ID() AS ID
 		</selectKey> 
     	insert into t_address(address,postcode,linkman_name,linkman_phone,is_avaliable,memo,province,city,area,addr) values(#{address},#{postcode},#{linkmanName},#{linkmanPhone},#{isAvaliable},#{memo},#{province},#{city},#{area},#{addr})
-    </insert>   
+    </insert>
 </mapper>  

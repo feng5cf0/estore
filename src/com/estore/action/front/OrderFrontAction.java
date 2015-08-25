@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.estore.entities.Address;
 import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.entities.Member;
@@ -25,6 +26,9 @@ public class OrderFrontAction extends ActionSupport {
 	private ICategoryService categoryService;
 	private IBrandService brandService;
 	private List<Brand> brandList;
+	
+	private Address address;
+	
 	public String addOrder(){
 		
 		this.categoryList = this.categoryService.getForFront();
@@ -46,7 +50,7 @@ public class OrderFrontAction extends ActionSupport {
 		order.setCreateTime(new Date());
 		order.setStatus(1);
 		
-		this.orderService.addOrder(order,cartIds);
+		this.orderService.addOrder(order,cartIds,address);
 		
 		return "addOrder";
 	}
@@ -126,5 +130,11 @@ public class OrderFrontAction extends ActionSupport {
 	}
 	public void setBrandList(List<Brand> brandList) {
 		this.brandList = brandList;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }

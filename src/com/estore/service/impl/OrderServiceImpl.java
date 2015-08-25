@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.estore.dao.IOrderCartDao;
 import com.estore.dao.IOrderDao;
+import com.estore.entities.Address;
 import com.estore.entities.Order;
 import com.estore.entities.OrderCart;
 import com.estore.service.IOrderService;
@@ -31,7 +32,12 @@ public class OrderServiceImpl extends AbstractBaseServiceImpl<Order, Integer> im
 	}
 
 	@Override
-	public void addOrder(Order order,Integer[] cartIds) {
+	public void addOrder(Order order,Integer[] cartIds,Address address) {
+		
+		//新增地址表
+		
+		
+		
 		//添加order表
 		this.orderDao.save(order);
 		

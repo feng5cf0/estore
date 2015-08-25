@@ -15,6 +15,11 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<link rel="stylesheet" type="text/css" href="css/default.css"/>
+	<script type="text/javascript">
+		function getSubCategory(categoryCode){
+			
+		}
+	</script>
   </head>
   
   <body>
@@ -24,66 +29,16 @@
 				<dt><img src="images/suo_biao.png" width="20"/>${item.categoryName }</dt>
 				<dd class="pro-left1-li">
 					<c:forEach items="${item.subCategory}" var="subItem" varStatus="status">
-						<a href="${basePath }front/goodsSearchAction!getByCategory.action?categoryId=${subItem.id}&categoryCode=${subItem.categoryCode}">${subItem.categoryName }</a>
+						<a href="${basePath }front/goodsSearchAction!getByCategoryCode.action?categoryCode=${subItem.categoryCode}"
+							onmouseover="getSubCategory('${subItem.categoryCode}');">${subItem.categoryName }</a>
 					</c:forEach>
 					<div style="clear:both"></div>
 					
-					<!--划上效果开始--><!--
+					<!--划上效果开始-->
 					<div class="white-bg"></div>
 					<div class="pro-left1-lilb">
 						<div class="left1-lilb-div">
-							<h3><img src="images/suo_biao.png" width="20"/>汽车编程仪<a href="#" class="more">更多</a></h3>
-							<div class="txt9">
-								<a href="#">汽车</a>
-								<a href="#">汽车编仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">汽车编程仪</a>
-								<a href="#">汽车</a>
-								<a href="#">汽车编仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">编程仪</a>
-								<a href="#">汽车</a>
-								<a href="#">汽车仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">汽车编程仪</a>
-							</div>
-						</div>
-						<div class="left1-lilb-div">
-							<h3><img src="images/suo_biao.png" width="20"/>汽车编程仪<a href="#" class="more">更多</a></h3>
-							<div class="txt9">
-								<a href="#">汽车</a>
-								<a href="#">汽车编仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">汽车编程仪</a>
-								<a href="#">汽车</a>
-								<a href="#">汽车编仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">编程仪</a>
-								<a href="#">汽车</a>
-								<a href="#">汽车仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">汽车编程仪</a>
-							</div>
-						</div>
-						<div class="left1-lilb-div">
-							<h3><img src="images/suo_biao.png" width="20"/>汽车编程仪<a href="#" class="more">更多</a></h3>
-							<div class="txt9">
-								<a href="#">汽车</a>
-								<a href="#">汽车编仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">汽车编程仪</a>
-								<a href="#">汽车</a>
-								<a href="#">汽车编仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">编程仪</a>
-								<a href="#">汽车</a>
-								<a href="#">汽车仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">汽车编程仪</a>
-							</div>
-						</div>
-						<div class="left1-lilb-div">
-							<h3><img src="images/suo_biao.png" width="20"/>汽车编程仪<a href="#" class="more">更多</a></h3>
+							<h3><img src="images/suo_biao.png" width="20"/>${item.categoryName}<a href="#" class="more">更多</a></h3>
 							<div class="txt9">
 								<a href="#">汽车</a>
 								<a href="#">汽车编仪</a>
@@ -100,7 +55,6 @@
 							</div>
 						</div>
 					</div>
-					--><!--划上效果结束-->
 				</dd>
 			</c:forEach>
 		</dl>

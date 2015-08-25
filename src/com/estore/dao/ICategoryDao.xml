@@ -165,6 +165,6 @@
 	<select id="getByCategoryCode" resultMap="categoryMap" parameterType="string">
 		select *
 		from t_goods_category
-		where category_code like '${categoryCode}%'
+		where category_code like '${categoryCode}%' and category_code != #{categoryCode}
 	</select>
 </mapper>

@@ -10,11 +10,13 @@ import org.apache.struts2.ServletActionContext;
 
 import com.estore.entities.Brand;
 import com.estore.entities.Category;
+import com.estore.entities.Goods;
 import com.estore.entities.Notice;
-import com.estore.service.IBrandService;
 import com.estore.entities.customerSer;
+import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.estore.service.ICustomerSerService;
+import com.estore.service.IGoodsService;
 import com.estore.service.INoticeService;
 import com.opensymphony.xwork2.ActionSupport;
 public class MainAction extends ActionSupport {
@@ -32,6 +34,10 @@ public class MainAction extends ActionSupport {
 	private INoticeService noticeService;
 	private IBrandService brandService;
 	private List<Brand> brandList;
+	
+	private IGoodsService goodsService;
+	private List<Goods> goodsRecommendList;
+	
 	//跳转到前端首页
 	public String toMain(){
 		
@@ -47,6 +53,9 @@ public class MainAction extends ActionSupport {
 		this.noticeListAll=noticeService.getNoticeAll();
 	    //客服
 	    this.customerSerList = customerSerService.getCustomerSer();
+	    
+	    //推荐商品
+	    this.goodsRecommendList = this.goodsService.getRecommend();
 	    
 	    session.setAttribute("noticeListFour", noticeListAll);
 	    session.setAttribute("customerSerList", customerSerList);
@@ -89,21 +98,29 @@ public class MainAction extends ActionSupport {
 	public void setBrandList(List<Brand> brandList) {
 		this.brandList = brandList;
 	}
-
 	public List<customerSer> getCustomerSerList() {
 		return customerSerList;
 	}
-
 	public void setCustomerSerList(List<customerSer> customerSerList) {
 		this.customerSerList = customerSerList;
 	}
-
 	public ICustomerSerService getCustomerSerService() {
 		return customerSerService;
 	}
-
 	public void setCustomerSerService(ICustomerSerService customerSerService) {
 		this.customerSerService = customerSerService;
+	}
+	public IGoodsService getGoodsService() {
+		return goodsService;
+	}
+	public void setGoodsService(IGoodsService goodsService) {
+		this.goodsService = goodsService;
+	}
+	public List<Goods> getGoodsRecommendList() {
+		return goodsRecommendList;
+	}
+	public void setGoodsRecommendList(List<Goods> goodsRecommendList) {
+		this.goodsRecommendList = goodsRecommendList;
 	}
 
 

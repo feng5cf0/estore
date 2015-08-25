@@ -50,6 +50,8 @@
 		<typeAlias type="com.estore.entities.AttributeValue" alias="attributeValue"/>
 		<typeAlias type="com.estore.entities.GoodsAttribute" alias="goodsAttribute"/>
 		<typeAlias type="com.estore.entities.Brand" alias="brand"/>
+		<typeAlias type="com.estore.entities.Location" alias="location"/>
+		<typeAlias type="com.estore.entities.TransformFee" alias="transformFee"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
@@ -64,13 +66,6 @@
 		<mapper resource="com/landicorp/core/dao/IProjectDao.xml" />
 		<mapper resource="com/landicorp/core/dao/IPlatformDao.xml" />
 		<mapper resource="com/landicorp/core/dao/IPosTypeDao.xml" />
-		<!--
-		<mapper resource="com/landicorp/core/dao/IPatient.xml" />
-		<mapper resource="com/landicorp/core/dao/IBatch.xml"/>
-		<mapper resource="com/landicorp/core/dao/IPay.xml"/>
-		<mapper resource="com/landicorp/core/dao/ITenementBatch.xml"></mapper>
-		<mapper resource="com/landicorp/core/dao/ITenement.xml"></mapper>
-		-->
 		
 		<mapper resource="com/estore/dao/IMoneyDao.xml"/>
 		<mapper resource="com/estore/dao/IMemberDao.xml"/>
@@ -94,5 +89,7 @@
 		<mapper resource="com/estore/dao/IAttributeValueDao.xml"/>
 		<mapper resource="com/estore/dao/IGoodsAttributeDao.xml"/>
 		<mapper resource="com/estore/dao/IBrandDao.xml"/>
+		<mapper resource="com/estore/dao/ILocationDao.xml"/>
+		<mapper resource="com/estore/dao/ITransformFeeDao.xml"/>
 	</mappers>
 </configuration>	

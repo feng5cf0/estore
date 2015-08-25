@@ -13,10 +13,11 @@ public class Address extends BaseEntity{
 	private String linkmanName;//联系人
 	private String linkmanPhone;//
 	private Integer isAvaliable;//是否有效
+	private String country;
 	private String province;//省
 	private String city;//市
 	private String area;//区
-	private String addr;//省市区后的地址
+	private String detail;//省市区后的地址
 	
 	
 	public Integer getMemberId() {
@@ -74,12 +75,16 @@ public class Address extends BaseEntity{
 	public void setArea(String area) {
 		this.area = area;
 	}
-	public String getAddr() {
-		return addr;
+	public String getCountry() {
+		return country;
 	}
-	public void setAddr(String addr) {
-		this.addr = addr;
+	public void setCountry(String country) {
+		this.country = country;
 	}
-	
-	
+	public String getDetail() {
+		return detail;
+	}
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 }

@@ -1,6 +1,7 @@
 package com.estore.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.estore.entities.Attribute;
 import com.estore.entities.Category;
@@ -26,4 +27,8 @@ public interface IGoodsService extends IBaseService<Goods, Integer> {
 	public Goods getDetailForFront(Integer goodsId);
 	
 	public List<Attribute> getGoodsAttribute(Integer goodsId);
+	
+	public List<Goods> getByBrandId(Integer brandId);
+	public List<Goods> getByCondition(Map<String,Object> map);
+	public List<Goods> getRecommend();
 }
