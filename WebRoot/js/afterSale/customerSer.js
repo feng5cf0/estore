@@ -12,6 +12,7 @@ function detailCustomerSer(id){
 $(function(){
 //添加客服
 	$("#btnSave").click(function(){
+		
 		$.ajax({
 			type:"post",
 			dataType:"json",

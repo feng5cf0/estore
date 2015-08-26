@@ -22,7 +22,7 @@
     </resultMap>
     <!-- 根据id 获取会员信息表 -->
     <update id="memberInfoUpdate" parameterType="memberInfo">
-    	update t_member_info set sex=#{sex},birthday=#{birthday},idcard=#{IdCard},email=#{email},location=#{location} where member_id=#{id}
+    	update t_member_info set sex=#{sex},birthday=#{birthday},idcard=#{IdCard},email=#{email},location=#{location},business_license=#{businessLicense},door_header=#{doorHeader} where member_id=#{id}
     </update>
     <select id="getMemberInfoById" resultMap="memberInfo" parameterType="Integer">
     	

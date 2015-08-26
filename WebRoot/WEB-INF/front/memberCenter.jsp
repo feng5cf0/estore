@@ -8,7 +8,9 @@
  <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/kefu.js"></script>
- <script type="text/javascript" src="js/member/memberModify.js?radom=123"></script>
+<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script> 
+ <script type="text/javascript" src="js/member/memberModify.js?radom=473"></script>
+ <script type="text/javascript" src="js/member/jsAddress.js?radom=113"></script>
 <script src="js/lrtk.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -79,11 +81,11 @@
 		<div class="now-titlb center-con">
 			<!--头像区域开始-->
 			<div class="center-tx" id="grxxcz">
-				<img class="tx" src="images/touxiang2.png" width="95" height="95"/>		
+				<img class="tx" src="${sessionScope.member.memberInfo.photoPath }" width="95" height="95"/>		
 				<div class="center-mid">
 					<h5>王女士<a href="#" id="memberModifyBtn">修改个人信息</a></h5>
 					<div class="txt7">会员级别：初级会员</div>
-					<div class="txt8">上次登录：2015-7-14 15:56:24</div>
+					<div class="txt8">上次登录：<f:formatDate value="${sessionScope.member.lastLoginTime }" pattern="yyyy-MM-dd HH:mm:ss"/></div>
 					<div>
 						<a class="gwc-btn" href="#">查看购物车</a>
 					</div>
@@ -568,22 +570,24 @@
 			<div id="memberPhoto" class="white-conbg  write-adress" style="padding-top:30px">
 				<form action="front/memberInfoAction!picScan" method="post" id="picForm" enctype="multipart/form-data">
 					<div class="pay-lb uptx-img">
-	                <input id="pic" name="pic" class="file" type="file" /> 
+	                <input id="pic" name="pic" class="file" type="file" onchange="PreviewImage(this,'imgPreview')"/> 
+	                <input id="id" name="id" type="hidden" value="${sessionScope.member.memberInfo.id}"/>
+	                <input id="memberId" name="memberId" type="hidden" value="${sessionScope.member.id}"/>
 	                    <div class="file-ys">选择您要上传的头像</div>
 	                    <div class="up-pz">*头像的图片尺寸、大小说明</div>
-						<div class="uptx-img-wk">
-							<img id="image" name="image" src="${sessionScope.member.memberInfo.photoPath }" width="150" height="150"/>
-						</div>
+						<div class="uptx-img-wk" id="imgPreview">
+<%--  							<img id="image" name="image" src="${sessionScope.member.memberInfo.photoPath }" width="150" height="150"/>
+ --%>					</div>
 	                </div>
 					<div class="pay-lb">
-						<input class="chaxun-btn" type="submit" value="保 存" style="width:75px;margin-left:20px"/>
+						<input class="chaxun-btn" type="submit" id="btn_upload" value="保 存" style="width:75px;margin-left:20px"/>
 					</div>
 				</form>
 			</div>
 			<!-- 头像修改结束 -->
 			<!-- 个人信息修改开始 -->
 			<div id="memberModify" class="white-conbg  write-adress" style="padding-top:30px">
-			<form action="front/memberAction!UpdateMember" method="post" enctype="multipart/form-data">
+			<form action="front/memberAction!UpdateMember" id="grxxxgForm" method="post" enctype="multipart/form-data">
 				<div class="pay-lb">
                 	<span class="span1"><span class="xinghao">*</span>姓名：</span>
 					<input name="member.memberRealname" id="memberRealname" class="inp1" type="text" value="${sessionScope.member.memberRealname }"/>
@@ -596,80 +600,60 @@
                 </div>
 				<div class="pay-lb">
                 	<span class="span1"><span class="xinghao">*</span>性别：</span>
-					<input name="memberInfo.sex" id="sex" type="radio" style="vertical-align:sub" value="0"/> 
+					<input name="memberInfo.sex" id="sex" type="radio" style="vertical-align:sub" value="0"/> 男
 					<input name="memberInfo.sex" id="sex" type="radio" style="vertical-align:sub" checked="checked" value="1"/> 女
-					<input name="memberInfo.sex" id="sex" type="radio" style="vertical-align:sub" value="2"/> 
                 </div>
 				<div class="pay-lb">
                 	<span class="span1">生日：</span>
-					<select class="inp1" style="width:70px">
-                    	<option>1989</option>
-                        <option>1988</option>
-                        <option>1987</option>
-                    </select> 年
-					<select class="inp1" style="width:70px">
-                    	<option>4月</option>
-                        <option>3月</option>
-                        <option>2月</option>
-                    </select> 月
-					<select class="inp1" style="width:70px">
-                    	<option>26</option>
-                        <option>25</option>
-                        <option>24</option>
-                    </select> 日
+                	 <input name="memberInfo.birthday" id="birthday" class="Wdate" onfocus="WdatePicker({readOnly:true,maxDate:'%y-%M-%d'})" value="<f:formatDate value='${sessionScope.member.memberInfo.birthday }'  pattern='yyyy-MM-dd' />"/><br>
                 </div>
 				<div class="pay-lb">
                 	<span class="span1">身份证号：</span>
-					<input name="memberInfo.IdCard" id="IdCard" class="inp1" type="text" style="width:300px"/>
+					<input name="memberInfo.IdCard" id="IdCard" class="inp1" type="text" style="width:300px" value="${sessionScope.member.memberInfo.idCard }"/>
                 </div>
 				<div class="pay-lb">
                 	<span class="span1">邮箱：</span>
-					<span name="memberInfo.email" id="email" style="font:bold 13px ''">11****72@qq.com</span>
-					<a href="#" style="color:#005ea7">修改</a>
-					<span style="color:#999">已验证</span>
+					<span id="emailSpan" style="font:bold 13px ''">${sessionScope.member.memberInfo.email }</span>
+					<input name="memberInfo.email" id="emailInput" class="inp1" type="text" style="width:300px" value="${sessionScope.member.memberInfo.email }"/>
+					<a href="javascript:void(0)" style="color:#005ea7" id="update">修改</a>
+					<span style="color:#999">已验证</span><br/>
                 </div>
 				<div class="pay-lb">
+				
                 	<span class="span1">所在地：</span>
-					<select class="inp1" style="width:100px">
-                    	<option>山东省</option>
-                        <option>河北省</option>
-                        <option>江苏省</option>
+					<select name="province" id="province" class="inp1" style="width:100px">
                     </select>
-					<select class="inp1" style="width:100px">
-                    	<option>济南市</option>
-                        <option>石家庄</option>
-                        <option>徐州</option>
+					<select name="city" id="city" class="inp1" style="width:100px">
                     </select>
-					<select class="inp1" style="width:100px">
-                    	<option>二环以内</option>
-                        <option>二环以内</option>
-                        <option>二环以内</option>
+					<select name="area" id="area" class="inp1" style="width:100px">
                     </select>
 					<div style="margin:15px 0px 0px 106px">
-						<input name="memberInfo.location" id="location" class="inp1" type="text" style="width:311px"/>
+						<input name="subLocation" id="location" class="inp1" type="text" style="width:311px"/>
 					</div>
                 </div>
 				<div class="pay-lb">
                 	<span class="span1">营业执照：</span>
-                    <input class="file" type="file"/>
+                    <input name="licensePic" id="licensePic" class="file" type="file" onchange="PreviewImage(this,'license')"/>
+                    <input name="tempLicense" id="tempLicense" type="hidden" value="${sessionScope.member.memberInfo.businessLicense }"/>
                     <div class="file-ys">点击上传营业执照</div>
                     <div class="up-pz">*营业执照的图片尺寸、大小说明</div>
-                    <div class="up-pz">
-                    	<img src="images/yingyezhizhao.jpg" width="500"/>
+                    <div class="up-pz" id="license">
+                    	<img src="${sessionScope.member.memberInfo.businessLicense }" width="500"/>
                     </div>
                 </div>
 				<div class="pay-lb">
                 	<span class="span1">门头照：</span>
-                    <input class="file" type="file"/>
+                    <input name="doorPic" id="doorPic" class="file" type="file" onchange="PreviewImage(this,'door')"/>
+                    <input name="tempDoor" id="tempDoor" type="hidden" value="${sessionScope.member.memberInfo.doorHeader }"/>
                     <div class="file-ys">点击上传门头照</div>
                     <div class="up-pz">*门头照的图片尺寸、大小说明</div>
-                    <div class="up-pz">
-                    	<!--<img src="images/yingyezhizhao.jpg" width="500"/>-->
+                    <div class="up-pz" id="door">
+                    	<img src="${sessionScope.member.memberInfo.doorHeader }" width="500"/>
                     </div>
                 </div>
 				<div class="pay-lb">
 					<span class="span1">&nbsp;</span>
-					<input id="save" class="chaxun-btn" type="submit" value="保 存" style="width:75px"/>
+					<input id="save" class="chaxun-btn" type="button" value="保 存" style="width:75px"/>
 				</div>
 			</form>
 			</div>
@@ -918,7 +902,16 @@
 <!--客服代码开始-->
 <jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
 <!--客服代码结束-->
+<!-- 弹出框 -->
 
+<div id="TcBox">
+	<div class="filter-bg"></div>
+	<div class="login-kua">
+		<h3>标题文本<a class="close" href="#">×</a></h3>
+		<div class="txt">警示的内容</div>
+		<div class="sub"><input type="submit" value="确 定"/></div>
+	</div>
+</div>
 </body>
 </html>
 

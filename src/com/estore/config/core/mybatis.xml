@@ -46,6 +46,11 @@
 		<typeAlias alias="page" type="com.estore.entities.Page"/>
 		<!-- 客服 -->
 		<typeAlias alias="customerSer" type="com.estore.entities.customerSer"/>
+		<!-- 网店链接 -->
+		<typeAlias alias="shopLink" type="com.estore.entities.ShopLink"/>
+		
+		
+		
 		<typeAlias type="com.estore.entities.Attribute" alias="attribute"/>
 		<typeAlias type="com.estore.entities.AttributeValue" alias="attributeValue"/>
 		<typeAlias type="com.estore.entities.GoodsAttribute" alias="goodsAttribute"/>
@@ -94,5 +99,6 @@
 		<mapper resource="com/estore/dao/IAttributeValueDao.xml"/>
 		<mapper resource="com/estore/dao/IGoodsAttributeDao.xml"/>
 		<mapper resource="com/estore/dao/IBrandDao.xml"/>
+		<mapper resource="com/estore/dao/IShopLinkDao.xml"/>
 	</mappers>
 </configuration>	

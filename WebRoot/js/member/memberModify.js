@@ -1,5 +1,8 @@
 $(function(){
-
+	//省市联动js实现
+	addressInit('province', 'city', 'area', '福建', '福州市', '鼓楼区');
+	$("#TcBox").hide();
+	$("#emailInput").hide();
 	$("#modify").hide();
 	$("#memberModify").hide();
 	$("#memberPhoto").hide();
@@ -17,6 +20,10 @@ $(function(){
 	$("#ysy").hide();
 	//个人信息修改
 	$("#grxxxg").click(function(){
+		$("#photoModify").removeClass("hov");
+		$("#grxxxg").addClass("hov");
+		$("#mmxg").removeClass("hov");
+		
 		$("#modify").show();//三个修改按钮
 		$("#memberModify").show();//个人信息修改
 		$("#memberPhoto").hide();//头像修改
@@ -38,6 +45,7 @@ $(function(){
 	});
 	//修改个人信息
 	$("#memberModifyBtn").click(function(){
+		
 		$("#modify").show();//三个修改按钮
 		$("#memberModify").show();//个人信息修改
 		$("#myOrder").hide();//我的订单
@@ -58,6 +66,10 @@ $(function(){
 	
 	//修改头像
 	$("#photoModify").click(function(){
+		$("#photoModify").addClass("hov");
+		$("#grxxxg").removeClass("hov");
+		$("#mmxg").removeClass("hov");
+		
 		$("#memberPhoto").show();
 		$("#myOrder").hide();//我的订单
 		$("#myOrderInfo").hide();//我的订单列表
@@ -79,6 +91,10 @@ $(function(){
 	//修改密码
 	
 	$("#mmxg").click(function(){
+		$("#photoModify").removeClass("hov");
+		$("#grxxxg").removeClass("hov");
+		$("#mmxg").addClass("hov");
+		
 		$("#passwordModify").show();//密码修改
 		$("#memberPhoto").hide();//头像修改
 		$("#myOrder").hide();//我的订单
@@ -151,6 +167,10 @@ $(function(){
 	//我的优惠券
 	//回收站
 	$("#pressHsz").click(function(){
+		$("#pressHsz").addClass("hov");
+		$("#pressygq").removeClass("hov");
+		$("#pressYsy").removeClass("hov");
+		$("#pressWsy").removeClass("hov");
 		$("#hsz").show();
 		$("#wsy").hide();
 		$("#ygq").hide();
@@ -171,6 +191,10 @@ $(function(){
 	});
 	//已使用
 	$("#pressYsy").click(function(){
+		$("#pressHsz").removeClass("hov");
+		$("#pressygq").removeClass("hov");
+		$("#pressYsy").addClass("hov");
+		$("#pressWsy").removeClass("hov");
 		$("#hsz").hide();
 		$("#wsy").hide();
 		$("#ygq").hide();
@@ -191,6 +215,11 @@ $(function(){
 	});
 	//未使用
 	$("#pressWsy").click(function(){
+		$("#pressHsz").removeClass("hov");
+		$("#pressygq").removeClass("hov");
+		$("#pressYsy").removeClass("hov");
+		$("#pressWsy").addClass("hov");
+		
 		$("#hsz").hide();
 		$("#wsy").show();
 		$("#ygq").hide();
@@ -211,6 +240,11 @@ $(function(){
 	});
 	//已过期
 	$("#pressygq").click(function(){
+		$("#pressHsz").removeClass("hov");
+		$("#pressygq").addClass("hov");
+		$("#pressYsy").removeClass("hov");
+		$("#pressWsy").removeClass("hov");
+		
 		$("#hsz").hide();
 		$("#wsy").hide();
 		$("#ygq").show();
@@ -237,6 +271,7 @@ $(function(){
 		$("#myOrder").hide();//我的订单
 		$("#myOrderInfo").hide();//我的订单列表
 		$("#newProduct").hide();//新产品
+		$("#memberPhoto").hide();
 		return false;
 	});
 	//密码修改
@@ -286,8 +321,55 @@ $(function(){
 			}
 		});
 	});
-	
+	//
+	$("#update").click(function(){
+		$("#emailSpan").hide();
+		$("#update").hide();
+		$("#emailInput").show();
+	});
 	//个人信息修改
+	$("#save").click(function(){
+		var memberRealname = $("#memberRealname").val();
+		var memberAlias = $("#memberAlias").val();
+		var IdCard = $("#IdCard").val();
+		var emailInput = $("#emailInput").val();
+		var location = $("#location").val();
+		
+//		if(memberRealname!=null || memberRealname !=undefined || memberRealname!=""){
+//			alert("姓名不能为空！");
+//			return false;
+//		}
+		if(memberAlias==null || memberAlias ==undefined || memberAlias==""){
+			alert("昵称不能为空！");
+			return false;
+		}
+//		if(IdCard!=null || IdCard !=undefined || IdCard!=""){
+//			alert("身份证号码不能为空！");
+//			return false;
+//		}
+		if(emailInput==null || emailInput ==undefined || emailInput==""){
+			alert("邮箱不能为空！");
+			return false;
+		}
+		$("#grxxxgForm").submit();
+//		$.ajax({
+//			type:"post",
+//			dataType:"json",
+//			url:"front/memberAction!UpdateMember",
+//			data:$('#grxxxgForm').serialize(),
+//			async:false,
+//			success:function(data){
+//				if(data.success=="success"){
+//					alert("个人信息修改成功");
+//					//$("#TcBox").show();
+//					window.open('front/memberAction!toMemberCenterPage','_self');
+//				}
+//			},
+//			error:function(request){
+//				alert("系统异常，请联系管理员！");
+//			}
+//		});
+	});
 	//头像修改
 	
 //	$("#pic").change(function(){
@@ -308,6 +390,72 @@ $(function(){
 //	});
 	
 });
+//function getPath(obj){   
+//    if(obj) {   
+//        if(navigator.userAgent.indexOf("MSIE")>0) {  
+//            obj.select();   
+//            //IE下取得图片的本地路径   
+//            return document.selection.createRange().text;  
+//        } else if(isFirefox=navigator.userAgent.indexOf("Firefox")>0) {  
+//             if (obj.files) {  // Firefox下取得的是图片的数据   
+//                return files.item(0).getAsDataURL();   
+//             }   
+//             return obj.value;   
+//         }  
+//         return obj.value;   
+//    }   
+//}  
+//function PreviewImg(img) {  
+//    var imgPath = getPath(img);  
+//    alert(imgPath);
+//      
+//    //预览图片的div  
+//    var newPreview = document.getElementById("preview");  
+//      alert(newPreview);
+//    //允许上传的图片格式  
+//    var regext = /\.jpg$|\.gif$|\.jpeg$|\.png$|\.bmp$/gi;   
+//      
+//    if(!regext.test(imgPath)){    
+//        alert("对不起，系统仅支持标准格式的照片，请您调整格式后重新上传！");      
+//        document.getElementById("btn_upload").disabled=true;       
+//    }else{    
+//        document.getElementById("btn_upload").disabled=false;  
+//        newPreview.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";    
+//        alert("1");
+//        newPreview.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgPath;  
+//        alert("2");
+//        newPreview.style.width = "100px";    
+//        alert("3");
+//        newPreview.style.height = "100px";     
+//        alert("4");
+//    }    
+
+//}
+function PreviewImage(imgFile,id) 
+{ 
+ var pattern = /(\.*.jpg$)|(\.*.png$)|(\.*.jpeg$)|(\.*.gif$)|(\.*.bmp$)/;      
+ if(!pattern.test(imgFile.value)) 
+ { 
+  alert("系统仅支持jpg/jpeg/png/gif/bmp格式的照片！");  
+  imgFile.focus(); 
+ } 
+ else 
+ { 
+  var path; 
+  if(document.all)//IE 
+  { 
+   imgFile.select(); 
+   path = document.selection.createRange().text; 
+   document.getElementById(id).innerHTML=""; 
+   document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\"" + path + "\")";//使用滤镜效果 
+  } 
+  else//FF 
+  { 
+   path = URL.createObjectURL(imgFile.files[0]);
+   document.getElementById(id).innerHTML = "<img width='150' height='150' src='"+path+"'/>"; 
+  } 
+ } 
+} 
 
 
 	   

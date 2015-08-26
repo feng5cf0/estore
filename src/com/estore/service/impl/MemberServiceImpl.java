@@ -21,6 +21,18 @@ import com.landicorp.core.web.pager.Pager;
 public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> implements
 		IMemberService {
 		private IMemberDao memberDao;
+		
+		//根据id查询
+		@Override
+		public Member findMemberById(Integer id) {
+			return memberDao.findMemberById(id);
+		}
+		
+		//登录的时候修改上次登录ip和上次登录时间
+		@Override
+		public void updateLastIpTime(Member member) {
+			memberDao.updateLastIpTime(member);	
+		}
 		//个人信息修改
 		@Override
 		public void updateMember(Member member) {
@@ -146,6 +158,9 @@ public class MemberServiceImpl extends AbstractBaseServiceImpl<Member, Integer> 
 	public void setMemberDao(IMemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
+	
+
+
 
 	
 	

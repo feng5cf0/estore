@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 	<script type="text/javascript" charset="utf-8" src="js/jquery-1.3.2.min.js"> </script>
 	<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.js"> </script>
     <script type="text/javascript" charset="utf-8" src="js/bankAccount/bankAccount.js"> </script>
     
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->

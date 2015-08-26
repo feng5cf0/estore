@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="css/manager/uikit.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" charset="utf-8" src="js/jquery-1.3.2.min.js"> </script>
 <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.js"> </script>
 <script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js"> </script>
 <script type="text/javascript" src="js/layer/layer.js" ></script>
@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
     //实例化编辑器
     //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
-    var ue = UE.getEditor('content');
+    var ue = UE.getEditor('content',{allowDivTransToP: false});
 </script>
 </body>
 </html>

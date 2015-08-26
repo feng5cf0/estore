@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
@@ -37,6 +38,7 @@ public class MemberInfoAction  extends BaseActionSupport{
     private String picContentType; // 文件的内容类型
     private String picFileName; // 上传文件名
 	private Integer id;
+	private Integer memberId;
 	private InputStream inputStream;
     GetIpUtil getIpUtil = new GetIpUtil();
     DateUtil dateUtil = new DateUtil();
@@ -48,11 +50,17 @@ public class MemberInfoAction  extends BaseActionSupport{
     	return "success";
     }
     
+    //邮箱修改
+    public String updateEmail(){
+    	return null;
+    }
     //头像修改
     public String picScan(){
-    	String realPath = ServletActionContext.getServletContext().getRealPath("/memberPic");
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+    	String realPath = ServletActionContext.getServletContext().getRealPath("/images");
     	String lj = realPath+"\\"+picFileName;
-    	String savePath="http://localhost:8080/estore/memberPic/"+picFileName;
+    	String savePath="images/"+picFileName;
     	try{
 	    	if(pic != null){
 	    		File savefile = new File(new File(realPath),picFileName);
@@ -61,7 +69,12 @@ public class MemberInfoAction  extends BaseActionSupport{
 	    		}
 	    		FileUtils.copyFile(pic, savefile);
 	    		}
-	    memberInfoService.changePhoto(savePath, id);
+	    if(!"".equals(savePath)&& id!=null){
+	    	memberInfoService.changePhoto(savePath, id);
+	    	member = memberService.findMemberById(memberId);
+	    	session.removeAttribute("member");
+	    	session.setAttribute("member", member);
+	    }
     	}catch(IOException e){
     		e.printStackTrace();
     	}catch(ParseException e){
@@ -165,6 +178,14 @@ public class MemberInfoAction  extends BaseActionSupport{
 	}
 	public void setAddressService(IAddressService addressService) {
 		this.addressService = addressService;
+	}
+
+	public Integer getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(Integer memberId) {
+		this.memberId = memberId;
 	}
     
 }

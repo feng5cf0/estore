@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="css/manager/uikit.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" charset="utf-8" src="js/jquery-1.3.2.min.js"> </script>
 <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.js"> </script>
 <script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/afterSale/customerSer.js"> </script>
 <script type="text/javascript" src="js/layer/layer.js" ></script>

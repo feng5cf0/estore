@@ -11,11 +11,13 @@ import org.apache.struts2.ServletActionContext;
 import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.entities.Notice;
+import com.estore.entities.ShopLink;
 import com.estore.service.IBrandService;
 import com.estore.entities.customerSer;
 import com.estore.service.ICategoryService;
 import com.estore.service.ICustomerSerService;
 import com.estore.service.INoticeService;
+import com.estore.service.IShopLinkService;
 import com.opensymphony.xwork2.ActionSupport;
 public class MainAction extends ActionSupport {
 	
@@ -26,12 +28,15 @@ public class MainAction extends ActionSupport {
 	private List<Category> categoryList;
 	private List<Notice> noticeListAll;
 	private List<customerSer> customerSerList;
+	private List<Brand> brandList;
+	private List<ShopLink> shopLinkList;
 	
 	private ICustomerSerService customerSerService;
 	private ICategoryService categoryService;
 	private INoticeService noticeService;
 	private IBrandService brandService;
-	private List<Brand> brandList;
+	private IShopLinkService shopLinkService;
+	
 	//跳转到前端首页
 	public String toMain(){
 		
@@ -47,9 +52,11 @@ public class MainAction extends ActionSupport {
 		this.noticeListAll=noticeService.getNoticeAll();
 	    //客服
 	    this.customerSerList = customerSerService.getCustomerSer();
-	    
+	    //网站链接
+	    this.shopLinkList = shopLinkService.getShopLinkAll();
 	    session.setAttribute("noticeListFour", noticeListAll);
 	    session.setAttribute("customerSerList", customerSerList);
+	    session.setAttribute("shopLinkList", shopLinkList);
 		return "toMain";
 	}
 	
@@ -106,6 +113,22 @@ public class MainAction extends ActionSupport {
 		this.customerSerService = customerSerService;
 	}
 
+	public List<ShopLink> getShopLinkList() {
+		return shopLinkList;
+	}
+
+	public void setShopLinkList(List<ShopLink> shopLinkList) {
+		this.shopLinkList = shopLinkList;
+	}
+
+	public IShopLinkService getShopLinkService() {
+		return shopLinkService;
+	}
+
+	public void setShopLinkService(IShopLinkService shopLinkService) {
+		this.shopLinkService = shopLinkService;
+	}
+	
 
 	
 }
