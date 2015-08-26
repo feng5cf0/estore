@@ -52,6 +52,8 @@
 		
 		<action name="noticeAction" class="noticeAction">
 			<result name="noticeSearch">/WEB-INF/back/noticeSearch.jsp</result>
+			<result name="toMoreNotice">/WEB-INF/front/noticeList.jsp</result>
+			<result name="toNoticeDetail">/WEB-INF/front/noticeDetail.jsp</result>
 		</action>
 		<action name="onlineMsgAction" class="onlineMsgAction">
 			<result name="tomain">/main.jsp</result>

@@ -94,11 +94,8 @@
 		<mapper resource="com/estore/dao/IAttributeValueDao.xml"/>
 		<mapper resource="com/estore/dao/IGoodsAttributeDao.xml"/>
 		<mapper resource="com/estore/dao/IBrandDao.xml"/>
-<<<<<<< HEAD
 		<mapper resource="com/estore/dao/IShopLinkDao.xml"/>
-=======
 		<mapper resource="com/estore/dao/ILocationDao.xml"/>
 		<mapper resource="com/estore/dao/ITransformFeeDao.xml"/>
->>>>>>> 12324ea32ed240d068c01b1ea227fc70554090cf
 	</mappers>
 </configuration>	

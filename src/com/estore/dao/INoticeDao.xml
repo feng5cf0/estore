@@ -13,7 +13,10 @@
     <select id="getNoticeAll" resultMap="notice">
     	select *from t_notice order by create_time desc
     </select>
-    
+    <!-- 根据id查询公告 -->
+    <select id="getNoticeById" resultMap="notice" parameterType="Integer">
+    	select *from t_notice where id=#{id}
+    </select>
 	<insert id="addressRegister" parameterType="address" >
     	 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
 					SELECT LAST_INSERT_ID() AS ID
