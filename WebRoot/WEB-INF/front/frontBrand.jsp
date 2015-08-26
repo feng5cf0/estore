@@ -23,15 +23,15 @@
 	<div class="pp-prolb">
 		<div class="cb-lbwk">
 			<c:forEach items="${brandList}" var="item">
-				<a class="cb-lb" href="#"><img src="${item.brandPic }" width="58" height="40"/></a>
+				<a class="cb-lb" href="${basePath }front/goodsSearchAction!getByBrand.action?brand.id=${item.id}"><img src="${item.brandPic }" width="58" height="40"/></a>
 			</c:forEach>
 			<div style="clear:both"></div>
 		</div>
 		<div class="pp-txtlb">
 			<c:forEach items="${brandList}" var="item">
-				<a href="">${item.brandName}</a>
+				<a href="${basePath }front/goodsSearchAction!getByBrand.action?brand.id=${item.id}">${item.brandName}</a>
 			</c:forEach>
 		</div>
-	</div>  
+	</div>
 	</body>
 </html>

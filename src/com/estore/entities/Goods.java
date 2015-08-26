@@ -25,6 +25,7 @@ public class Goods extends BaseEntity {
 	private Integer backAccount;
 	private Integer frontAccount;
 	private Date addTime;
+	private Integer isRecommend;
 	
 	private Set<GoodsAttribute> goodsAttributeSet;
 	private Brand brand;
@@ -118,5 +119,11 @@ public class Goods extends BaseEntity {
 	}
 	public void setBrand(Brand brand) {
 		this.brand = brand;
+	}
+	public Integer getIsRecommend() {
+		return isRecommend;
+	}
+	public void setIsRecommend(Integer isRecommend) {
+		this.isRecommend = isRecommend;
 	}
 }

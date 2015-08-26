@@ -91,6 +91,9 @@
 		</action>
 		<action name="goodsSearchAction" class="goodsSearchAction">
 			<result name="getByCategory">/WEB-INF/front/goodsSearch.jsp</result>
+			<result name="getByCategoryCode">/WEB-INF/front/goodsSearch.jsp</result>
+			<result name="getByBrand">/WEB-INF/front/goodsSearch.jsp</result>
+			<result name="getByPrice">/WEB-INF/front/goodsSearch.jsp</result>
 		</action>
 		<action name="goodsDetailAction" class="goodsDetailAction">
 			<result name="prepare">/WEB-INF/front/goodsDetail.jsp</result>
@@ -145,6 +148,9 @@
 		<!-- 生成验证码 -->
 		<action name="yzmAction" class="yzmAction">
 			
+		</action>
+		
+		<action name="locationFrontAction" class="locationFrontAction">
 		</action>
 	</package>
 </struts>

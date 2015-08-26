@@ -27,6 +27,12 @@
 		function toLogin(){
 			window.location.href = "${basePath}front/memberAction!toMemberLoginPage";
 		}
+		function toMemberCenter(){
+			window.location.href = "${basePath}front/memberAction!toMemberCenterPage";
+		}
+		function toCart(){
+			window.location.href = "${basePath}front/cartFrontAction!getAll.action";
+		}
 		function moreNotice(){
 			<c:if test="${not empty sessionScope.noticeListFour }">
 				alert("加载中。。。");
@@ -78,19 +84,35 @@
 		</c:if>
 		</div>
 		<div class="login-con">
-			<div class="txlb">
-				<img class="tx" src="images/touxiang.png" width="53" height="53"/>
-				<div class="txt4">
-					<p><s:property value="getText('index.hello')"/></p>
-					<p><a href="front/memberAction!toMemberRegisterPage"><s:property value="getText('index.registernotice')"/></a><span style="color:#777"><s:property value="getText('index.go')"/></span></p>
+			<c:if test="${empty sessionScope.member.memberAlias}">
+				<div class="txlb">
+					<img class="tx" src="images/touxiang.png" width="53" height="53"/>
+					<div class="txt4">
+						<p><s:property value="getText('index.hello')"/></p>
+						<p><a href="front/memberAction!toMemberRegisterPage"><s:property value="getText('index.registernotice')"/></a><span style="color:#777"><s:property value="getText('index.go')"/></span></p>
+					</div>
 				</div>
-			</div>
-			<div class="btn">
-				<input class="login-btn" type="button" value="<s:property value="getText('index.registerbutton')"/>"
-					onclick="toRegister();"/>
-				<input class="login-btn" style="background:#0160b2" type="button" value="<s:property value="getText('index.loginbutton')"/>"
-					onclick="toLogin();"/>
-			</div>
+				<div class="btn">
+					<input class="login-btn" type="button" value="<s:property value="getText('index.registerbutton')"/>"
+						onclick="toRegister();"/>
+					<input class="login-btn" style="background:#0160b2" type="button" value="<s:property value="getText('index.loginbutton')"/>"
+						onclick="toLogin();"/>
+				</div>
+			</c:if>
+			<c:if test="${not empty sessionScope.member.memberAlias}">
+				<div class="txlb">
+					<img class="tx" src="images/touxiang.png" width="53" height="53"/>
+					<div class="txt4">
+						<p><s:property value="getText('index.hello')"/></p>${sessionScope.member.memberAlias}
+					</div>
+				</div>
+				<div class="btn">
+					<input class="login-btn" type="button" value="个人中心"
+						onclick="toMemberCenter();"/>
+					<input class="login-btn" style="background:#0160b2" type="button" value="购物车"
+						onclick="toCart();"/>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	<div style="clear:both"></div>

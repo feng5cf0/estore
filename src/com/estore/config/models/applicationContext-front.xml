@@ -86,4 +86,5 @@
 	<bean id="shopLinkAction" class="com.estore.action.back.ShopLinkAction" scope="prototype"/>
 	<!-- 生成验证码 -->	
 	<bean id="yzmAction" class="com.estore.action.back.YzmAction" scope="prototype"/>
+	<bean id="locationFrontAction" class="com.estore.action.front.LocationFrontAction" scope="prototype"/>
 </beans>

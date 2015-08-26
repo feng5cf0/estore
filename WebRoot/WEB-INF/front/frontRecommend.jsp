@@ -23,10 +23,10 @@
 			<div class="piclb2">
 				<c:forEach items="${goodsRecommendList}" var="item">
 					<div class="prolb-showlb">
-						<a href="#"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
+						<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}"><img src="images/tuijian_suo1.png" width="188" height="160"/></a>
 						<h4>${item.goodsName }</h4>
 						<div class="txt1">
-							<a href="#">功能：${item.goodsDescription }</a>
+							<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}">功能：${item.goodsDescription }</a>
 						</div>
 						<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>${item.goodsPrice }</div>
 					</div>
