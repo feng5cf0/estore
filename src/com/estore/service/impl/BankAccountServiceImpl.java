@@ -11,6 +11,12 @@ import com.landicorp.core.service.base.AbstractBaseServiceImpl;
 public class BankAccountServiceImpl extends AbstractBaseServiceImpl<BankAccount, Integer> 
 	implements IBankAccountService{
 	private IBankAccountDao bankAccountDao;
+	//修改
+	@Override
+	public void updateBankAccount(BankAccount bankAccount) {
+		bankAccountDao.updateBankAccount(bankAccount);
+		
+	}
 	//添加银行账号
 	@Override
 	public void addBankAccount(BankAccount bankAccount) {
@@ -37,6 +43,7 @@ public class BankAccountServiceImpl extends AbstractBaseServiceImpl<BankAccount,
 	public void setBankAccountDao(IBankAccountDao bankAccountDao) {
 		this.bankAccountDao = bankAccountDao;
 	}
+	
 
 
 	

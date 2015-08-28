@@ -130,6 +130,8 @@
 										<fmt:formatDate value="${item.createTime }"  pattern="yyyy/MM/dd  HH:mm:ss" />
 									</td>
 									<td>
+										<a style="color:red" href="front/memberAction!memberDelete.action?memberId=${item.id }">详情</a>
+										<a style="color:red" href="front/memberAction!memberDelete.action?memberId=${item.id }">修改</a>
 										<a style="color:red" href="front/memberAction!memberDelete.action?memberId=${item.id }">删除</a>
 									</td>
 									

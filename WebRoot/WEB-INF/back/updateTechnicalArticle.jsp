@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix ="s" uri="/struts-tags"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.js"> </script>
 <script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js"> </script>
+<script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js?v=1123"> </script>
 <script type="text/javascript" src="js/layer/layer.js" ></script>
 </head>
 <body>
@@ -35,8 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<fieldset class="form form-aligned noborder">
 			<div class="control-group">
 	          <label><span style="color:red">*</span>编写人</label>
-	          <input type="text" id="code" name="technicalArticle.createUser" value="${technicalArticle.createUser }"  placeholder="30个字符" value="" class="input" />
-	          <input name="technicalArticle.id" type="hidden" value="${technicalArticle.id}"/>
+	          <input type="text" id="createUser" name="technicalArticle.createUser" value="${technicalArticle.createUser }"  placeholder="30个字符" value="" class="input" />
+	          <input id="taId" name="technicalArticle.id" type="hidden" value="${technicalArticle.id}"/>
 	         </div>
 	        <div class="control-group">
 	         <label><span style="color:red">*</span>文章标题</label>
@@ -44,9 +45,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </div>
 	        <div class="control-group">
 	         <label><span style="color:red">*</span>文章内容</label>
+	         
 	        </div>
 	        <div class="control-group">
-		 		<script id="content" name="technicalArticle.content" type="text/plain" style="width:1024px;height:450px;">${technicalArticle.content }</script>
+		 		<script id="content" name="technicalArticle.content" type="text/plain" 
+		 		style="width:1024px;height:450px;">${technicalArticle.content}</script>
 		 	</div>
 		</fieldset>
 		<br />	

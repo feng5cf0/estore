@@ -8,4 +8,5 @@ import com.landicorp.core.service.base.IBaseService;
 public interface IBankAccountService extends IBaseService<BankAccount, Integer> {
 		public void addBankAccount(BankAccount bankAccount);
 		public List<BankAccount> getBankAccountAll();
+		public void updateBankAccount(BankAccount bankAccount);
 }

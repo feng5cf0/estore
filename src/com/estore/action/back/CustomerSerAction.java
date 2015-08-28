@@ -2,6 +2,7 @@ package com.estore.action.back;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -52,7 +53,11 @@ public class CustomerSerAction extends BaseActionSupport {
 	//添加
 	public String  addCustomerSer() throws Exception{
 		HttpServletResponse response =ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
 		PrintWriter out = response.getWriter();
+		String vqqcode = request.getParameter("vqqCode");
+		String qqcode = URLDecoder.decode(vqqcode,"utf-8");
+		customerSer.setQqCode(qqcode);
 		if(customerSer!=null){
 			customerSerService.addCustomerSer(customerSer);
 			pro.put("msg", "success");
@@ -82,8 +87,12 @@ public class CustomerSerAction extends BaseActionSupport {
 	//更新
 		public String  updateCustomerSer() throws Exception{
 			HttpServletResponse response =ServletActionContext.getResponse();
+			HttpServletRequest request = ServletActionContext.getRequest();
+			String vqqcode = request.getParameter("vqqCode");
+			String qqcode = URLDecoder.decode(vqqcode,"utf-8");
 			PrintWriter out = response.getWriter();
 			if(customerSer!=null){
+				customerSer.setQqCode(qqcode);
 				customerSerService.updateCusSer(customerSer);
 				pro.put("msg", "success");
 				out.print(JsonUtil.getJsonStrByMap(pro));

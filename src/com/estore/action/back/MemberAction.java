@@ -117,7 +117,7 @@ public class MemberAction extends BaseActionSupport {
 			memberInfo.setBusinessLicense(licenseSavePath);
 			memberInfoService.memberInfoUpdate(memberInfo);
 			member = memberService.findMemberById(memberInfo.getId());
-	    	session.removeAttribute("member");
+//	    	session.removeAttribute("member");
 	    	session.setAttribute("member", member);
 			pro.put("success", "success");
 			out.print(JsonUtil.getJsonStrByMap(pro));

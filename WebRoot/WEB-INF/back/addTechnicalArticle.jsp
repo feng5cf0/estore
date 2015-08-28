@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.js"> </script>
 <script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js"> </script>
+<script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js?v=14215"> </script>
 <script type="text/javascript" src="js/layer/layer.js" ></script>
 </head>
 <body>
@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<fieldset class="form form-aligned noborder">
 			<div class="control-group">
 	          <label><span style="color:red">*</span>编写人</label>
-	          <input type="text" id="code" name="technicalArticle.createUser"  placeholder="30个字符" value="" class="input" />
+	          <input type="text" id="createUser" name="technicalArticle.createUser"  placeholder="30个字符" value="" class="input" />
 	         </div>
 	        <div class="control-group">
 	         <label><span style="color:red">*</span>文章标题</label>

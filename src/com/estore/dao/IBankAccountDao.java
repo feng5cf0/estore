@@ -9,4 +9,5 @@ public interface IBankAccountDao extends IMyBatisDao<BankAccount, Integer>{
 
 	public void addBankAccount(BankAccount bankAccount);
 	public List<BankAccount> getBankAccountAll();
+	public void updateBankAccount(BankAccount bankAccount);
 }
