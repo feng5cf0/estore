@@ -12,6 +12,14 @@ import com.landicorp.core.service.base.AbstractBaseServiceImpl;
 
 public class NoticeServiceImpl extends AbstractBaseServiceImpl<Notice, Integer> implements INoticeService{
 	private INoticeDao noticeDao;
+	
+	/* 
+	 * 点击公告标题进入详情
+	 */
+	@Override
+	public Notice getNoticeById(Integer id) {
+		return noticeDao.getNoticeById(id);
+	}
 	@Override
 	public List<Notice> getNoticeAll() {
 		return noticeDao.getNoticeAll();
@@ -30,6 +38,8 @@ public class NoticeServiceImpl extends AbstractBaseServiceImpl<Notice, Integer> 
 	public void setNoticeDao(INoticeDao noticeDao) {
 		this.noticeDao = noticeDao;
 	}
+
+	
 	
 	
 

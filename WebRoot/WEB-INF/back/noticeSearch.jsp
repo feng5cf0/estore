@@ -123,9 +123,9 @@
 								<td>
 									公告标题
 								</td>
-								<td>
+								<!-- <td>
 									公告内容
-								</td>
+								</td> -->
 							</tr>
 
 							<c:forEach items="${noticeListAll }" var="item" varStatus="status">
@@ -146,9 +146,9 @@
 									<td>
 										<c:out value="${item.title}" />
 									</td>
-									<td>
+									<%-- <td>
 										<c:out value="${item.content}" />
-									</td>
+									</td> --%>
 									<td>
 										<a style="color:red" href="front/memberAction!memberDelete.action?memberId=${item.id }">删除</a>
 									</td>

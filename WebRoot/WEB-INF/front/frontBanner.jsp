@@ -61,17 +61,17 @@
 		</div>
 	</div>
 	<div class="gonggao-con">
-		<h3><<s:property value="getText('index.notice')"/><a href="javascript:moreNotice();"><s:property value="getText('index.more')"/>&gt;</a></h3>
+		<h3><<s:property value="getText('index.notice')"/><a href="front/noticeAction!getFrontNoticeAll"><s:property value="getText('index.more')"/>&gt;</a></h3>
 		<div class="gg-lb">
 		<c:if test="${not empty sessionScope.noticeListFour }">
 			<c:forEach items="${sessionScope.noticeListFour }" var="item" begin="0" end="3">
 				<div class="lb-con">
 				<span>【<s:property value="getText('index.notice')"/>】</span>
-				<a href="#">
+				<a href="front/noticeAction!getNoticeDetail?noticeId=${item.id }">
 					<c:if test="${fn:length(item.title) >6 }">
 						<c:out value="${fn:substring(item.title, 0, 6)}..." />
 					</c:if>
-					<c:if test="${fn:length(item.title) <=20 }">
+					<c:if test="${fn:length(item.title) <=6 }">
 						<c:out value="${item.title}" />
 					</c:if>
 				</a>

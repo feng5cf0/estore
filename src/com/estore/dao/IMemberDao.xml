@@ -46,6 +46,10 @@
 	<update id="passmodify" parameterType="member">
 		update t_member set member_password=#{memberPassword} where member_id=#{id}
 	</update>
+	<!-- 修改上次登录ip和上次登录时间  and  loginTime-->
+	<update id="updateLastIpTime" parameterType="member">
+		update t_member set login_time=#{loginTime},last_login_time=#{lastLoginTime},last_login_ip=#{lastLoginIp} where member_id=#{id}
+	</update>
 	<!-- 查询所有会员信息 -->
 	<select id="searchMemberAll" resultMap="memberMap">
 			select * from t_member

@@ -1,8 +1,10 @@
 package com.estore.action.front;
 
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -27,7 +29,10 @@ public class TechnicalArticleAction extends ActionSupport{
 	//添加技术文章
 	public String addTechnicalArticle() throws Exception{
 		HttpServletResponse response =ServletActionContext.getResponse();
+		HttpServletRequest request =  ServletActionContext.getRequest();
+		String content = URLDecoder.decode(request.getParameter("vcontent"),"utf-8");
 		PrintWriter out = response.getWriter();
+		technicalArticle.setContent(content);
 		if(technicalArticle!=null){
 				this.technicalArticleService.addTechnicalArticle(technicalArticle);
 				pro.put("success", "success");
@@ -76,7 +81,11 @@ public class TechnicalArticleAction extends ActionSupport{
 	//修改
 	public String update() throws Exception{
 		HttpServletResponse response =ServletActionContext.getResponse();
+		HttpServletRequest request =  ServletActionContext.getRequest();
+		String vcontent=request.getParameter("vcontent");
+		String content = URLDecoder.decode(vcontent,"utf-8");
 		PrintWriter out = response.getWriter();
+		technicalArticle.setContent(content);
 		if(technicalArticle!=null){
 			technicalArticleService.updateTechnicalArticle(technicalArticle);
 			pro.put("msg", "success");

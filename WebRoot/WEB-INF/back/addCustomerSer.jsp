@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -14,9 +15,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="css/manager/uikit.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" charset="utf-8" src="js/jquery-1.3.2.min.js"> </script>
 <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.js"> </script>
 <script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/afterSale/customerSer.js"> </script>
+<script type="text/javascript" charset="utf-8" src="js/afterSale/customerSer.js?v=141"> </script>
 <script type="text/javascript" src="js/layer/layer.js" ></script>
 </head>
 <body>
@@ -43,7 +44,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </div>
 	        <div class="control-group">
 	         <label><span style="color:red">*</span>qq生成的代码</label>
-	         <textarea name="customerSer.qqCode" rows="15" cols="100" >${customerSer.qqCode }</textarea>
+	         <textarea id="code" escape="false" name="customerSer.qqCode" rows="15" cols="100" ></textarea>
+ 			 <%--  <s:textarea name="customerSer.qqCode" ></s:textarea>
+ 			  <s:property escape=""/> --%>
+ 			  
 	        </div>
 	        <div class="control-group">
 	        	

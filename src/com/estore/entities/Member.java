@@ -28,7 +28,7 @@ public class Member extends BaseEntity{
 	private Integer isEmailAvaliable;//是否经过邮箱验证 1：验证过 0:没验证
 	private Date lastLoginTime;//上一次登录时间
 	private String lastLoginIp;//上次登录ip
-	private Date createTime =new Date() ;//注册时间
+	private Date createTime;//注册时间
 	private Date lastModifyTime;//上一次修改时间
 	private Date loginTime =new Date() ;//登录时间
 	private String loginIp;//登录ip

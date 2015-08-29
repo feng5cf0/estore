@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="control-group">
 	          <label><span style="color:red">*</span>编写人</label>
 	          <input type="text" id="createUser" name="customerSer.createUser"  placeholder="30个字符" value="${customerSer.createUser }" class="input" />
-	          <input name="customerSer.id" type="hidden" value="${customerSer.id }"/>
+	          <input id="csId" name="customerSer.id" type="hidden" value="${customerSer.id }"/>
 	         </div>
 	        <div class="control-group">
 	         <label><span style="color:red">*</span>QQ拥有人</label>
@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </div>
 	        <div class="control-group">
 	         <label><span style="color:red">*</span>qq生成的代码</label>
-	         <textarea name="customerSer.qqCode" rows="15" cols="100" >${customerSer.qqCode }</textarea>
+	         <textarea id="code" name="customerSer.qqCode" rows="15" cols="100" >${customerSer.qqCode }</textarea>
 	        </div>
 	        <div class="control-group">
 	        	

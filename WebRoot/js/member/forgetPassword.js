@@ -4,6 +4,7 @@ $(function(){
 			type:"post",
 			dataType:"json",
 			url:"front/memberAction!wjmmTxzhm",
+			contentType:"application/x-www-form-urlencoded;charset=utf-8", 
 			data:$('#txyhmForm').serialize(),
 			async:false,
 			success:function(data){

@@ -1,77 +1,45 @@
 $(function(){
-
+	//省市联动js实现
+	addressInit('province', 'city', 'area', '福建', '福州市', '鼓楼区');
+	$("#TcBox").hide();
+	$("#emailInput").hide();
 	$("#modify").hide();
 	$("#memberModify").hide();
 	$("#memberPhoto").hide();
 	$("#passwordModify").hide();
-	$("#myIntegral").hide();
-	$("#cpsc").hide();
-	$("#cpscInfo").hide();
-	$("#qbdd").hide();
-	$("#wddd").hide();
 	
-	$("#hszHeader").hide();
-	$("#hsz").hide();
-	$("#wsy").hide();
-	$("#ygq").hide();
-	$("#ysy").hide();
 	//个人信息修改
 	$("#grxxxg").click(function(){
+		$("#photoModify").removeClass("hov");
+		$("#grxxxg").addClass("hov");
+		$("#mmxg").removeClass("hov");
+		
 		$("#modify").show();//三个修改按钮
 		$("#memberModify").show();//个人信息修改
 		$("#memberPhoto").hide();//头像修改
 		$("#passwordModify").hide();//密码修改
-		$("#hszHeader").hide();//我的优惠券
-		$("#hsz").hide();
-		$("#wsy").hide();
-		$("#ygq").hide();
-		$("#ysy").hide();
-		$("#myIntegral").hide();//我的积分
-		$("#qbdd").hide();//全部订单
-		$("#cpsc").hide();
-		$("#cpscInfo").hide();//产品收藏
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		$("#wddd").hide();
 		return false;
 	});
 	//修改个人信息
 	$("#memberModifyBtn").click(function(){
+		
 		$("#modify").show();//三个修改按钮
 		$("#memberModify").show();//个人信息修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
 		$("#newProduct").hide();//新产品
 		$("#passwordModify").hide();//
-		$("#myIntegral").hide();//我的积分
-		$("#cpsc").hide();
-		$("#cpscInfo").hide();//产品收藏
-		$("#hszHeader").hide();//我的优惠券
-		$("#hsz").hide();
-		$("#wsy").hide();
-		$("#ygq").hide();
-		$("#ysy").hide();
-		$("#myIntegral").hide();//我的积分
 		return false;
 	});
 	
 	//修改头像
 	$("#photoModify").click(function(){
+		$("#photoModify").addClass("hov");
+		$("#grxxxg").removeClass("hov");
+		$("#mmxg").removeClass("hov");
+		
 		$("#memberPhoto").show();
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
 		$("#newProduct").hide();//新产品
 		$("#memberModify").hide();//个人信息修改
 		$("#passwordModify").hide();//密码修改
-		$("#hszHeader").hide();//我的优惠券
-		$("#cpsc").hide();
-		$("#cpscInfo").hide();//产品收藏
-		$("#hsz").hide();
-		$("#wsy").hide();
-		$("#ygq").hide();
-		$("#ysy").hide();
-		$("#myIntegral").hide();//我的积分
 		return false;
 	});
 	
@@ -79,166 +47,16 @@ $(function(){
 	//修改密码
 	
 	$("#mmxg").click(function(){
+		$("#photoModify").removeClass("hov");
+		$("#grxxxg").removeClass("hov");
+		$("#mmxg").addClass("hov");
+		
 		$("#passwordModify").show();//密码修改
 		$("#memberPhoto").hide();//头像修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
 		$("#memberModify").hide();//个人信息修改
 		return false;
 	});
-	//我的积分
-	$("#integralSearch").click(function(){
-		$("#myIntegral").show();//我的积分
-		$("#memberPhoto").hide();//头像修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		$("#memberModify").hide();//个人信息修改
-		$("#passwordModify").hide();//密码修改
-		$("#modify").hide();
-		$("#hszHeader").hide();//我的优惠券
-		$("#hsz").hide();
-		$("#wsy").hide();
-		$("#ygq").hide();
-		$("#ysy").hide();
-		return false;
-	});
-	//产品收藏
-	$("#cpscBtn").click(function(){
-		$("#cpsc").show();
-		$("#cpscInfo").show();
-		$("#memberPhoto").hide();//头像修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		$("#memberModify").hide();//个人信息修改
-		$("#passwordModify").hide();//密码修改
-		$("#myIntegral").hide();//我的积分
-		$("#grzx").hide();
-		$("#grxxcz").hide();
-		$("#modify").hide();
-		$("#hszHeader").hide();//我的优惠券
-		$("#hsz").hide();
-		$("#wsy").hide();
-		$("#ygq").hide();
-		$("#ysy").hide();
-		return false;
-	});
-	//查询全部订单
-	$("#findOrderAll").click(function(){
-		$("#qbdd").show();
-		$("#wddd").show();
-		$("#cpsc").hide();
-		$("#cpscInfo").hide();
-		$("#memberPhoto").hide();//头像修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		$("#memberModify").hide();//个人信息修改
-		$("#passwordModify").hide();//密码修改
-		$("#myIntegral").hide();//我的积分
-		$("#grzx").hide();
-		$("#grxxcz").hide();
-		$("#modify").hide();
-		$("#hszHeader").hide();//我的优惠券
-		$("#hsz").hide();
-		$("#wsy").hide();
-		$("#ygq").hide();
-		$("#ysy").hide();
-		return false;
-	});
-	//我的优惠券
-	//回收站
-	$("#pressHsz").click(function(){
-		$("#hsz").show();
-		$("#wsy").hide();
-		$("#ygq").hide();
-		$("#ysy").hide();
-		$("#qbdd").hide();
-		$("#wddd").hide();
-		$("#cpsc").hide();
-		$("#cpscInfo").hide();
-		$("#memberPhoto").hide();//头像修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		$("#memberModify").hide();//个人信息修改
-		$("#passwordModify").hide();//密码修改
-		$("#myIntegral").hide();//我的积分
-		$("#modify").hide();
-		return false;
-	});
-	//已使用
-	$("#pressYsy").click(function(){
-		$("#hsz").hide();
-		$("#wsy").hide();
-		$("#ygq").hide();
-		$("#ysy").show();
-		$("#qbdd").hide();
-		$("#wddd").hide();
-		$("#cpsc").hide();
-		$("#cpscInfo").hide();
-		$("#memberPhoto").hide();//头像修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		$("#memberModify").hide();//个人信息修改
-		$("#passwordModify").hide();//密码修改
-		$("#myIntegral").hide();//我的积分
-		$("#modify").hide();
-		return false;
-	});
-	//未使用
-	$("#pressWsy").click(function(){
-		$("#hsz").hide();
-		$("#wsy").show();
-		$("#ygq").hide();
-		$("#ysy").hide();
-		$("#qbdd").hide();
-		$("#wddd").hide();
-		$("#cpsc").hide();
-		$("#cpscInfo").hide();
-		$("#memberPhoto").hide();//头像修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		$("#memberModify").hide();//个人信息修改
-		$("#passwordModify").hide();//密码修改
-		$("#myIntegral").hide();//我的积分
-		$("#modify").hide();
-		return false;
-	});
-	//已过期
-	$("#pressygq").click(function(){
-		$("#hsz").hide();
-		$("#wsy").hide();
-		$("#ygq").show();
-		$("#ysy").hide();
-		$("#qbdd").hide();
-		$("#wddd").hide();
-		$("#cpsc").hide();
-		$("#cpscInfo").hide();
-		$("#memberPhoto").hide();//头像修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		$("#memberModify").hide();//个人信息修改
-		$("#passwordModify").hide();//密码修改
-		$("#myIntegral").hide();//我的积分
-		$("#modify").hide();
-		return false;
-	});
-	$("#pressWdyhq").click(function(){
-		$("#hszHeader").show();
-		$("#hsz").show();
-		$("#modify").hide();//三个修改按钮
-		$("#memberModify").hide();//个人信息修改
-		$("#myOrder").hide();//我的订单
-		$("#myOrderInfo").hide();//我的订单列表
-		$("#newProduct").hide();//新产品
-		return false;
-	});
+	
 	//密码修改
 	$("#passSaveBtn").click(function(){
 		var memberPassword=$("#memberPassword").val();
@@ -286,28 +104,58 @@ $(function(){
 			}
 		});
 	});
-	
+	//
+	$("#update").click(function(){
+		$("#emailSpan").hide();
+		$("#update").hide();
+		$("#emailInput").show();
+	});
 	//个人信息修改
-	//头像修改
-	
-//	$("#pic").change(function(){
-//			
-//		$("#picForm").submit();
-//		$.ajax({
-//			type:"post",
-//			dataType:"json",
-//			url:"",
-//			async:false,
-//			success:function(data){
-//				alert("图片预览");
-//			},
-//			error:function(request){
-//				alert("系统异常，请联系管理员！");
-//			}
-//		});
-//	});
+	$("#save").click(function(){
+		var memberRealname = $("#memberRealname").val();
+		var memberAlias = $("#memberAlias").val();
+		var IdCard = $("#IdCard").val();
+		var emailInput = $("#emailInput").val();
+		var location = $("#location").val();
+		
+		if(memberAlias==null || memberAlias ==undefined || memberAlias==""){
+			alert("昵称不能为空！");
+			return false;
+		}
+		if(emailInput==null || emailInput ==undefined || emailInput==""){
+			alert("邮箱不能为空！");
+			return false;
+		}
+		$("#grxxxgForm").submit();
+	});
 	
 });
+
+function PreviewImage(imgFile,id) 
+{ 
+ var pattern = /(\.*.jpg$)|(\.*.png$)|(\.*.jpeg$)|(\.*.gif$)|(\.*.bmp$)/;      
+ if(!pattern.test(imgFile.value)) 
+ { 
+  alert("系统仅支持jpg/jpeg/png/gif/bmp格式的照片！");  
+  imgFile.focus(); 
+ } 
+ else 
+ { 
+  var path; 
+  if(document.all)//IE 
+  { 
+   imgFile.select(); 
+   path = document.selection.createRange().text; 
+   document.getElementById(id).innerHTML=""; 
+   document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\"" + path + "\")";//使用滤镜效果 
+  } 
+  else//FF 
+  { 
+   path = URL.createObjectURL(imgFile.files[0]);
+   document.getElementById(id).innerHTML = "<img width='150' height='150' src='"+path+"'/>"; 
+  } 
+ } 
+} 
 
 
 	   

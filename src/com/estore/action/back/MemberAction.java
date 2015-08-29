@@ -1,5 +1,6 @@
 package com.estore.action.back;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
+import org.aspectj.util.ConfigParser.ParseException;
 
 import com.estore.entities.Category;
 import com.estore.entities.Member;
@@ -41,9 +44,84 @@ public class MemberAction extends BaseActionSupport {
 	private List<Category> categoryList;
 	private ICategoryService categoryService;
 	private String yzm;//验证码
+	//省市区
+	private String province;
+	private String city;
+	private String area;
+	//具体地址
+	private String subLocation;
+	//图片上传
+    private File licensePic;//营业执照
+    private String licensePicContentType; // 文件的内容类型
+    private String licensePicFileName; // 上传文件名
+    private File doorPic;//门头照
+    private String doorPicContentType; // 文件的内容类型
+    private String doorPicFileName; // 上传文件名
+    private String tempLicense; 
+    private String tempDoor; 
+    
+    
+    
 	Property pro=new Property();
-	
 	public MemberAction() {
+	}
+	
+	//个人信息修改
+	public String UpdateMember() throws Exception{
+			HttpServletRequest request = ServletActionContext.getRequest();
+			HttpServletResponse response =ServletActionContext.getResponse();
+			HttpSession session = request.getSession();
+			PrintWriter out = response.getWriter();
+			
+			String realPath = ServletActionContext.getServletContext().getRealPath("/images");
+	    	String lj = realPath+"\\"+licensePicFileName;
+	    	String licenseSavePath="images/"+licensePicFileName;
+	    	String doorSavePath="images/"+doorPicFileName;
+	    	try{
+		    	if(licensePic != null){
+		    		File savefile = new File(new File(realPath),licensePicFileName);
+		    		if(!savefile.getParentFile().exists()){
+		    			savefile.getParentFile().mkdirs();
+		    		}
+		    		FileUtils.copyFile(licensePic, savefile);
+		    	}else{
+		    		licenseSavePath=tempLicense;
+		    	}
+		    
+	    	}catch(IOException e){
+	    		e.printStackTrace();
+	    	}catch(ParseException e){
+	    		e.printStackTrace();
+	    	}
+	    	
+	    	try{
+		    	if(doorPic != null){
+		    		File savefile = new File(new File(realPath),doorPicFileName);
+		    		if(!savefile.getParentFile().exists()){
+		    			savefile.getParentFile().mkdirs();
+		    		}
+		    		FileUtils.copyFile(doorPic, savefile);
+		    	}else{
+		    		doorSavePath=tempDoor;
+		    	}
+		    
+	    	}catch(IOException e){
+	    		e.printStackTrace();
+	    	}catch(ParseException e){
+	    		e.printStackTrace();
+	    	}
+			String location = province+city+area+subLocation;//拼接后的完整地址
+			memberService.updateMember(member);
+			memberInfo.setLocation(location);
+			memberInfo.setDoorHeader(doorSavePath);
+			memberInfo.setBusinessLicense(licenseSavePath);
+			memberInfoService.memberInfoUpdate(memberInfo);
+			member = memberService.findMemberById(memberInfo.getId());
+//	    	session.removeAttribute("member");
+	    	session.setAttribute("member", member);
+			pro.put("success", "success");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+			return "tocenter";
 	}
 	//跳转到首页
 	public String toMain(){
@@ -72,12 +150,12 @@ public class MemberAction extends BaseActionSupport {
 	}
 	//会员注册
 	public String memberRegister(){
+		
 		this.memberService.SaveMember(member);
 		return "success";
 	}	
 	//会员登录
 	public String memberLogin() throws Exception{
-		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response =ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
@@ -87,6 +165,10 @@ public class MemberAction extends BaseActionSupport {
 			if(memberAlias.equals(members.getMemberAlias()) 
 			&& memberPassword.equals(members.getMemberPassword()) 
 			&& members.getIsEmailAvaliable()==0){
+				members.setLastLoginIp(members.getLoginIp());
+				members.setLastLoginTime(members.getLoginTime());
+				members.setLoginTime(new Date());
+				memberService.updateLastIpTime(members);
 				session.setAttribute("member", members);
 				pro.put("success", "success");
 				pro.put("successMsg", "登录成功");
@@ -130,14 +212,7 @@ public class MemberAction extends BaseActionSupport {
 		out.print(JsonUtil.getJsonStrByMap(pro));
 		return null;
 	}
-	//个人信息修改
-	public String UpdateMember(){
-		memberService.updateMember(member);
-		memberInfo.setBirthday(new Date());
-		memberInfo.setEmail("12346@qq.com");
-		memberInfoService.memberInfoUpdate(memberInfo);
-		return "memberUpdate";
-	}
+	
 	//查询所有会员信息
 	public String memberSearch(){
 	    memberList = this.memberService.searchMemberAll();
@@ -156,7 +231,9 @@ public class MemberAction extends BaseActionSupport {
 		HttpServletResponse response =ServletActionContext.getResponse();
 		PrintWriter out = response.getWriter();
 		HttpServletRequest request = ServletActionContext.getRequest();
-
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/xml;charset=utf-8");
+		response.setHeader("Cache-Control", "no-cache");
 		if(!YzmUtil.checkYzm(yzm, request.getSession().getId())){
 			pro.put("error", "error");
 			pro.put("errorMsg", "验证码错误");
@@ -258,6 +335,103 @@ public class MemberAction extends BaseActionSupport {
 	public void setCategoryService(ICategoryService categoryService) {
 		this.categoryService = categoryService;
 	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getSubLocation() {
+		return subLocation;
+	}
+
+	public void setSubLocation(String subLocation) {
+		this.subLocation = subLocation;
+	}
+
+	public File getLicensePic() {
+		return licensePic;
+	}
+
+	public void setLicensePic(File licensePic) {
+		this.licensePic = licensePic;
+	}
+
+	public String getLicensePicContentType() {
+		return licensePicContentType;
+	}
+
+	public void setLicensePicContentType(String licensePicContentType) {
+		this.licensePicContentType = licensePicContentType;
+	}
+
+	public String getLicensePicFileName() {
+		return licensePicFileName;
+	}
+
+	public void setLicensePicFileName(String licensePicFileName) {
+		this.licensePicFileName = licensePicFileName;
+	}
+
+	public File getDoorPic() {
+		return doorPic;
+	}
+
+	public void setDoorPic(File doorPic) {
+		this.doorPic = doorPic;
+	}
+
+	public String getDoorPicContentType() {
+		return doorPicContentType;
+	}
+
+	public void setDoorPicContentType(String doorPicContentType) {
+		this.doorPicContentType = doorPicContentType;
+	}
+
+	public String getDoorPicFileName() {
+		return doorPicFileName;
+	}
+
+	public void setDoorPicFileName(String doorPicFileName) {
+		this.doorPicFileName = doorPicFileName;
+	}
+
+	public String getTempLicense() {
+		return tempLicense;
+	}
+
+	public void setTempLicense(String tempLicense) {
+		this.tempLicense = tempLicense;
+	}
+
+	public String getTempDoor() {
+		return tempDoor;
+	}
+
+	public void setTempDoor(String tempDoor) {
+		this.tempDoor = tempDoor;
+	}
+	
 	
 	
 }

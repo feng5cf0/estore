@@ -17,4 +17,10 @@
 	<select id="getBankAccountAll" resultMap="bankAccount">
 		select *from t_bank_account
 	</select>
+	<select id="getBankAccountById" resultMap="bankAccount" parameterType="Integer">
+		select *from t_bank_account where id=#{id}
+	</select>
+	<update id="updateBankAccount" parameterType="bankAccount">
+		update t_bank_account set create_user=#{createUser},content=#{content} where id=#{id}
+	</update>
 </mapper>  

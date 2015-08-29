@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IShopLinkDao">
+	
+    <resultMap id="shopLink" type="shopLink" >
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="shopName" column="shop_name" javaType="String" jdbcType="VARCHAR"/>
+		<result property="flagPic" column="flag_pic" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="url" column="url" javaType="String" jdbcType="VARCHAR"></result>
+    </resultMap>       
+    <!-- 获取网店链接列表 -->
+    <select id="getShopLinkAll" resultMap="shopLink">
+    	select *
+    	from t_shop_link
+    </select>
+</mapper>

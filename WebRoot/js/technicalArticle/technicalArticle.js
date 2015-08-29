@@ -4,14 +4,25 @@ function toAddTechnicalArticle(){
 function toUpdatePage(id){
 	window.location.href="front/technicalArticleAction!toUpdateTechnicalArticle?id="+id;
 }
+function back(){
+	window.location.href="front/technicalArticleAction!getTechnicalArticles";
+}
 //新增
 function saveContent(){
+	var contents=ue.getContent();
+	var createUsers = $("#createUser").val();
+	var titles = $("#title").val();
 	$.ajax({
 		type:"post",
 		dataType:"json",
 		url:"front/technicalArticleAction!addTechnicalArticle",
 		loadMsg : "正在提交，请稍后...",
-		data:$('#addForm').serialize(),
+//		data:$('#addForm').serialize(),
+		data:{
+			'vcontent':encodeURIComponent(contents),
+			'technicalArticle.createUser':createUsers,
+			'technicalArticle.title':titles
+		},
 		async:false,
 		success:function(data){
 			
@@ -61,11 +72,22 @@ function deleteTechnicalArticle(id){
 }
 //修改
 function updateTechnicalArticle(id){
+	var contents=ue.getContent();
+	var createUsers = $("#createUser").val();
+	var titles = $("#title").val();
+	var ids = $("#taId").val();
+	alert(ids);
 	$.ajax({
 		type:"post",
 		dataType:"json",
 		url:"front/technicalArticleAction!update",
-		data:$("#updateForm").serialize(),
+//		data:$("#updateForm").serialize(),
+		data:{
+			'vcontent':encodeURIComponent(contents),
+			'technicalArticle.createUser':createUsers,
+			'technicalArticle.title':titles,
+			'technicalArticle.id':ids
+		},
 		ansyc:false,
 		success:function(data){
 			if(data.msg=="success"){

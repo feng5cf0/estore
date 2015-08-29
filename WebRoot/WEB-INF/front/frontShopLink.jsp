@@ -19,12 +19,16 @@
   </head>
   
 	<body>
+	
+		
 		<h3><s:property value="getText('index.shoplink')"/></h3>
+		<c:forEach items="${sessionScope.shopLinkList }" var="item">
 		<div class="wd-biao1">
-			<div class="img"><a href="#"><img src="images/wangdian_logo1.png" width="54" height="54"/></a></div>
-			<a href="#">淘宝网</a>
+			<div class="img"><a href="<c:out value='${item.url }'></c:out>"><img src="<c:out value="${item.flagPic }"></c:out>" width="54" height="54"/></a></div>
+			<a href="<c:out value='${item.url }'></c:out>"><c:out value='${item.shopName }'></c:out></a>
 		</div>
-		<div class="wd-biao1" style="float:right">
+		</c:forEach>
+		<!-- <div class="wd-biao1" style="float:right">
 			<div class="img"><a href="#"><img src="images/wangdian_logo1.png" width="54" height="54"/></a></div>
 			<a href="#">淘宝网</a>
 		</div>
@@ -36,6 +40,6 @@
 		<div class="wd-ewm">
 			<div><img src="images/erweima.png" width="160" height="161"/></div>
 			<span>扫一扫，打开微店</span>
-		</div>
+		</div> -->
 	</body>
 </html>

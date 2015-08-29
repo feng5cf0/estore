@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<%@include file="/headDeclare.jsp"%>
-		    <script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js?v=222"> </script>
+		    <script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js?v=221"> </script>
 	</head>
 	<body>
 		<div id="rightcontent">

@@ -7,5 +7,5 @@ import com.landicorp.core.service.base.IBaseService;
 
 public interface INoticeService extends IBaseService<Notice, Integer> {
 	public List<Notice> getNoticeAll();
-
+	public Notice getNoticeById(Integer id);
 }

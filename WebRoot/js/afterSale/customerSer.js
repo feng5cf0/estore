@@ -9,14 +9,25 @@ function toUpdatePage(id){
 function detailCustomerSer(id){
 	window.location.href="front/customerSerAction!detail?id="+id;
 }
+function back(){
+	window.location.href="front/customerSerAction!getCustomerSerAll";
+}
 $(function(){
 //添加客服
 	$("#btnSave").click(function(){
+		var qqCode = $("#code").val();
+		var createUser = $("#createUser").val();
+		var name = $("#name").val();
 		$.ajax({
 			type:"post",
 			dataType:"json",
 			url:"front/customerSerAction!addCustomerSer",
-			data:$("#addForm").serialize(),
+//			data:$("#addForm").serialize(),
+			data:{
+				"customerSer.createUser":createUser,
+				"customerSer.name":name,
+				"vqqCode":encodeURIComponent(qqCode)
+			},
 			ansyc:false,
 			success:function(data){
 				if(data.msg=="success"){
@@ -59,12 +70,21 @@ function deleteCustomerSer(id){
 }
 //修改更新
 function updateCustomerSer(){
-	
+		var qqCode = $("#code").val();
+		var createUser = $("#createUser").val();
+		var name = $("#name").val();
+		var id = $("#csId").val();
 		$.ajax({
 			type:"post",
 			dataType:"json",
 			url:"front/customerSerAction!updateCustomerSer",
-			data:$("#updateForm").serialize(),
+//			data:$("#updateForm").serialize(),
+			data:{
+				"customerSer.createUser":createUser,
+				"customerSer.name":name,
+				"vqqCode":encodeURIComponent(qqCode),
+				"customerSer.id":id
+			},
 			ansyc:false,
 			success:function(data){
 				if(data.msg=="success"){
