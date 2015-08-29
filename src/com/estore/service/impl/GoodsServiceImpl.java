@@ -160,7 +160,7 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 		
 		//第一属性
 		
-		if(list.get(0).getAttributeValueId1() != null && list.get(0).getAttributeValueId1() != 0){
+		if(list.size() > 0 && list.get(0).getAttributeValueId1() != null && list.get(0).getAttributeValueId1() != 0){
 			
 			attribute = new Attribute();
 			attribute.setId(list.get(0).getAttributeValue1().getAttributeId());
@@ -176,7 +176,7 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 		
 		//第二属性
 		
-		if(list.get(0).getAttributeValueId2() != null && list.get(0).getAttributeValueId2() != 0){
+		if(list.size() > 0 && list.get(0).getAttributeValueId2() != null && list.get(0).getAttributeValueId2() != 0){
 			
 			attribute = new Attribute();
 			attribute.setId(list.get(0).getAttributeValue2().getAttributeId());
@@ -192,7 +192,7 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 
 		//第三属性
 		
-		if(list.get(0).getAttributeValueId3() != null && list.get(0).getAttributeValueId3() != 0){
+		if(list.size() > 0 && list.get(0).getAttributeValueId3() != null && list.get(0).getAttributeValueId3() != 0){
 			
 			attribute = new Attribute();
 			attribute.setId(list.get(0).getAttributeValue3().getAttributeId());

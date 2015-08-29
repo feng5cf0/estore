@@ -25,7 +25,7 @@
     	locale_type,goods_id,goods_attribute,member_id,total,amount,make_date,status,memo
     </sql>
     <sql id="cartValues">
-    	#{localeType},#{goodsId},#{goodsAttribute},#{memberId},#{total},#{amount},#{makeDate},#{status},#{memo}
+    	#{localeType},#{goodsId},#{goodsAttributeId},#{memberId},#{total},#{amount},#{makeDate},#{status},#{memo}
     </sql>
     
 	<!-- 新增购物车 -->
@@ -43,7 +43,7 @@
 	<!--通过购物车id数组获取购物车商品列表 -->
 	<select id="getByCartIds" resultMap="cartMap" parameterType="int" >
 		select * from t_cart 
-		where
+		where 
 		<foreach collection="array" item="idItems" open="cart_id=" separator=" or cart_id = " close="">
 			#{idItems,javaType=Integer,jdbcType=INTEGER}
 		</foreach>
@@ -59,6 +59,7 @@
 				and locale_type=#{localeType}
 			</if>
 		</where>
+		and status = 1
 	</select>
 	
 	<!-- 通过订单号加载订单的商品列表 -->
@@ -68,4 +69,18 @@
 		left JOIN t_cart s
 		on t.cart_id = s.cart_id and t.order_id=#{orderId}
 	</select>
+	
+	<!-- 通过id获取购物车信息 -->
+	<select id="getByCartId" parameterType="int" resultMap="cartMap">
+		select *
+		from t_cart
+		where cart_id = #{cartId}
+	</select>
+	
+	<!-- 删除购物车 购物车状态设置为2-->
+	<update id="deleteCart" parameterType="int">
+		update t_cart
+		set status = 2
+		where cart_id = #{cartId}
+	</update>
 </mapper>

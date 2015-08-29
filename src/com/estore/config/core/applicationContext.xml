@@ -98,5 +98,19 @@
 		<aop:advisor pointcut-ref="dmpWebserviceTransactionPointcut"
 			advice-ref="transactionAdvice" />
 	</aop:config>
+	
+	<!-- 前端事务控制 -->
+	<tx:advice id="frontTransactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" read-only="false"
+				rollback-for="java.lang.RuntimeException,com.landicorp.core.exception.TransactionException"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="frontTransactionPointcut" 
+			expression="execution(public * com.estore.service.*.*(..))" />
+		<aop:advisor advice-ref="frontTransactionAdvice" 
+			pointcut-ref="frontTransactionPointcut"/>
+	</aop:config>
 
 </beans>

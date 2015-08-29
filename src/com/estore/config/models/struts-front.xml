@@ -147,5 +147,13 @@
 		
 		<action name="locationFrontAction" class="locationFrontAction">
 		</action>
+		
+		<action name="favoriteAction" class="favoriteAction">
+			<result name="add">/WEB-INF/front/memberCentereFavorite.jsp</result>
+			<result name="login" type="redirectAction">
+				<param name="actionName">memberAction</param>
+				<param name="method">toMemberLoginPage</param>
+			</result>
+		</action>
 	</package>
 </struts>

@@ -91,4 +91,11 @@
     	where goods_attribute_id = #{goodsAttributeId}
     </select>
     
+
+	<!-- 修改前台库存 -->
+	<update id="reduceFrontAccount" parameterType="map" >
+		update t_goods_attribute
+		set front_account = front_account - #{num}
+		where goods_attribute_id = #{goodsAttributeId}
+	</update>
 </mapper>

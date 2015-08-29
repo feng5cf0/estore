@@ -14,7 +14,7 @@ public class Order extends BaseEntity {
 	private Float priceOnsale;
 	private Float moneyType;
 	private Float payMoney;
-	private Integer address;
+	private Integer addressId;
 	private Date createTime;
 	private Date sendTime;
 	private Integer sendType;
@@ -24,6 +24,8 @@ public class Order extends BaseEntity {
 	private String sendPic;
 	private Integer handlerId;
 	private Set<Cart> cartSet;
+	
+	private Address address;
 	
 	public Integer getMemberId() {
 		return memberId;
@@ -60,12 +62,6 @@ public class Order extends BaseEntity {
 	}
 	public void setPayMoney(Float payMoney) {
 		this.payMoney = payMoney;
-	}
-	public Integer getAddress() {
-		return address;
-	}
-	public void setAddress(Integer address) {
-		this.address = address;
 	}
 	public Date getCreateTime() {
 		return createTime;
@@ -120,5 +116,17 @@ public class Order extends BaseEntity {
 	}
 	public void setCartSet(Set<Cart> cartSet) {
 		this.cartSet = cartSet;
+	}
+	public Integer getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(Integer addressId) {
+		this.addressId = addressId;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }

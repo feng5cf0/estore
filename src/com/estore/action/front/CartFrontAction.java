@@ -40,10 +40,8 @@ public class CartFrontAction extends ActionSupport {
 	
 	private IBrandService brandService;
 	private List<Brand> brandList;
-	
+	private Float allAccount = 0f;
 	public String addCart(){
-		
-
 		
 		this.categoryList = this.categoryService.getForFront();
 		this.brandList = this.brandService.getAll();
@@ -116,6 +114,14 @@ public class CartFrontAction extends ActionSupport {
 		this.brandList = this.brandService.getAll();
 		
 		this.cartList = this.cartService.getByCartIds(this.cartIds);
+		
+		for(Cart cart : cartList){
+			if(cart.getGoodsAttribute().getPrice() != null){
+				this.allAccount += cart.getGoodsAttribute().getPrice() * cart.getTotal();
+			}else{
+				this.allAccount += cart.getGoods().getGoodsPrice() * cart.getTotal();
+			}
+		}
 		
 		return "toOrder";
 	}
@@ -204,5 +210,11 @@ public class CartFrontAction extends ActionSupport {
 	}
 	public void setBrandList(List<Brand> brandList) {
 		this.brandList = brandList;
+	}
+	public Float getAllAccount() {
+		return allAccount;
+	}
+	public void setAllAccount(Float allAccount) {
+		this.allAccount = allAccount;
 	}
 }

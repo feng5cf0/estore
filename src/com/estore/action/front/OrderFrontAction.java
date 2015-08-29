@@ -50,6 +50,8 @@ public class OrderFrontAction extends ActionSupport {
 		order.setCreateTime(new Date());
 		order.setStatus(1);
 		
+		address.setMemberId(member.getId());
+		
 		this.orderService.addOrder(order,cartIds,address);
 		
 		return "addOrder";

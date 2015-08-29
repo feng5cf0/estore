@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IFavoriteDao">
+    <resultMap id="favoriteMap" type="favorite">
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="memberId" column="member_id" javaType="Integer" jdbcType="INTEGER"></result>
+    	<result property="goodsId" column="goods_id" javaType="Integer" jdbcType="INTEGER"></result>
+    	<result property="status" column="status" javaType="Integer" jdbcType="INTEGER"></result>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    
+    	<association property="goods" column="goods_id" select="com.estore.dao.IGoodsDao.getZHByGoodsId"/>
+    </resultMap>
+    
+    <sql id="favoriteColumn" >
+    	id,member_id,goods_id,status,memo
+    </sql>
+    <sql id="favoriteValue">
+    	#{id},#{memberId},#{goodsId},#{status},#{memo},
+    </sql>
+    
+    <insert id="save" parameterType="favorite" >
+    	insert into t_favorite(<include refid="favoriteColumn"/>)
+    	values(<include refid="favoriteValue"/>)
+    		
+    	<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+    </insert>
+    
+    <select id="getByMemberId" parameterType="int" resultMap="favoriteMap">
+    	select *
+    	from t_favorite
+    	where member_id = #{memberId}
+    </select>
+    
+</mapper>  

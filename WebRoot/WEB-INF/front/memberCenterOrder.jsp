@@ -93,7 +93,6 @@
 				<div class="my-orderlb">
 					<span class="wid wid1">订单信息</span>
 					<span class="wid wid2">收件人</span>
-					<span class="wid wid2" style="margin-left:-1%;margin-right:1%">订单金额</span>
 					<span class="wid wid3">
 						<select>
 							<option>最近三个月</option>
@@ -115,14 +114,13 @@
 					<div class="my-orderlb my-orderlb2">
 						订单编号：<span style="color:#0160b2">${item.id}</span>
 					</div>
-					<c:forEach items="${item.cartSet}" var="goodsList">
+					<c:forEach items="${item.cartSet}" var="cart">
 						<div class="shop-prolb-body my-orderlb3">
 							<div class="wid wid2">
 								<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
-								<div class="txt1"><a href="#">${goodsList.goods.goodsName}</a></div>
+								<div class="txt1"><a href="#">${cart.goods.goodsName}</a></div>
 							</div>
-							<div class="wid wid3">小王</div>
-							<div class="wid wid3">￥99.00</div>
+							<div class="wid wid3">${item.address.linkmanName}</div>
 							<div class="wid wid3" style="color:#999">2015-7-14 <br/>15:56:42</div>
 							<div class="wid wid3 monys">等待付款</div>
 							<div class="wid wid4" style="margin-left:2%">
@@ -130,7 +128,7 @@
 								<p><a href="#">查看</a></p>
 								<p><a href="#">取消订单</a></p>
 							</div>
-						</div>						
+						</div>
 					</c:forEach>					
 				</c:forEach>
 				<!--

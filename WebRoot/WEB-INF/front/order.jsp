@@ -100,6 +100,23 @@
 	            }
 	        }
 	    });
+	    
+	    //计算运费
+	    $.ajax({
+	    	type:"post",
+	    	url:"${basePath}front/locationFrontAction!getPrice.action",
+			data:{"code":$('#city').attr("value")},
+			success:function(result){
+			
+				var _result = parseFloat(result)
+				document.getElementById("transformFee").innerHTML = _result;
+				document.getElementById("transformFeeValue").value = _result;
+				
+				var _account = parseFloat(document.getElementById("baseMoney").value);
+				document.getElementById("orderAccount").innerHTML = _result+_account;
+				document.getElementById("payMoney").value = _result+_account;
+			}
+	    });
 	}
 </script>
 </head>
@@ -207,7 +224,14 @@
 						<div class="wid wid3">
 							${item.total}
 						</div>
-						<div class="wid wid3 monys">${item.amount}</div>
+						<div class="wid wid3 monys" >
+							<c:if test="${item.goodsAttribute.price != null}">
+								<c:out value="${item.goodsAttribute.price * item.total}"></c:out>
+							</c:if>
+							<c:if test="${item.goodsAttribute.price == null}">
+								<c:out value="${item.goods.goodsPrice * item.total}"></c:out>
+							</c:if>
+						</div>
 						<div class="wid wid4">
 							<p><a href="#">删除</a></p>
 							<p><a href="#">移入收藏夹</a></p>
@@ -233,7 +257,7 @@
 		            </div>
 	            </c:forEach>
 		        <div class="adress-lb">
-		          	<input type="radio" name="addressRadio" value="0" id="newAddress" onchange="javascript:useNewAddress();"/>使用新地址
+		          	<input type="radio" name="addressRadio" value="1" id="newAddress" onchange="javascript:useNewAddress();"/>使用新地址
 		            <h3 class="shuohuo-h3" style="margin-bottom:10px;margin-left:0px">
 		            	<input type="radio" name="addressRadio" value="0" id="newAddress" onchange="javascript:useNewAddress();"/>使用新地址
 		            </h3>
@@ -259,10 +283,12 @@
 	            		<span>邮编:</span><input type="text" name="address.postcode"/>
 	            	</div>
 	            </div>
-	            <h3 class="shuohuo-h3" style="margin-bottom:10px"><span>运费:￥</span><span></span></h3>
+	            <h3 class="shuohuo-h3" style="margin-bottom:10px"><span>运费:￥</span><span id="transformFee"></span></h3>
+	            <input type="hidden" name="order.transformFee" value="" id="transformFeeValue"/>
 	            <h3 class="shuohuo-h3" style="margin-bottom:10px">填写具体信息</h3>
 				<!--填写收货信息开始-->
 				<div class="write-pay write-adress yunfei-fs">
+					<!--
 	                <div class="pay-lb">
 	                	<span class="span1">付款方式：</span>
 	                    <select class="inp1" name="order.payType">
@@ -270,6 +296,7 @@
 	                        <option value="2">支付宝</option>
 	                    </select>
 	                </div>
+	                -->
 	                <div class="pay-lb">
 	                	<span class="span1">快递保险：</span>
 	                     <input type="checkbox" style="vertical-align:sub"/>
@@ -319,7 +346,9 @@
 			
             <!--结算开始-->
             <div class="shop-end2">
-                <span>应付总额：￥</span><span class="mon1">0.00</span>
+                <span>应付总额(含运费)：￥</span><span class="mon1" id="orderAccount">${allAccount}</span>
+                <input type="hidden" name="baseMoney" value="${allAccount}" id="baseMoney"/>
+                <input type="hidden" name="order.payMoney" value="${allAccount}" id="payMoney"/>
                 <input class="submit-btn submit-btn2" type="submit" value="提交" style="background:#5dbfec"/>
             </div>
             <!--结算结束-->

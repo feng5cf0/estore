@@ -13,4 +13,5 @@ public interface IGoodsAttributeDao extends IMyBatisDao<GoodsAttribute, Integer>
 	public List<Integer> getIdByAttribute(Map<String,Object> map);
 	public List<GoodsAttribute> getByAttribute(Map<String,Object> map);
 	public GoodsAttribute getById(@Param(value="goodsAttributeMap") Integer goodsAttributeMap);
+	public void reduceFrontAccount(Map<String,Object> map);
 }
