@@ -39,8 +39,8 @@
 	<div class="nav-con">
 		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<!--<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		--><a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -91,16 +91,12 @@
 					</div>
 				</div>
 				<div class="center-xmlb">
-					<p><a class="lba" href="#" id="pressWdyhq">我的优惠券（7）</a></p>
 					<p><a class="lba" href="front/integralAction!toMyIntegral" id="integralSearch">积分查询</a></p>
-					<p><a class="lba" href="#" id="findOrderAll">订单查询</a></p>
-					<p><a class="lba" href="#" id="cpscBtn">产品收藏</a></p>
 					<p><a class="lba" href="front/productPromotionAction!toYHQ" id="pressWdyhq">我的优惠券</a></p>
-					<p><a class="lba" href="#" id="integralSearch">积分查询</a></p>
 					<p><a class="lba" href="${basePath}front/orderFrontAction!get.action" id="findOrderAll">订单查询</a></p>
 					<p><a class="lba" href="${basePath}front/favoriteAction!get.action" id="cpscBtn">产品收藏</a></p>
 					<p><a class="lba" href="front/memberAction!logout">退出</a></p>
-				</div>	
+				</div>
 			</div>
 			<!--头像区域结束-->
 			<!--修改信息开始-->
@@ -234,7 +230,7 @@
 					<h4>新上产品</h4>
 				</div>
 				<div class="mysc-lb">
-					<a href="#" class="lbtn"></a><a href="#" class="rbtn"></a>
+					<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}" class="lbtn"></a><a href="#" class="rbtn"></a>
 					<div class="mysc-lbwk">
 						<c:forEach items="${goodsList}" var="item">
 							<div class="prolb-showlb prolb-showlb2">

@@ -36,7 +36,7 @@
 					
 					<!--划上效果开始-->
 					<div class="white-bg"></div>
-					<div class="pro-left1-lilb">
+					<!--<div class="pro-left1-lilb">
 						<div class="left1-lilb-div">
 							<h3><img src="images/suo_biao.png" width="20"/>${item.categoryName}<a href="#" class="more">更多</a></h3>
 							<div class="txt9">
@@ -55,7 +55,7 @@
 							</div>
 						</div>
 					</div>
-				</dd>
+				--></dd>
 			</c:forEach>
 		</dl>
 	</div>
