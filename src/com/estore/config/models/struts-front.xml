@@ -55,6 +55,7 @@
 			<result name="noticeSearch">/WEB-INF/back/noticeSearch.jsp</result>
 			<result name="toMoreNotice">/WEB-INF/front/noticeList.jsp</result>
 			<result name="toNoticeDetail">/WEB-INF/front/noticeDetail.jsp</result>
+			<result name="toadd">/WEB-INF/back/addNotice.jsp</result>
 		</action>
 		<action name="onlineMsgAction" class="onlineMsgAction">
 			<result name="tomain">/main.jsp</result>
@@ -145,6 +146,7 @@
 			<result name="toAddTechnicalArticle">/WEB-INF/back/addTechnicalArticle.jsp</result>
 			<result name="toUpdateTechnicalArticle">/WEB-INF/back/updateTechnicalArticle.jsp</result>
 			<result name="searchList">/WEB-INF/back/technicalArticleSearch.jsp</result>
+			<result name="detail">/WEB-INF/front/technicalArticleDetail.jsp</result>
 		</action>
 		<!-- 客服 -->
 		<action name="customerSerAction" class="customerSerAction">
@@ -157,6 +159,12 @@
 		<action name="shopLinkAction" class="shopLinkAction">
 		
 		</action>
+		<!-- 积分 -->
+		<action name="integralAction" class="integralAction">
+			<result name="toMyIntegral">/WEB-INF/front/integralShow.jsp</result>
+			<result name="toIntegralHistory">/WEB-INF/front/integralHistory.jsp</result>
+		</action>
+		
 		<!-- 生成验证码 -->
 		<action name="yzmAction" class="yzmAction">
 			

@@ -171,6 +171,9 @@ public class MemberAction extends BaseActionSupport {
 		HttpServletResponse response =ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
+		try {
+			
+		
 		Member members=memberService.findMemberByPassName(memberAlias, memberPassword);
 		if(members!=null){
 			if(memberAlias.equals(members.getMemberAlias()) 
@@ -198,6 +201,10 @@ public class MemberAction extends BaseActionSupport {
 				out.print(JsonUtil.getJsonStrByMap(pro));
 				return null;
 		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	//会员退出
 	public String logout(){

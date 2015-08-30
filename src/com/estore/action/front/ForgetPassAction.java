@@ -1,6 +1,7 @@
 package com.estore.action.front;
 
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,8 +50,7 @@ public class ForgetPassAction extends ActionSupport {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		response.setContentType("utf-8");
-		String email = request.getParameter("email").replace("%40", "@");
-		
+		String email = URLDecoder.decode(request.getParameter("email"));
 		this.categoryList = this.categoryService.getForFront();
 		this.brandList = this.brandService.getAll();
 		if(email!=null && !"".equals(email)){

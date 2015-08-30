@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
 <script type="text/javascript" charset="utf-8" src="ueditor/themes/default/css/ueditor.css"></script>
-<script type="text/javascript" charset="utf-8" src="js/technicalArticle/technicalArticle.js?v=14215"> </script>
+<script type="text/javascript" charset="utf-8" src="js/notice/notice.js?v=14115"> </script>
 <script type="text/javascript" src="js/layer/layer.js" ></script>
 </head>
 <body>
@@ -24,13 +24,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<table border="0" align="center" cellpadding="0" cellspacing="0"
 			class="status">
 			<tr>
-				<td>售后管理&gt;技术文章</td>
+				<td>售后管理&gt;公告</td>
 				<td align="right">&nbsp;</td> 
 			</tr>
 		</table>
 		<form action="" method="post" id="addForm">
 		<fieldset>
-		<legend>技术文章编写</legend>
+		<legend>公告</legend>
 		<input type="hidden" id="id"  name="id" value=""></input>
 		<fieldset class="form form-aligned noborder">
 			<div class="control-group">

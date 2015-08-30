@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.estore.entities.Brand;
+import com.estore.entities.Category;
 import com.estore.entities.TechnicalArticle;
+import com.estore.service.IBrandService;
+import com.estore.service.ICategoryService;
 import com.estore.service.impl.TechnicalArticleServiceImpl;
 import com.estore.util.JsonUtil;
 import com.estore.util.Property;
@@ -24,8 +28,23 @@ public class TechnicalArticleAction extends ActionSupport{
 	private TechnicalArticleServiceImpl technicalArticleService;
 	private TechnicalArticle technicalArticle;
 	private List<TechnicalArticle> technicalArticlelist;
+	private List<Category> categoryList;
+	private List<Brand> brandList;
+	private ICategoryService categoryService;
+	private IBrandService brandService;
 	private Integer id;
 	Property pro=new Property();
+	
+	/**
+	 * 技术文章详情
+	 * @return
+	 */
+	public String technicalArticleDetail(){
+		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
+		this.technicalArticle=technicalArticleService.getTechById(id);
+		return "detail";
+	}
 	//添加技术文章
 	public String addTechnicalArticle() throws Exception{
 		HttpServletResponse response =ServletActionContext.getResponse();
@@ -138,6 +157,30 @@ public class TechnicalArticleAction extends ActionSupport{
 	}
 	public void setPro(Property pro) {
 		this.pro = pro;
+	}
+	public List<Category> getCategoryList() {
+		return categoryList;
+	}
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
+	}
+	public List<Brand> getBrandList() {
+		return brandList;
+	}
+	public void setBrandList(List<Brand> brandList) {
+		this.brandList = brandList;
+	}
+	public ICategoryService getCategoryService() {
+		return categoryService;
+	}
+	public void setCategoryService(ICategoryService categoryService) {
+		this.categoryService = categoryService;
+	}
+	public IBrandService getBrandService() {
+		return brandService;
+	}
+	public void setBrandService(IBrandService brandService) {
+		this.brandService = brandService;
 	}
 	
 	

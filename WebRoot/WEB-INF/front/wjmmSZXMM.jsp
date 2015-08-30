@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/default.css">
-<script type="text/javascript" src="js/member/forgetPassword.js"></script>
+<script type="text/javascript" src="js/member/forgetPassword.js?v=222"></script>
 <title>设置新密码</title>
 </head>
 

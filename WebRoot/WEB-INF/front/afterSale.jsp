@@ -89,7 +89,7 @@
 				<c:forEach items="${technicalArticlelist }" var="item">
 					<div class="sh-serve-jslb">
 							<div class="txt5">
-								<a href="#">${item.title }</a>
+								<a href="front/technicalArticleAction!technicalArticleDetail?id=${item.id }">${item.title }</a>
 							</div>
 							<div class="txt6">
 								<fmt:formatDate value="${item.createTime }"  pattern="yyyy/MM/dd  HH:mm:ss" />

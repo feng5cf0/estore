@@ -1,6 +1,17 @@
 package com.estore.action.back;
 
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSON;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.estore.entities.Brand;
 import com.estore.entities.Category;
@@ -8,6 +19,8 @@ import com.estore.entities.Notice;
 import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
 import com.estore.service.INoticeService;
+import com.estore.util.JsonUtil;
+import com.estore.util.Property;
 import com.landicorp.core.action.BaseActionSupport;
 
 public class NoticeAction extends BaseActionSupport {
@@ -25,7 +38,31 @@ public class NoticeAction extends BaseActionSupport {
 	private List<Brand> brandList;
 	private Notice notice;
 	private Integer noticeId;
-	
+	private String vcontent;
+	Property pro=new Property();
+	//跳转到添加
+	public String toAddNoticePage(){
+		
+		return "toadd";
+	}
+	//添加
+	public String addNotice() throws Exception{
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response = ServletActionContext.getResponse();
+		PrintWriter out = response.getWriter();
+		String content = URLDecoder.decode(request.getParameter("vcontent"),"utf-8");
+		if(notice!=null){
+			notice.setContent(content);
+			notice.setCreateTime(new Date());
+			noticeService.addNotice(notice);
+			pro.put("success", "success");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+		}else{
+			pro.put("error", "error");
+			out.print(JsonUtil.getJsonStrByMap(pro));
+		}
+		return null;
+	}
 	//获取所有的公告
 	public String getNoticeAll(){
 		this.categoryList = this.categoryService.getForFront();
@@ -33,7 +70,7 @@ public class NoticeAction extends BaseActionSupport {
 		this.noticeListAll=noticeService.getNoticeAll();
 		return "noticeSearch";
 	}
-	//抢台获取所有公告
+	//前台获取所有公告
 	public String getFrontNoticeAll(){
 		this.categoryList = this.categoryService.getForFront();
 		this.brandList = this.brandService.getAll();
@@ -100,6 +137,12 @@ public class NoticeAction extends BaseActionSupport {
 	}
 	public void setNoticeId(Integer noticeId) {
 		this.noticeId = noticeId;
+	}
+	public String getVcontent() {
+		return vcontent;
+	}
+	public void setVcontent(String vcontent) {
+		this.vcontent = vcontent;
 	}
 	
 	

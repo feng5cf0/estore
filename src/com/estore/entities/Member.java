@@ -23,7 +23,7 @@ public class Member extends BaseEntity{
 	private String memberRealname;	//真实姓名
 	private String memberType;    // 会员类型
 	private String memberPassword;//密码
-	private float integral;//积分
+	private float integrals;//积分
 	private Integer avaliable;//是否有效 1:有效 0：无效
 	private Integer isEmailAvaliable;//是否经过邮箱验证 1：验证过 0:没验证
 	private Date lastLoginTime;//上一次登录时间
@@ -33,7 +33,8 @@ public class Member extends BaseEntity{
 	private Date loginTime =new Date() ;//登录时间
 	private String loginIp;//登录ip
 	private MemberInfo memberInfo;
-	private List<Address> address;
+	private List<Address> address;//地址
+	private List<Integral> integral;//积分
 
 	
 	public List<Address> getAddress() {
@@ -71,12 +72,6 @@ public class Member extends BaseEntity{
 	}
 	public void setMemberPassword(String memberPassword) {
 		this.memberPassword = memberPassword;
-	}
-	public float getIntegral() {
-		return integral;
-	}
-	public void setIntegral(float integral) {
-		this.integral = integral;
 	}
 	public Integer getAvaliable() {
 		return avaliable;
@@ -131,6 +126,18 @@ public class Member extends BaseEntity{
 	}
 	public void setMemberInfo(MemberInfo memberInfo) {
 		this.memberInfo = memberInfo;
+	}
+	public float getIntegrals() {
+		return integrals;
+	}
+	public void setIntegrals(float integrals) {
+		this.integrals = integrals;
+	}
+	public List<Integral> getIntegral() {
+		return integral;
+	}
+	public void setIntegral(List<Integral> integral) {
+		this.integral = integral;
 	}
 	
 	

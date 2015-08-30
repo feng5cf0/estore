@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="<%=contextPath%>/js/common/validation/css/validationEngine.jquery.css" type="text/css"/>
 <script type="text/javascript" src="<%=contextPath%>/js/common/validation/js/languages/jquery.validationEngine-zh_CN.js" ></script>
 <script type="text/javascript" src="<%=contextPath%>/js/common/validation/js/jquery.validationEngine.js"  ></script>
-<script type="text/javascript" src="js/member/forgetPassword.js"></script>
+<script type="text/javascript" src="js/member/forgetPassword.js?v=222"></script>
 <link rel="stylesheet" type="text/css" href="css/default.css">
 <title>填写账户名</title>
 </head>
