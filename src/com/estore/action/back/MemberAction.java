@@ -16,10 +16,14 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.aspectj.util.ConfigParser.ParseException;
 
+import com.estore.entities.Brand;
 import com.estore.entities.Category;
+import com.estore.entities.Goods;
 import com.estore.entities.Member;
 import com.estore.entities.MemberInfo;
+import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
+import com.estore.service.IGoodsService;
 import com.estore.service.IMemberInfoService;
 import com.estore.service.IMemberService;
 import com.estore.util.JsonUtil;
@@ -60,7 +64,10 @@ public class MemberAction extends BaseActionSupport {
     private String tempLicense; 
     private String tempDoor; 
     
-    
+    private List<Brand> brandList;
+    private IBrandService brandService;
+    private List<Goods> goodsList;
+    private IGoodsService goodsService;
     
 	Property pro=new Property();
 	public MemberAction() {
@@ -140,11 +147,15 @@ public class MemberAction extends BaseActionSupport {
 	public String toMemberCenterPage(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		//分类
-		this.categoryList = this.categoryService.getForFront();
 		if(session.getAttribute("member")==null){
 			return "toLoginPage";
 		}else{
+			
+			this.categoryList = this.categoryService.getForFront();
+			this.brandList = this.brandService.getAll();
+			
+			this.goodsList = this.goodsService.getNewGoods();
+			
 			return "toMemberCenterPage";
 		}
 	}
@@ -422,23 +433,41 @@ public class MemberAction extends BaseActionSupport {
 	public void setDoorPicFileName(String doorPicFileName) {
 		this.doorPicFileName = doorPicFileName;
 	}
-
 	public String getTempLicense() {
 		return tempLicense;
 	}
-
 	public void setTempLicense(String tempLicense) {
 		this.tempLicense = tempLicense;
 	}
-
 	public String getTempDoor() {
 		return tempDoor;
 	}
-
 	public void setTempDoor(String tempDoor) {
 		this.tempDoor = tempDoor;
 	}
-	
-	
-	
+	public List<Brand> getBrandList() {
+		return brandList;
+	}
+	public void setBrandList(List<Brand> brandList) {
+		this.brandList = brandList;
+	}
+	public IBrandService getBrandService() {
+		return brandService;
+	}
+	public void setBrandService(IBrandService brandService) {
+		this.brandService = brandService;
+	}
+	public List<Goods> getGoodsList() {
+		return goodsList;
+	}
+	public void setGoodsList(List<Goods> goodsList) {
+		this.goodsList = goodsList;
+	}
+	public IGoodsService getGoodsService() {
+		return goodsService;
+	}
+
+	public void setGoodsService(IGoodsService goodsService) {
+		this.goodsService = goodsService;
+	}
 }

@@ -12,7 +12,7 @@
 		<result property="priceOnsale" column="price_onsale" javaType="Float" jdbcType="DECIMAL"/>
 		<result property="moneyType" column="money_type" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="payMoney" column="pay_money" javaType="Float" jdbcType="DECIMAL"/>
-    	<result property="address" column="address" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="addressId" column="address" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"></result>
     	<result property="sendTime" column="send_time" javaType="Date" jdbcType="TIMESTAMP"/>
 		<result property="sendType" column="send_type" javaType="Integer" jdbcType="INTEGER"/>
@@ -23,6 +23,7 @@
     	<result property="handlerId" column="handler_id" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	
+    	<association property="address" column="address" select="com.estore.dao.IAddressDao.getById"></association>
     	<collection property="cartSet" column="order_id" select="com.estore.dao.ICartDao.getByOrderId"></collection>
     </resultMap>
     <sql id="orderColumns">
@@ -30,7 +31,7 @@
     	pay_money,address,create_time,send_time,send_type,transform_fee,status,pay_pic,send_pic,handler_id,memo
     </sql>
     <sql id="orderValues">
-    	#{memberId},#{priceAmount},#{isOnsale},#{priceOnsale},#{moneyType},#{payMoney},#{address},#{createTime},#{sendTime},#{sendType},
+    	#{memberId},#{priceAmount},#{isOnsale},#{priceOnsale},#{moneyType},#{payMoney},#{addressId},#{createTime},#{sendTime},#{sendType},
     	#{transformFee},#{status},#{payPic},#{sendPic},#{handlerId},#{memo}
     </sql>
     

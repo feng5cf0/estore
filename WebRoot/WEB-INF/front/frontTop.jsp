@@ -55,19 +55,17 @@
 				</div>
 		    </div> 
 			<div class="top-right-dw top-right-scj" href="javascript:;">
-				<span class="txt"><s:property value="getText('index.favorite')"/></span>
+				<a href="${basePath}front/favoriteAction!get.action"><span class="txt"><s:property value="getText('index.favorite')"/></span></a>
 				<img src="images/jt_xia.png" width="9" height="7"/>
 				<div class="gwc-xllb" style="left:-7px;width:72px">
-					<a href="#">我的收藏</a>
-					<a href="#">我的收藏</a>
+					<a href="${basePath}front/favoriteAction!get.action">我的收藏</a>
 				</div>
 		    </div> 
 			<div class="top-right-dw top-right-order" href="javascript:;">
 				<a href="${basePath}front/orderFrontAction!get.action"><span class="txt"><s:property value="getText('index.myorder')"/></span></a>
 				<img src="images/jt_xia.png" width="9" height="7"/>
 				<div class="gwc-xllb" style="left:-8px;width:75px">
-					<a href="#">查看订单</a>
-					<a href="#">去结算</a>
+					<a href="${basePath}front/orderFrontAction!get.action">查看订单</a>
 					<a href="front/memberAction!toMemberCenterPage">个人中心</a>
 				</div>
 		  </div>

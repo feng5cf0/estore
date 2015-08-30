@@ -93,7 +93,6 @@
 				<div class="my-orderlb">
 					<span class="wid wid1">订单信息</span>
 					<span class="wid wid2">收件人</span>
-					<span class="wid wid2" style="margin-left:-1%;margin-right:1%">订单金额</span>
 					<span class="wid wid3">
 						<select>
 							<option>最近三个月</option>
@@ -115,23 +114,21 @@
 					<div class="my-orderlb my-orderlb2">
 						订单编号：<span style="color:#0160b2">${item.id}</span>
 					</div>
-					<c:forEach items="${item.cartSet}" var="goodsList">
+					<c:forEach items="${item.cartSet}" var="cart">
 						<div class="shop-prolb-body my-orderlb3">
 							<div class="wid wid2">
 								<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
-								<div class="txt1"><a href="#">${goodsList.goods.goodsName}</a></div>
+								<div class="txt1"><a href="#">${cart.goods.goodsName}</a></div>
 							</div>
-							<div class="wid wid3">小王</div>
-							<div class="wid wid3">￥99.00</div>
+							<div class="wid wid3">${item.address.linkmanName}</div>
 							<div class="wid wid3" style="color:#999">2015-7-14 <br/>15:56:42</div>
 							<div class="wid wid3 monys">等待付款</div>
 							<div class="wid wid4" style="margin-left:2%">
-								<p><a href="#">付款</a></p>
-								<p><a href="#">查看</a></p>
+								<p><a href="${basePath}front/orderFrontAction!toPay.action?orderId=${item.id}">付款</a></p>
 								<p><a href="#">取消订单</a></p>
 							</div>
-						</div>						
-					</c:forEach>					
+						</div>
+					</c:forEach>		
 				</c:forEach>
 				<!--
 				<div class="my-orderlb my-orderlb2">
@@ -197,46 +194,17 @@
 				<div class="mysc-lb">
 					<a href="#" class="lbtn"></a><a href="#" class="rbtn"></a>
 					<div class="mysc-lbwk">
-						<!--循环开始-->
-						<div class="prolb-showlb prolb-showlb2">
-							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
-							<h5>玥玛锁业</h5>
-							<div class="txt1">
-								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+						<c:forEach items="${goodsList}" var="item">
+							
+							<div class="prolb-showlb prolb-showlb2">
+								<a href="${basePath}front/goodsDetailAction!prepare?goodsId=${item.id}"><img src="images/new_pic1.png" width="164"/></a>
+								<h5>${item.goodsName}</h5>
+								<div class="txt1">
+									<a href="front/productPromotionAction!toYHQ">${item.goodsDescription}</a>
+								</div>
+								<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>${item.goodsPrice}</div>
 							</div>
-							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-						</div>
-						<!--循环结束-->
-						<!--循环开始-->
-						<div class="prolb-showlb prolb-showlb2">
-							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
-							<h5>玥玛锁业</h5>
-							<div class="txt1">
-								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-							</div>
-							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-						</div>
-						<!--循环结束-->
-						<!--循环开始-->
-						<div class="prolb-showlb prolb-showlb2">
-							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
-							<h5>玥玛锁业</h5>
-							<div class="txt1">
-								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-							</div>
-							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-						</div>
-						<!--循环结束-->
-						<!--循环开始-->
-						<div class="prolb-showlb prolb-showlb2">
-							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
-							<h5>玥玛锁业</h5>
-							<div class="txt1">
-								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-							</div>
-							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-						</div>
-						<!--循环结束-->
+						</c:forEach>
 					</div>
 				</div>
 			</div>

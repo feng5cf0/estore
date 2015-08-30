@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.estore.dao.IAddressDao">
-    <resultMap id="address" type="address">
+    <resultMap id="addressMap" type="address">
     	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="memberId" column="memberid" javaType="Integer" jdbcType="INTEGER"></result>
     	<result property="address" column="address" javaType="String" jdbcType="VARCHAR"></result>
@@ -12,20 +12,45 @@
     	<result property="isAvaliable" column="is_avaliable" javaType="Integer" jdbcType="INTEGER"></result>
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="country" column="country" javaType="String" jdbcType="VARCHAR"/>
-    	<result property="province" column="Province" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="province" column="province" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="city" column="city" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="area" column="area" javaType="String" jdbcType="VARCHAR"></result>
-    	<result property="detail" column="addr" javaType="String" jdbcType="VARCHAR"></result>
+    	<result property="detail" column="detail" javaType="String" jdbcType="VARCHAR"></result>
     </resultMap>
+    
+    <sql id="addressColumn" >
+    	id,memberid,address,postcode,linkman_name,linkman_phone,is_avaliable,memo,country,province,city,area,detail
+    </sql>
+    <sql id="addressValue">
+    	#{id},#{memberId},#{address},#{postcode},#{linkmanName},
+    	#{linkmanPhone},#{isAvaliable},#{memo},#{country},#{province},#{city},#{area},#{detail}
+    </sql>
+    
+    <insert id="save" parameterType="address">
+    	insert into t_address
+    	(<include refid="addressColumn"></include>)
+    	values(<include refid="addressValue"></include>)
+    		
+    	<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+    </insert>
+    
     <!-- 根据id 获取会员信息表 -->
-    <select id="getAddressById" resultMap="address" parameterType="Integer">
+    <select id="getAddressById" resultMap="addressMap" parameterType="Integer">
     	select *from t_address where memberid=#{memberId}
     </select>
     
 	<insert id="addressRegister" parameterType="address" >
     	 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
-					SELECT LAST_INSERT_ID() AS ID
-		</selectKey> 
-    	insert into t_address(address,postcode,linkman_name,linkman_phone,is_avaliable,memo,province,city,area,addr) values(#{address},#{postcode},#{linkmanName},#{linkmanPhone},#{isAvaliable},#{memo},#{province},#{city},#{area},#{addr})
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+    	insert into t_address(address,postcode,linkman_name,linkman_phone,is_avaliable,memo,province,city,area,detail) values(#{address},#{postcode},#{linkmanName},#{linkmanPhone},#{isAvaliable},#{memo},#{province},#{city},#{area},#{detail})
     </insert>
+    
+    <select id="getById" parameterType="int" resultMap="addressMap">
+    	select *
+    	from t_address
+    	where id = #{addressId}
+    </select>
 </mapper>  

@@ -116,6 +116,7 @@
 		</action> 
 		<action name="orderFrontAction" class="orderFrontAction">
 			<result name="addOrder">/WEB-INF/front/orderPay.jsp</result>
+			<result name="toPay">/WEB-INF/front/orderPay.jsp</result>
 			<result name="pay" type="redirectAction">
 				<param name="actionName">orderFrontAction</param>
 				<param name="method">get</param>
@@ -162,6 +163,16 @@
 		</action>
 		
 		<action name="locationFrontAction" class="locationFrontAction">
+		</action>
+		
+		<action name="favoriteAction" class="favoriteAction">
+			<result name="add">/WEB-INF/front/memberCentereFavorite.jsp</result>
+			<result name="get">/WEB-INF/front/memberCentereFavorite.jsp</result>
+			<result name="login" type="redirectAction">
+				<param name="actionName">memberAction</param>
+				<param name="method">toMemberLoginPage</param>
+			</result>
+			<result name="delete">/WEB-INF/front/memberCentereFavorite.jsp</result>
 		</action>
 	</package>
 </struts>

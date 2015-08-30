@@ -31,4 +31,5 @@ public interface IGoodsService extends IBaseService<Goods, Integer> {
 	public List<Goods> getByBrandId(Integer brandId);
 	public List<Goods> getByCondition(Map<String,Object> map);
 	public List<Goods> getRecommend();
+	public List<Goods> getNewGoods();
 }
