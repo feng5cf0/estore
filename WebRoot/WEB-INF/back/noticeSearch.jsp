@@ -2,12 +2,15 @@
 <%@include file="/tagDeclare.jsp"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+
 	<head>
+		<title></title>
 		<%@include file="/headDeclare.jsp"%>
+		<script type="text/javascript" charset="utf-8" src="js/notice/notice.js?v=221"> </script>
 	</head>
+	
 	<body>
 		<div id="rightcontent">
 			<div id="road" class="road">
@@ -93,6 +96,15 @@
 						</div>
 						<div class="tab4">
 							<%--${error}--%>
+						</div>
+					</div>
+					<div class="buttonbg">
+						<div class="divbutton2">
+							<ld:check mark="saleManager">
+								<input type="button" value="新增" class="button2"
+									onMouseOver="this.className='button2Over'"
+									onMouseOut="this.className='button2Out'" onclick="toAddNotice();" />
+							</ld:check>
 						</div>
 					</div>
 					<div class="buttonbg">

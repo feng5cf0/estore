@@ -17,10 +17,10 @@
     <select id="getNoticeById" resultMap="notice" parameterType="Integer">
     	select *from t_notice where id=#{id}
     </select>
-	<insert id="addressRegister" parameterType="address" >
+	<insert id="addNotice" parameterType="notice" >
     	 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
 					SELECT LAST_INSERT_ID() AS ID
 		</selectKey> 
-    	insert into t_address(address,postcode,linkman_name,linkman_phone,is_avaliable,memo,province,city,area,addr) values(#{address},#{postcode},#{linkmanName},#{linkmanPhone},#{isAvaliable},#{memo},#{province},#{city},#{area},#{addr})
+		insert into t_notice(title,content,create_time,create_user) values(#{title},#{content},#{createTime},#{createUser})
     </insert>   
 </mapper>  

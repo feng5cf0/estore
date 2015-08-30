@@ -10,7 +10,7 @@
 		<result property="memberRealname" column="member_realname" javaType="String" jdbcType="VARCHAR"/>
 		<result property="memberType" column="member_type" javaType="String" jdbcType="VARCHAR"/>
 		<result property="memberPassword" column="member_password" javaType="String" jdbcType="VARCHAR"/>
-		<result property="integral" column="integral" javaType="float" jdbcType="DECIMAL"/>
+		<result property="integrals" column="integral" javaType="float" jdbcType="DECIMAL"/>
     	<result property="avaliable" column="avaliable" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="isEmailAvaliable" column="is_email_avaliable" javaType="Integer" jdbcType="INTEGER"/>
     	<result property="lastLoginTime" column="last_login_time" javaType="Date" jdbcType="TIMESTAMP"/>
@@ -22,8 +22,8 @@
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	<association property="memberInfo" column="member_info_id" javaType="com.estore.entities.MemberInfo" select="com.estore.dao.IMemberInfoDao.getMemberInfoById" />
     	<!-- <association property="address" column="address_id" javaType="com.estore.entities.Address" select="com.estore.dao.IAddressDao.getAddressById" /> -->
-    	<collection property="address" column="member_id" select="com.estore.dao.IAddressDao.getAddressById">
-    	</collection>
+    	<collection property="address" column="member_id" select="com.estore.dao.IAddressDao.getAddressById" ></collection>
+    	<collection property="integral" column="member_id" select="com.estore.dao.IIntegralDao.getIntegralById" ></collection>
     </resultMap>
    
     

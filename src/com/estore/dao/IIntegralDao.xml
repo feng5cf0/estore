@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IIntegralDao">
+	
+    <resultMap id="integral" type="integral">
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+    	<id property="memberId" column="memberid" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP"/>
+		<result property="updateCount" column="update_count" javaType="String" jdbcType="VARCHAR"/>
+		<result property="remain" column="remain" javaType="String" jdbcType="VARCHAR"/>
+		<result property="source" column="source" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+   
+   <select id="getIntegralById" resultMap="integral" parameterType="Integer">
+   		select *from t_integral where memberid=#{memberId}
+   </select>
+</mapper>  

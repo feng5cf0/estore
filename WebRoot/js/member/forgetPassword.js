@@ -27,8 +27,9 @@ $(function(){
 	
 	$("#fsyzyj").click(function(){
 		var email=$("#yxdz").html();
+		alert(email);
 		$.ajax({
-			type:"post",
+			type:"get",
 			dataType:'json',
 			url:"front/forgetPassAction!towjmmYZSF",
 			data:{

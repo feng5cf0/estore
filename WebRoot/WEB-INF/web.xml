@@ -31,7 +31,7 @@
   <listener>
     <listener-class>com.landicorp.core.web.session.SessionListener</listener-class>
   </listener>
-  <filter>
+  <!-- <filter>
     <filter-name>struts2</filter-name>
     <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
     <init-param>
@@ -42,7 +42,19 @@
   <filter-mapping>
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping> -->
+ <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>com.estore.util.StrutsFilter</filter-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>struts-default.xml,struts-plugin.xml,/com/estore/config/core/struts.xml</param-value>
+    </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

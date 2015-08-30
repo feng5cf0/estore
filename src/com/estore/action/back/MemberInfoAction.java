@@ -89,7 +89,7 @@ public class MemberInfoAction  extends BaseActionSupport{
     	memberInfoService.memberRegister(memberInfo);
     	member.setAvaliable(0);
     	member.setCreateTime(new Date());
-    	member.setIntegral(0);
+    	member.setIntegrals(0);
     	member.setIsEmailAvaliable(0);
     	member.setMemberType("会员");
     	member.setLoginIp(loginIp);

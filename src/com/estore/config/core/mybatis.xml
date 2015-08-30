@@ -48,6 +48,8 @@
 		<typeAlias alias="customerSer" type="com.estore.entities.customerSer"/>
 		<!-- 网店链接 -->
 		<typeAlias alias="shopLink" type="com.estore.entities.ShopLink"/>
+		<!-- 积分 -->
+		<typeAlias alias="integral" type="com.estore.entities.Integral"/>
 		
 		
 		
@@ -88,6 +90,7 @@
 		<mapper resource="com/estore/dao/IBankAccountDao.xml"/>
 		<mapper resource="com/estore/dao/ITechnicalArticleDao.xml"/>
 		<mapper resource="com/estore/dao/ICustomerSerDao.xml"/>
+		<mapper resource="com/estore/dao/IIntegralDao.xml"/>
 		
 		
 		<mapper resource="com/estore/dao/IAttributeDao.xml"/>
