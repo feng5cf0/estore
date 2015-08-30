@@ -34,6 +34,25 @@
 		document.getElementById("attributeList"+statusX).value = attrName;
 		
 	}
+	
+	function addFavorite(goodsId){
+		$.ajax(
+	    {
+	        type: "post",
+	        url: "${basePath}front/favoriteAction!add.action",
+	        data:{"favorite.goodsId":goodsId},
+	        dataType:"text",
+	        success: function (msg) {
+				if("tologin" == msg){
+					window.location.href = "${basePath}front/memberAction!toMemberLoginPage";
+				}else if ("success" == msg){
+					document.getElementById("favoriteButton").disabled="false";
+					document.getElementById("favoriteButton").style.background="#5dbfec";
+				}
+
+	        }
+	    });
+	}
 </script>
 </head>
 
@@ -147,7 +166,9 @@
 					</div>
 					<div class="proxq-tit-cslb" style="margin-left:70px">
 						<input class="submit-btn submit-btn2" type="submit" value="<s:property value="getText('goodsdetail.addcart')"/>"/>
-						<input class="submit-btn submit-btn2" type="submit" value="<s:property value="getText('goodsdetail.addfavorit')"/>" style="background:#5dbfec"/>
+						<input class="submit-btn submit-btn2" type="button" id="favoriteButton"
+							value="<s:property value="getText('goodsdetail.addfavorit')"/>" 
+							onclick="javascript:addFavorite(${goodsId});" />
 					</div>
 				</div>
 			</form>

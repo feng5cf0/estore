@@ -87,14 +87,14 @@
 					<div class="txt7">会员级别：初级会员</div>
 					<div class="txt8">上次登录：<f:formatDate value="${sessionScope.member.lastLoginTime }" pattern="yyyy-MM-dd HH:mm:ss"/></div>
 					<div>
-						<a class="gwc-btn" href="#">查看购物车</a>
+						<a class="gwc-btn" href="<a href="${basePath}front/orderFrontAction!get.action">">查看购物车</a>
 					</div>
 				</div>
 				<div class="center-xmlb">
-					<p><a class="lba" href="#" id="pressWdyhq">我的优惠券（7）</a></p>
+					<p><a class="lba" href="front/productPromotionAction!toYHQ" id="pressWdyhq">我的优惠券</a></p>
 					<p><a class="lba" href="#" id="integralSearch">积分查询</a></p>
-					<p><a class="lba" href="#" id="findOrderAll">订单查询</a></p>
-					<p><a class="lba" href="#" id="cpscBtn">产品收藏</a></p>
+					<p><a class="lba" href="${basePath}front/orderFrontAction!get.action" id="findOrderAll">订单查询</a></p>
+					<p><a class="lba" href="${basePath}front/favoriteAction!get.action" id="cpscBtn">产品收藏</a></p>
 					<p><a class="lba" href="front/memberAction!logout">退出</a></p>
 				</div>	
 			</div>
@@ -232,46 +232,16 @@
 				<div class="mysc-lb">
 					<a href="#" class="lbtn"></a><a href="#" class="rbtn"></a>
 					<div class="mysc-lbwk">
-						<!--循环开始-->
-						<div class="prolb-showlb prolb-showlb2">
-							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
-							<h5>玥玛锁业</h5>
-							<div class="txt1">
-								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
+						<c:forEach items="${goodsList}" var="item">
+							<div class="prolb-showlb prolb-showlb2">
+								<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}"><img src="images/new_pic1.png" width="164"/></a>
+								<h5>${item.goodsName}</h5>
+								<div class="txt1">
+									<a href="#">${item.goodsDescription}</a>
+								</div>
+								<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>${item.goodsPrice}</div>
 							</div>
-							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-						</div>
-						<!--循环结束-->
-						<!--循环开始-->
-						<div class="prolb-showlb prolb-showlb2">
-							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
-							<h5>玥玛锁业</h5>
-							<div class="txt1">
-								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-							</div>
-							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-						</div>
-						<!--循环结束-->
-						<!--循环开始-->
-						<div class="prolb-showlb prolb-showlb2">
-							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
-							<h5>玥玛锁业</h5>
-							<div class="txt1">
-								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-							</div>
-							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-						</div>
-						<!--循环结束-->
-						<!--循环开始-->
-						<div class="prolb-showlb prolb-showlb2">
-							<a href="#"><img src="images/new_pic1.png" width="164"/></a>
-							<h5>玥玛锁业</h5>
-							<div class="txt1">
-								<a href="#">功能：支持老款福特、马自达等，读写速度快，自动识别芯片</a>
-							</div>
-							<div class="money"><span style="font:bold 13px Arial, Helvetica, sans-serif">￥</span>66.00</div>
-						</div>
-						<!--循环结束-->
+						</c:forEach>
 					</div>
 				</div>
 			</div>

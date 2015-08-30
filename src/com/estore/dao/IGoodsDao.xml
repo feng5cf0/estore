@@ -209,4 +209,8 @@
 		from t_goods
 		where is_recommend = 1
 	</select>
+	<select id="getNewGoods" resultMap="goodsMap">
+		select *
+		from t_goods
+	</select>
 </mapper>

@@ -16,7 +16,7 @@
     	id,member_id,goods_id,status,memo
     </sql>
     <sql id="favoriteValue">
-    	#{id},#{memberId},#{goodsId},#{status},#{memo},
+    	#{id},#{memberId},#{goodsId},#{status},#{memo}
     </sql>
     
     <insert id="save" parameterType="favorite" >
@@ -34,4 +34,8 @@
     	where member_id = #{memberId}
     </select>
     
+    <delete id="deleteFavorite" parameterType="int">
+    	delete from t_favorite
+    	where id = #{favoriteId}
+    </delete>
 </mapper>  

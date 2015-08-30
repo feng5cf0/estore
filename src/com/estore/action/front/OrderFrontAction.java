@@ -7,10 +7,12 @@ import java.util.Map;
 import com.estore.entities.Address;
 import com.estore.entities.Brand;
 import com.estore.entities.Category;
+import com.estore.entities.Goods;
 import com.estore.entities.Member;
 import com.estore.entities.Order;
 import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
+import com.estore.service.IGoodsService;
 import com.estore.service.IOrderService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,6 +28,9 @@ public class OrderFrontAction extends ActionSupport {
 	private ICategoryService categoryService;
 	private IBrandService brandService;
 	private List<Brand> brandList;
+	
+	private List<Goods> goodsList;
+	private IGoodsService goodsService;
 	
 	private Address address;
 	
@@ -63,11 +68,17 @@ public class OrderFrontAction extends ActionSupport {
 		
 		return "pay";
 	}
+	public String toPay(){
+		
+		return "toPay";
+	}
 	
 	public String get(){
 		
 		this.categoryList = this.categoryService.getForFront();
 		this.brandList = this.brandService.getAll();
+		
+		goodsList = this.goodsService.getNewGoods();
 		
 		//判断是否登录
 		Map<String,Object> session = ActionContext.getContext().getSession();
@@ -138,5 +149,17 @@ public class OrderFrontAction extends ActionSupport {
 	}
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	public List<Goods> getGoodsList() {
+		return goodsList;
+	}
+	public void setGoodsList(List<Goods> goodsList) {
+		this.goodsList = goodsList;
+	}
+	public IGoodsService getGoodsService() {
+		return goodsService;
+	}
+	public void setGoodsService(IGoodsService goodsService) {
+		this.goodsService = goodsService;
 	}
 }

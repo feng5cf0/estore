@@ -24,4 +24,5 @@ public interface IGoodsDao extends IMyBatisDao<Goods, Integer> {
 	public List<Goods> getByBrandId(@Param(value="brandId")Integer brandId);
 	public List<Goods> getByCondition(Map<String,Object> map);
 	public List<Goods> getRecommend();
+	public List<Goods> getNewGoods();
 }

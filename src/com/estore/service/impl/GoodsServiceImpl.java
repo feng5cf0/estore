@@ -220,6 +220,10 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 	public List<Goods> getRecommend() {
 		return this.goodsDao.getRecommend();
 	}
+	@Override
+	public List<Goods> getNewGoods() {
+		return this.goodsDao.getNewGoods();
+	}
 	
 	public IGoodsDao getGoodsDao() {
 		return goodsDao;
@@ -245,6 +249,7 @@ public class GoodsServiceImpl extends AbstractBaseServiceImpl<Goods, Integer> im
 	public void setAttributeDao(IAttributeDao attributeDao) {
 		this.attributeDao = attributeDao;
 	}
+
 
 
 

@@ -8,6 +8,8 @@ public class Favorite extends BaseEntity {
 	private Integer goodsId;
 	private Integer status;
 	
+	private Goods goods;
+	
 	public Integer getMemberId() {
 		return memberId;
 	}
@@ -25,6 +27,12 @@ public class Favorite extends BaseEntity {
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	public Goods getGoods() {
+		return goods;
+	}
+	public void setGoods(Goods goods) {
+		this.goods = goods;
 	}
 	
 }
