@@ -1,8 +1,17 @@
 package com.estore.action.front;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
+import org.aspectj.util.ConfigParser.ParseException;
 
 import com.estore.entities.Address;
 import com.estore.entities.Brand;
@@ -21,6 +30,7 @@ public class OrderFrontAction extends ActionSupport {
 
 	private Integer[] cartIds;
 	private IOrderService orderService;
+	private Integer orderId;
 	private Order order;
 	private List<Order> orderList;
 	
@@ -33,6 +43,10 @@ public class OrderFrontAction extends ActionSupport {
 	private IGoodsService goodsService;
 	
 	private Address address;
+	
+	private File payPic;
+	private String payPicFileName;
+	private String payPicContentType;
 	
 	public String addOrder(){
 		
@@ -63,12 +77,50 @@ public class OrderFrontAction extends ActionSupport {
 	}
 	public String pay(){
 		
+		String path = ServletActionContext.getServletContext().getRealPath("/images/orderpay/");
+
+    	try{
+    		
+    		String s[] = payPicFileName.split("\\.");
+    		String contentType = s[s.length-1];
+    		String fileName = "DD"+order.getId()+"."+contentType;
+	    	if(payPic != null){
+	    		InputStream is = new FileInputStream(payPic);
+	    		File destFile = new File(new File(path),fileName);
+	    		//FileUtils.copyFile(payPic, savefile);
+	    		OutputStream os = new FileOutputStream(destFile);
+	    		byte[] buffer = new byte[400];
+	    		int length = 0;
+	    		while ((length = is.read(buffer)) > 0) {
+	    			os.write(buffer, 0, length);
+	    		}
+	    		order.setPayPic(destFile.getPath());
+	    		is.close();
+	    		os.close();
+	    	}
+    	}catch(IOException e){
+    		e.printStackTrace();
+    	}catch(ParseException e){
+    		e.printStackTrace();
+    	}
+    	
+    	this.order.setStatus(2);
+    	this.orderService.update(this.order);
+		
 		this.categoryList = this.categoryService.getForFront();
 		this.brandList = this.brandService.getAll();
 		
 		return "pay";
 	}
 	public String toPay(){
+		
+		if(orderId != null){
+			this.order = this.orderService.getByOrderId(orderId);
+			this.categoryList = this.categoryService.getForFront();
+			this.brandList = this.brandService.getAll();
+		}else{
+			return "get";
+		}
 		
 		return "toPay";
 	}
@@ -89,11 +141,17 @@ public class OrderFrontAction extends ActionSupport {
 		}
 		order = new Order();
 		order.setMemberId(member.getId());
-		order.setStatus(1);
 		
 		this.orderList = this.orderService.getOrder(order);
 		
 		return "getOrder";
+	}
+	
+	public String delete(){
+		
+		this.orderService.deleteOrder(orderId);
+		
+		return "delete";
 	}
 	
 	public Integer[] getCartIds() {
@@ -161,5 +219,29 @@ public class OrderFrontAction extends ActionSupport {
 	}
 	public void setGoodsService(IGoodsService goodsService) {
 		this.goodsService = goodsService;
+	}
+	public Integer getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
+	}
+	public File getPayPic() {
+		return payPic;
+	}
+	public void setPayPic(File payPic) {
+		this.payPic = payPic;
+	}
+	public String getPayPicFileName() {
+		return payPicFileName;
+	}
+	public void setPayPicFileName(String payPicFileName) {
+		this.payPicFileName = payPicFileName;
+	}
+	public String getPayPicContentType() {
+		return payPicContentType;
+	}
+	public void setPayPicContentType(String payPicContentType) {
+		this.payPicContentType = payPicContentType;
 	}
 }

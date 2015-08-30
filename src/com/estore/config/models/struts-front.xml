@@ -125,6 +125,14 @@
 				<param name="actionName">memberAction</param>
 				<param name="method">toMemberLoginPage</param>
 			</result>
+			<result name="delete" type="redirectAction">
+				<param name="actionName">orderFrontAction</param>
+				<param name="method">get</param>
+			</result>
+			<interceptor-ref name="fileUpload">
+                 <param name="maximumSize">1102400</param>
+             </interceptor-ref>
+             <interceptor-ref name="defaultStack"/>
 		</action>
 		<action name="forgetPassAction" class="forgetPassAction">
 			<result name="towjmmTXZHM">/WEB-INF/front/wjmmTXZHM.jsp</result>

@@ -110,9 +110,9 @@
 			<div id="memberPhoto" class="white-conbg  write-adress" style="padding-top:30px">
 				<form action="front/memberInfoAction!picScan" method="post" id="picForm" enctype="multipart/form-data">
 					<div class="pay-lb uptx-img">
-	                <input id="pic" name="pic" class="file" type="file" onchange="PreviewImage(this,'imgPreview')"/> 
-	                <input id="id" name="id" type="hidden" value="${sessionScope.member.memberInfo.id}"/>
-	                <input id="memberId" name="memberId" type="hidden" value="${sessionScope.member.id}"/>
+		                <input id="pic" name="pic" class="file" type="file" onchange="PreviewImage(this,'imgPreview')"/> 
+		                <input id="id" name="id" type="hidden" value="${sessionScope.member.memberInfo.id}"/>
+		                <input id="memberId" name="memberId" type="hidden" value="${sessionScope.member.id}"/>
 	                    <div class="file-ys">选择您要上传的头像</div>
 	                    <div class="up-pz">*头像的图片尺寸、大小说明</div>
 						<div class="uptx-img-wk" id="imgPreview">
