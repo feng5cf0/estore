@@ -89,6 +89,15 @@ public class OrderServiceImpl extends AbstractBaseServiceImpl<Order, Integer> im
 		return this.orderDao.getAll(map);
 	}
 
+	@Override
+	public Order getByOrderId(Integer orderId) {
+		return this.orderDao.getByOrderId(orderId);
+	}
+	@Override
+	public void deleteOrder(Integer orderId) {
+		this.orderDao.deleteOrder(orderId);
+	}
+	
 	public IOrderDao getOrderDao() {
 		return orderDao;
 	}
@@ -119,5 +128,7 @@ public class OrderServiceImpl extends AbstractBaseServiceImpl<Order, Integer> im
 	public void setCartDao(ICartDao cartDao) {
 		this.cartDao = cartDao;
 	}
+
+
 
 }

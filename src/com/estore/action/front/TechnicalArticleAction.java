@@ -14,6 +14,7 @@ import com.estore.entities.Category;
 import com.estore.entities.TechnicalArticle;
 import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
+import com.estore.service.ITechnicalArticleService;
 import com.estore.service.impl.TechnicalArticleServiceImpl;
 import com.estore.util.JsonUtil;
 import com.estore.util.Property;
@@ -25,7 +26,7 @@ public class TechnicalArticleAction extends ActionSupport{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private TechnicalArticleServiceImpl technicalArticleService;
+	private ITechnicalArticleService technicalArticleService;
 	private TechnicalArticle technicalArticle;
 	private List<TechnicalArticle> technicalArticlelist;
 	private List<Category> categoryList;
@@ -125,15 +126,16 @@ public class TechnicalArticleAction extends ActionSupport{
 //		out.print(JsonUtil.getJsonStrByMap(pro));
 		return "searchList";
 	}
-	public TechnicalArticleServiceImpl getTechnicalArticleService() {
+	
+	
+
+	public ITechnicalArticleService getTechnicalArticleService() {
 		return technicalArticleService;
 	}
 	public void setTechnicalArticleService(
-			TechnicalArticleServiceImpl technicalArticleService) {
+			ITechnicalArticleService technicalArticleService) {
 		this.technicalArticleService = technicalArticleService;
 	}
-	
-
 	public List<TechnicalArticle> getTechnicalArticlelist() {
 		return technicalArticlelist;
 	}

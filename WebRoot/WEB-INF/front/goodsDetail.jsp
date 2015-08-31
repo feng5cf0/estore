@@ -53,6 +53,17 @@
 	        }
 	    });
 	}
+	
+	function checkDate(){
+		if(document.getElementById("attributeList1").value == ''){
+			alert("请选择属性!");
+			return false;
+		}
+		if(!document.getElementById("attributeList1").value == ''){
+			alert("请选择属性!");
+			return false;
+		}
+	}
 </script>
 </head>
 
@@ -66,8 +77,8 @@
 	<div class="nav-con">
 		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<!--<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		--><a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -121,8 +132,7 @@
 					<li><img src="images/proxq_pic15.png" width="68" height="68"/></li>
 				</ul>
 			</div>
-			
-			<form action="${basePath}front/cartFrontAction!addCart.action" method="post">
+			<form action="${basePath}front/cartFrontAction!addCart.action" method="post" onsubmit="return checkDate();">
 				<div class="proxq-tit-right">
 					<h3>${goods.goodsName}</h3>
 					<input type="hidden" value="${goods.id}" name="goods.id"/>
@@ -223,27 +233,3 @@
 	<!--客服代码结束-->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

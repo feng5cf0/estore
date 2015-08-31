@@ -36,8 +36,8 @@
 		<div class="nav-con">
 			<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 			<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-			<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-			<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+			<!--<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+			--><a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -103,8 +103,8 @@
 					<span class="wid wid3">
 						<select>
 							<option>全部状态</option>
-							<option>完成订单</option>
-							<option>已付款</option>
+							<option>待付款</option>
+							<option>已完成</option>
 						</select>
 					</span>
 					<span class="wid">操作</span>
@@ -122,10 +122,20 @@
 							</div>
 							<div class="wid wid3">${item.address.linkmanName}</div>
 							<div class="wid wid3" style="color:#999">2015-7-14 <br/>15:56:42</div>
-							<div class="wid wid3 monys">等待付款</div>
+							<c:if test="${item.status == 1}">
+								<div class="wid wid3 monys">等待付款</div>
+							</c:if>
+							<c:if test="${item.status == 2}">
+								<div class="wid wid3 monys" style="color:#999">待发货</div>
+							</c:if>
 							<div class="wid wid4" style="margin-left:2%">
-								<p><a href="${basePath}front/orderFrontAction!toPay.action?orderId=${item.id}">付款</a></p>
-								<p><a href="#">取消订单</a></p>
+								<c:if test="${item.status == 1}">
+									<p><a href="${basePath}front/orderFrontAction!toPay.action?orderId=${item.id}">付款</a></p>
+									<p><a href="${basePath}front/orderFrontAction!delete.action?orderId=${item.id}">取消订单</a></p>
+								</c:if>
+								<c:if test="${item.status == 2}">
+									<p><a href="javascript:alert('已提醒商家发货！');">提醒发货</a></p>
+								</c:if>
 							</div>
 						</div>
 					</c:forEach>		

@@ -22,7 +22,32 @@
 			$(".ewm-pic").hide();
 		})
 	})
-	
+	function payLater(){
+		window.location.href = "${basePath}front/orderFrontAction!get.action"
+	}
+	function previewImage(imgFile,id) 
+	{ 
+		var pattern = /(\.*.jpg$)|(\.*.png$)|(\.*.jpeg$)|(\.*.gif$)|(\.*.bmp$)/;      
+	 	if(!pattern.test(imgFile.value)) 
+	 	{ 
+	  		alert("系统仅支持jpg/jpeg/png/gif/bmp格式的照片！");  
+	  		imgFile.focus(); 
+	 	} else { 
+	  		var path; 
+	  		if(document.all)//IE 
+	  		{ 
+	   imgFile.select(); 
+	   path = document.selection.createRange().text; 
+	   document.getElementById(id).innerHTML=""; 
+	   document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\"" + path + "\")";//使用滤镜效果 
+	  } 
+	  else//FF 
+	  { 
+	   path = URL.createObjectURL(imgFile.files[0]);
+	   document.getElementById(id).innerHTML = "<img width='400' height='250' src='"+path+"'/>"; 
+	  } 
+	 } 
+	} 
 </script>
 </head>
 
@@ -79,10 +104,10 @@
 			<span>当前所在位置：填写付款信息</span>
 			<a class="btn" href="#">上一步</a>
 		</div>
-		<form action="${basePath}front/orderFrontAction!pay.action" method="post">
+		<form action="${basePath}front/orderFrontAction!pay.action" method="post" id="picForm" enctype="multipart/form-data">
 			<div class="now-titlb">
 				<h4>填写付款信息</h4>
-				<input type="hidden" name="orderId" value="${orderId}"/>
+				<input type="hidden" name="order.id" value="${order.id}"/>
 				<!--填写付款信息开始-->
 	            <p class="notice">*尊敬的用户，请自信填写您的付款信息，以便更快的完成交易</p>
 				<div class="write-pay">
@@ -104,19 +129,23 @@
 	                </div>
 	                <div class="pay-lb">
 	                	<span class="span1">上传凭证：</span>
-	                    <input class="file" type="file"/>
+	                    <input class="file" type="file" name="payPic" id="payPic" 
+	                    	onchange="previewImage(this,'imgPreview')"/>
 	                    <div class="file-ys">上传凭证</div>
 	                    <div class="up-pz">*上传凭证的说明</div>
-	                    <div class="up-pz">
+						<div class="up-pz" id="imgPreview">
+						</div>
+	                    <!--<div class="up-pz">
 	                    	<img src="images/fukuan_pz.jpg" width="400"/>
 	                    </div>
-	                </div>
+	                    -->
+	                    </div>
 				</div>
 	            <!--结算开始-->
 	            <div class="shop-end2">
-	                <span>应付总额：</span><span class="mon1">￥599.00</span>
+	                <span>应付总额：</span><span class="mon1">${order.payMoney}</span>
 	                <input class="submit-btn submit-btn2" type="submit" value="提交" style="background:#5dbfec"/>
-	                <input class="submit-btn submit-btn2" type="submit" value="稍后付款" style="background:#5dbfec"/>
+	                <input class="submit-btn submit-btn2" type="button" value="稍后付款" style="background:#5dbfec" onclick="payLater();"/>
 	            </div>
 	            <!--结算结束-->
 				<!--填写付款信息结束-->

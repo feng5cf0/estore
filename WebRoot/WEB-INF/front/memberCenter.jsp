@@ -39,8 +39,8 @@
 	<div class="nav-con">
 		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<!--<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		--><a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -110,9 +110,9 @@
 			<div id="memberPhoto" class="white-conbg  write-adress" style="padding-top:30px">
 				<form action="front/memberInfoAction!picScan" method="post" id="picForm" enctype="multipart/form-data">
 					<div class="pay-lb uptx-img">
-	                <input id="pic" name="pic" class="file" type="file" onchange="PreviewImage(this,'imgPreview')"/> 
-	                <input id="id" name="id" type="hidden" value="${sessionScope.member.memberInfo.id}"/>
-	                <input id="memberId" name="memberId" type="hidden" value="${sessionScope.member.id}"/>
+		                <input id="pic" name="pic" class="file" type="file" onchange="PreviewImage(this,'imgPreview')"/> 
+		                <input id="id" name="id" type="hidden" value="${sessionScope.member.memberInfo.id}"/>
+		                <input id="memberId" name="memberId" type="hidden" value="${sessionScope.member.id}"/>
 	                    <div class="file-ys">选择您要上传的头像</div>
 	                    <div class="up-pz">*头像的图片尺寸、大小说明</div>
 						<div class="uptx-img-wk" id="imgPreview">
@@ -230,7 +230,7 @@
 					<h4>新上产品</h4>
 				</div>
 				<div class="mysc-lb">
-					<a href="#" class="lbtn"></a><a href="#" class="rbtn"></a>
+					<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.id}" class="lbtn"></a><a href="#" class="rbtn"></a>
 					<div class="mysc-lbwk">
 						<c:forEach items="${goodsList}" var="item">
 							<div class="prolb-showlb prolb-showlb2">

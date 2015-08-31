@@ -34,7 +34,7 @@
 					SELECT LAST_INSERT_ID() AS id
 		</selectKey>
 		insert into t_member values(#{id},#{memberInfoId},#{memberAlias},#{memberRealname},#{memberType},
-    	#{memberPassword},#{integral},#{avaliable},#{isEmailAvaliable},#{lastLoginTime},#{lastLoginIp},
+    	#{memberPassword},#{integrals},#{avaliable},#{isEmailAvaliable},#{lastLoginTime},#{lastLoginIp},
     	#{createTime},#{lastModifyTime},#{loginTime},#{loginIp},#{memo})
 		
 	</insert>

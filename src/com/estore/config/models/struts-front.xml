@@ -45,8 +45,6 @@
 			<result name="towjmmYZSF">/WEB-INF/front/wjmmYZSF.jsp</result>
 			<result name="towjmmSZXMM">/WEB-INF/front/wjmmSZXMM.jsp</result>
 			<result name="towjmmWC">/WEB-INF/front/wjmmWC.jsp</result>
-			
-			<result name="test">/WEB-INF/front/wdzb_atm.jsp</result>
 		</action>
 		<!-- 公告 -->
 		
@@ -126,6 +124,14 @@
 				<param name="actionName">memberAction</param>
 				<param name="method">toMemberLoginPage</param>
 			</result>
+			<result name="delete" type="redirectAction">
+				<param name="actionName">orderFrontAction</param>
+				<param name="method">get</param>
+			</result>
+			<interceptor-ref name="fileUpload">
+                 <param name="maximumSize">1102400</param>
+             </interceptor-ref>
+             <interceptor-ref name="defaultStack"/>
 		</action>
 		<action name="forgetPassAction" class="forgetPassAction">
 			<result name="towjmmTXZHM">/WEB-INF/front/wjmmTXZHM.jsp</result>
