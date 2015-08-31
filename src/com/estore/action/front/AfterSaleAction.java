@@ -7,6 +7,7 @@ import com.estore.entities.Category;
 import com.estore.entities.TechnicalArticle;
 import com.estore.service.IBrandService;
 import com.estore.service.ICategoryService;
+import com.estore.service.ITechnicalArticleService;
 import com.estore.service.impl.TechnicalArticleServiceImpl;
 import com.estore.util.Property;
 import com.opensymphony.xwork2.ActionSupport;
@@ -19,7 +20,7 @@ public class AfterSaleAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private List<Category> categoryList;
 	private ICategoryService categoryService;
-	private TechnicalArticleServiceImpl technicalArticleService;
+	private ITechnicalArticleService technicalArticleService;
 	private TechnicalArticle technicalArticle;
 	private List<TechnicalArticle> technicalArticlelist;
 	private IBrandService brandService;
@@ -57,11 +58,12 @@ public class AfterSaleAction extends ActionSupport {
 		public void setCategoryService(ICategoryService categoryService) {
 			this.categoryService = categoryService;
 		}
-		public TechnicalArticleServiceImpl getTechnicalArticleService() {
+		
+		public ITechnicalArticleService getTechnicalArticleService() {
 			return technicalArticleService;
 		}
 		public void setTechnicalArticleService(
-				TechnicalArticleServiceImpl technicalArticleService) {
+				ITechnicalArticleService technicalArticleService) {
 			this.technicalArticleService = technicalArticleService;
 		}
 		public TechnicalArticle getTechnicalArticle() {
