@@ -59,10 +59,21 @@
 			alert("请选择属性!");
 			return false;
 		}
-		if(!document.getElementById("attributeList1").value == ''){
+		if(document.getElementById("attributeList1").value == ''){
 			alert("请选择属性!");
 			return false;
 		}
+	}
+	
+	function amountAdd(){
+		var _amount = document.getElementById("total").value;
+		document.getElementById("total").value = _amount+1;
+	}
+	
+	function amountReduce(){
+		var _amount = document.getElementById("total").value;
+		if(_amount>1)
+			document.getElementById("total").value = _amount-1;	
 	}
 </script>
 </head>
@@ -77,8 +88,8 @@
 	<div class="nav-con">
 		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<!--<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		--><a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -116,7 +127,7 @@
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：<a href="#">首页</a><span> > </span><a href="#">产品列表</a><span> > </span><a href="#">摩托车遥控拷贝器</a><span> > </span>汽车锁与防盗锁</span>
+			<span>当前所在位置：<a href="#">首页</a><span> &gt; </span><a href="#">产品列表</a><span> &gt; </span><a href="#">摩托车遥控拷贝器</a><span> &gt; </span>汽车锁与防盗锁</span>
 		</div>
 		<!--当前所在位置结束-->
 		<!--商品详情内容开始-->
@@ -169,9 +180,9 @@
 					<div class="proxq-tit-cslb">
 						<span class="cs-tit">购买数量：</span>
 						<span class="cs-body">
-							<a class="num-jian2" href="javascript:;">-</a>
-							<input class="num-inp2" type="text" value="1" name="total"/>
-							<a class="num-jian2" href="javascript:;">+</a>
+							<a class="num-jian2" href="javascript:amountAdd();">-</a>
+							<input class="num-inp2" type="text" value="1" name="total" id="total"/>
+							<a class="num-jian2" href="javascript:amountReduce();">+</a>
 						</span>
 					</div>
 					<div class="proxq-tit-cslb" style="margin-left:70px">
