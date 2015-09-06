@@ -54,6 +54,12 @@
 	<bean id="favoriteDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IFavoriteDao"></property>
 	</bean>
+	<bean id="couponDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.ICouponDao"></property>
+	</bean>
+	<bean id="onsaleDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IOnsaleDao"></property>
+	</bean>
 	<!-- service -->
 	<bean id="moneyService" class="com.estore.service.impl.MoneyServiceImpl"/>
 	<bean id="categoryService" class="com.estore.service.impl.CategoryServiceImpl"/>
@@ -66,6 +72,8 @@
 	<bean id="locationService" class="com.estore.service.impl.LocationServiceImpl"/>
 	<bean id="transformFeeService" class="com.estore.service.impl.TransformFeeServiceImpl"/>
 	<bean id="favoriteService" class="com.estore.service.impl.FavoriteServiceImpl"/>
+	<bean id="couponService" class="com.estore.service.impl.CouponServiceImpl"/>
+	<bean id="onsaleService" class="com.estore.service.impl.OnsaleServiceImpl"/>
 	<!-- action -->
 	<bean id="moneyAction" class="com.estore.action.back.MoneyAction" scope="prototype"/>
 	<bean id="categoryAction" class="com.estore.action.back.CategoryAction" scope="prototype"/>

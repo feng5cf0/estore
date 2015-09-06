@@ -1,10 +1,12 @@
 package com.estore.action.front;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.estore.entities.Address;
 import com.estore.entities.Attribute;
 import com.estore.entities.Brand;
 import com.estore.entities.Cart;
@@ -12,6 +14,7 @@ import com.estore.entities.Category;
 import com.estore.entities.Goods;
 import com.estore.entities.GoodsAttribute;
 import com.estore.entities.Member;
+import com.estore.service.IAddressService;
 import com.estore.service.IBrandService;
 import com.estore.service.ICartService;
 import com.estore.service.ICategoryService;
@@ -31,7 +34,8 @@ public class CartFrontAction extends ActionSupport {
 	private Integer[] cartIds;
 	private List<Cart> cartList;
 	private IGoodsService goodsService;
-	
+	private IAddressService addressService;
+	private List<Address> addressList;
 	private List<Category> categoryList;
 	private ICategoryService categoryService;
 	
@@ -41,6 +45,9 @@ public class CartFrontAction extends ActionSupport {
 	private IBrandService brandService;
 	private List<Brand> brandList;
 	private Float allAccount = 0f;
+	
+	private Integer goodsId;
+	private Integer cartId;
 	public String addCart(){
 		
 		this.categoryList = this.categoryService.getForFront();
@@ -67,7 +74,6 @@ public class CartFrontAction extends ActionSupport {
 		
 		//判断语言状态
 		cart.setLocaleType(Locale.ZHCN);
-		
 		//获取商品属性
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("goodsId", goods.getId());
@@ -104,28 +110,77 @@ public class CartFrontAction extends ActionSupport {
 			return "toLogin";
 		}
 		
-		
 		return "getAll";
 	}
 	
 	public String toOrder(){
 		
-		this.categoryList = this.categoryService.getForFront();
-		this.brandList = this.brandService.getAll();
+		//判断是否登录
+		Map<String,Object> session = ActionContext.getContext().getSession();
+		Member member = (Member)session.get("member");
 		
-		this.cartList = this.cartService.getByCartIds(this.cartIds);
-		
-		for(Cart cart : cartList){
-			if(cart.getGoodsAttribute().getPrice() != null){
-				this.allAccount += cart.getGoodsAttribute().getPrice() * cart.getTotal();
-			}else{
-				this.allAccount += cart.getGoods().getGoodsPrice() * cart.getTotal();
+		if(member != null){
+			
+			this.categoryList = this.categoryService.getForFront();
+			this.brandList = this.brandService.getAll();
+			
+			this.cartList = this.cartService.getByCartIds(this.cartIds);
+			
+			//统计商品总金额
+			for(Cart cart : cartList){
+				if(cart.getGoodsAttribute().getPrice() != null){
+					if(cart.getGoods().getOnsale() != null){
+						this.allAccount += cart.getGoodsAttribute().getPrice() * cart.getGoods().getOnsale().getPercent() * cart.getTotal();
+					}else{
+						this.allAccount += cart.getGoodsAttribute().getPrice() * cart.getTotal();
+					}
+				}else{
+					if(cart.getGoods().getOnsale() != null){
+						this.allAccount += cart.getGoods().getGoodsPrice() * cart.getGoods().getOnsale().getPercent() * cart.getTotal();
+					}else{
+						this.allAccount += cart.getGoods().getGoodsPrice() * cart.getTotal();
+					}
+				}
+				DecimalFormat df = new DecimalFormat("0.00");
+				this.allAccount = Float.parseFloat(df.format(this.allAccount));
+				
 			}
+			
+			//加载地址信息
+			this.addressList = this.addressService.getByMemberId(member.getId());
+			
+		}else{
+			return "toLogin";
 		}
 		
 		return "toOrder";
 	}
 	
+	public String deleteCart(){
+		
+		this.cartService.deleteCarts(this.cartIds);
+		
+		return "deleteCart";
+	}
+	
+	public String addFavorite(){
+		
+		//判断是否登录
+		Map<String,Object> session = ActionContext.getContext().getSession();
+		Member member = (Member)session.get("member");
+		
+		if(member != null){
+			//取出所有cart
+			this.cartList = this.cartService.getByMemberId(member.getId());		
+			
+		}else{
+			return "toLogin";
+		}
+		
+		this.cartService.addFavorite(cartId,goodsId,member.getId());
+		
+		return "addFavorite";
+	}
 	public Goods getGoods() {
 		return goods;
 	}
@@ -216,5 +271,29 @@ public class CartFrontAction extends ActionSupport {
 	}
 	public void setAllAccount(Float allAccount) {
 		this.allAccount = allAccount;
+	}
+	public Integer getGoodsId() {
+		return goodsId;
+	}
+	public void setGoodsId(Integer goodsId) {
+		this.goodsId = goodsId;
+	}
+	public Integer getCartId() {
+		return cartId;
+	}
+	public void setCartId(Integer cartId) {
+		this.cartId = cartId;
+	}
+	public IAddressService getAddressService() {
+		return addressService;
+	}
+	public void setAddressService(IAddressService addressService) {
+		this.addressService = addressService;
+	}
+	public List<Address> getAddressList() {
+		return addressList;
+	}
+	public void setAddressList(List<Address> addressList) {
+		this.addressList = addressList;
 	}
 }

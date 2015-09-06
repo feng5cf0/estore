@@ -16,7 +16,11 @@
 	-->
 	<link rel="stylesheet" type="text/css" href="css/default.css"/>
 	<script type="text/javascript">
-		function getSubCategory(categoryCode){
+		function getSubCategory(x,y){
+			
+			var innerObject = document.getElementById("categoryList"+x+y);
+			document.getElementById("resultDiv").innerHTML = "";
+			document.getElementById("resultDiv").innerHTML = innerObject.innerHTML;
 			
 		}
 	</script>
@@ -25,37 +29,31 @@
   <body>
 	<div class="prolb-left1">
 		<dl class="prolb-left1-dl">
-			<c:forEach items="${categoryList}" var="item" >
+			<c:forEach items="${categoryList}" var="item" varStatus="statusX">
 				<dt><img src="images/suo_biao.png" width="20"/>${item.categoryName }</dt>
 				<dd class="pro-left1-li">
-					<c:forEach items="${item.subCategory}" var="subItem" varStatus="status">
+					<c:forEach items="${item.subCategory}" var="subItem" varStatus="statusY">
 						<a href="${basePath }front/goodsSearchAction!getByCategoryCode.action?categoryCode=${subItem.categoryCode}"
-							onmouseover="getSubCategory('${subItem.categoryCode}');">${subItem.categoryName }</a>
+							onmouseover="getSubCategory(${statusX.count},${statusY.count});">${subItem.categoryName }</a>
+						
+						<div id="categoryList${statusX.count}${statusY.count}"  style="display:none">
+							<div class="left1-lilb-div">
+								<h3><img src="images/suo_biao.png" width="20"/>${subItem.categoryName}<a href="javascript:alert('没有更多数据！');" class="more">更多</a></h3>
+								<div class="txt9">
+									<c:forEach items="${subItem.subCategory}" var="subSubItem">
+										<a href="${basePath }front/goodsSearchAction!getByCategoryCode.action?categoryCode=${subItem.categoryCode}">${subSubItem.categoryName}</a>
+									</c:forEach>
+								</div>
+							</div>
+						</div>
 					</c:forEach>
 					<div style="clear:both"></div>
 					
 					<!--划上效果开始-->
 					<div class="white-bg"></div>
-					<!--<div class="pro-left1-lilb">
-						<div class="left1-lilb-div">
-							<h3><img src="images/suo_biao.png" width="20"/>${item.categoryName}<a href="#" class="more">更多</a></h3>
-							<div class="txt9">
-								<a href="#">汽车</a>
-								<a href="#">汽车编仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">汽车编程仪</a>
-								<a href="#">汽车</a>
-								<a href="#">汽车编仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">编程仪</a>
-								<a href="#">汽车</a>
-								<a href="#">汽车仪</a>
-								<a href="#">汽程仪</a>
-								<a href="#">汽车编程仪</a>
-							</div>
-						</div>
+					<div class="pro-left1-lilb" id="resultDiv">
 					</div>
-				--></dd>
+				</dd>
 			</c:forEach>
 		</dl>
 	</div>

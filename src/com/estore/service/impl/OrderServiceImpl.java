@@ -31,7 +31,6 @@ public class OrderServiceImpl extends AbstractBaseServiceImpl<Order, Integer> im
 		
 		return this.orderDao;
 	}
-	
 	@Override
 	public int add(Order t) {
 		
@@ -42,8 +41,32 @@ public class OrderServiceImpl extends AbstractBaseServiceImpl<Order, Integer> im
 	public void addOrder(Order order,Integer[] cartIds,Address address) {
 		
 		//新增地址表
-		Integer addressId = this.addressDao.save(address);
+		this.addressDao.save(address);
 		
+		//添加order表
+		order.setAddressId(address.getId());
+		this.orderDao.save(order);
+		
+		OrderCart orderCart = new OrderCart();
+		for(int i=0;i<cartIds.length;i++){
+			orderCart.setCartId(cartIds[i]);
+			orderCart.setOrderId(order.getId());
+			this.orderCartDao.save(orderCart);
+
+			//修正商品前台库存
+			Map<String,Object> map = new HashMap<String,Object>();
+			Cart cart = this.cartDao.getByCartId(cartIds[i]);
+			map.put("goodsAttributeId", cart.getGoodsAttributeId());
+			map.put("num", cart.getTotal());
+			this.goodsAttributeDao.reduceFrontAccount(map);
+			
+			//删除购物车
+			this.cartDao.deleteCart(cartIds[i]);
+		}
+	}
+	
+	@Override
+	public void addOrder(Order order, Integer[] cartIds, Integer addressId) {
 		//添加order表
 		order.setAddressId(addressId);
 		this.orderDao.save(order);
@@ -64,7 +87,6 @@ public class OrderServiceImpl extends AbstractBaseServiceImpl<Order, Integer> im
 			//删除购物车
 			this.cartDao.deleteCart(cartIds[i]);
 		}
-		
 	}
 
 	@Override

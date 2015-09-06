@@ -15,4 +15,5 @@ public interface IOrderService extends IBaseService<Order, Integer> {
 	public List<Order> getAll(Order order ,Pager pager);
 	public Order getByOrderId(Integer orderId);
 	public void deleteOrder(Integer orderId);
+	public void addOrder(Order order, Integer[] cartIds, Integer addressId);
 }

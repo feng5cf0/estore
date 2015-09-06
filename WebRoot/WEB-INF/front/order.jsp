@@ -24,7 +24,7 @@
 	})
 	function useNewAddress(){
 		var newAddress = document.getElementById("newAddress");
-		if(newAddress.checked == true){
+		if(newAddress.checked == false){
 			document.getElementById("newAddressArea").style.display = "none";
 		}else{
 			document.getElementById("newAddressArea").style.display = "block";
@@ -113,10 +113,48 @@
 				document.getElementById("transformFeeValue").value = _result;
 				
 				var _account = parseFloat(document.getElementById("baseMoney").value);
+				alert(_account);
 				document.getElementById("orderAccount").innerHTML = _result+_account;
 				document.getElementById("payMoney").value = _result+_account;
 			}
 	    });
+	}
+	function checkOrderSubmit(){
+		var idList = document.getElementsByName("addressId");
+		var isChecked = 0;
+		var isSelected = 0;
+		var selectedValue;
+		for(var i=0;i<idList.length;i++){
+			if(idList[i].checked){
+				selectedValue = idList[i].value;
+				isSelected ++;				
+			}
+		}
+		if(isSelected = 0){
+			alert("请选择收货地址!");
+			return false;
+		}else{
+			if(selectedValue  == 0){
+				if(document.getElementById("detail").value == ""){
+					alert("请填写具体收货地址!");
+					return false;
+				}
+				if(document.getElementById("linkmanName").value == ""){
+					alert("请填写收货人姓名!");
+					return false;
+				}
+				if(document.getElementById("linkmanPhone").value = ""){
+					alert("请填写收货人联系电话!");
+					return false;
+				}
+				if(document.getElementById("postcode").value = ""){
+					alert("请填写邮编地址!");
+					return false;
+				}
+			}else{
+				return true;
+			}
+		}
 	}
 </script>
 </head>
@@ -133,7 +171,7 @@
 			<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 			<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-			<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+			<a href="front/onsaleFrontAction!prepare.action"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -172,10 +210,10 @@
 	<!--右侧列表开始-->
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
-	  <form action="${basePath}front/orderFrontAction!addOrder.action" method="post">
+	  <form action="${basePath}front/orderFrontAction!addOrder.action" method="post" onsubmit="return  checkOrderSubmit();">
 		<div class="now-tit">
 			<span>当前所在位置：填写订单信息</span>
-			<a class="btn" href="#">返回</a>
+			<a class="btn" href="${basePath}front/cartFrontAction!getAll.action">返回</a>
 		</div>
 		<div class="now-titlb">
 			<h4>填写并核对订单信息</h4>
@@ -187,9 +225,9 @@
 					<div class="wid wid2" style="margin-left:-60px">商品</div>
 					<div class="wid wid3">属性</div>
 					<div class="wid wid3" style="margin-left:35px">单价</div>
+					<div class="wid wid3">是否促销</div>
 					<div class="wid wid3">数量</div>
 					<div class="wid wid3">金额</div>
-					<div class="wid wid4">操作</div>
 				</div>
 				
 				<c:forEach items ="${cartList}" var="item">
@@ -214,11 +252,31 @@
 							</div>
 						</div>
 						<div class="wid wid3 monys" id="price${status.count}" style="margin-left:8px">
-							<c:if test="${item.goodsAttribute.price != null}">
-								${item.goodsAttribute.price}
+							<div class="wid wid3 monys" id="price${status.count}">
+								<c:if test="${item.goodsAttribute.price != null}">
+									<c:if test="${item.goods.onsale != null}">
+										<f:formatNumber value="${item.goodsAttribute.price * 100 * item.goods.onsale.percent/100}" pattern="0.00"></f:formatNumber>
+									</c:if>
+									<c:if test="${item.goods.onsale == null}">
+										${item.goodsAttribute.price}
+									</c:if>
+								</c:if>
+								<c:if test="${item.goodsAttribute.price == null}">
+									<c:if test="${item.goods.onsale != null}">
+										<f:formatNumber value="${item.goods.goodsPrice * item.goods.onsale.percent}" pattern="0.00"></f:formatNumber> 
+									</c:if>
+									<c:if test="${item.goods.onsale == null}">
+										${item.goods.goodsPrice}
+									</c:if>
+								</c:if>
+							</div>
+						</div>
+						<div class="wid wid3">
+							<c:if test="${item.goods.onsale != null}">
+								是
 							</c:if>
-							<c:if test="${item.goodsAttribute.price == null}">
-								${item.goods.goodsPrice}
+							<c:if test="${item.goods.onsale == null}">
+								否
 							</c:if>
 						</div>
 						<div class="wid wid3">
@@ -226,40 +284,46 @@
 						</div>
 						<div class="wid wid3 monys" >
 							<c:if test="${item.goodsAttribute.price != null}">
-								<c:out value="${item.goodsAttribute.price * item.total}"></c:out>
+								<c:if test="${item.goods.onsale != null}">
+									<f:formatNumber value="${item.goodsAttribute.price*item.goods.onsale.percent*item.total}" pattern="0.00"></f:formatNumber>
+								</c:if>
+								<c:if test="${item.goods.onsale == null}">
+									<f:formatNumber value="${item.goodsAttribute.price * item.total}" pattern="0.00"></f:formatNumber>
+								</c:if>
 							</c:if>
 							<c:if test="${item.goodsAttribute.price == null}">
-								<c:out value="${item.goods.goodsPrice * item.total}"></c:out>
+								<c:if test="${item.goods.onsale != null}">
+									<f:formatNumber value="${item.goods.goodsPrice * item.goods.onsale.percent*item.total}" pattern="0.00"></f:formatNumber> 
+								</c:if>
+								<c:if test="${item.goods.onsale == null}">
+									<f:formatNumber value="${item.goods.goodsPrice*item.total}" pattern="0.00"></f:formatNumber>
+								</c:if>
 							</c:if>
-						</div>
-						<div class="wid wid4">
-							<p><a href="#">删除</a></p>
-							<p><a href="#">移入收藏夹</a></p>
 						</div>
 					</div>
 				</c:forEach>
 			</div>
 			<!--购物车列表结束-->
-			
+			 
 			<!-- 收货地址开始 -->
 	            <h3 class="shuohuo-h3">收件地址</h3>
 	            <c:forEach items="${addressList}" var="item" varStatus="status">
 		            <div class="adress-lb">
-		            	<input type="radio" checked="checked" value="${item.id}" id="address${status.count}" name="addressRadio"/>
+		            	<input type="radio" value="${item.id}" id="address${status.count}" name="addressId" onchange="javascript:useNewAddress();"/>
 		                <span>
 		      				<c:if test="${item.linkmanName != null}">${item.linkmanName}&nbsp;&nbsp;&nbsp;</c:if>
+		      				<c:if test="${item.country != null}">${item.country},</c:if>
 		      				<c:if test="${item.province != null}">${item.province},</c:if>
 		      				<c:if test="${item.city != null}">${item.city},</c:if>
 		      				<c:if test="${item.area != null}">${item.area}</c:if>
-		      				<c:if test="${item.addr != null}">(${item.addr}),</c:if>
+		      				<c:if test="${item.detail != null}">(${item.detail}),</c:if>
 		      				<c:if test="${item.linkmanPhone != null}">${item.linkmanPhone}</c:if>
 		                </span>
 		            </div>
 	            </c:forEach>
 		        <div class="adress-lb">
-		          	<input type="radio" name="addressRadio" value="1" id="newAddress" onchange="javascript:useNewAddress();"/>使用新地址
 		            <h3 class="shuohuo-h3" style="margin-bottom:10px;margin-left:0px">
-		            	<input type="radio" name="addressRadio" value="0" id="newAddress" onchange="javascript:useNewAddress();"/>使用新地址
+		            	<input type="radio" name="addressId" value="0" id="newAddress" onchange="javascript:useNewAddress();"/>使用新地址
 		            </h3>
 		        </div>
 	            <div id="newAddressArea" class="adress-lb" style="display: none">
@@ -275,12 +339,12 @@
 						<select name="address.area" id="area"></select>
 	            	</div>
 	            	<div>
-		            	<span>街道/门牌号:</span><input type="text" name="address.detail"/>
+		            	<span>街道/门牌号:</span><input type="text" name="address.detail" id="detail"/>
 	            	</div>
 	            	<div>
-	            		<span>联系人:</span><input type="text" name="address.linkmanName"/>
-	            		<span>联系电话:</span><input type="text" name="address.linkmanPhone"/>
-	            		<span>邮编:</span><input type="text" name="address.postcode"/>
+	            		<span>联系人:</span><input type="text" name="address.linkmanName" id="linkmanName"/>
+	            		<span>联系电话:</span><input type="text" name="address.linkmanPhone" id="linkmanPhone"/>
+	            		<span>邮编:</span><input type="text" name="address.postcode" id="postcode"/>
 	            	</div>
 	            </div>
 	            <h3 class="shuohuo-h3" style="margin-bottom:10px"><span>运费:￥</span><span id="transformFee"></span></h3>
@@ -346,9 +410,9 @@
 			
             <!--结算开始-->
             <div class="shop-end2">
-                <span>应付总额(含运费)：￥</span><span class="mon1" id="orderAccount">${allAccount}</span>
-                <input type="hidden" name="baseMoney" value="${allAccount}" id="baseMoney"/>
+                <span>应付总额(含运费)：￥</span><span class="mon1" id="orderAccount"><f:formatNumber value="${allAccount}" pattern="0.00"></f:formatNumber></span>
                 <input type="hidden" name="order.payMoney" value="${allAccount}" id="payMoney"/>
+                <input type="hidden" name="order.priceAmount" value="${allAccount}" id="baseMoney"/>
                 <input class="submit-btn submit-btn2" type="submit" value="提交" style="background:#5dbfec"/>
             </div>
             <!--结算结束-->

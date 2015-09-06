@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.ICouponDao">
+    <resultMap id="couponMap" type="coupon">
+    	<id property="id" column="coupon_id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="memberId" column="member_id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="description" column="description" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="status" column="status" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="endTime" column="end_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    	<result property="limit" column="limit" javaType="Float" jdbcType="DECIMAL"/>
+    	<result property="reduce" column="reduce" javaType="Float" jdbcType="DECIMAL"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    </resultMap>
+    
+    <sql id="couponColumns">
+    	coupon_id,member_id,description,status,end_time,limit,reduce,memo
+    </sql>
+    <sql id="couponValues">
+    	#{id},#{memberId},#{description},#{status},#{endTime},#{limit},#{reduce},#{memo}
+    </sql>
+    
+</mapper>

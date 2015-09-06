@@ -1,5 +1,7 @@
 package com.estore.service.impl;
 
+import java.util.List;
+
 import com.estore.dao.IAddressDao;
 import com.estore.entities.Address;
 import com.estore.service.IAddressService;
@@ -23,6 +25,10 @@ public class AddressServiceIml extends AbstractBaseServiceImpl<Address, Integer>
 		return this.addressDao;
 	}
 
+	@Override
+	public List<Address> getByMemberId(Integer memberId) {
+		return this.addressDao.getByMemberId(memberId);
+	}
 	public IAddressDao getAddressDao() {
 		return addressDao;
 	}
@@ -30,6 +36,7 @@ public class AddressServiceIml extends AbstractBaseServiceImpl<Address, Integer>
 	public void setAddressDao(IAddressDao addressDao) {
 		this.addressDao = addressDao;
 	}
+
 
 
 	

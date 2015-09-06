@@ -38,4 +38,17 @@
     	delete from t_favorite
     	where id = #{favoriteId}
     </delete>
+    
+    <select id="isExist" parameterType="map" resultMap="favoriteMap">
+    	select * 
+    	from t_favorite
+    	<where>
+    		<if test="goodsId != 0">
+    			and goods_id = #{goodsId}
+    		</if>
+    		<if test="memberId != 0">
+    			and member_id = #{memberId}
+    		</if>
+    	</where>
+    </select>
 </mapper>  

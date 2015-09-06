@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IOnsaleDao">
+    <resultMap id="onsaleMap" type="onsale">
+    	<id property="id" column="onsale_id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="onsaleTypeId" column="onsale_type_id" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="description" column="description" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="status" column="status" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="beginTime" column="begin_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    	<result property="endTime" column="end_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    	<result property="percent" column="percent" javaType="Float" jdbcType="DECIMAL"/>
+    	<result property="reduce" column="reduce" javaType="Float" jdbcType="DECIMAL"/>
+    	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
+    	
+    	
+    </resultMap>
+    
+    <sql id="onsaleColumns">
+    	onsale_id,onsale_type_id,description,status,begin_time,end_time,percent,reduce,memo
+    </sql>
+    <sql id="onsaleValues">
+    	#{id},#{onsaleTypeId},#{description},#{status},#{beginTime},#{endTime},#{percent},#{reduce},#{memo}
+    </sql>
+    
+    <select id="getById" parameterType="int" resultMap="onsaleMap">
+    	select *
+    	from t_onsale
+    	where onsale_id = #{onsaleId} and end_time >= NOW()
+    </select>
+</mapper>

@@ -37,7 +37,7 @@
 			<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 			<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-			<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+			<a href="front/onsaleFrontAction!prepare.action"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -76,7 +76,7 @@
 	<div class="prolb-right prolb-right2">
 		<!--个人中心内容开始-->
 		<div class="now-tit">
-			<span>当前所在位置：<a href="#">个人中心</a><span> > </span>全部订单</span>
+			<span>当前所在位置：<a href="#">个人中心</a><span> &gt; </span>全部订单</span>
 			<a class="btn" href="#">返回个人中心</a>
 		</div>
 		<div class="now-titlb center-con">
@@ -91,8 +91,8 @@
 				</div>
 				<!--我的订单列表开始-->
 				<div class="my-orderlb">
-					<span class="wid wid1">订单信息</span>
-					<span class="wid wid2">收件人</span>
+					<span class="wid wid1">收件人</span>
+					<span class="wid wid2">联系电话</span>
 					<span class="wid wid3">
 						<select>
 							<option>最近三个月</option>
@@ -114,6 +114,32 @@
 					<div class="my-orderlb my-orderlb2">
 						订单编号：<span style="color:#0160b2">${item.id}</span>
 					</div>
+					<div class="shop-prolb-body my-orderlb3">
+						<div class="wid wid2">
+							<div class="txt1">${item.address.linkmanName}</div>
+						</div>
+						<div class="wid wid3">${item.address.linkmanPhone}</div>
+						<div class="wid wid3" style="color:#999">
+							<f:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/>
+							<br/><f:formatDate value="${item.createTime}" pattern="HH:mm:ss"/>
+						</div>
+						<c:if test="${item.status == 1}">
+							<div class="wid wid3 monys">等待付款</div>
+						</c:if>
+						<c:if test="${item.status == 2}">
+							<div class="wid wid3 monys" style="color:#999">待发货</div>
+						</c:if>
+						<div class="wid wid4" style="margin-left:2%">
+							<c:if test="${item.status == 1}">
+								<p><a href="${basePath}front/orderFrontAction!toPay.action?orderId=${item.id}">付款</a></p>
+								<p><a href="${basePath}front/orderFrontAction!delete.action?orderId=${item.id}">取消订单</a></p>
+							</c:if>
+							<c:if test="${item.status == 2}">
+								<p><a href="javascript:alert('已提醒商家发货！');">提醒发货</a></p>
+							</c:if>
+						</div>
+					</div>
+					<!--
 					<c:forEach items="${item.cartSet}" var="cart">
 						<div class="shop-prolb-body my-orderlb3">
 							<div class="wid wid2">
@@ -122,23 +148,9 @@
 							</div>
 							<div class="wid wid3">${item.address.linkmanName}</div>
 							<div class="wid wid3" style="color:#999">2015-7-14 <br/>15:56:42</div>
-							<c:if test="${item.status == 1}">
-								<div class="wid wid3 monys">等待付款</div>
-							</c:if>
-							<c:if test="${item.status == 2}">
-								<div class="wid wid3 monys" style="color:#999">待发货</div>
-							</c:if>
-							<div class="wid wid4" style="margin-left:2%">
-								<c:if test="${item.status == 1}">
-									<p><a href="${basePath}front/orderFrontAction!toPay.action?orderId=${item.id}">付款</a></p>
-									<p><a href="${basePath}front/orderFrontAction!delete.action?orderId=${item.id}">取消订单</a></p>
-								</c:if>
-								<c:if test="${item.status == 2}">
-									<p><a href="javascript:alert('已提醒商家发货！');">提醒发货</a></p>
-								</c:if>
-							</div>
 						</div>
-					</c:forEach>		
+					</c:forEach>
+				-->
 				</c:forEach>
 				<!--
 				<div class="my-orderlb my-orderlb2">
@@ -205,7 +217,6 @@
 					<a href="#" class="lbtn"></a><a href="#" class="rbtn"></a>
 					<div class="mysc-lbwk">
 						<c:forEach items="${goodsList}" var="item">
-							
 							<div class="prolb-showlb prolb-showlb2">
 								<a href="${basePath}front/goodsDetailAction!prepare?goodsId=${item.id}"><img src="images/new_pic1.png" width="164"/></a>
 								<h5>${item.goodsName}</h5>

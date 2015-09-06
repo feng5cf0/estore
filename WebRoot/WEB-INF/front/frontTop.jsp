@@ -5,7 +5,6 @@
   	<%@include file="/frontHeadDeclare.jsp"%>
     <base href="<%=basePath%>">
     
-	
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/kefu.js"></script>
@@ -26,6 +25,15 @@
 				$(".ewm-pic").hide();
 			})
 		})
+		function searchSubmit(searchType){
+			if(searchType == 1){
+				document.searchForm.action="${basePath}front/goodsSearchAction!getByKeyWords.action";
+				document.searchForm.submit();
+			}else if(searchType ==2){
+				document.searchForm.action="${basePath}front/newProductAction!getByCondition.action";
+				document.searchForm.submit();
+			}
+		}
 	</script>
   </head>
   
@@ -68,7 +76,7 @@
 					<a href="${basePath}front/orderFrontAction!get.action">查看订单</a>
 					<a href="front/memberAction!toMemberCenterPage">个人中心</a>
 				</div>
-		  </div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -90,8 +98,11 @@
 			</select>
 		</div>
 		<div class="sosuo-ys">
-			<input class="inp" type="text" placeholder="<s:property value="getText('index.searchtip')"/>"/><input class="sub1" type="submit" value=" "/>
-			<input class="sub2" type="submit" value=" "/>
+			<form method="post" name="searchForm">
+				<input class="inp" type="text" placeholder="<s:property value="getText('index.searchtip')"/>" name="keyWords"/>
+				<input class="sub1" type="button" value="searchSubmit(1)"/>
+				<input class="sub2" type="button" value="" onclick="searchSubmit(2);"/>
+			</form>
 		</div>
 	</div>
 </div>

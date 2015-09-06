@@ -53,4 +53,9 @@
     	from t_address
     	where id = #{addressId}
     </select>
+    <select id="getByMemberId" parameterType="int" resultMap="addressMap">
+    	select *
+    	from t_address
+    	where memberid = #{memberId}
+    </select>
 </mapper>  

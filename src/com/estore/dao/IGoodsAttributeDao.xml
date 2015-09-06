@@ -19,6 +19,10 @@
 		<association property="attributeValue2" column="attribute_value_2" select="com.estore.dao.IAttributeValueDao.getById"/>
 		<association property="attributeValue2" column="attribute_value_3" select="com.estore.dao.IAttributeValueDao.getById"/>
     </resultMap>
+    <resultMap id="dataMap" type="map" >
+    	<id property="price" column="price" javaType="Float" jdbcType="DECIMAL"/>
+		<result property="frontAccount" column="front_account" javaType="Integer" jdbcType="INTEGER"/>
+    </resultMap>
     <sql id="goodsAttributeColumns">
     	goods_attribute_id,goods_id,attribute_value_1,
     	attribute_value_2,attribute_value_3,price,back_account,front_account,memo
@@ -32,11 +36,7 @@
     <select id="getByGoodsId" parameterType="int" resultMap="goodsAttributeMap">
     	select *
     	from t_goods_attribute
-    	<where>
-    		<if test="goodsId != null">
-    			and goods_id = #{goodsId}
-    		</if>
-    	</where>
+  		where goods_id = #{goodsId}
     </select>
     
     <!-- 通过属性，商品id获取商品属性信息 -->
@@ -51,13 +51,13 @@
     			and goods_id = #{goodsId}
     		</if>
     		<if test="attribute1 != null">
-    			and b.attribute_value = #{attribute1}
+    			and a.attribute_value_1 = #{attribute1}
     		</if>
     		<if test="attribute2 != null">
-    			and c.attribute_value = #{attribute2}
+    			and a.attribute_value_2 = #{attribute2}
     		</if>
     		<if test="attribute3 != null">
-    			and d.attribute_value = #{attribute3}
+    			and a.attribute_value_3 = #{attribute3}
     		</if>
     	</where>
     </select>
@@ -98,4 +98,24 @@
 		set front_account = front_account - #{num}
 		where goods_attribute_id = #{goodsAttributeId}
 	</update>
+	
+	<!-- 通过属性获取商品价格，与数量 -->
+	<select id="getDataByAttribute" parameterType="map" resultMap="dataMap">
+		select a.front_account,a.price
+		from t_goods_attribute a
+		<where>
+			<if test="goodsId != null">
+				and a.goods_id = #{goodsId}
+			</if>
+			<if test="attribute1 != null">
+				and attribute_value_1 = #{attribute1}
+			</if>
+			<if test="attribute2 != null">
+				and attribute_value_2 = #{attribute2}
+			</if>
+			<if test="attribute3 != null">
+				and attribute_value_3 = #{attribute3}
+			</if>
+		</where>
+	</select>
 </mapper>

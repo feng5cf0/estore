@@ -94,4 +94,6 @@
 	<bean id="yzmAction" class="com.estore.action.back.YzmAction" scope="prototype"/>
 	<bean id="locationFrontAction" class="com.estore.action.front.LocationFrontAction" scope="prototype"/>
 	<bean id="favoriteAction" class="com.estore.action.front.FavoriteAction" scope="prototype"/>
+	<bean id="onsaleFrontAction" class="com.estore.action.front.OnsaleFrontAction" scope="prototype"/>
+	<bean id="couponFrontAction" class="com.estore.action.front.CouponFrontAction" scope="prototype"/>
 </beans>

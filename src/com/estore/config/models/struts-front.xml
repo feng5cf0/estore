@@ -64,6 +64,7 @@
 		
 		<action name="newProductAction" class="newProductAction">
 			<result name="toNewProduct">/WEB-INF/front/newProduct.jsp</result>
+			<result name="getByCondition">/WEB-INF/front/newProduct.jsp</result>
 		</action>
 		<action name="productPromotionAction" class="productPromotionAction">
 			<result name="toproductpromotion">/WEB-INF/front/productPromotion.jsp</result>
@@ -96,6 +97,7 @@
 			<result name="getByCategoryCode">/WEB-INF/front/goodsSearch.jsp</result>
 			<result name="getByBrand">/WEB-INF/front/goodsSearch.jsp</result>
 			<result name="getByPrice">/WEB-INF/front/goodsSearch.jsp</result>
+			<result name="getByKeyWords">/WEB-INF/front/goodsSearch.jsp</result>
 		</action>
 		<action name="goodsDetailAction" class="goodsDetailAction">
 			<result name="prepare">/WEB-INF/front/goodsDetail.jsp</result>
@@ -111,6 +113,14 @@
 			</result>
 			<result name="getAll">/WEB-INF/front/cart.jsp</result>
 			<result name="toOrder">/WEB-INF/front/order.jsp</result>
+			<result name="deleteCart" type="redirectAction">
+				<param name="actionName">cartFrontAction</param>
+				<param name="method">getAll</param>
+			</result>
+			<result name="addFavorite" type="redirectAction">
+				<param name="actionName">cartFrontAction</param>
+				<param name="method">getAll</param>
+			</result>
 		</action> 
 		<action name="orderFrontAction" class="orderFrontAction">
 			<result name="addOrder">/WEB-INF/front/orderPay.jsp</result>
@@ -179,6 +189,13 @@
 				<param name="method">toMemberLoginPage</param>
 			</result>
 			<result name="delete">/WEB-INF/front/memberCentereFavorite.jsp</result>
+		</action>
+		<action name="onsaleFrontAction" class="onsaleFrontAction">
+			<result name="prepare">/WEB-INF/front/productPromotion.jsp</result>
+			<result name="get">/WEB-INF/front/</result>
+		</action>
+		<action name="couponFrontAction" class="couponFrontAction">
+			
 		</action>
 	</package>
 </struts>

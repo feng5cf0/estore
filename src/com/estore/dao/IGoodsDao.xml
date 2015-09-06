@@ -21,7 +21,9 @@
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="addTime" column="add_time" javaType="Date" jdbcType="TIMESTAMP"/>
     	<result property="isRecommend" column="is_recommend" javaType="Integer" jdbcType="INTEGER"/>
-    
+    	<result property="isOnsale" column="is_onsale" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="onsaleId" column="onsale_id" javaType="Integer" jdbcType="INTEGER"/>
+    	<association property="onsale" column="onsale_id" select="com.estore.dao.IOnsaleDao.getById"/>
     	<association property="brand" column="brand_id" select="com.estore.dao.IBrandDao.getById"/>
     </resultMap>
     <resultMap id="goodsDetailMap" type="goods" >
@@ -41,13 +43,16 @@
     	<result property="memo" column="memo" javaType="String" jdbcType="VARCHAR"></result>
     	<result property="addTime" column="add_time" javaType="Date" jdbcType="TIMESTAMP"/>
     	<result property="isRecommend" column="is_recommend" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="isOnsale" column="is_onsale" javaType="Integer" jdbcType="INTEGER"/>
+    	<result property="onsaleId" column="onsale_id" javaType="Integer" jdbcType="INTEGER"/>
     	<collection property="goodsAttributeSet" column="goods_id" select="com.estore.dao.IGoodsAttributeDao.getByGoodsId"></collection>
     </resultMap>
     <sql id="goodsColumns">
-    	goods_code,locale_type,brand_id,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo,add_time
+    	goods_code,locale_type,brand_id,goods_name,goods_description,category_id,is_avaliable,picture,goods_url,goods_price,back_account,front_account,memo,add_time,is_onsale,onsale_id
     </sql>
     <sql id="goodsValues">
-    	#{goodsCode},#{localeType},#{brandId},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo},#{addTime}
+    	#{goodsCode},#{localeType},#{brandId},#{goodsName},#{goodsDescription},#{categoryId},#{isAvaliable},#{picture},#{goodsUrl},#{goodsPrice},#{backAccount},#{frontAccount},#{memo},#{addTime},
+    	#{isOnsale},#{onsaleId}
     </sql>
     
 	<!-- 新增国际化 -->
@@ -201,6 +206,9 @@
 			<if test="endPrice != null">
 				and #{endPrice} > goods_price
 			</if>
+			<if test="keyWords != null">
+				and goods_name like '%${keyWords}%'
+			</if>
 		</where>
 	</select>
 	
@@ -213,4 +221,10 @@
 		select *
 		from t_goods
 	</select>
+	
+	<select id="getOnsaleGoods" resultMap="goodsMap">
+    	select *
+    	from t_goods a,t_onsale b
+    	where a.onsale_id = b.onsale_id and b.end_time > NOW()
+    </select>
 </mapper>

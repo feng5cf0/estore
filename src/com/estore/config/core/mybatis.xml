@@ -60,6 +60,9 @@
 		<typeAlias type="com.estore.entities.Location" alias="location"/>
 		<typeAlias type="com.estore.entities.TransformFee" alias="transformFee"/>
 		<typeAlias type="com.estore.entities.Favorite" alias="favorite"/>
+		<typeAlias type="com.estore.entities.Coupon" alias="coupon"/>
+		<typeAlias type="com.estore.entities.Onsale" alias="onsale"/>
+		<typeAlias type="com.estore.entities.OnsaleType" alias="onsaleType"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/landicorp/core/dao/sql.xml" />
@@ -102,5 +105,9 @@
 		<mapper resource="com/estore/dao/ILocationDao.xml"/>
 		<mapper resource="com/estore/dao/ITransformFeeDao.xml"/>
 		<mapper resource="com/estore/dao/IFavoriteDao.xml"/>
+		
+		<mapper resource="com/estore/dao/ICouponDao.xml"/>
+		<mapper resource="com/estore/dao/IOnsaleDao.xml"/>
+		<mapper resource="com/estore/dao/IOnsaleTypeDao.xml"/>
 	</mappers>
 </configuration>	

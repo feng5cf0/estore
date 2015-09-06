@@ -1,10 +1,12 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+<%@include file="/tagDeclare.jsp" %>
 <head>
 <%@include file="/headDeclare.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/default.css"/>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/kefu.js"></script>
 <script src="js/lrtk.js"></script> 
@@ -23,11 +25,10 @@
 		})
 	})
 </script>
-<title>产品促销</title>
 </head>
 
 <body>
-<!--顶部开始-->
+@<!--顶部开始-->
 <jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
 <!--顶部结束-->
 <!--nav区开始-->
@@ -36,7 +37,7 @@
 		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a class="hov" href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a class="hov" href="front/onsaleFrontAction!prepare.action"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -152,10 +153,8 @@
 		<!--当前所在位置结束-->
 		<!--头部切换开始-->
 		<div class="procx-tit">
-			<a href="front/productPromotionAction!toXSXL">限时限量</a>
+			<a class="hov" href="front/productPromotionAction!toXSXL">限时折扣</a>
 			<a href="front/productPromotionAction!toYHQ">优惠券</a>
-			<a href="front/productPromotionAction!toTG">团购</a>
-			<a class="hov" href="front/productPromotionAction!toProductPromotion">满立减</a>
 		</div>
 		<div class="procx-px">
 			<span>排序：</span>
@@ -174,31 +173,23 @@
 		<!--头部切换结束-->
 		<!--产品列表开始-->
 		<div class="mlj-prolb-wk">
-			<div class="mlj-prolb">
-				<img src="images/mlj_pic1.png" width="183" height="180"/>
-				<div class="pro-txt">
-					<h4>简约室内门锁简约室内门锁</h4>
-					<p class="p1">￥199.00</p>
-					<p class="p2">满200减30</p>
-					<p class="p3"><a href="#">查看详情</a></p>
-					<p class="p4">截止日期：2015-7-20</p>
+			<c:forEach items="${goodsList}" var="goods">
+				<div class="mlj-prolb">
+					<img src="images/mlj_pic1.png" width="183" height="180"/>
+					<div class="pro-txt">
+						<h4>${goods.goodsName}</h4>
+						<p class="p1">${goods.goodsPrice}</p>
+						<p class="p2">${goods.onsale.description}</p>
+						<p class="p3"><a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${goods.id}">查看详情</a></p>
+						<p class="p4">截止日期：<span><f:formatDate value="${goods.onsale.endTime}" pattern="yyyy-MM-dd"/></span></p>
+					</div>
 				</div>
-			</div>
-			<div class="mlj-prolb">
-				<img src="images/mlj_pic1.png" width="183" height="180"/>
-				<div class="pro-txt">
-					<h4>简约室内门锁简约室内门锁</h4>
-					<p class="p1">￥199.00</p>
-					<p class="p2">满200减30</p>
-					<p class="p3"><a href="#">查看详情</a></p>
-					<p class="p4">截止日期：2015-7-20</p>
-				</div>
-			</div>
+			</c:forEach>
 			<div style="clear:both"></div>
 		</div>
 		<!--产品列表结束-->
 		<!--换页样式-->
-		<div class="total-huanye">
+		<!--<div class="total-huanye">
 			<a class="pre" href="#"></a>
 			<a class="num hov" href="#">1</a>
 			<a class="num" href="#">2</a>
@@ -210,7 +201,7 @@
 			<span>共100页，到第<input type="text" class="inp" value="1"/>页</span>
 			<input class="sub" type="submit" value="确定"/>
 		</div>
-		<!--<div class="huanye2">
+		--><!--<div class="huanye2">
 			<a class="page-up" href="#"></a>
 			<a href="#">1</a>
 			<a class="hov" href="#">2</a>

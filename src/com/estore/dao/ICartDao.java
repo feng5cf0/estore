@@ -13,4 +13,5 @@ public interface ICartDao extends IMyBatisDao<Cart, Integer> {
 	public List<Cart> getByMemberId(Map<String,Object> map);
 	public Cart getByCartId(@Param(value="cartId")Integer cartId);
 	public void deleteCart(@Param(value="cartId")Integer cartId);
+	public void deleteCarts(Integer[] cartIds);
 }

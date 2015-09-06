@@ -43,18 +43,73 @@
 	function allMoney(i){
 		if(document.getElementById("cbox"+i).checked){
 		
-			var nowMoney = document.getElementById("amount"+i).innerHTML;
-			var allMoney = document.getElementById("allAmount").innerHTML;
+			var nowMoney = document.getElementById("amount"+i).innerText;
+			var allMoney = document.getElementById("allAmount").innerText;
 			
 			document.getElementById("allAmount").innerHTML = parseFloat(nowMoney)+parseFloat(allMoney);
-		
+			
+			var nowTotal = document.getElementById("total"+i).innerText;
+			var allTotal = document.getElementById("allTotal").innerText;
+			var allTotal = document.getElementById("allTotal").innerText = parseInt(nowTotal) + parseInt(allTotal);
 		}else{
 		
-			var nowMoney = document.getElementById("amount"+i).innerHTML;
-			var allMoney = document.getElementById("allAmount").innerHTML;
+			var nowMoney = document.getElementById("amount"+i).innerText;
+			var allMoney = document.getElementById("allAmount").innerText;
 			
-			document.getElementById("allAmount").innerHTML = parseFloat(allMoney) - parseFloat(nowMoney);		
+			document.getElementById("allAmount").innerText = parseFloat(allMoney) - parseFloat(nowMoney);		
+		
+			var nowTotal = document.getElementById("total"+i).innerText;
+			var allTotal = document.getElementById("allTotal").innerText;
+			var allTotal = document.getElementById("allTotal").innerText = parseInt(allTotal) - parseInt(nowTotal);		
 		}
+	}
+	function selectAll(){
+		if(document.getElementById("allSelect").checked){
+			var idList = document.getElementsByName("cartIds");
+			for(var i = 0;i<idList.length;i++){
+				idList[i].checked = true;
+				allMoney(i+1);
+			}
+		}else{
+			var idList = document.getElementsByName("cartIds");
+			for(var i = 0;i<idList.length;i++){
+				idList[i].checked = false;
+			}
+			document.getElementById("allAmount").innerText = "0.00";
+			document.getElementById("allTotal").innerText = "0";
+		}
+	}
+	function selectAll2(){
+		if(document.getElementById("allSelect2").checked){
+			var idList = document.getElementsByName("cartIds");
+			for(var i = 0;i<idList.length;i++){
+				idList[i].checked = true;
+				allMoney(i+1);
+			}
+		}else{
+			var idList = document.getElementsByName("cartIds");
+			for(var i = 0;i<idList.length;i++){
+				idList[i].checked = false;
+			}
+			document.getElementById("allAmount").innerText = "0.00";
+		}
+	}
+	function deleteCarts(){
+		var ids = document.getElementsByName("cartIds");
+		var count = 0;
+		for(var i = 0;i<ids.length;i++){
+			if(ids[i].checked){
+				count++;
+			}
+		}
+		
+		if(count>0){
+			document.cartForm.action = "${basePath}front/cartFrontAction!deleteCart.action";
+			document.cartForm.submit();
+		}else{
+			alert("请选择需要删除的商品！");
+			return false;
+		}	
 	}
 </script>
 </head>
@@ -69,8 +124,8 @@
 		<div class="nav-con">
 			<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 			<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-			<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-			<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+			<a href="front/newProductAction!getByCondition.action"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+			<a href="front/onsaleFrontAction!prepare.action"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -113,13 +168,15 @@
 			<h4>购物车</h4>
 			<!--购物车列表开始-->
 			<div class="shop-prolb">
-				<form action="${basePath}front/cartFrontAction!toOrder.action" method="post" onsubmit="return checkBoxIsSelected();">
+				<form action="${basePath}front/cartFrontAction!toOrder.action" method="post" onsubmit="return checkBoxIsSelected();"
+					name="cartForm">
 					<h5>全部商品<span>15</span></h5>
 					<div class="shop-prolb-tit">
-						<div class="wid wid1"><input class="cbox" type="checkbox"/> 全选</div>
+						<div class="wid wid1"><input class="cbox" type="checkbox" onclick="selectAll2();" id="allSelect2"/> 全选</div>
 						<div class="wid wid2">商品</div>
 						<div class="wid wid3">属性</div>
 						<div class="wid wid3">单价</div>
+						<div class="wid wid3">是否促销</div>
 						<div class="wid wid3">数量</div>
 						<div class="wid wid3">金额</div>
 						<div class="wid wid4">操作</div>
@@ -133,8 +190,8 @@
 									onclick="allMoney(${status.count});"/>
 							</div>
 							<div class="wid wid2">
-								<a href="#"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
-								<div class="txt1"><a href="#">${item.goods.goodsName}</a></div>
+								<a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.goodsId}"><img class="pic1" src="images/new_pic2.png" width="56" height="56"/></a>
+								<div class="txt1"><a href="${basePath}front/goodsDetailAction!prepare.action?goodsId=${item.goodsId}">${item.goods.goodsName}</a></div>
 							</div>
 							<div class="wid wid3" align="center">
 								<div class="txt1">
@@ -151,19 +208,56 @@
 							</div>
 							<div class="wid wid3 monys" id="price${status.count}">
 								<c:if test="${item.goodsAttribute.price != null}">
-									${item.goodsAttribute.price}
+									<c:if test="${item.goods.onsale != null}">
+										<f:formatNumber value="${item.goodsAttribute.price * 100 * item.goods.onsale.percent/100}" pattern="0.00"></f:formatNumber>
+									</c:if>
+									<c:if test="${item.goods.onsale == null}">
+										${item.goodsAttribute.price}
+									</c:if>
 								</c:if>
 								<c:if test="${item.goodsAttribute.price == null}">
-									${item.goods.goodsPrice}
+									<c:if test="${item.goods.onsale != null}">
+										<f:formatNumber value="${item.goods.goodsPrice * item.goods.onsale.percent}" pattern="0.00"></f:formatNumber> 
+									</c:if>
+									<c:if test="${item.goods.onsale == null}">
+										${item.goods.goodsPrice}
+									</c:if>
 								</c:if>
 							</div>
 							<div class="wid wid3">
-								<a class="num-jian" href="javascript:;">-</a><input class="num-inp" type="text"  value="1"/><a class="num-jian" href="javascript:;">+</a>
+								<c:if test="${item.goods.onsale != null}">
+									是
+								</c:if>
+								<c:if test="${item.goods.onsale == null}">
+									否
+								</c:if>
 							</div>
-							<div class="wid wid3 monys" id="amount${status.count}">${item.amount}</div>
+							<div class="wid wid3" id="total${status.count}">
+								<!--<a class="num-jian" href="javascript:;"></a><input class="num-inp" type="text" value="${item.total}"/><a class="num-jian" href="javascript:;"></a>
+							-->
+								${item.total}
+							</div>
+							<div class="wid wid3 monys" id="amount${status.count}">
+								<c:if test="${item.goodsAttribute.price != null}">
+									<c:if test="${item.goods.onsale != null}">
+										<f:formatNumber value="${item.goodsAttribute.price*item.goods.onsale.percent*item.total}" pattern="0.00"></f:formatNumber>
+									</c:if>
+									<c:if test="${item.goods.onsale == null}">
+										<f:formatNumber value="${item.goodsAttribute.price * item.total}" pattern="0.00"></f:formatNumber>
+									</c:if>
+								</c:if>
+								<c:if test="${item.goodsAttribute.price == null}">
+									<c:if test="${item.goods.onsale != null}">
+										<f:formatNumber value="${item.goods.goodsPrice * item.goods.onsale.percent*item.total}" pattern="0.00"></f:formatNumber> 
+									</c:if>
+									<c:if test="${item.goods.onsale == null}">
+										<f:formatNumber value="${item.goods.goodsPrice*item.total}" pattern="0.00"></f:formatNumber>
+									</c:if>
+								</c:if>
+							</div>
 							<div class="wid wid4">
-								<p><a href="#">删除</a></p>
-								<p><a href="#">移入收藏夹</a></p>
+								<p><a href="${basePath}front/cartFrontAction!deleteCart.action?cartIds=${item.id}">删除</a></p>
+								<p><a href="${basePath}front/cartFrontAction!addFavorite.action?cartId=${item.id }&goodsId=${item.goodsId}">移入收藏夹</a></p>
 							</div>
 						</div>
 					</c:forEach>
@@ -171,13 +265,12 @@
 					<!--结算开始-->
 					<div class="shop-end">
 						<div class="end-left">
-							<input class="cbox" type="checkbox"/>
+							<input class="cbox" type="checkbox" onclick="selectAll();" id="allSelect"/>
 							<span>全选</span>
-							<a class="a1" href="#">删除</a>
-							<a class="a1" href="#">移入收藏夹</a>
+							<a class="a1" href="Javascript:deleteCarts();">删除</a>
 						</div>
 						<div class="end-right">
-							<span class="num1">已选<b>12</b>件商品</span>
+							<span class="num1">已选<b id="allTotal">0</b>件商品</span>
 							<span>合计（不含运费）：</span><span class="mon1">￥</span><span class="mon1" id="allAmount">0.00</span>
 							<input class="submit-btn" type="submit" value="去结算"/>
 						</div>

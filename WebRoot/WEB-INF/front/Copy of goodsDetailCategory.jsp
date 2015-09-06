@@ -1,36 +1,30 @@
+<%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<%@include file="/headDeclare.jsp"%>
+<%@include file="/tagDeclare.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/default.css"/>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/kefu.js"></script>
 <script src="js/lrtk.js"></script> 
-<script type="text/javascript">
-	$(function(){
-		$(".pro-left1-li").each(function(i){
-			var top = $(this).offset().top;
-			$(".pro-left1-lilb:eq("+i+")").css({"top":192-top});
-		})//左栏划上效果
-		
-		//二维码划上效果
-		$(".ewm-txt").hover(function(){
-			$(".ewm-pic").show();
-		},function(){
-			$(".ewm-pic").hide();
+	<script type="text/javascript">
+		$(function(){
+			$(".pro-left1-li").each(function(i){
+				var top = $(this).offset().top;
+				$(".pro-left1-lilb:eq("+i+")").css({"top":192-top});
+			})//左栏划上效果
+			
+			//二维码划上效果
+			$(".ewm-txt").hover(function(){
+				$(".ewm-pic").show();
+			},function(){
+				$(".ewm-pic").hide();
+			})
 		})
-		
-		//二维码划上效果
-		$(".sao-ewm").hover(function(){
-			$(".ewm-pic2").show();
-		},function(){
-			$(".ewm-pic2").hide();
-		})
-	})
-</script>
-<title>产品详情-同类产品</title>
+	</script>
 </head>
-
 <body>
 <!--顶部开始-->
 <div class="top">

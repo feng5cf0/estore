@@ -32,6 +32,7 @@ public class GoodsSearchAction extends ActionSupport {
 	private Integer brandId;
 	private Brand brand;
 	private Integer price;
+	private String keyWords;
 	public String getByCategory(){
 		
 		//类别栏数据
@@ -108,7 +109,11 @@ public class GoodsSearchAction extends ActionSupport {
 			goodsCondition.remove("brand");
 		}
 		
-		this.categoryList2 = this.categoryService.getByCategoryCode(goodsCondition.get("categoryCode").toString());
+		Object _code = (String)goodsCondition.get("categoryCode");
+		if(_code == null){
+			_code = new String("001");
+		}
+		this.categoryList2 = this.categoryService.getByCategoryCode(_code.toString());
 		
 		//this.goodsList = this.goodsService.getByBrandId(brandId);
 		this.goodsList = this.goodsService.getByCondition(goodsCondition);
@@ -149,12 +154,47 @@ public class GoodsSearchAction extends ActionSupport {
 			goodsCondition.remove("beginPrice");
 			goodsCondition.remove("endPrice");
 		}
-		
-		this.categoryList2 = this.categoryService.getByCategoryCode(goodsCondition.get("categoryCode").toString());
+		Object _code = (String)goodsCondition.get("categoryCode");
+		if(_code == null){
+			_code = new String("001");
+		}
+		this.categoryList2 = this.categoryService.getByCategoryCode(_code.toString());
 		
 		this.goodsList = this.goodsService.getByCondition(goodsCondition);
 		
 		return "getByPrice";
+	}
+	
+	public String getByKeyWords(){
+		
+		//类别栏数据
+		this.categoryList = this.categoryService.getForFront();
+		this.brandList = this.brandService.getAll();
+
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		Map<String,Object> goodsCondition = null;
+		if(session.getAttribute("goodsCondition") == null){
+			goodsCondition = new HashMap<String,Object>();
+			session.setAttribute("goodsCondition", goodsCondition);
+		}else{
+			goodsCondition = (Map<String,Object>)session.getAttribute("goodsCondition");
+		}
+		
+		if(keyWords != null && !"".equals(keyWords)){
+			goodsCondition.put("keyWords", keyWords);
+		}else{
+			goodsCondition.remove("keyWords");
+		}
+		
+		Object _code = (String)goodsCondition.get("categoryCode");
+		if(_code == null){
+			_code = new String("001");
+		}
+		this.categoryList2 = this.categoryService.getByCategoryCode(_code.toString());
+		
+		this.goodsList = this.goodsService.getByCondition(goodsCondition);		
+		
+		return "getByKeyWords";
 	}
 	
 	public Goods getGoods() {
@@ -240,5 +280,11 @@ public class GoodsSearchAction extends ActionSupport {
 	}
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+	public String getKeyWords() {
+		return keyWords;
+	}
+	public void setKeyWords(String keyWords) {
+		this.keyWords = keyWords;
 	}
 }

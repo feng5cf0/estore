@@ -83,4 +83,13 @@
 		set status = 2
 		where cart_id = #{cartId}
 	</update>
+	
+	<update id="deleteCarts" parameterType="int">
+		update t_cart
+		set status = 2
+		where
+		<foreach collection="array" item="idItem" open="cart_id=" separator=" or cart_id=" close="">
+			#{idItem,javaType=Integer,jdbcType=INTEGER}
+		</foreach>
+	</update>
 </mapper>

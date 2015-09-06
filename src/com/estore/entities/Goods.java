@@ -26,9 +26,12 @@ public class Goods extends BaseEntity {
 	private Integer frontAccount;
 	private Date addTime;
 	private Integer isRecommend;
+	private Integer isOnsale;
+	private Integer onsaleId;
 	
 	private Set<GoodsAttribute> goodsAttributeSet;
 	private Brand brand;
+	private Onsale onsale;
 	
 	public String getGoodsName() {
 		return goodsName;
@@ -125,5 +128,23 @@ public class Goods extends BaseEntity {
 	}
 	public void setIsRecommend(Integer isRecommend) {
 		this.isRecommend = isRecommend;
+	}
+	public Integer getIsOnsale() {
+		return isOnsale;
+	}
+	public void setIsOnsale(Integer isOnsale) {
+		this.isOnsale = isOnsale;
+	}
+	public Integer getOnsaleId() {
+		return onsaleId;
+	}
+	public void setOnsaleId(Integer onsaleId) {
+		this.onsaleId = onsaleId;
+	}
+	public Onsale getOnsale() {
+		return onsale;
+	}
+	public void setOnsale(Onsale onsale) {
+		this.onsale = onsale;
 	}
 }

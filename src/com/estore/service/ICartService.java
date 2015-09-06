@@ -8,4 +8,6 @@ import com.landicorp.core.service.base.IBaseService;
 public interface ICartService extends IBaseService<Cart, Integer> {
 	public List<Cart> getByCartIds(Integer[] idItems);
 	public List<Cart> getByMemberId(Integer memberId);
+	public void deleteCarts(Integer[] cartIds);
+	public void addFavorite(Integer cartId, Integer goodsId, Integer id);
 }

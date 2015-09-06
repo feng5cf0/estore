@@ -43,7 +43,7 @@ public class OrderFrontAction extends ActionSupport {
 	private IGoodsService goodsService;
 	
 	private Address address;
-	
+	private Integer addressId;
 	private File payPic;
 	private String payPicFileName;
 	private String payPicContentType;
@@ -71,7 +71,13 @@ public class OrderFrontAction extends ActionSupport {
 		
 		address.setMemberId(member.getId());
 		
-		this.orderService.addOrder(order,cartIds,address);
+		//判断是否是新地址
+		if(addressId!= null && addressId != 0){
+			this.orderService.addOrder(order,cartIds,addressId);
+		}else{
+			this.orderService.addOrder(order,cartIds,address);
+		}
+		
 		
 		return "addOrder";
 	}
@@ -243,5 +249,11 @@ public class OrderFrontAction extends ActionSupport {
 	}
 	public void setPayPicContentType(String payPicContentType) {
 		this.payPicContentType = payPicContentType;
+	}
+	public Integer getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(Integer addressId) {
+		this.addressId = addressId;
 	}
 }
