@@ -159,12 +159,12 @@ public class MemberAction extends BaseActionSupport {
 			return "toMemberCenterPage";
 		}
 	}
-	//会员注册
-	public String memberRegister(){
-		
-		this.memberService.SaveMember(member);
-		return "success";
-	}	
+//	//会员注册
+//	public String memberRegister(){
+//		
+//		this.memberService.SaveMember(member);
+//		return "success";
+//	}	
 	//会员登录
 	public String memberLogin() throws Exception{
 		HttpServletRequest request = ServletActionContext.getRequest();

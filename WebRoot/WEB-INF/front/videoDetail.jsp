@@ -1,45 +1,50 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <%@include file="/headDeclare.jsp"%>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%@include file="/tagDeclare.jsp" %>
 <link rel="stylesheet" type="text/css" href="css/default.css">
+ <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/kefu.js"></script>
-<script src="js/lrtk.js"></script> 
+<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script> 
+ <script type="text/javascript" src="js/member/memberModify.js?radom=473"></script>
+ <link type="text/css" rel="stylesheet" href="ueditor/third-party/video-js/video-js.css"/>
+ <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.parse.js?v=123"></script>
+ <script type="text/javascript" src="js/video/video.js?radom=113"></script>
+<script src="js/lrtk.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$(".pro-left1-li").each(function(i){
 			var top = $(this).offset().top;
 			$(".pro-left1-lilb:eq("+i+")").css({"top":192-top});
-		})//左栏划上效果
+		});//左栏划上效果
 		
 		//二维码划上效果
 		$(".ewm-txt").hover(function(){
 			$(".ewm-pic").show();
 		},function(){
 			$(".ewm-pic").hide();
-		})
-	})
+		});
+	});
 </script>
-<title>售后服务</title>
+<title>个人中心</title>
 </head>
 
-<body>
+<body style="background:url(images/index_bg.jpg) repeat-x">
 <!--顶部开始-->
 	<jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
 <!--顶部区结束-->
-<!--nav区开始-->
+<!-- nav区开始 -->
 <div class="nav">
 	<div class="nav-con">
 		<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 		<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/newProductAction!getByCondition.action"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a href="front/onsaleFrontAction!prepare.action"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/productPromotionAction!toProductPromotion"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-		<a class="hov" href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+		<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/bankAccountAction!toBankAccount"  style="width:60px;"><s:property value="getText('index.bankaccount')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/onlineMsgAction!toOnLine"  style="width:60px;"><s:property value="getText('index.leavemessage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 		<a href="front/callUsAction!toCallUs"  style="width:60px;"><s:property value="getText('index.connectus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -69,66 +74,24 @@
 	</div>
 	<!--左侧列表结束-->
 	<!--右侧列表开始-->
-	<div class="prolb-right prolb-right2">
+		<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：<a href="front/mainAction!toMain.action">首页</a><span> > </span>售后服务</span>
+			<span>当前所在位置：<a href="front/mainAction!toMain.action">首页</a><span> > 
+			</span><a href="front/afterSaleAction!toAfterSale">售后服务</a></span> > </span>视频观看</span>
 		</div>
 		<div class="now-titlb">
-			<h4>售后服务</h4>
+			<h4>视频观看</h4>
 			<!--售后服务内容开始-->
 			<div class="about-us">
-				<div class="sh-serve-tit">
-					<a class="tit hov" href="front/afterSaleAction!toAfterSale">技术文章</a>
-					<a class="tit" href="front/afterSaleAction!toDownloadCenter">下载中心</a>
-					<a class="tit" href="front/afterSaleAction!toScanVideo">视频观看</a>
-					<div class="search">
-						<form action="front/afterSaleAction!search" method="post">
-							<input name="technicalArticle.title" class="inp" type="text" placeholder="请输入关键字..."/>
-							<input class="sub" type="submit" value="搜索"/>
-						</form>
-					</div>
-				</div>
-				<c:forEach items="${technicalArticlelist }" var="item">
-					<div class="sh-serve-jslb">
-							<div class="txt5">
-								<a href="front/technicalArticleAction!technicalArticleDetail?id=${item.id }">${item.title }</a>
-							</div>
-							<div class="txt6">
-								<fmt:formatDate value="${item.createTime }"  pattern="yyyy/MM/dd  HH:mm:ss" />
-							</div>
-					</div>
-				
-				</c:forEach>
-				
-				
-				
-				<!--换页样式-->
-				<!-- <div class="total-huanye">
-					<a class="pre" href="#"></a>
-					<a class="num hov" href="#">1</a>
-					<a class="num" href="#">2</a>
-					<a class="num" href="#">3</a>
-					<a class="num" href="#">4</a>
-					<a class="num" href="#">5</a>
-					<span>...</span>
-					<a class="next" href="#"></a>
-					<span>共100页，到第<input type="text" class="inp" value="1"/>页</span>
-					<input class="sub" type="submit" value="确定"/>
-				</div> -->
-				<!--<div class="huanye2">
-					<a class="page-up" href="#"></a>
-					<a href="#">1</a>
-					<a class="hov" href="#">2</a>
-					<a href="#">3</a>
-					<a class="page-down" href="#"></a>
-				</div>-->
+				  <h5>${video.title }<span class="sjsj"><f:formatDate value="${video.createTime }" pattern="yyyy-MM-dd HH:mm:ss" /></span></h5><hr />
+                  <c:out value="${video.file }" escapeXml="false"></c:out>      
 			</div>
 			<!--售后服务内容结束-->
 		</div>
 		<!--当前所在位置结束-->
 	</div>
-	<!--右侧列表结束-->
+	<!--右侧列表开始-->
 	<div style="clear:both"></div>
 </div>
 <!--内容区结束-->
@@ -139,7 +102,15 @@
 <!--客服代码开始-->
 <jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
 <!--客服代码结束-->
+<!-- 弹出框 -->
 
-
+<!-- <div id="TcBox">
+	<div class="filter-bg"></div>
+	<div class="login-kua">
+		<h3>标题文本<a class="close" href="#">×</a></h3>
+		<div class="txt">警示的内容</div>
+		<div class="sub"><input type="submit" value="确 定"/></div>
+	</div>
+</div> -->
 </body>
 </html>

@@ -21,7 +21,8 @@
 	
 	<!-- 分页查询 -->
 	<select id="pagingSearch" resultMap="technicalArticle" >
-		select *from t_technical_article where id limit 0,2
+		select *from t_technical_article
+		 <!-- where id limit 0,2 -->
 	</select>
 	<!-- delete -->
 	<delete id="deleteTechnicalArticle" parameterType="Integer">

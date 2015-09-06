@@ -2,6 +2,11 @@ package com.estore.action.front;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.estore.entities.Brand;
 import com.estore.entities.Category;
 import com.estore.service.IBrandService;
@@ -24,10 +29,17 @@ public class IntegralAction extends ActionSupport{
 	 * @return
 	 */
 	public String toMyIntegral(){
-		//分类
-		this.categoryList = this.categoryService.getForFront();
-		this.brandList = this.brandService.getAll();
-		return "toMyIntegral";
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		if(session.getAttribute("member")==null){
+			return "toLogin";
+		}else{
+			//分类
+			this.categoryList = this.categoryService.getForFront();
+			this.brandList = this.brandService.getAll();
+			return "toMyIntegral";
+		}
+		
 	}
 	/**
 	 * 跳转到积分历史

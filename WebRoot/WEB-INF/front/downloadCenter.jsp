@@ -71,7 +71,7 @@
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：<a href="#">首页</a><span> > </span>售后服务</span>
+			<span>当前所在位置：<a href="front/mainAction!toMain.action">首页</a><span> > </span>售后服务</span>
 		</div>
 		<div class="now-titlb">
 			<h4>售后服务</h4>
@@ -85,27 +85,16 @@
 						<input class="inp" type="text" placeholder="请输入关键字..."/><input class="sub" type="submit" value="搜索"/>
 					</div>
 				</div>
-				<div class="sh-serve-jslb">
+				<c:forEach items="${downcenterList }" var="item">
+					<div class="sh-serve-jslb">
 					<div class="txt5">
-						<a href="#">汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全</a>
+						<a href="front/downloadAction.action?fileName=${item.file }">${item.title }</a>
 					</div>
-                    <a href="#"><img class="down" src="images/down.png" width="8" height="11"/></a>
-					<span class="time">2015-7-20 15:30:46</span>
-				</div>
-				<div class="sh-serve-jslb">
-					<div class="txt5">
-						<a href="#">汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全</a>
+                    <!-- <a href="#"><img class="down" src="images/down.png" width="8" height="11"/></a> -->
+					<span class="time"><f:formatDate value="${item.createTime }" pattern="yyyy-MM-dd HH:mm:ss"  /></span>
 					</div>
-                    <a href="#"><img class="down" src="images/down.png" width="8" height="11"/></a>
-					<span class="time">2015-7-20 15:30:46</span>
-				</div>
-				<div class="sh-serve-jslb">
-					<div class="txt5">
-						<a href="#">汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全</a>
-					</div>
-                    <a href="#"><img class="down" src="images/down.png" width="8" height="11"/></a>
-					<span class="time">2015-7-20 15:30:46</span>
-				</div>
+				</c:forEach>
+				
 				<!--换页样式-->
 				<!-- <div class="total-huanye">
 					<a class="pre" href="#"></a>
@@ -241,43 +230,8 @@
 <!--返回顶部-->
 
 <!--客服代码开始-->
-<DIV id=floatTools class=float0831>
-  <DIV class=floatL><A style="DISPLAY: none" id=aFloatTools_Show class=btnOpen 
-title=查看在线客服 
-onclick="javascript:$('#divFloatToolsView').animate({width: 'show', opacity: 'show'}, 'normal',function(){ $('#divFloatToolsView').show();kf_setCookie('RightFloatShown', 0, '', '/', 'www.istudy.com.cn'); });$('#aFloatTools_Show').attr('style','display:none');$('#aFloatTools_Hide').attr('style','display:block');" 
-href="javascript:void(0);">展开</A> <A id=aFloatTools_Hide class=btnCtn 
-title=关闭在线客服 
-onclick="javascript:$('#divFloatToolsView').animate({width: 'hide', opacity: 'hide'}, 'normal',function(){ $('#divFloatToolsView').hide();kf_setCookie('RightFloatShown', 1, '', '/', 'www.istudy.com.cn'); });$('#aFloatTools_Show').attr('style','display:block');$('#aFloatTools_Hide').attr('style','display:none');" 
-href="javascript:void(0);">收缩</A> </DIV>
-  <DIV id=divFloatToolsView class=floatR>
-    <DIV class=tp></DIV>
-    <DIV class=cn>
-      <UL>
-        <LI>
-          <H3 class=titZx>QQ咨询</H3>
-        </LI>
-        <LI><SPAN class=icoZx>在线咨询</SPAN> </LI>
-        <LI><A class=icoTc href="#">A老师</A> </LI>
-        <LI><A class=icoTc href="javascript:void(0);">B老师</A> </LI>
-        <LI><A class=icoTc href="#">C老师</A> </LI>
-        <LI class=bot><A class=icoTc href="javascript:void(0);">D老师</A> </LI>
-      </UL>
-      <UL class=webZx>
-        <LI class=webZx-in><A href="http://www.lanrentuku.com/" target="_blank" style="FLOAT: left"><IMG src="images/right_float_web.png" border="0px"></A> </LI>
-      </UL>
-      <UL>
-        <LI>
-          <H3 class=titDh>电话咨询</H3>
-        </LI>
-        <LI><SPAN class=icoTl>400-000-0000</SPAN> </LI>
-        <LI class=bot>
-          <H3 class=titDc><A href="http://www.lanrentuku.com/" target="_blank">新版调查</A></H3>
-        </LI>
-      </UL>
-    </DIV>
-  </DIV>
-</DIV>
-<!--客服代码结束-->
+	<jsp:include page="/WEB-INF/front/frontService.jsp"></jsp:include>
+	<!--客服代码结束-->
 
 
 </body>

@@ -10,6 +10,8 @@
 <script type="text/javascript" src="js/kefu.js"></script>
 <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script> 
  <script type="text/javascript" src="js/member/memberModify.js?radom=473"></script>
+ <link type="text/css" rel="stylesheet" href="ueditor/third-party/video-js/video-js.css"/>
+ <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.parse.js?v=123"></script>
  <script type="text/javascript" src="js/member/jsAddress.js?radom=113"></script>
 <script src="js/lrtk.js"></script>
 <script type="text/javascript">
@@ -75,17 +77,14 @@
 		<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：<a href="#">首页</a><span> > </span>技术文章详情</span>
+			<span>当前所在位置：<a href="front/mainAction!toMain.action">首页</a><span> > 
+			</span><a href="front/afterSaleAction!toAfterSale">售后服务</a></span> > </span>技术文章详情</span>
 		</div>
 		<div class="now-titlb">
 			<h4>技术文章详情</h4>
 			<!--售后服务内容开始-->
 			<div class="about-us">
-                        
 				  <h5>${technicalArticle.title }<span class="sjsj"><f:formatDate value="${technicalArticle.createTime }" pattern="yyyy-MM-dd HH:mm:ss" /></span></h5><hr />
-				  <!-- <p class="p1">平台上商铺众多，如果想分得一杯羹，卖家首先需要思考的是怎样让买家可以快速找到自己的店铺，即使货再好，买家搜索不到店铺怎么办？
-				  <p class="p1">站在买家角度上考虑，大多买家都会选择一些服务功能更多的店铺，这样更好的保障了自己，特别是新手。买家的需求意味着市场空间，卖家怎样去承接这个需求点，抢先占住商机呢？</p>
-				  <p class="p1">既然买家需要保障服务，店家可以顺着这个需求走，给自己的店铺开通服务保障体系，有了这些担保服务，买家就能放心拿货了。既然买家需要保障服务，店家可以顺着这个需求走，给自己的店铺开通服务保障体系，有了这些担保服务，买家就能放心拿货了。既然买家需要保障服务，店家可以顺着这个需求走，给自己的店铺开通服务保障体系，有了这些担保服务，买家就能放心拿货了。既然买家需要保障服务，店家可以顺着这个需求走，给自己的店铺开通服务保障体系，有了这些担保服务，买家就能放心拿货了。既然买家需要保障服务，店家可以顺着这个需求走，给自己的店铺开通服务保障体系，有了这些担保服务，买家就能放心拿货了。</p> -->
                   <c:out value="${technicalArticle.content }" escapeXml="false"></c:out>      
 			</div>
 			<!--售后服务内容结束-->

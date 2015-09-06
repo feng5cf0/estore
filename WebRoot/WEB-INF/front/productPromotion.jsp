@@ -28,7 +28,7 @@
 </head>
 
 <body>
-@<!--顶部开始-->
+<!--顶部开始-->
 <jsp:include page="/WEB-INF/front/frontTop.jsp"></jsp:include>
 <!--顶部结束-->
 <!--nav区开始-->
@@ -72,7 +72,7 @@
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：</span><a href="#">首页</a> <span>></span> <a href="#">产品促销</a>
+			<span>当前所在位置：</span><a href="front/mainAction!toMain.action">首页</a> <span>></span> <a href="#">产品促销</a>
 		</div>
 		<div class="now-titlb">
 			<h4>高级搜索<!--<span>搜到<b>128</b>件最新产品</span>--></h4>

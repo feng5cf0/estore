@@ -22,7 +22,6 @@ $(function(){
 			async:false,
 			success:function(data){
 				if(data.success=="success"){
-					alert("登录成功！");
 					document.location.href="front/mainAction!toMain.action";
 					//alert(data.successMsg);
 					//document.location.href="front/memberAction!toMain";

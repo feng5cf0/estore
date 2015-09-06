@@ -171,8 +171,23 @@
 		<action name="integralAction" class="integralAction">
 			<result name="toMyIntegral">/WEB-INF/front/integralShow.jsp</result>
 			<result name="toIntegralHistory">/WEB-INF/front/integralHistory.jsp</result>
+			<result name="toLogin">/WEB-INF/front/memberLogin.jsp</result>
 		</action>
-		
+		<!-- 上传视频 -->
+		<action name="videoAction" class="videoAction">
+			<result name="video">/WEB-INF/back/video/videoSearch.jsp</result>
+			<result name="toadd">/WEB-INF/back/video/addVideo.jsp</result>
+			<result name="videoDetail">/WEB-INF/front/videoDetail.jsp</result>
+		</action>
+		<!-- 下载中心 -->
+		<action name="downCenterAction" class="downCenterAction">
+			<result name="main">/main.jsp</result>
+			<result name="toupload">/WEB-INF/back/downcenter/downcenter.jsp</result>
+			<interceptor-ref name="fileUpload">
+                 <param name="maximumSize">1102400</param>
+             </interceptor-ref>
+             <interceptor-ref name="defaultStack"/>
+		</action>
 		<!-- 生成验证码 -->
 		<action name="yzmAction" class="yzmAction">
 			
@@ -197,5 +212,27 @@
 		<action name="couponFrontAction" class="couponFrontAction">
 			
 		</action>
+		
+		
+  <action name="downloadAction" class="downloadAction">   
+  
+    <!-- 初始文件名 -->   
+    <result name="success" type="stream">   
+  
+        <param name="contentType">application/octet-stream;charset=ISO8859-1</param>   
+  
+        <param name="inputName">inputStream</param>   
+  
+        <!-- 使用经过转码的文件名作为下载文件名，downloadFileName属性   
+  
+     		   对应action类中的方法 getDownloadFileName() -->   
+  
+        <param name="contentDisposition">attachment;fileName="${fileName}"</param>   
+  
+        <param name="bufferSize">4096</param>   
+  
+    </result>   
+  
+</action>
 	</package>
 </struts>

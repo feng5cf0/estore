@@ -58,7 +58,7 @@
 				<span class="num">2</span>
 				<img src="images/jt_xia.png" width="9" height="7"/>
 				<div class="gwc-xllb" style="displ ay:block">
-					<a href="#">我的积分</a>
+					<a href="${basePath}front/integralAction!toMyIntegral">我的积分</a>
 					<a href="#">我的余额</a>
 				</div>
 		    </div> 

@@ -50,6 +50,10 @@
 		<typeAlias alias="shopLink" type="com.estore.entities.ShopLink"/>
 		<!-- 积分 -->
 		<typeAlias alias="integral" type="com.estore.entities.Integral"/>
+		<!--下载中心 -->
+		<typeAlias alias="downCenter" type="com.estore.entities.DownCenter"/>
+		<!-- 视频-->
+		<typeAlias alias="video" type="com.estore.entities.Video"/>
 		
 		
 		
@@ -109,5 +113,7 @@
 		<mapper resource="com/estore/dao/ICouponDao.xml"/>
 		<mapper resource="com/estore/dao/IOnsaleDao.xml"/>
 		<mapper resource="com/estore/dao/IOnsaleTypeDao.xml"/>
+		<mapper resource="com/estore/dao/IDownCenterDao.xml"/>
+		<mapper resource="com/estore/dao/IVideoDao.xml"/>
 	</mappers>
 </configuration>	
