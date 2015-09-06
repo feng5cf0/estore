@@ -48,6 +48,16 @@
 	  } 
 	 } 
 	} 
+	function payFormCheck(){
+		var _payPic = document.getElementById("payPic");
+		if(_payPic.value == null || _payPic.value == ""){
+			
+			alert("请上传付款凭证！");
+			return false;
+		}else{
+			return true;
+		}
+	}
 </script>
 </head>
 
@@ -61,7 +71,7 @@
 		<div class="nav-con">
 			<div class="fenlei-ys" ><s:property value="getText('index.allcategory')"/></div>
 			<a href="front/mainAction!toMain.action" style="width:40px;"><s:property value="getText('index.homepage')"/></a><img src="images/nav_line.png" width="2" height="33"/>
-			<a href="front/newProductAction!toNewProduct"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
+			<a href="${basePath}front/newProductAction!getByCondition.action"  style="width:60px;"><s:property value="getText('index.newgoods')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/onsaleFrontAction!prepare.action"  style="width:60px;"><s:property value="getText('index.onsale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/aboutUsAction!toAboutUs"  style="width:60px;"><s:property value="getText('index.aboutus')"/></a><img src="images/nav_line.png" width="2" height="33"/>
 			<a href="front/afterSaleAction!toAfterSale"  style="width:60px;"><s:property value="getText('index.aftersale')"/></a><img src="images/nav_line.png" width="2" height="33"/>
@@ -104,7 +114,7 @@
 			<span>当前所在位置：填写付款信息</span>
 			<a class="btn" href="#">上一步</a>
 		</div>
-		<form action="${basePath}front/orderFrontAction!pay.action" method="post" id="picForm" enctype="multipart/form-data">
+		<form action="${basePath}front/orderFrontAction!pay.action" method="post" id="picForm" enctype="multipart/form-data" onsubmit="return payFormCheck();">
 			<div class="now-titlb">
 				<h4>填写付款信息</h4>
 				<input type="hidden" name="order.id" value="${order.id}"/>

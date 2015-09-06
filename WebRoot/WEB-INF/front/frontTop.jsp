@@ -100,7 +100,7 @@
 		<div class="sosuo-ys">
 			<form method="post" name="searchForm">
 				<input class="inp" type="text" placeholder="<s:property value="getText('index.searchtip')"/>" name="keyWords"/>
-				<input class="sub1" type="button" value="searchSubmit(1)"/>
+				<input class="sub1" type="button" value="" onclick="searchSubmit(1)"/>
 				<input class="sub2" type="button" value="" onclick="searchSubmit(2);"/>
 			</form>
 		</div>

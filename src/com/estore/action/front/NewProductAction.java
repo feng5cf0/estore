@@ -160,4 +160,12 @@ public class NewProductAction extends ActionSupport {
 		this.goodsList = goodsList;
 	}
 
+	public IGoodsService getGoodsService() {
+		return goodsService;
+	}
+
+	public void setGoodsService(IGoodsService goodsService) {
+		this.goodsService = goodsService;
+	}
+
 }
