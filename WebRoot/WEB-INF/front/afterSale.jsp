@@ -72,7 +72,7 @@
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：<a href="#">首页</a><span> > </span>售后服务</span>
+			<span>当前所在位置：<a href="front/mainAction!toMain.action">首页</a><span> > </span>售后服务</span>
 		</div>
 		<div class="now-titlb">
 			<h4>售后服务</h4>
@@ -83,7 +83,10 @@
 					<a class="tit" href="front/afterSaleAction!toDownloadCenter">下载中心</a>
 					<a class="tit" href="front/afterSaleAction!toScanVideo">视频观看</a>
 					<div class="search">
-						<input class="inp" type="text" placeholder="请输入关键字..."/><input class="sub" type="submit" value="搜索"/>
+						<form action="front/afterSaleAction!search" method="post">
+							<input name="technicalArticle.title" class="inp" type="text" placeholder="请输入关键字..."/>
+							<input class="sub" type="submit" value="搜索"/>
+						</form>
 					</div>
 				</div>
 				<c:forEach items="${technicalArticlelist }" var="item">
@@ -99,33 +102,7 @@
 				</c:forEach>
 				
 				
-				<!-- <div class="sh-serve-jslb">
-					<div class="txt5">
-						汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全
-					</div>
-					<div class="txt6">
-						<span class="time">2015-7-20 15:30:46</span>
-						<a href="#">汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全汽车钥匙基本信息大全</a>
-					</div>
-					<div class="txt6">
-						<span class="time">2015-7-20 15:30:46</span>
-						<a href="#">汽车钥匙基本信息大全信息大全</a>
-					</div>
-					<div class="txt6">
-						<span class="time">2015-7-20 15:30:46</span>
-						<a href="#">汽车钥匙基本信息大全信息大全</a>
-					</div>
-				</div>
-				<div class="sh-serve-jslb">
-					<div class="txt5">
-						汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全
-					</div>
-				</div>
-				<div class="sh-serve-jslb">
-					<div class="txt5">
-						汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全汽车钥匙基本信息大全，汽车钥匙基本信息大全，汽车钥匙基本信息大全
-					</div>
-				</div> -->
+				
 				<!--换页样式-->
 				<!-- <div class="total-huanye">
 					<a class="pre" href="#"></a>

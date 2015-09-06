@@ -19,6 +19,8 @@
 	<bean id="customer" class="com.estore.entities.customerSer"/>
 	<bean id="shopLink" class="com.estore.entities.ShopLink"/>
 	<bean id="integral" class="com.estore.entities.Integral"/>
+	<bean id="downCenter" class="com.estore.entities.DownCenter"/>
+	<bean id="video" class="com.estore.entities.Video"/>
 	
 	<!-- dao -->
 	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
@@ -51,6 +53,12 @@
 	<bean id="integralDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.estore.dao.IIntegralDao"></property>
 	</bean>
+	<bean id="downCenterDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IDownCenterDao"></property>
+	</bean>
+	<bean id="videoDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.estore.dao.IVideoDao"></property>
+	</bean>
 	
 	<!-- service -->
 	<bean id="memberService" class="com.estore.service.impl.MemberServiceImpl"/>
@@ -63,6 +71,8 @@
 	<bean id="customerSerService" class="com.estore.service.impl.CustomerSerServiceImpl"/>
 	<bean id="shopLinkService" class="com.estore.service.impl.ShopLinkServiceImpl"/>
 	<bean id="integralService" class="com.estore.service.impl.IntegralServiceImpl"/>
+	<bean id="downCenterService" class="com.estore.service.impl.DownCenterServiceImpl"/>
+	<bean id="videoService" class="com.estore.service.impl.VideoServiceImpl"/>
 	
 	<!-- action -->
 	<bean id="memberAction" class="com.estore.action.back.MemberAction" scope="prototype"/>
@@ -90,6 +100,10 @@
 	<bean id="customerSerAction" class="com.estore.action.back.CustomerSerAction" scope="prototype"/>
 	<bean id="shopLinkAction" class="com.estore.action.back.ShopLinkAction" scope="prototype"/>
 	<bean id="integralAction" class="com.estore.action.front.IntegralAction" scope="prototype"/>
+	<bean id="videoAction" class="com.estore.action.back.VideoAction" scope="prototype"/>
+	<bean id="downCenterAction" class="com.estore.action.front.DownCenterAction" scope="prototype"/>
+	<bean id="downloadAction" class="com.estore.action.front.DownloadAction" scope="prototype"/>
+	
 	<!-- 生成验证码 -->	
 	<bean id="yzmAction" class="com.estore.action.back.YzmAction" scope="prototype"/>
 	<bean id="locationFrontAction" class="com.estore.action.front.LocationFrontAction" scope="prototype"/>

@@ -87,7 +87,7 @@
 					<div class="txt7">会员级别：初级会员</div>
 					<div class="txt8">上次登录：<f:formatDate value="${sessionScope.member.lastLoginTime }" pattern="yyyy-MM-dd HH:mm:ss"/></div>
 					<div>
-						<a class="gwc-btn" href="<a href="${basePath}front/orderFrontAction!get.action">">查看购物车</a>
+						<a class="gwc-btn" href="<a href="${basePath}front/orderFrontAction!get.action">查看购物车</a>
 					</div>
 				</div>
 				<div class="center-xmlb">

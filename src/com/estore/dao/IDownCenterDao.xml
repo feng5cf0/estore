@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estore.dao.IDownCenterDao">
+	
+    <resultMap id="downCenter" type="downCenter">
+    	<id property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+		<result property="title" column="title" javaType="String" jdbcType="VARCHAR"/>
+		<result property="file" column="file" javaType="String" jdbcType="VARCHAR"/>
+		<result property="createUser" column="create_user" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+	<select id="getDownCenter" resultMap="downCenter">
+			select *from t_down_center
+	</select>
+	<insert id="upload" parameterType="downCenter">
+		insert into t_down_center(title,file,create_user,create_time) 
+		values(#{title},#{file},#{createUser},#{createTime})
+	</insert>
+</mapper>  

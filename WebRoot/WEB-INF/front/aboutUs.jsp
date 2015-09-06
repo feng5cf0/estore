@@ -71,7 +71,7 @@
 	<div class="prolb-right prolb-right2">
 		<!--当前所在位置开始-->
 		<div class="now-tit">
-			<span>当前所在位置：<a href="#">首页</a><span> > </span>关于我们</span>
+			<span>当前所在位置：<a href="front/mainAction!toMain.action">首页</a><span> > </span>关于我们</span>
 		</div>
 		<div class="now-titlb">
 			<h4>关于我们</h4>

@@ -3,6 +3,7 @@ package com.estore.action.back;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -22,6 +23,8 @@ import com.estore.service.IMemberInfoService;
 import com.estore.service.IMemberService;
 import com.estore.util.DateUtil;
 import com.estore.util.GetIpUtil;
+import com.estore.util.JsonUtil;
+import com.estore.util.Property;
 import com.landicorp.core.action.BaseActionSupport;
 
 public class MemberInfoAction  extends BaseActionSupport{
@@ -42,7 +45,7 @@ public class MemberInfoAction  extends BaseActionSupport{
 	private InputStream inputStream;
     GetIpUtil getIpUtil = new GetIpUtil();
     DateUtil dateUtil = new DateUtil();
-    
+    Property pro = new Property();
     //根据id查找会员信息，包括会员表信息 ，1对1关联
     public String getMemberInfoById(){
     	memberInfo = memberInfoService.getMemberInfoById(id);
@@ -83,19 +86,29 @@ public class MemberInfoAction  extends BaseActionSupport{
     	return "changPhoto";//头像修改
     }
     //会员注册
-    public String memberRegister(){
+    public String memberRegister() throws Exception{
     	HttpServletRequest request = ServletActionContext.getRequest();
+    	HttpServletResponse response = ServletActionContext.getResponse();
+    	PrintWriter out = response.getWriter();
     	String loginIp=getIpUtil.getIpAddr(request);
-    	memberInfoService.memberRegister(memberInfo);
-    	member.setAvaliable(0);
-    	member.setCreateTime(new Date());
-    	member.setIntegrals(0);
-    	member.setIsEmailAvaliable(0);
-    	member.setMemberType("会员");
-    	member.setLoginIp(loginIp);
-    	member.setMemberInfoId(memberInfo.getId());
-    	memberService.SaveMember(member);
-    	return "main";
+    	Member vmember=memberService.getMemberByName(member.getMemberAlias());
+    	if(vmember==null){
+    		memberInfoService.memberRegister(memberInfo);
+        	member.setAvaliable(0);
+        	member.setCreateTime(new Date());
+        	member.setIntegrals(0);
+        	member.setIsEmailAvaliable(0);
+        	member.setMemberType("会员");
+        	member.setLoginIp(loginIp);
+        	member.setMemberInfoId(memberInfo.getId());
+        	memberService.SaveMember(member);
+        	pro.put("success", "success");
+        	out.print(JsonUtil.getJsonStrByMap(pro));
+    	}else{
+    		pro.put("error", "error");
+    		out.print(JsonUtil.getJsonStrByMap(pro));
+    	}
+    	return null;
     }
 
     
@@ -186,6 +199,14 @@ public class MemberInfoAction  extends BaseActionSupport{
 
 	public void setMemberId(Integer memberId) {
 		this.memberId = memberId;
+	}
+
+	public Property getPro() {
+		return pro;
+	}
+
+	public void setPro(Property pro) {
+		this.pro = pro;
 	}
     
 }

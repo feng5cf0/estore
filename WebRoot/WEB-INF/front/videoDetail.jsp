@@ -12,7 +12,7 @@
  <script type="text/javascript" src="js/member/memberModify.js?radom=473"></script>
  <link type="text/css" rel="stylesheet" href="ueditor/third-party/video-js/video-js.css"/>
  <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.parse.js?v=123"></script>
- <script type="text/javascript" src="js/member/jsAddress.js?radom=113"></script>
+ <script type="text/javascript" src="js/video/video.js?radom=113"></script>
 <script src="js/lrtk.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -78,14 +78,14 @@
 		<!--当前所在位置开始-->
 		<div class="now-tit">
 			<span>当前所在位置：<a href="front/mainAction!toMain.action">首页</a><span> > 
-			</span><a href="front/afterSaleAction!toAfterSale">售后服务</a></span> > </span>技术文章详情</span>
+			</span><a href="front/afterSaleAction!toAfterSale">售后服务</a></span> > </span>视频观看</span>
 		</div>
 		<div class="now-titlb">
-			<h4>技术文章详情</h4>
+			<h4>视频观看</h4>
 			<!--售后服务内容开始-->
 			<div class="about-us">
-				  <h5>${technicalArticle.title }<span class="sjsj"><f:formatDate value="${technicalArticle.createTime }" pattern="yyyy-MM-dd HH:mm:ss" /></span></h5><hr />
-                  <c:out value="${technicalArticle.content }" escapeXml="false"></c:out>      
+				  <h5>${video.title }<span class="sjsj"><f:formatDate value="${video.createTime }" pattern="yyyy-MM-dd HH:mm:ss" /></span></h5><hr />
+                  <c:out value="${video.file }" escapeXml="false"></c:out>      
 			</div>
 			<!--售后服务内容结束-->
 		</div>

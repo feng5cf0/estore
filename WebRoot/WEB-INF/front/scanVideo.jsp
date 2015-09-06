@@ -85,30 +85,33 @@
 						<input class="inp" type="text" placeholder="请输入关键字..."/><input class="sub" type="submit" value="搜索"/>
 					</div>
 				</div>
-                <!--循环列表-->
-				<div class="sh-serve-jslb movie-lb">
+				<c:forEach items="${videoAll }" var="item">
+               		 <!--循环列表-->
+					<div class="sh-serve-jslb movie-lb">
+						<a href="#"><img class="movie-pic" src="images/movie_pic.png" width="67" height="67"/></a>
+						<div class="movie-txt">
+							<p class="pbt"><a class="bt" href="front/videoAction!videoDetail?id=${item.id }">${item.title }</a></p>
+							<p class="time2">
+								<f:formatDate value="${item.createTime }" pattern="yyyy-MM-dd HH:ss"/>
+							
+							</p>
+						</div>
+					</div>
+				</c:forEach>
+				<!-- <div class="sh-serve-jslb movie-lb">
 					<a href="#"><img class="movie-pic" src="images/movie_pic.png" width="67" height="67"/></a>
 					<div class="movie-txt">
 						<p class="pbt"><a class="bt" href="#">视频标题</a></p>
 						<p class="time2">2015-7-14 15:56:45</p>
 					</div>
 				</div>
-                 <!--循环列表-->
 				<div class="sh-serve-jslb movie-lb">
 					<a href="#"><img class="movie-pic" src="images/movie_pic.png" width="67" height="67"/></a>
 					<div class="movie-txt">
 						<p class="pbt"><a class="bt" href="#">视频标题</a></p>
 						<p class="time2">2015-7-14 15:56:45</p>
 					</div>
-				</div>
-                 <!--循环列表-->
-				<div class="sh-serve-jslb movie-lb">
-					<a href="#"><img class="movie-pic" src="images/movie_pic.png" width="67" height="67"/></a>
-					<div class="movie-txt">
-						<p class="pbt"><a class="bt" href="#">视频标题</a></p>
-						<p class="time2">2015-7-14 15:56:45</p>
-					</div>
-				</div>
+				</div> -->
 				<!--换页样式-->
 				<!-- <div class="total-huanye">
 					<a class="pre" href="#"></a>

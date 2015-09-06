@@ -16,7 +16,7 @@ public class MemberInfo extends BaseEntity{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String IdCard;//身份证号
+	private String IdCard="";//身份证号
 	private String mobilePhone;//手机号码
 	private String telephone;//电话号码
 	private String email;//邮箱

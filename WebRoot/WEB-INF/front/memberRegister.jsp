@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
-	<script type="text/javascript" src="js/member/register.js"></script>
+	<script type="text/javascript" src="js/member/register.js?v=123"></script>
   </head>
   
  <body>
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--内容区开始-->
 <div class="register-con">
 	<h4>用户注册</h4>
-	<form action="front/memberInfoAction!memberRegister" method="post" id="memberRegisterForm">
+	<form action="" method="post" id="memberRegisterForm">
 	<div class="register-lb">
 		<span class="span1">会员账号：</span>
 		<input name="member.memberAlias" id="memberAlias"  class="inp1" type="text" placeholder="请输入账号"/>
@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<input id="cbox" class="cbox" type="checkbox"/>同意<a href="#">用户使用条款</a>
 	</div>
 	<div class="register-lb register-lb2">
-		<input id="smt" class="register-btn" type="submit" value="注 册"/>
+		<input id="smt" class="register-btn" type="button" value="注 册"/>
 	</div>
 	<div class="register-lb register-lb3">
 		已有账号？<a href="front/memberAction!toMemberLoginPage">马上登陆</a>

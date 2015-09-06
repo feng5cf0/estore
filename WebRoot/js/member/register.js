@@ -39,8 +39,27 @@ $(function(){
 			alert("您必须同意用户条款之后才能进行注册！");
 			return false;
 		}
-		$("#memberRegisterForm").submit();
-		return false;
+		$.ajax({
+			type:"post",
+			dataType:"json",
+			url:"front/memberInfoAction!memberRegister",
+			contentType:"application/x-www-form-urlencoded;charset=utf-8", 
+			data:$('#memberRegisterForm').serialize(),
+			async:false,
+			success:function(data){
+				if(data.success=="success"){
+					alert("注册成功");
+					window.location.href="front/mainAction!toMain.action";
+				}
+				if(data.error=="error"){
+					alert("该用户名已经被注册！");
+					window.location.href="front/mainAction!toMain.action";
+				}
+			},
+			error:function(request){
+				alert("系统异常，请联系管理员！");
+			}
+		});
 	});
 	
 	

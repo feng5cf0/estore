@@ -91,12 +91,12 @@
 					</div>
 				</div>
 				<div class="center-xmlb">
-					<p><a class="lba" href="#" id="pressWdyhq">我的优惠券（7）</a></p>
-					<p><a class="lba" href="front/integralAction!toMyIntegral" id="integralSearch">积分查询</a></p>
-					<p><a class="lba" href="#" id="findOrderAll">订单查询</a></p>
-					<p><a class="lba" href="#" id="cpscBtn">产品收藏</a></p>
-					<p><a class="lba" href="front/memberAction!logout">退出</a></p>
-				</div>	
+					<p><a class="lba" href="front/productPromotionAction!toYHQ" id="pressWdyhq">我的优惠券</a></p>
+					<p><a class="lba" href="${basePath}front/integralAction!toMyIntegral" id="integralSearch">积分查询</a></p>
+					<p><a class="lba" href="${basePath}front/orderFrontAction!get.action" id="findOrderAll">订单查询</a></p>
+					<p><a class="lba" href="${basePath}front/favoriteAction!get.action" id="cpscBtn">产品收藏</a></p>
+					<p><a class="lba" href="${basePath}front/memberAction!logout">退出</a></p>
+				</div>
 			</div>
 			<!--头像区域结束-->
 				<!--我的积分开始-->
